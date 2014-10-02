@@ -1,0 +1,1351 @@
+{
+    "availableOperations": [
+        {
+            "operationName": "Testing - All Available Field Types",
+            "operationID": "allfields",
+            "operationGroup": "",
+            "operationDef": "This is for testing",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-foundation-workflow-administator-guide-10_6.htm",
+            "relatedLinks": [
+                {
+                    "label": "Workflow Admin Documentation",
+                    "url": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-foundation-workflow-administator-guide-10_6.htm"
+                }
+            ],
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "location",
+                    "generationData": [
+                        {
+                            "generationID": "server",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "site",
+                            "label": "Site",
+                            "required": true
+                        },
+                        {
+                            "generationID": "list",
+                            "label": "List"
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "gen": 0,
+                            "ID": "XXX1",
+                            "label": "Option 1",
+                            "value": "Value 1"
+                        },
+                        {
+                            "gen": 0,
+                            "ID": "XXX2",
+                            "label": "Option 2",
+                            "value": "Value 2"
+                        },
+                        {
+                            "gen": 1,
+                            "ID": "XXX1-1",
+                            "parent": "XXX1",
+                            "label": "Option 1-1",
+                            "value": "Value 1-1"
+                        },
+                        {
+                            "gen": 1,
+                            "ID": "XXX1-2",
+                            "parent": "XXX1",
+                            "label": "Option 1-2",
+                            "value": "Value 1-2"
+                        },
+                        {
+                            "gen": 1,
+                            "ID": "XXX2-1",
+                            "parent": "XXX2",
+                            "label": "Option 2-1",
+                            "value": "Value 2-1"
+                        },
+                        {
+                            "gen": 1,
+                            "ID": "XXX2-2",
+                            "parent": "XXX2",
+                            "label": "Option 2-2",
+                            "value": "Value 2-2"
+                        },
+                        {
+                            "gen": 2,
+                            "ID": "XXX1-1-1",
+                            "parent": "XXX1-1",
+                            "label": "Options 1-1-1",
+                            "value": "Value 1-1-1"
+                        },
+                        {
+                            "gen": 2,
+                            "ID": "XXX1-1-2",
+                            "parent": "XXX1-1",
+                            "label": "Options 1-1-2",
+                            "value": "Value 1-1-2"
+                        },
+                        {
+                            "gen": 2,
+                            "ID": "XXX1-2-1",
+                            "parent": "XXX1-2",
+                            "label": "Options 1-2-1",
+                            "value": "Value 1-2-1"
+                        },
+                        {
+                            "gen": 2,
+                            "ID": "XXX2-1-1",
+                            "parent": "XXX2-1",
+                            "label": "Options 2-1-1",
+                            "value": "Value 2-1-1"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "NOTE": "for integer, set class to 'integer', for email set to 'email'.",
+                    "fieldType": "string",
+                    "fieldID": "XXX",
+                    "label": "String",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdown",
+                    "fieldID": "dropdown1",
+                    "label": "Dropdown",
+                    "dropdownOptionsList": [
+                        {
+                            "label": "Option A",
+                            "value": "option-a"
+                        },
+                        {
+                            "label": "Option B",
+                            "value": "option-b"
+                        },
+                        {
+                            "label": "Option C",
+                            "value": "option-c"
+                        }
+                    ],
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "password",
+                    "fieldID": "XXX",
+                    "label": "password",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-mid"
+                    }
+                },
+                {
+                    "fieldID": "XXX",
+                    "fieldType": "checkbox",
+                    "label": "Checkbox",
+                    "options": {
+                        "defaultValue": true,
+                        "style": false,
+                        "cssClasses": false
+                    }
+                },
+                {
+                    "fieldID": "XXX",
+                    "fieldType": "checkbox",
+                    "group": true,
+                    "label": "Checkbox Group",
+                    "checkboxList": [
+                        {
+                            "checkboxID": "XXX",
+                            "checkboxLabel": "Default is FALSE",
+                            "defaultValue": false
+                        },
+                        {
+                            "checkboxID": "XXX",
+                            "checkboxLabel": "Default is TRUE",
+                            "defaultValue": true
+                        }
+                    ],
+                    "options": {
+                        "required": true,
+                        "cssClasses": false,
+                        "style": false,
+                        "direction": "vertical"
+                    }
+                },
+                {
+                    "fieldID": "XXX",
+                    "fieldType": "date",
+                    "label": "Date",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": false
+                    }
+                },
+                {
+                    "fieldID": "XXX",
+                    "fieldType": "date",
+                    "group": true,
+                    "label": "Date Group",
+                    "dateList": [
+                        {
+                            "dateID": "XXX",
+                            "dateLabel": "Start Date"
+                        },
+                        {
+                            "dateID": "XXX",
+                            "dateLabel": "End Date",
+                            "dateValue": "TODAY"
+                        }
+                    ],
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": false
+                    }
+                },
+                {
+                    "NOTE": "Anything below this point MUST NOT BE required -- section is collapsed by default.",
+                    "fieldType": "event-MOREOPTIONS"
+                },
+                {
+                    "fieldID": "XXX",
+                    "fieldType": "file",
+                    "label": "Select File",
+                    "options": {
+                        "placeholder": "SAMPLE FILE",
+                        "style": false,
+                        "cssClasses": false
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Set Config Value",
+            "operationID": "setconfigvalue",
+            "operationGroup": "Configuration",
+            "operationDef": "Allows you to set configurator values.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-setconfig.htm",
+            "relatedLinks": [
+                {
+                    "label": "Configurator",
+                    "type": "gui",
+                    "url": "/configurator.htm"
+                },
+                {
+                    "label": "Remove Config Value",
+                    "type": "admin",
+                    "url": "removeconfigvalue"
+                },
+                {
+                    "label": "Encrypt Config Value",
+                    "type": "admin",
+                    "url": "encryptconfigvalue"
+                }
+            ],
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "location",
+                    "generationData": [
+                        {
+                            "generationID": "server",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "site",
+                            "label": "Site",
+                            "required": true
+                        },
+                        {
+                            "generationID": "list",
+                            "label": "List"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    },
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ]
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "listtype",
+                    "label": "List Type",
+                    "options": {
+                        "placeholder": "# value of list type",
+                        "cssClasses": "integer input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "configname",
+                    "label": "Config Key Name",
+                    "options": {
+                        "placeholder": "",
+                        "cssClasses": "input-max",
+                        "required": true
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "configvalue",
+                    "label": "Config Value",
+                    "options": {
+                        "placeholder": "",
+                        "cssClasses": "input-max",
+                        "required": true
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Remove Config Value",
+            "operationID": "removeconfigvalue",
+            "operationGroup": "Configuration",
+            "operationDef": "Removes a site- or list-scoped configurator option.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-removeconfig.htm",
+            "relatedLinks": [
+                {
+                    "label": "Configurator",
+                    "type": "gui",
+                    "url": "/configurator.htm"
+                },
+                {
+                    "label": "Set Config Value",
+                    "type": "admin",
+                    "url": "setconfigvalue"
+                },
+                {
+                    "label": "Encrypt Config Value",
+                    "type": "admin",
+                    "url": "encryptconfigvalue"
+                }
+            ],
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "location",
+                    "generationData": [
+                        {
+                            "generationID": "server",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "site",
+                            "label": "Site",
+                            "required": true
+                        },
+                        {
+                            "generationID": "list",
+                            "label": "List",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "configname",
+                    "label": "Config Key Name",
+                    "options": {
+                        "placeholder": "",
+                        "cssClasses": "input-max",
+                        "required": true
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Encrypt Config Value",
+            "operationID": "encryptconfigvalue",
+            "operationGroup": "Configuration",
+            "operationDef": "Encrypts values in the sharevis.config file for added security.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-encryptconfigvalue.htm",
+            "relatedLinks": [
+                {
+                    "label": "Configurator",
+                    "type": "gui",
+                    "url": "/configurator.htm"
+                },
+                {
+                    "label": "Set Config Value",
+                    "type": "admin",
+                    "url": "setconfigvalue"
+                },
+                {
+                    "label": "Remove Config Value",
+                    "type": "admin",
+                    "url": "removeconfigvalue"
+                }
+            ],
+            "listOfFields": [
+                {
+                    "fieldType": "string",
+                    "fieldID": "configname",
+                    "label": "Config Key Name",
+                    "options": {
+                        "placeholder": "",
+                        "cssClasses": "input-max",
+                        "required": true
+                    }
+                },
+                {
+                    "fieldType": "password",
+                    "fieldID": "password",
+                    "label": "Encryption Password",
+                    "options": {
+                        "placeholder": "",
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "event-MOREOPTIONS"
+                },
+                {
+                    "fieldType": "checkbox",
+                    "fieldID": "useconfigvalue",
+                    "label": "Use Config Value"
+                }
+            ]
+        },
+        {
+            "operationName": "Define Process Definition",
+            "operationID": "defineprocessdefinition",
+            "operationGroup": "Processes",
+            "operationDef": "This operation allows you to view the details of a specific process published to a SharePoint site.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-defineprocessdefinition.htm",
+            "relatedLinks": [
+                {
+                    "label": "Process Management",
+                    "type": "gui",
+                    "url": "/processmgmt.htm"
+                },
+                {
+                    "label": "Describe Process Definition",
+                    "type": "admin",
+                    "url": ""
+                },
+                {
+                    "label": "Enumerate Process Definitions",
+                    "type": "admin",
+                    "url": "encryptconfigvalue"
+                },
+                {
+                    "label": "Export Process",
+                    "type": "admin",
+                    "url": ""
+                },
+                {
+                    "label": "Unmark Inactive Processes",
+                    "type": "admin",
+                    "url": ""
+                },
+                {
+                    "label": "Dump Process",
+                    "type": "admin",
+                    "url": ""
+                },
+                {
+                    "label": "Describe Process Definition",
+                    "type": "admin",
+                    "url": ""
+                }
+            ],
+            "listOfFields": [
+                {
+                    "fieldType": "string",
+                    "fieldID": "processid",
+                    "label": "Process ID",
+                    "options": {
+                        "placeholder": "",
+                        "cssClasses": "integer input-max",
+                        "required": true
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Describe Process Definition",
+            "operationID": "describeprocessdefinition",
+            "operationGroup": "Processes",
+            "operationDef": "Displays details of the swimlanes associated with a process.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-describeprocessdefinition.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "string",
+                    "fieldID": "processid",
+                    "label": "Process ID",
+                    "options": {
+                        "placeholder": "",
+                        "cssClasses": "integer input-max",
+                        "required": true
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Enumerate Process Definition",
+            "operationID": "enumprocessdefinition",
+            "operationGroup": "Processes",
+            "operationDef": "Displays details of the swimlanes associated with a process.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-enumprocessdefinition.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "location",
+                    "generationData": [
+                        {
+                            "generationID": "server",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "site",
+                            "label": "Site",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Export Process",
+            "operationID": "exportprocess",
+            "operationGroup": "Processes",
+            "operationDef": "",
+            "operationDoc": "",
+            "listOfFields": [
+                {
+                    "fieldType": "date",
+                    "fieldID": "daterange",
+                    "label": "Date Range",
+                    "group": true,
+                    "dateList": [
+                        {
+                            "dateLabel": "Start Date",
+                            "dateID": "startdate"
+                        },
+                        {
+                            "dateLabel": "End Date",
+                            "dateID": "enddate"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "date small",
+                        "required": true
+                    }
+                },
+                {
+                    "fieldType": "dropdown",
+                    "fieldID": "datetype",
+                    "label": "Date Column to Use",
+                    "dropdownOptionsList": [
+                        {
+                            "label": "Select",
+                            "value": "N/A"
+                        },
+                        {
+                            "label": "Creation Date",
+                            "value": "creationdate"
+                        },
+                        {
+                            "label": "Due Date",
+                            "value": "duedate"
+                        },
+                        {
+                            "label": "Completion Date",
+                            "value": "completiondate"
+                        }
+                    ],
+                    "options": {
+                        "required": true,
+                        "cssClasses": "input-max"
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Un-mark Inactive Processes",
+            "operationID": "unmarkinactiveprocesses",
+            "operationGroup": "Processes",
+            "operationDef": "This command will mark all inactive processes as active again. It has no options and is execute only.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-unmarkinactive-processes.htm",
+            "listOfFields": []
+        },
+        {
+            "operationName": "Dump Process",
+            "operationID": "dumpprocess",
+            "operationGroup": "Processes",
+            "operationDef": "This command dumps process information into a specified xml file. If the output file is not specified, it displays the process information on the console.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-dumpprocess.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "string",
+                    "fieldID": "referenceID",
+                    "label": "Process Reference ID",
+                    "options": {
+                        "cssClasses": "input-max",
+                        "required": true
+                    }
+                },
+                {
+                    "fieldType": "file",
+                    "fieldID": "fileselect",
+                    "label": "Save to file",
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Update Process Status List",
+            "operationID": "updateprocessstatuslist",
+            "operationGroup": "Processes",
+            "operationDef": "Updates a process status list.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-updateprocessstatuslist.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "sourceLocation",
+                    "generationData": [
+                        {
+                            "generationID": "sourceServer",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "sourceSite",
+                            "label": "Site",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "statusLocation",
+                    "generationData": [
+                        {
+                            "generationID": "statusServer",
+                            "label": "Status Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "statusSite",
+                            "label": "Status Site",
+                            "required": true
+                        },
+                        {
+                            "generationID": "statusList",
+                            "label": "Status List",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "event-MOREOPTIONS"
+                },
+                {
+                    "fieldType": "file",
+                    "fieldID": "configfile",
+                    "label": "Configuration File",
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "checkbox",
+                    "fieldID": "recursive",
+                    "label": "Recursive"
+                }
+            ]
+        },
+        {
+            "operationName": "Export Assignments",
+            "operationID": "exportassignments",
+            "operationGroup": "Assignments",
+            "operationDef": "Exports assignment details for specific Start and End Date based on Task status =Creation Date, DueDate, CompletionDate, ReviewDate.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-exportassignments.htm",
+            "relatedLinks": [
+                {
+                    "label": "Workflow Admin Documentation",
+                    "url": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-foundation-workflow-administator-guide-10_6.htm"
+                }
+            ],
+            "listOfFields": [
+                {
+                    "fieldID": "dateRange",
+                    "fieldType": "date",
+                    "group": true,
+                    "label": "Date Range",
+                    "dateList": [
+                        {
+                            "dateID": "startdate",
+                            "dateLabel": "Start Date"
+                        },
+                        {
+                            "dateID": "enddate",
+                            "dateLabel": "End Date"
+                        }
+                    ],
+                    "options": {
+                        "required": true
+                    }
+                },
+                {
+                    "fieldType": "dropdown",
+                    "fieldID": "datecolumn",
+                    "label": "Date Column to Use",
+                    "dropdownOptionsList": [
+                        {
+                            "label": "Select",
+                            "value": "N/A"
+                        },
+                        {
+                            "label": "Creation Date",
+                            "value": "creationdate"
+                        },
+                        {
+                            "label": "Due Date",
+                            "value": "duedate"
+                        },
+                        {
+                            "label": "Completion Date",
+                            "value": "completiondate"
+                        },
+                        {
+                            "label": "Review Date",
+                            "value": "reviewdate"
+                        }
+                    ],
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Update Assignment Status List",
+            "operationID": "updateassignmentstatuslist",
+            "operationGroup": "Assignments",
+            "operationDef": "Updates an assignment status list.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-updateassignmentstatuslist.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "sourceLocation",
+                    "generationData": [
+                        {
+                            "generationID": "sourceServer",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "sourceSite",
+                            "label": "Site",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "statusLocation",
+                    "generationData": [
+                        {
+                            "generationID": "statusServer",
+                            "label": "Status Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "statusSite",
+                            "label": "Status Site",
+                            "required": true
+                        },
+                        {
+                            "generationID": "statusList",
+                            "label": "Status List",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "event-MOREOPTIONS"
+                },
+                {
+                    "fieldType": "file",
+                    "fieldID": "configfile",
+                    "label": "Configuration File",
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "checkbox",
+                    "fieldID": "recursive",
+                    "label": "Recursive"
+                }
+            ]
+        },
+        {
+            "operationName": "Delete Saved Forms",
+            "operationID": "deletesavedforms",
+            "operationGroup": "Forms",
+            "operationDef": "The Delete Saved Forms operation of the SVAdm tool allows you to remove saved forms from a SharePoint site. This applies to forms that have been saved but have never had a process started on them.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-deletesavedforms.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "location",
+                    "generationData": [
+                        {
+                            "generationID": "Server",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "site",
+                            "label": "Site",
+                            "required": true
+                        },
+                        {
+                            "generationID": "list",
+                            "label": "list"
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "date",
+                    "fieldID": "date",
+                    "label": "Forms older than",
+                    "options": {
+                        "required": true,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "checkbox",
+                    "fieldID": "dryrun",
+                    "label": "Dry Run",
+                    "options": {
+                        "defaultValue": true
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Delete Form Cache",
+            "operationID": "deleteformcache",
+            "operationGroup": "Forms",
+            "operationDef": "This command deletes the form cache when Dynamic Refresh=ON for the Form Library Web part.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-deleteformcache.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "location",
+                    "generationData": [
+                        {
+                            "generationID": "Server",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "site",
+                            "label": "Site"
+                        },
+                        {
+                            "generationID": "list",
+                            "label": "list"
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "userlogin",
+                    "label": "User Login",
+                    "options": {
+                        "placeholder": "domain\\username",
+                        "cssClasses": "input-max"
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Add Form Report",
+            "operationID": "addformreport",
+            "operationGroup": "Forms",
+            "operationDef": "This operation adds form reporting to specified forms.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-addformreport.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "location",
+                    "generationData": [
+                        {
+                            "generationID": "Server",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "site",
+                            "label": "Site",
+                            "required": true
+                        },
+                        {
+                            "generationID": "list",
+                            "label": "list",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "interval",
+                    "label": "Form Report Frequency",
+                    "options": {
+                        "required": true,
+                        "placeholder": "DD.HH:mm:ss",
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "file",
+                    "fieldID": "xslfile",
+                    "label": "XSL File",
+                    "options": {
+                        "required": true
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "recipients",
+                    "label": "Recipients",
+                    "options": {
+                        "required": true,
+                        "cssClasses": "email input-max",
+                        "placeholder": "user@winshuttle.com, name@winshuttle.com"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "reportsubject",
+                    "label": "Report Subject",
+                    "options": {
+                        "required": true,
+                        "placeholder": "Report Email Subject",
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "event-MOREOPTIONS"
+                },
+                {
+                    "fieldType": "file",
+                    "fieldID": "queryfile",
+                    "label": "Query File"
+                }
+            ]
+        },
+        {
+            "operationName": "Remove Form Report",
+            "operationID": "removeformreport",
+            "operationGroup": "Forms",
+            "operationDef": "This operation removes any standing form report from the given site and list.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-removeformreport.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "location",
+                    "generationData": [
+                        {
+                            "generationID": "Server",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "site",
+                            "label": "Site",
+                            "required": true
+                        },
+                        {
+                            "generationID": "list",
+                            "label": "list",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "recipients",
+                    "label": "Recipients",
+                    "options": {
+                        "required": true,
+                        "placeholder": "user@winshuttle.com",
+                        "cssClasses": "input-max"
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Update Date Format",
+            "operationID": "updatedateformat",
+            "operationGroup": "Misc.",
+            "operationDef": "",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-updatedateformat.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "location",
+                    "generationData": [
+                        {
+                            "generationID": "Server",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "site",
+                            "label": "Site",
+                            "required": true
+                        },
+                        {
+                            "generationID": "list",
+                            "label": "list",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "fields",
+                    "label": "List Fields",
+                    "options": {
+                        "required": true,
+                        "placeholder": "my:CurrentDate,my:PayDate",
+                        "cssClasses": "input-max"
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Indent Log",
+            "operationID": "indentlog",
+            "operationGroup": "Misc.",
+            "operationDef": "",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-indentlog.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "string",
+                    "fieldID": "path",
+                    "label": "Path",
+                    "options": {
+                        "required": true,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "threadid",
+                    "label": "Thread ID",
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Add Document Monitor",
+            "operationID": "adddocumentmonitor",
+            "operationGroup": "Misc.",
+            "operationDef": "This operation allows you to run a process against all documents in a document library that have met an expiration date.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-adddocmonitor.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "location",
+                    "generationData": [
+                        {
+                            "generationID": "Server",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "site",
+                            "label": "Site",
+                            "required": true
+                        },
+                        {
+                            "generationID": "list",
+                            "label": "list",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "process",
+                    "label": "Process Name",
+                    "options": {
+                        "required": true,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "owner",
+                    "label": "Document Owner",
+                    "options": {
+                        "required": true,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "timestamp",
+                    "label": "Time Stamp Field",
+                    "options": {
+                        "required": true,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "gatekeeper",
+                    "label": "Gatekeeper Swimlane",
+                    "options": {
+                        "required": true,
+                        "cssClasses": "input-max"
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Remove Document Monitoring",
+            "operationID": "removedocumentmonitoring",
+            "operationGroup": "Misc.",
+            "operationDef": "This operation cancels the document monitor(s) enabled by AddDocMonitor currently registered with a given document library.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-removedocmonitor.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "location",
+                    "generationData": [
+                        {
+                            "generationID": "Server",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "site",
+                            "label": "Site",
+                            "required": true
+                        },
+                        {
+                            "generationID": "list",
+                            "label": "list",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "process",
+                    "label": "Process",
+                    "options": {
+                        "required": true,
+                        "cssClasses": "input-max"
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Reassign Tasks",
+            "operationID": "reassigntasks",
+            "operationGroup": "Misc.",
+            "operationDef": "Migrates the tasks of one user to another user.",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-migrateuser.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "string",
+                    "fieldID": "oldlogin",
+                    "label": "User Login (Source)",
+                    "options": {
+                        "required": true,
+                        "placeholder": "domain or domain\\user",
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "string",
+                    "fieldID": "newlogin",
+                    "label": "User Login (Destination)",
+                    "options": {
+                        "required": true,
+                        "placeholder": "domain or domain\\user",
+                        "cssClasses": "input-max"
+                    }
+                }
+            ]
+        },
+        {
+            "operationName": "Set Approved Versions",
+            "operationID": "setapprovedversions",
+            "operationGroup": "Misc.",
+            "operationDef": "",
+            "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-setapprovedversions.htm",
+            "listOfFields": [
+                {
+                    "fieldType": "generationDropdown",
+                    "fieldID": "sourceLocation",
+                    "generationData": [
+                        {
+                            "generationID": "sourceServer",
+                            "label": "Server",
+                            "required": true
+                        },
+                        {
+                            "generationID": "sourceSite",
+                            "label": "Site",
+                            "required": true
+                        }
+                    ],
+                    "dropdownList": [
+                        {
+                            "NOTE": "generated content goes here"
+                        }
+                    ],
+                    "options": {
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "checkbox",
+                    "fieldID": "recursive",
+                    "label": "Recursive"
+                }
+            ]
+        }
+    ]
+}

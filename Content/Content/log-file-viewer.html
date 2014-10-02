@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Winshuttle - Log File Viewer</title>
+        
+        <link href="assets/css/kendo.common.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.default.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.default.min.css" rel="stylesheet">
+        <link href="assets/css/winshuttle.css" rel="stylesheet">
+        <link href="assets/css/ws-formitems.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="workflow-header">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="workflow-brand">
+                            <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
+	                        <div class="home-dropdown">
+								<div class="btn-group">
+								  <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+								  <ul class="dropdown-menu">
+								  	<div>
+								  	<li class="dropdown-title">Logs &amp; Reporting</li>
+								    <li><a href="#">Charts</a></li>
+								    <li><a href="#">Excel Data Dump</a></li>
+								    <li><a href="#">Logging</a></li>
+								    <li><a href="#">Log File Viewer</a></li>
+								  	<li class="dropdown-title">Processes</li>
+								    <li><a href="#">Process Control</a></li>
+								    <li><a href="#">Manage Background Jobs</a></li>
+								    </div>
+								    <div>
+								  	<li class="dropdown-title">Server Administration</li>
+								    <li><a href="#">Admin Commands</a></li>
+								    <li><a href="#">Configure Options</a></li>
+								    <li><a href="#">Scheduler</a></li>
+								    <li><a href="#">Workflow Extensions</a></li>
+								    <li><a href="#">Database Status</a></li>
+								    <li><a href="#">Licenses</a></li>
+								    </div>
+								  </ul>
+								</div>
+							</div>
+                        </div>
+                    </div>
+
+                    <div class="span6">
+                        <ul class="display-inline-children pull-right">
+                            <!--<li>
+                                <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
+                            </li>-->
+                            <li>
+                                <select class="input-medium" id="select-webapp">
+                                    <option>Sharepoint - 80</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mainsi">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <ul id="breadcrumbs">
+                            <li><a href="#">Administration</a> &rsaquo;</li>
+                            <li><a href="#">XXX</a> &rsaquo;</li>
+                            <li class="related-links">
+								<ul>
+									<li class="related-label">Related:</li>
+									<li class="link"><a href="#">Loggin</a></li>
+									<li class="link"><a href="#">Indent Logs</a></li>
+								</ul>
+							</li>
+                        </ul>
+                        <ul id="secnav">
+                            <li class="active">
+                                <h1>Log File Viewer</h1>
+                            </li>
+                            <li class="pull-right">
+                            	<button class="btn pull-right" id="btn-download-all"><span>Download All Logs</span></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="row-fluid">
+					<table class="table table-header">
+						<tbody>
+							<tr><td>
+								<form id="logviewer-form">
+									<div>
+									  <label>Log</label>
+									  	<select name="component" class="input-medium">
+									  		<option selected="selected" value="sharevis.log">Core</option>
+                                            <option value="sharevis_svservice.log">SVService</option>
+                                            <option value="sharevis_timer.log">Timer</option>
+									  	</select>
+									</div>
+									    
+									<div>
+										<label>Type</label>
+										<select name="filter" class="input-medium">
+											<option selected="selected" value="None">None</option>
+                                            <option value="|Debug,|Info,|Warn,|Error">Debug</option>
+                                            <option value="|Info,|Warn,|Error">Info</option>
+                                            <option value="|Warn,|Error">Warn</option>
+                                            <option value="|Error">Error</option>
+										</select>
+									</div>
+									<div>
+										<label>Context</label>
+										<select id="" name="context" class="input-medium">
+											<option selected="selected" value="0">0 Lines</option>
+                                            <option value="10">10 Lines</option>
+                                            <option value="25">25 Lines</option>
+                                            <option value="50">50 Lines</option>
+                                            <option value="100">100 Lines</option>
+										</select>
+									</div>
+									<div>
+										<label>Display</label>
+										<select name="logSize" class="input-medium">
+											<option selected="selected" value="500000">Last 500KB</option>
+                                            <option value="1000000">Last 1MB</option>
+                                            <option value="0">All</option>
+										</select>
+									</div>
+									<div>
+										<label>&nbsp;</label>
+										<div class="input-btn-primary">
+											<input class="btn input-btn-primary" id="btn-display-logset" type="button" name="" value="Display Log Set">
+										</div>
+										<div class="input-btn-primary">
+											<input class="btn input-btn-primary" id="btn-download-logset" type="button" name="" value="Download Log Set">
+										</div>
+									</div>
+								</form>
+							</td></tr>
+						</tbody>
+					</table>
+					
+					<ul id="log-list" class="log-list">
+					</ul>
+				</div><!-- /div .row-fluid -->
+                
+                
+                
+            </div><!-- /div .container-fluid -->
+            
+            </div><!-- /div #mainsi -->
+        	<div id="footer" class="row-fluid">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <div id="footer-links">
+                                <ul>
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Terms</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                                <ul>
+                                    <li>&copy; 2008-2011 Winshuttle, LLC</li>
+                                    <li>Version 10.4</li>
+                                    <li>Privacy Mode: Secure</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <ul class="security-logo">
+                                <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                                <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                                <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            if (!window.jQuery) {
+                console.error("jQuery CDN is down.")
+                document.write('<script src="assets/js/jquery.min.js"><\/script>');
+            }
+        </script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script>
+            if (!$.fn.modal) {
+                console.error("Bootstrap CDN is down.")
+                document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
+            }
+        </script>
+        <script src="assets/js/kendo.all.min.js"></script>
+        <script src="assets/js/wslib_master.js"></script>
+        <script src="assets/js/wsplugin_master.js"></script>
+        <script src="assets/js/ws_admincommands.js"></script>
+        <script src="assets/js/ws_common.js"></script>
+        <script>
+            $(document).ready(function () {
+                ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
+                    $("#btn-display-logset").click(function () {
+
+                        var serializeData = $("#logviewer-form").serialize();
+                        ws_ajaxCall('/logviewer/GetLogs', serializeData, function (data, callbackdata) {
+
+                            var logList = $("#log-list");
+                            logList.html('');
+                            logList.html(data);
+                        }, null, null);
+                    });
+
+                    $("#btn-download-logset").click(function () {
+                        var serializeData = $("#logviewer-form").serialize();
+                        window.open("/logviewer/DownloadCurrentLogs?" + serializeData);
+                        return false;
+                    });
+
+                    $("#btn-download-all").click(function () {
+                        window.open("/logviewer/Downloadall");
+                        return false;
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

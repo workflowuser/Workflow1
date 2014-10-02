@@ -1,0 +1,92 @@
+{
+    "serverList": [{
+        "serverURL": "http://wfserver1/",
+        "siteList": [{
+            "siteName": "WFSiteA",
+            "listList": [{
+                "listName": "Appointment Calendar"
+            }, {
+                "listName": "Birthdays Calendar"
+            }, {
+                "listName": "Client Contacts"
+            }, {
+                "listName": "Resources"
+            }]
+        }, {
+            "siteName": "WFSiteB",
+            "listList": [{
+                "listName": "Application Forms"
+            }, {
+                "listName": "Team Calendar"
+            }, {
+                "listName": "Contacts"
+            }]
+        }]
+    }, {
+        "serverURL": "http://wfserver2/",
+        "siteList": [{
+            "siteName": "Formex",
+            "listList": [{
+                "listName": "Appointments"
+            }, {
+                "listName": "Meeting Notes"
+            }, {
+                "listName": "Equipment Rental"
+            }, {
+                "listName": "Resources"
+            }]
+        }, {
+            "siteName": "Blorvex",
+            "listList": [{
+                "listName": "Employee Application Forms"
+            }, {
+                "listName": "Accounting Books"
+            }, {
+                "listName": "Library Holds"
+            }]
+        }, {
+            "siteName": "Snorlax",
+            "listList": [{
+                "listName": "Sleeping Calendar"
+            }, {
+                "listName": "Alarm Clock Order Forms"
+            }, {
+                "listName": "Cave Maps"
+            }]
+        }]
+    }, {
+        "serverURL": "http://loremipserver/",
+        "siteList": [{
+            "siteName": "Ipsum Listum",
+            "listList": [{
+                "listName": "Appointment Calendar2"
+            }, {
+                "listName": "List of Lists"
+            }, {
+                "listName": "Important Contacts"
+            }, {
+                "listName": "Team Resources"
+            }]
+        }, {
+            "siteName": "Dolor Site",
+            "listList": [{
+                "listName": "Feedback Forms"
+            }, {
+                "listName": "Engineering Team Calendar"
+            }, {
+                "listName": "Engineering Contacts"
+            }]
+        }, {
+            "siteName": "Clipsum",
+            "listList": [{
+                "listName": "Bears List"
+            }, {
+                "listName": "Lions List"
+            }, {
+                "listName": "Tigers List"
+            }, {
+                "listName": "Building Materials"
+            }]
+        }]
+    }]
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Winshuttle - Charts</title>
+        <link href="assets/css/kendo.common.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.default.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.default.min.css" rel="stylesheet">
+        <link href="assets/css/winshuttle.css" rel="stylesheet">
+        <link href="assets/css/ws-formitems.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="workflow-header">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="workflow-brand">
+                            <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
+                            <div class="home-dropdown">
+                                <div class="btn-group">
+                                    <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+                                    <ul class="dropdown-menu">
+                                        <div>
+                                            <li class="dropdown-title">Logs &amp; Reporting</li>
+                                            <li><a href="#">Charts</a></li>
+                                            <li><a href="#">Excel Data Dump</a></li>
+                                            <li><a href="#">Logging</a></li>
+                                            <li><a href="#">Log File Viewer</a></li>
+                                            <li class="dropdown-title">Processes</li>
+                                            <li><a href="#">Process Control</a></li>
+                                            <li><a href="#">Manage Background Jobs</a></li>
+                                        </div>
+                                        <div>
+                                            <li class="dropdown-title">Server Administration</li>
+                                            <li><a href="#">Admin Commands</a></li>
+                                            <li><a href="#">Configure Options</a></li>
+                                            <li><a href="#">Scheduler</a></li>
+                                            <li><a href="#">Workflow Extensions</a></li>
+                                            <li><a href="#">Database Status</a></li>
+                                            <li><a href="#">Licenses</a></li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <ul class="display-inline-children pull-right">
+                            <!--<li>
+                                <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
+                                </li>-->
+                            <li>
+                                <select class="input-medium" id="select-webapp">
+                                    <option>Sharepoint - 80</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mainsi">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <ul id="breadcrumbs">
+                            <li><a href="#">Administration</a> &rsaquo;</li>
+                            <li><a href="#">Logs &amp; Reporting</a></li>
+                            <li class="related-links">
+                                <ul>
+                                    <li class="related-label">Related:</li>
+                                    <li class="link"><a href="#">Excel Workflow Data Dump</a></li>
+                                    <li class="link"><a href="#">Log File Viewer</a></li>
+                                    <li class="link"><a href="#">Database Status</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul id="secnav">
+                            <li class="active">
+                                <h1>Charts</h1>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div>
+                            <form>
+                                <fieldset>
+                                    <div class="control-group">
+                                        <label class="control-label">Site <span class="required">*</span></label>
+                                        <div class="controls">
+                                            <select class="input-max" id="select-site">
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Report Type <span class="required">*</span></label>
+                                        <div class="controls">
+                                            <select class="input-max" id="select-reporttype">
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Process <span class="required">*</span></label>
+                                        <div class="controls">
+                                            <select class="input-max" id="select-process">
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group row">
+                                        <div class="controls controls-row span2">
+                                            <label class="control-label">Report Period <span class="required">*</span></label>
+                                            <input id="input-startdate" type="text" class="js-kendo-datepicker form-control input-small" placeholder="Start Date">
+                                        </div>
+                                        <div class="controls controls-row span2">
+                                            <label class="control-label">&nbsp;</label>
+                                            <input id="input-enddate" type="text" class="js-kendo-datepicker form-control input-small" placeholder="End Date">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Chart Type <span class="required">*</span></label>
+                                        <div class="controls">
+                                            <select class="input-max" id="select-charttype">
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group row">
+                                        <div class="controls controls-row span2">
+                                            <label class="control-label">Height (PX)</label>
+                                            <input type="text" id="input-height" class="form-control input-small" placeholder="">
+                                        </div>
+                                        <div class="controls controls-row span2">
+                                            <label class="control-label">Width (PX)</label>
+                                            <input type="text" id="input-width" class="form-control input-small" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Chart Title</span></label>
+                                        <div class="controls">
+                                            <input type="text" id="input-title" class="form-control input-block-level" placeholder="">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset>
+                                    <div class="form-actions form-actions-left">
+                                        <button type="button" id="btn-submit" class="btn btn-primary"><span>Continue</span></button>
+                                        <button class="btn"><span>Cancel</span></button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /div .span6 -->
+                    <div class="chart span6">
+                        <h3><a href="#">Task Performance by Process Analysis</a></h3>
+                        <div class="chart-content"></div>
+                        <p>Report Period: mm/dd/yyyy - mm/dd/yyyy</p>
+                    </div>
+                    <!-- /div .span6 -->
+                </div>
+                <!-- /div .row-fluid -->
+            </div>
+            <!-- /div .container-fluid -->
+        </div>
+        <!-- /div #mainsi -->
+        <div id="footer" class="row-fluid">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div id="footer-links">
+                            <ul>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                            <ul>
+                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
+                                <li>Version 10.4</li>
+                                <li>Privacy Mode: Secure</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <ul class="security-logo">
+                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            if (!window.jQuery) {
+                console.error("jQuery CDN is down.")
+                document.write('<script src="assets/js/jquery.min.js"><\/script>');
+            }
+        </script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script>
+            if (!$.fn.modal) {
+                console.error("Bootstrap CDN is down.")
+                document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
+            }
+        </script>
+        <script src="assets/js/kendo.all.min.js"></script>
+        <script src="assets/js/wslib_master.js"></script>
+        <script src="assets/js/wsplugin_master.js"></script>
+        <script src="assets/js/ws_global_initialization_administration.js"></script>
+        <script src="assets/js/ws_common.js"></script>
+        <script>
+            $(document).ready(function () {
+                ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
+
+                    var webapp = $('#select-webapp').val();
+                    ws_ajaxCall('/admin/getallsites', { server: webapp }, loadSite, loadSiteError, null);
+                });
+
+                $("#select-site").on('change', function () {
+                    loadControls();
+                });
+
+                $("#select-reporttype").on('change', function () {
+                    onReportChange();
+                });
+
+                $('#btn-submit').on('click', function () {
+                    onSubmit();
+                    return false;
+                });
+            });
+
+            function onSubmit() {
+
+                var site = $('#select-site option:selected').val();
+                var reportType = $('#select-reporttype option:selected').val();
+                var process = $('#select-process option:selected').text();
+                var chartType = $('#select-charttype option:selected').val();
+                var startDate = $('#input-startdate').val();
+                var endDate = $('#input-enddate').val();
+                var height = $('#input-height').val();
+                var width = $('#input-width').val();
+                var title = $('#input-title').val();
+
+                var data = { site: site, reportType: reportType, process: process, chartType: chartType, startDate: startDate, endDate: endDate, title: title };
+
+                ws_ajaxCall('/chart/Draw', data, callbackAfterSubmitSuccess, callOnError, null);
+            }
+
+            function callOnError() {
+
+            }
+
+            function callbackAfterSubmitSuccess(data, callbackdata) {
+
+
+            }
+
+            function loadSite(data, callbackdata) {
+
+                var options = '';
+                $.each(data, function (key, value) {
+                    options += '<option value="' + value.URL + '">' + value.Name + '</option>';
+                });
+
+                $("#select-site option").remove();
+                $("#select-site").append(options);
+
+                loadControls();
+            }
+
+            function loadControls() {
+
+                var site = $('#select-site option:selected').val();
+                var webapp = $('#select-webapp option:selected').val();
+
+                ws_ajaxCall('/chart/Detail', { server: webapp, site: site }, fillControls, loadSiteError, null);
+            }
+
+            function loadSiteError() {
+
+            }
+
+            function fillControls(data) {
+
+                var reportType = $('#select-reporttype');
+                var process = $('#select-process');
+                var chartType = $('#select-charttype');
+
+                fillSelect(data.ReportTypes, reportType);
+                fillSelect(data.ProcessNames, process);
+                fillSelect(data.ChartTypes, chartType);
+            }
+
+            function fillSelect(data, selectElmt) {
+
+                $(selectElmt).find('option').remove();
+
+                var options = '';
+                $.each(data, function (key, value) {
+                    options += '<option value="' + key + '">' + value + '</option>';
+                });
+
+                $(selectElmt).append(options);
+
+                return options;
+            }
+
+            function onReportChange() {
+                var site = $('#select-site option:selected').val();
+                var webapp = $('#select-webapp option:selected').val();
+                var report = $('#select-reporttype option:selected').val();
+
+                ws_ajaxCall('/chart/GetChartTypes', { server: webapp, site: site, reportType: report }, fillChartType, loadSiteError, null);
+            }
+
+            function fillChartType(data) {
+                var chartType = $('#select-charttype');
+                fillSelect(data, chartType);
+            }
+        </script>
+    </body>
+</html>

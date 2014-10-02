@@ -1,0 +1,331 @@
+callback({
+    "availableOperations": [{
+        "operationID": "FirstView",
+        "operationName": "Admin Commands",
+        "listOfFields": [{
+            "fieldID": "XXX",
+            "fieldType": "dropdown",
+            "label": "Source Site",
+            "dropdownOptionsList": [{
+                "label": "http://server/site",
+                "value": "Value 1"
+            }],
+            "options": {
+                "required": true,
+                "style": false,
+                "cssClasses": "input-max"
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "dropdown",
+            "label": "Source List",
+            "dropdownOptionsList": [{
+                "label": "Expense Report",
+                "value": "Value 1"
+            }],
+            "options": {
+                "required": true,
+                "style": false,
+                "cssClasses": "input-max"
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "dropdown",
+            "label": "Destination Site",
+            "dropdownOptionsList": [{
+                "label": "http://server/site2",
+                "value": "Value 1"
+            }],
+            "options": {
+                "required": true,
+                "style": false,
+                "cssClasses": "input-max"
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "dropdown",
+            "label": "Destination List",
+            "dropdownOptionsList": [{
+                "label": "Expense Report Archive",
+                "value": "Value 1"
+            }],
+            "options": {
+                "required": true,
+                "style": false,
+                "cssClasses": "input-max"
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "date",
+            "label": "Date",
+            "options": {
+                "required": true
+            }
+        }, {
+            "fieldType": "event-MOREOPTIONS"
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "date",
+            "group": true,
+            "label": "Report Period",
+            "dateList": [{
+                "dateID": "XXX",
+                "dateLabel": "Start Date"
+            }, {
+                "dateID": "XXX",
+                "dateLabel": "End Date"
+            }]
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "string",
+            "label": "Versions",
+            "options": {
+                "cssClasses": "input-xlarge"
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "dropdown",
+            "label": "Workflow Column",
+            "dropdownOptionsList": [{
+                "label": "Select",
+                "value": "Value 1"
+            }],
+            "options": {
+                "cssClasses": "input-max"
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "string",
+            "label": "Record Limit",
+            "options": {
+                "cssClasses": "input-xlarge"
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "checkbox",
+            "group": true,
+            "label": "Additional Options",
+            "checkboxList": [{
+                "checkboxID": "XXX",
+                "checkboxLabel": "Delete Item"
+            }, {
+                "checkboxID": "XXX",
+                "checkboxLabel": "Delete Workflow"
+            }, {
+                "checkboxID": "XXX",
+                "checkboxLabel": "Create Fields"
+            }, {
+                "checkboxID": "XXX",
+                "checkboxLabel": "Include Running"
+            }, {
+                "checkboxID": "XXX",
+                "checkboxLabel": "Use Creation Date"
+            }, {
+                "checkboxID": "XXX",
+                "checkboxLabel": "Vebose"
+            }],
+            "options": {
+                "direction": "vertical"
+            }
+        }]
+    }, {
+        "operationID": "operationA",
+        "operationName": "Operation 1",
+        "operationGroup": "group1",
+        "operationDef": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "operationDoc": "http://www.google.com/",
+        "relatedLinks": [{
+            "url": "http://www.twitter.com",
+            "label": "Log File Viewer"
+        }, {
+            "url": "http://www.facebook.com",
+            "label": "Delete Logs"
+        }],
+        "listOfFields": [{
+            "fieldID": "XXX",
+            "fieldType": "string",
+            "label": "String 1",
+            "options": {
+                "required": true,
+                "placeholder": "SAMPLE STRING",
+                "style": false,
+                "cssClasses": false
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "file",
+            "label": "File 2",
+            "options": {
+                "required": true,
+                "placeholder": "SAMPLE FILE",
+                "style": false,
+                "cssClasses": false
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "checkbox",
+            "label": "Checkbox 3",
+            "options": {
+                "defaultValue": true,
+                "style": false,
+                "cssClasses": false
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "checkbox",
+            "group": true,
+            "label": "Checkbox Group 4",
+            "checkboxList": [{
+                "checkboxID": "XXX",
+                "checkboxLabel": "Inner Checkbox 1",
+                "defaultValue": false
+            }, {
+                "checkboxID": "XXX",
+                "checkboxLabel": "Inner Checkbox 2",
+                "defaultValue": true
+            }],
+            "options": {
+                "required": true,
+                "cssClasses": false,
+                "style": false,
+                "direction": "vertical"
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "dropdown",
+            "label": "Dropdown 5",
+            "dropdownOptionsList": [{
+                "label": "Option 1",
+                "value": "Value 1"
+            }, {
+                "label": "Option 2",
+                "value": "Value 2",
+                "selected": true
+            }],
+            "options": {
+                "required": true,
+                "style": false,
+                "cssClasses": false
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "file",
+            "label": "File 7",
+            "options": {
+                "required": true,
+                "style": false,
+                "cssClasses": false
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "date",
+            "label": "Date 8",
+            "options": {
+                "required": true,
+                "style": false,
+                "cssClasses": false
+            }
+        }, {
+            "fieldID": "XXX",
+            "fieldType": "date",
+            "group": true,
+            "label": "Date Group 9",
+            "dateList": [{
+                "dateID": "XXX",
+                "dateLabel": "Date Item 1",
+                "dateValue": "11/11/2011"
+            }, {
+                "dateID": "XXX",
+                "dateLabel": "Date Item 2",
+                "dateValue": "TODAY"
+            }],
+            "options": {
+                "required": true,
+                "style": false,
+                "cssClasses": false
+            }
+        }, {
+            "fieldID": "XXXgenDropID",
+            "fieldType": "generationDropdown",
+            "generationData": [{
+                "generationID": "XXX",
+                "label": "Gen 0 (Special: Generation Dropdown 10)",
+                "required": true
+            }, {
+                "generationID": "XXX",
+                "label": "Gen 1",
+                "required": true
+            }, {
+                "generationID": "XXX",
+                "label": "Gen 2"
+            }],
+            "dropdownList": [{
+                "gen": 0,
+                "ID": "XXX1",
+                "label": "Option 1",
+                "value": "Value 1"
+            }, {
+                "gen": 0,
+                "ID": "XXX2",
+                "label": "Option 2",
+                "value": "Value 2"
+            }, {
+                "gen": 1,
+                "ID": "XXX1-1",
+                "parent": "XXX1",
+                "label": "Option 1-1",
+                "value": "Value 1-1"
+            }, {
+                "gen": 1,
+                "ID": "XXX1-2",
+                "parent": "XXX1",
+                "label": "Option 1-2",
+                "value": "Value 1-2"
+            }, {
+                "gen": 1,
+                "ID": "XXX2-1",
+                "parent": "XXX2",
+                "label": "Option 2-1",
+                "value": "Value 2-1"
+            }, {
+                "gen": 1,
+                "ID": "XXX2-2",
+                "parent": "XXX2",
+                "label": "Option 2-2",
+                "value": "Value 2-2"
+            }, {
+                "gen": 2,
+                "ID": "XXX1-1-1",
+                "parent": "XXX1-1",
+                "label": "Options 1-1-1",
+                "value": "Value 1-1-1"
+            }, {
+                "gen": 2,
+                "ID": "XXX1-1-2",
+                "parent": "XXX1-1",
+                "label": "Options 1-1-2",
+                "value": "Value 1-1-2"
+            }, {
+                "gen": 2,
+                "ID": "XXX1-2-1",
+                "parent": "XXX1-2",
+                "label": "Options 1-2-1",
+                "value": "Value 1-2-1"
+            }, {
+                "gen": 2,
+                "ID": "XXX2-1-1",
+                "parent": "XXX2-1",
+                "label": "Options 2-1-1",
+                "value": "Value 2-1-1"
+            }],
+            "options": {
+                "style": false,
+                "cssClasses": "input-max"
+            }
+        }]
+    }, {
+        "operationID": "operationB",
+        "operationName": "Operation 2",
+        "listOfFields": []
+    }]
+});
