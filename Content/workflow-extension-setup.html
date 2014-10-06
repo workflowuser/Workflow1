@@ -3,7 +3,6 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Winshuttle - Extension Setup</title>
-        
         <link href="assets/css/kendo.common.min.css" rel="stylesheet">
         <link href="assets/css/kendo.default.min.css" rel="stylesheet">
         <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
@@ -18,40 +17,41 @@
                     <div class="span6">
                         <div class="workflow-brand">
                             <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
-	                        <div class="home-dropdown">
-								<div class="btn-group">
-								  <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-								  <ul class="dropdown-menu">
-								  	<div>
-								  	<li class="dropdown-title">Logs &amp; Reporting</li>
-								    <li><a href="#">Charts</a></li>
-								    <li><a href="#">Excel Data Dump</a></li>
-								    <li><a href="#">Logging</a></li>
-								    <li><a href="#">Log File Viewer</a></li>
-								  	<li class="dropdown-title">Processes</li>
-								    <li><a href="#">Process Control</a></li>
-								    <li><a href="#">Manage Background Jobs</a></li>
-								    </div>
-								    <div>
-								  	<li class="dropdown-title">Server Administration</li>
-								    <li><a href="#">Admin Commands</a></li>
-								    <li><a href="#">Configure Options</a></li>
-								    <li><a href="#">Scheduler</a></li>
-								    <li><a href="#">Workflow Extensions</a></li>
-								    <li><a href="#">Database Status</a></li>
-								    <li><a href="#">Licenses</a></li>
-								    </div>
-								  </ul>
-								</div>
-							</div>
+                            <div class="home-dropdown">
+                                <div class="btn-group">
+                                    <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+                                    <ul class="dropdown-menu">
+                                        <div>
+                                            <li class="dropdown-title">Logs &amp; Reporting</li>
+                                            <li><a href="#">Charts</a></li>
+                                            <li><a href="#">Excel Data Dump</a></li>
+                                            <li><a href="#">Logging</a></li>
+                                            <li><a href="#">Log File Viewer</a></li>
+                                            <li class="dropdown-title">Processes</li>
+                                            <li><a href="#">Process Control</a></li>
+                                            <li><a href="#">Manage Background Jobs</a></li>
+                                        </div>
+                                        <div>
+                                            <li class="dropdown-title">Server Administration</li>
+                                            <li><a href="#">Admin Commands</a></li>
+                                            <li><a href="#">Configure Options</a></li>
+                                            <li><a href="#">Scheduler</a></li>
+                                            <li><a href="#">Workflow Extensions</a></li>
+                                            <li><a href="#">Database Status</a></li>
+                                            <li><a href="#">Licenses</a></li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                     <div class="span6">
                         <ul class="display-inline-children pull-right">
-                            <!--<li>
+                            <!--
+                            <li>
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
-                            </li>-->
+                            </li>
+                            -->
                             <li>
                                 <select class="input-medium" id="WFWebAppsDropDown">                                    
                                 </select>
@@ -61,7 +61,6 @@
                 </div>
             </div>
         </div>
-        
         <div id="mainsi">
             <div class="container-fluid">
                 <div class="row-fluid">
@@ -73,11 +72,11 @@
                         <ul id="secnav">
                             <li class="active">
                                 <h1>Workflow Extension Setup</h1>
+                                <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </li>
                         </ul>
                     </div>
                 </div>
-                
                 <div class="row-fluid bump-down-20">
                     <div class="span8">
                         <p>
@@ -91,7 +90,6 @@
                         </p>
                     </div>
                 </div>
-                
                 <div class="row-fluid">
                     <div class="span8">
                         <div class="settings-info">
@@ -107,12 +105,12 @@
                                             <ul class="display-inline-children checkbox-group">
                                                 <li>
                                                     <label>
-                                                        <input type="radio" id="nonWFWebAppsRadio" name="installlocation_locationtype" class="js-installlocation-location-toggle-view-master-0" checked="checked"> Web Application
+                                                    <input type="radio" id="nonWFWebAppsRadio" name="installlocation_locationtype" class="js-installlocation-location-toggle-view-master-0" checked="checked"> Web Application
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input type="radio" id="nonWFWebAppUrlTextBox" name="installlocation_locationtype" class="js-installlocation-location-toggle-view-master-1"> URL
+                                                    <input type="radio" id="nonWFWebAppUrlTextBox" name="installlocation_locationtype" class="js-installlocation-location-toggle-view-master-1"> URL
                                                     </label>
                                                 </li>
                                             </ul>
@@ -131,18 +129,11 @@
                                         </div>
                                     </div>
                                 </fieldset>
-                            </form>
-                        </div>
-                        
-                        
-                        
-                        <div class="settings-info">
-                            <div class="page-header clearfix">
-                                <h2>Database Settings</h2>
-                                <a class="tooltip-help js-tooltip-target" href="#" title="Information for the Winshuttle Workflow database access user. This database account will be created for you by the installer. It will be used by Winshuttle Workflow when the database is accessed.">[?]</a>
-                            </div>
-                            <form class="form-horizontal">
-                                <fieldset>
+                                
+                                <div class="page-header clearfix">
+                                	<h2>Database Settings</h2>
+                           		 </div>
+                           		 <fieldset>
                                     <div class="control-group">
                                         <label class="control-label">Database Instance Name <span class="required">*</span></label>
                                         <div class="controls">
@@ -152,7 +143,7 @@
                                     <div class="control-group">
                                         <label class="control-label">Database Name <span class="required">*</span></label>
                                         <div class="controls">
-                                            <input type="text" class="input-max"  id="dbName">
+                                            <input type="text" class="input-max" id="dbName">
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -161,12 +152,12 @@
                                             <ul class="display-inline-children checkbox-group">
                                                 <li>
                                                     <label>
-                                                        <input type="radio" id="databaseinitializationSQL" name="databasesettings_authenticationtype" class="js-databasesettings-authenticationtype-toggle-view-master-0"> SQL Server
+                                                    <input type="radio" id="databaseinitializationSQL" name="databasesettings_authenticationtype" class="js-databasesettings-authenticationtype-toggle-view-master-0"> SQL Server
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input type="radio" id="databaseinitializationWindows" name="databasesettings_authenticationtype" class="js-databasesettings-authenticationtype-toggle-view-master-1" checked="checked"> Windows
+                                                    <input type="radio" id="databaseinitializationWindows" name="databasesettings_authenticationtype" class="js-databasesettings-authenticationtype-toggle-view-master-1" checked="checked"> Windows
                                                     </label>
                                                 </li>
                                             </ul>
@@ -175,46 +166,38 @@
                                     <div class="js-databasesettings-authenticationtype-toggle-view-slave-1 control-group">
                                         <label class="control-label">Domain</label>
                                         <div class="controls">
-                                            <input type="text" class="input-xlarge"  id="databaseinitializationDomain">
+                                            <input type="text" class="input-xlarge" id="databaseinitializationDomain">
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Username <span class="required">*</span></label>
                                         <div class="controls">
-                                            <input type="text" class="input-xlarge"  id="databaseinitializationUsername">
+                                            <input type="text" class="input-xlarge" id="databaseinitializationUsername">
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Password <span class="required">*</span></label>
                                         <div class="controls">
-                                            <input type="password" class="input-xlarge"   id="databaseinitializationPassword">
+                                            <input type="password" class="input-xlarge" id="databaseinitializationPassword">
                                         </div>
                                     </div>
                                 </fieldset>
-                            </form>
-                        </div>
-                        
-                        
-                        
-                        <div class="settings-info">
-                            <div class="page-header clearfix">
+                                
+                                <div class="page-header clearfix">
                                 <h2>Database Initialization</h2>
-                                <a class="tooltip-help js-tooltip-target" href="#" title="Credentials for a database user with sufficient rights to create new databases. This account will only be used to create the Winshuttle Workflow database during this installation.">[?]</a>
-                            </div>
-                            <form class="form-horizontal">
-                                <fieldset>
+                            </div><fieldset>
                                     <div class="control-group">
                                         <label class="control-label">Authentication Type <span class="required">*</span></label>
                                         <div class="controls">
                                             <ul class="display-inline-children checkbox-group">
                                                 <li>
                                                     <label>
-                                                        <input type="radio" id="dbCreatorAuthenticationSQL" name="databaseinitialization_authenticationtype" class="js-databaseinitialization-authenticationtype-toggle-view-master-0"> SQL Server
+                                                    <input type="radio" id="dbCreatorAuthenticationSQL" name="databaseinitialization_authenticationtype" class="js-databaseinitialization-authenticationtype-toggle-view-master-0"> SQL Server
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input type="radio" id="dbCreatorAuthenticationWindows" name="databaseinitialization_authenticationtype" class="js-databaseinitialization-authenticationtype-toggle-view-master-1" checked="checked"> Windows
+                                                    <input type="radio" id="dbCreatorAuthenticationWindows" name="databaseinitialization_authenticationtype" class="js-databaseinitialization-authenticationtype-toggle-view-master-1" checked="checked"> Windows
                                                     </label>
                                                 </li>
                                             </ul>
@@ -239,69 +222,63 @@
                                         </div>
                                     </div>
                                 </fieldset>
+								<fieldset>
+									<div class="form-actions">
+										<button type="submit" id="btn_Save" class="btn btn-primary"><span>Save</span></button>
+										<button class="btn"><span>Cancel</span></button>
+									</div>
+								</fieldset>
                             </form>
                         </div>
-                        
-                        
-                        
-                        <div class="settings-info">
-                            <form class="form-horizontal">
-                                <fieldset>
-                                    <div class="form-actions">
-                                        <button type="submit" id="btn_Save" class="btn btn-primary"><span>Save</span></button>
-                                        <button class="btn"><span>Cancel</span></button>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
-                        
-                    </div><!-- /div .span6 -->
-                </div><!-- /div .row-fluid -->
-            </div><!-- /div .container-fluid -->
-            
-            </div><!-- /div #mainsi -->
-        	<div id="footer" class="row-fluid">
-                <div class="container-fluid">
-                    <div class="row-fluid">
-                        <div class="span8">
-                            <div id="footer-links">
-                                <ul>
-                                    <li><a href="#">Help</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Terms</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                </ul>
-                                <ul>
-                                    <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                    <li>Version 10.4</li>
-                                    <li>Privacy Mode: Secure</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <ul class="security-logo">
-                                <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                                <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                                <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                    </div>
+                    <!-- /div .span6 -->
+                </div>
+                <!-- /div .row-fluid -->
+            </div>
+            <!-- /div .container-fluid -->
+        </div>
+        <!-- /div #mainsi -->
+        <div id="footer" class="row-fluid">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div id="footer-links">
+                            <ul>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                            <ul>
+                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
+                                <li>Version 10.4</li>
+                                <li>Privacy Mode: Secure</li>
                             </ul>
                         </div>
                     </div>
+                    <div class="span4">
+                        <ul class="security-logo">
+                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        
+        </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
-        if (!window.jQuery) {
-            console.error("jQuery CDN is down.");
-            document.write('<script src="assets/js/jquery.min.js"><\/script>');
-        }
+            if (!window.jQuery) {
+                console.error("jQuery CDN is down.");
+                document.write('<script src="assets/js/jquery.min.js"><\/script>');
+            }
         </script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script>
-        if (!$.fn.modal) {
-            console.error("Bootstrap CDN is down.");
-            document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
-        }
+            if (!$.fn.modal) {
+                console.error("Bootstrap CDN is down.");
+                document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
+            }
         </script>
         <script src="assets/js/kendo.all.min.js"></script>
         <script src="assets/js/wslib_master.js"></script>
@@ -313,29 +290,29 @@
                 animation: true
             });
             
-            wsLib_toggleViews("installlocation-location", 2, "radio", "no", 200);
+            wsLib_toggleViews("installlocation-location", 2, "radio", "no");
             wsLib_toggleViews("databasesettings-authenticationtype", 2, "radio", "no", 200);
             wsLib_toggleViews("databaseinitialization-authenticationtype", 2, "radio", "no", 200);
-
+            
             $(document).ready(function () {
                 ws_initializeWebApp("/admin/GetAllWebApp", $('#WFWebAppsDropDown'), null);
                 ws_initializeWebApp("/admin/GetNonWFWebApps", $('#nonWFWebApps'), null);
             });
-
-			function CallBackFunctionSuccess(data, callbackdata) {
-			    alert(data);
-			    location.reload();
-			}
-
-			function CallBackFunctionFailure(xhr, status, error, callbackdata) {
-			    if (xhr.responseText != null && xhr.responseText != undefined) {
-			        alert("Status: " + xhr.Status + ", Error: " + xhr.responseText);
-			    }
-			}
-
+            
+            function CallBackFunctionSuccess(data, callbackdata) {
+            alert(data);
+            location.reload();
+            }
+            
+            function CallBackFunctionFailure(xhr, status, error, callbackdata) {
+            if (xhr.responseText != null && xhr.responseText != undefined) {
+            alert("Status: " + xhr.Status + ", Error: " + xhr.responseText);
+            }
+            }
+            
             $("#btn_Save").click(function () {
                 var theUrl, bIsTrustedInstallation, sDbcUser, sDbcPwd, sDbcDomain, bIsTrustedLogin, sDbUser, sDbPwd, sDbDomain, sDbInstance, sDbName;
-
+            
                 //Get the Web APP URL
                 var radioWebAppValue = $("#nonWFWebAppsRadio").prop('checked');
                 if (radioWebAppValue == true) {
@@ -347,18 +324,18 @@
                         return false;
                     }
                 }
-
+            
                 // Get the DB Instance Name and authentication type to create database.
                 sDbInstance = $("#dbInstanceName").val();
                 if (sDbInstance == null || sDbInstance.length == 0) {
                     return false;
                 }
-
+            
                 sDbName = $("#dbName").val();
                 if (sDbName == null || sDbName.length == 0) {
                     return false;
                 }
-
+            
                 var radioDBCreatorAuthentication = $("#dbCreatorAuthenticationWindows").prop('checked');
                 if (radioDBCreatorAuthentication == true) {
                     bIsTrustedInstallation = true;
@@ -366,12 +343,12 @@
                     if (sDbcUser == null || sDbcUser.length == 0) {
                         return false;
                     }
-
+            
                     sDbcPwd = $("#dbCreatorPassword").val();
                     if (sDbcPwd == null || sDbcPwd.length == 0) {
                         return false;
                     }
-
+            
                     sDbcDomain = $("#dbCreatorDomainName").val();
                 }
                 else {
@@ -380,15 +357,15 @@
                     if (sDbcUser == null || sDbcUser.length == 0) {
                         return false;
                     }
-
+            
                     sDbcPwd = $("#dbCreatorPassword").val();
                     if (sDbcPwd == null || sDbcPwd.length == 0) {
                         return false;
                     }
-
+            
                     sDbcDomain = null;
                 }
-
+            
                 // Get the user credentials to be created in the DB, and used in Workflow DB connection string.
                 var radioDBInitialization = $("#databaseinitializationWindows").prop('checked');
                 if (radioDBInitialization == true) {
@@ -397,12 +374,12 @@
                     if (sDbUser == null || sDbUser.length == 0) {
                         return false;
                     }
-
+            
                     sDbPwd = $("#databaseinitializationPassword").val();
                     if (sDbPwd == null || sDbPwd.length == 0) {
                         return false;
                     }
-
+            
                     sDbDomain = $("#databaseinitializationDomain").val();
                 }
                 else {
@@ -411,16 +388,16 @@
                     if (sDbUser == null || sDbUser.length == 0) {
                         return false;
                     }
-
+            
                     sDbPwd = $("#databaseinitializationPassword").val();
                     if (sDbPwd == null || sDbPwd.length == 0) {
                         return false;
                     }
-
+            
                     sDbDomain = null;
                 }
-
-
+            
+            
                 ws_ajaxCall('/ExtendWorkflow/ExtendWorkflow',
                             {
                                 url: theUrl,

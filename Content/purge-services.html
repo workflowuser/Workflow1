@@ -3,7 +3,6 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Winshuttle - Purge Services</title>
-        
         <link href="assets/css/kendo.common.min.css" rel="stylesheet">
         <link href="assets/css/kendo.default.min.css" rel="stylesheet">
         <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
@@ -19,40 +18,39 @@
                     <div class="span6">
                         <div class="workflow-brand">
                             <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
-	                        <div class="home-dropdown">
-								<div class="btn-group">
-								  <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-								  <ul class="dropdown-menu">
-								  	<div>
-								  	<li class="dropdown-title">Logs &amp; Reporting</li>
-								    <li><a href="#">Charts</a></li>
-								    <li><a href="#">Excel Data Dump</a></li>
-								    <li><a href="#">Logging</a></li>
-								    <li><a href="#">Log File Viewer</a></li>
-								  	<li class="dropdown-title">Processes</li>
-								    <li><a href="#">Process Control</a></li>
-								    <li><a href="#">Manage Background Jobs</a></li>
-								    </div>
-								    <div>
-								  	<li class="dropdown-title">Server Administration</li>
-								    <li><a href="#">Admin Commands</a></li>
-								    <li><a href="#">Configure Options</a></li>
-								    <li><a href="#">Scheduler</a></li>
-								    <li><a href="#">Workflow Extensions</a></li>
-								    <li><a href="#">Database Status</a></li>
-								    <li><a href="#">Licenses</a></li>
-								    </div>
-								  </ul>
-								</div>
-							</div>
+                            <div class="home-dropdown">
+                                <div class="btn-group">
+                                    <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+                                    <ul class="dropdown-menu">
+                                        <div>
+                                            <li class="dropdown-title">Logs &amp; Reporting</li>
+                                            <li><a href="#">Charts</a></li>
+                                            <li><a href="#">Excel Data Dump</a></li>
+                                            <li><a href="#">Logging</a></li>
+                                            <li><a href="#">Log File Viewer</a></li>
+                                            <li class="dropdown-title">Processes</li>
+                                            <li><a href="#">Process Control</a></li>
+                                            <li><a href="#">Manage Background Jobs</a></li>
+                                        </div>
+                                        <div>
+                                            <li class="dropdown-title">Server Administration</li>
+                                            <li><a href="#">Admin Commands</a></li>
+                                            <li><a href="#">Configure Options</a></li>
+                                            <li><a href="#">Scheduler</a></li>
+                                            <li><a href="#">Workflow Extensions</a></li>
+                                            <li><a href="#">Database Status</a></li>
+                                            <li><a href="#">Licenses</a></li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                     <div class="span6">
                         <ul class="display-inline-children pull-right">
                             <!--<li>
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
-                            </li>-->
+                                </li>-->
                             <li>
                                 <select class="input-medium"  id="WFWebAppsDropDown">
                                 </select>
@@ -62,29 +60,29 @@
                 </div>
             </div>
         </div>
-        
         <div id="mainsi">
-                <div class="container-fluid">
+            <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span12">
                         <ul id="breadcrumbs">
                             <li><a href="#">Administration</a> &rsaquo;</li>
                             <li><a href="#">Scheduler</a></li>
                             <li class="related-links">
-								<ul>
-									<li class="related-label">Related:</li>
-									<li class="link"><a href="#">Scheduler</a></li>
-									<li class="link"><a href="#">Mark Inactive Processes</a></li>
-									<li class="link"><a href="#">Archive List</a></li>
-									<li class="link"><a href="#">Archive Solution Definition</a></li>
-									<li class="link"><a href="#">Background Processes</a></li>
-								</ul>
-							</li>
+                                <ul>
+                                    <li class="related-label">Related:</li>
+                                    <li class="link"><a href="#">Scheduler</a></li>
+                                    <li class="link"><a href="#">Mark Inactive Processes</a></li>
+                                    <li class="link"><a href="#">Archive List</a></li>
+                                    <li class="link"><a href="#">Archive Solution Definition</a></li>
+                                    <li class="link"><a href="#">Background Processes</a></li>
+                                </ul>
+                            </li>
                         </ul>
                         <ul id="secnav">
                             <li class="active">
                                 <a href="#">
-                                    <h1>Purge Services</h1> 
+                                    <h1>Purge Services</h1>
+                                    <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 </a>
                             </li>
                         </ul>
@@ -92,9 +90,6 @@
                 </div>
                 <div class="row-fluid">
                     <div class="span8">
-                        
-                        
-                        
                         <div class="settings-info">
                             <form class="form-horizontal">
                                 <fieldset>
@@ -104,165 +99,226 @@
                                             <ul class="checkbox-group">
                                                 <li>
                                                     <label>
-                                                        <input type="checkbox" id="statusCompletechkBox" checked="checked">
-                                                        <span>
-                                                            COMPLETE
-                                                        </span>
+                                                    <input type="checkbox" id="statusCompletechkBox" checked="checked">
+                                                    <span>
+                                                    COMPLETE
+                                                    </span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input type="checkbox" id="statusPendingchkBox">
-                                                        <span>
-                                                            PENDING
-                                                        </span>
+                                                    <input type="checkbox" id="statusPendingchkBox">
+                                                    <span>
+                                                    PENDING
+                                                    </span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input type="checkbox" id="statusErrorchkBox">
-                                                        <span>
-                                                            ERROR
-                                                        </span>
+                                                    <input type="checkbox" id="statusErrorchkBox">
+                                                    <span>
+                                                    ERROR
+                                                    </span>
                                                     </label>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    
                                     <div class="control-group">
                                         <label class="control-label">Begin Purging</label>
                                         <div class="controls">
                                             <ul class="checkbox-group inline-list">
                                                 <li>
                                                     <label>
-                                                        <input type="radio"  id="purgeNowRadio" name="TEMPNAME-logretention" checked="checked" check-text="now">
-                                                        <span>
-                                                            Now
-                                                        </span>
+                                                    <input class="js-logretention-toggle-view-master-0" type="radio" id="purgeNowRadio" name="TEMPNAME-logretention" checked="checked">
+                                                    <span>
+                                                    Now
+                                                    </span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input type="radio" id="purgeScheduleRadio" name="TEMPNAME-logretention" check-text="schedule">
-                                                        <span>
-                                                            Schedule
-                                                        </span>
+                                                    <input class="js-logretention-toggle-view-master-1" type="radio" id="purgeScheduleRadio" name="TEMPNAME-logretention">
+                                                    <span>
+                                                    Schedule
+                                                    </span>
                                                     </label>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    
-                                    <div class="control-group">
+                                    <div class="control-group js-logretention-toggle-view-slave-1 js-initial-hide">
                                         <label class="control-label">Day <span class="required">*</span></label>
                                         <div class="controls">
-                                            <select class="input-large" id="purgeScheduleDayDropDown">
-                                                <option value = "1" >First Day of the month</option>
-                                                <option value = "100">Last Day of the month</option>
-                                                <option value = "2">2nd</option>
-                                                <option value = "3">3rd</option>
-                                                <option value = "4">4th</option>
-                                                <option value = "5">5th</option>
-                                                <option value = "6">6th</option>
-                                                <option value = "7">7th</option>
+                                            <select class="js-chosen-target input-large" id="purgeScheduleDayDropDown">
+                                                <option value="1">First Day of the month</option>
+                                                <option value="100">Last Day of the month</option>
+                                                <option value="2">2nd</option>
+                                                <option value="3">3rd</option>
+                                                <option value="4">4th</option>
+                                                <option value="5">5th</option>
+                                                <option value="6">6th</option>
+                                                <option value="7">7th</option>
+                                                <option value="8">8th</option>
+                                                <option value="9">9th</option>
+                                                <option value="10">10th</option>
+                                                <option value="11">11th</option>
+                                                <option value="12">12th</option>
+                                                <option value="13">13th</option>
+                                                <option value="14">14th</option>
+                                                <option value="15">15th</option>
+                                                <option value="16">16th</option>
+                                                <option value="17">17th</option>
+                                                <option value="18">18th</option>
+                                                <option value="19">19th</option>
+                                                <option value="20">20th</option>
+                                                <option value="21">21st</option>
+                                                <option value="22">22nd</option>
+                                                <option value="23">23rd</option>
+                                                <option value="24">24th</option>
+                                                <option value="25">25th</option>
+                                                <option value="26">26th</option>
+                                                <option value="27">27th</option>
+                                                <option value="28">28th</option>
+                                                <option value="29">29th</option>
+                                                <option value="30">30th</option>
                                             </select>
                                         </div>
                                     </div>
-                                    
-                               		<div class="control-group">
+                                    <div class="control-group js-logretention-toggle-view-slave-1 js-initial-hide">
                                         <label class="control-label">Time <span class="required">*</span></label>
                                         <div class="controls ">
-                                        	<input type="text" id="purgeScheduleTimeDropDown" class="js-kendo-timepicker form-control input-small" placeholder="HH:mm">
+                                            <input type="text" id="purgeScheduleTimeDropDown" class="js-kendo-timepicker form-control input-small" placeholder="HH:mm">
                                         </div>
                                     </div>
-                                    
-                               		<div class="control-group">
+                                    <div class="control-group">
                                         <label class="control-label">User(s) to Notify <span class="required">*</span></label>
                                         <div class="controls ">
-                                        	<input type="text" id="usersToNotifyTextBox" class="form-control input-block-level" placeholder="user@winshuttle.com">
+                                            <input type="text" id="usersToNotifyTextBox" class="form-control input-block-level" placeholder="user@winshuttle.com">
                                         </div>
                                     </div>
-	                                
-	                                <div class="control-group">
+                                    <div class="control-group">
                                         <label class="control-label">End Purging after <span class="required">*</span></label>
                                         <div class="controls ">
-                                        	<input type="text" id="purgeDurationDropDown" class="js-kendo-timepicker form-control input-small" placeholder="HH:mm">
+                                            <label class="control-label secondary-label">
+                                                HOURS
+                                                <select class="input-mini">
+                                                    <option>0</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                    <option>13</option>
+                                                    <option>14</option>
+                                                    <option>15</option>
+                                                    <option>16</option>
+                                                    <option>17</option>
+                                                    <option>18</option>
+                                                    <option>19</option>
+                                                    <option>20</option>
+                                                    <option>21</option>
+                                                    <option>22</option>
+                                                    <option>23</option>
+                                                </select>
+                                            </label>
+                                            <label class="control-label secondary-label">
+                                                MINUTES
+                                                <select class="input-mini">
+                                                    <option>0</option>
+                                                    <option>5</option>
+                                                    <option>10</option>
+                                                    <option>15</option>
+                                                    <option>20</option>
+                                                    <option>25</option>
+                                                    <option>30</option>
+                                                    <option>35</option>
+                                                    <option>40</option>
+                                                    <option>45</option>
+                                                    <option>50</option>
+                                                    <option>55</option>
+                                                </select>
+                                            </label>
                                         </div>
                                     </div>
-                                        
                                     <div class="control-group">
                                         <label class="control-label">Additional Options</label>
                                         <div class="controls">
                                             <ul class="checkbox-group">
                                                 <li>
                                                     <label>
-                                                        <input id="verboseChkBox"type="checkbox">
-                                                        <span>
-                                                            Verbose
-                                                        </span>
+                                                    <input id="verboseChkBox"type="checkbox">
+                                                    <span>
+                                                    Verbose
+                                                    </span>
                                                     </label>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    
                                     <div class="form-actions">
                                         <button type="submit" id="btnSave" class="btn btn-primary"><span>Save</span></button>
                                         <button class="btn"><span>Cancel</span></button>
                                     </div>
-                                    
                                 </fieldset>
                             </form>
                         </div>
-                        
-                    </div><!-- /div .span8 -->
-                </div><!-- /div .row-fluid -->
-            </div><!-- /div .container-fluid -->
-            
-            </div><!-- /div #mainsi -->
-        	<div id="footer" class="row-fluid">
-                <div class="container-fluid">
-                    <div class="row-fluid">
-                        <div class="span8">
-                            <div id="footer-links">
-                                <ul>
-                                    <li><a href="#">Help</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Terms</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                </ul>
-                                <ul>
-                                    <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                    <li>Version 10.4</li>
-                                    <li>Privacy Mode: Secure</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <ul class="security-logo">
-                                <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                                <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                                <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                    </div>
+                    <!-- /div .span8 -->
+                </div>
+                <!-- /div .row-fluid -->
+            </div>
+            <!-- /div .container-fluid -->
+        </div>
+        <!-- /div #mainsi -->
+        <div id="footer" class="row-fluid">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div id="footer-links">
+                            <ul>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                            <ul>
+                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
+                                <li>Version 10.4</li>
+                                <li>Privacy Mode: Secure</li>
                             </ul>
                         </div>
                     </div>
+                    <div class="span4">
+                        <ul class="security-logo">
+                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        
+        </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
-        if (!window.jQuery) {
-            console.error("jQuery CDN is down.")
-            document.write('<script src="assets/js/jquery.min.js"><\/script>');
-        }
+            if (!window.jQuery) {
+                console.error("jQuery CDN is down.")
+                document.write('<script src="assets/js/jquery.min.js"><\/script>');
+            }
         </script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script>
-        if (!$.fn.modal) {
-            console.error("Bootstrap CDN is down.")
-            document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
-        }
+            if (!$.fn.modal) {
+                console.error("Bootstrap CDN is down.")
+                document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
+            }
         </script>
         <script src="assets/js/kendo.all.min.js"></script>
         <script src="assets/js/chosen.jquery.min.js"></script>
@@ -271,26 +327,33 @@
         <script src="assets/js/ws_global_initialization_administration.js"></script>
         <script src="assets/js/ws_common.js"></script>
         <script>
+            wsLib_toggleViews("logretention", 2, "radio", "no", 200);
+            
+            $('.js-chosen-target').chosen({
+                width: "210px",
+                disable_search: true
+            });
+            
             $(document).ready(function () {
                 ws_initializeWebApp("/admin/GetAllWebApp", $('#WFWebAppsDropDown'), null);
             });
-
+            
             function CallBackFunction(data, callbackdata) {
                 alert(data);
             }
-
+            
             $("#btnSave").click(function () {
-                var blnComplete, blnPending, blnError, blnPurgeNow, strScheduleType, strScheduleDay, strScheduleTime, strUserNotifyEmail, intPurgeDuration, blnVerbose;
-
+                var blnComplete, blnPending, blnError, blnPurgeNow, blnPurgeSchedule, strScheduleDay, strScheduleTime, strUserNotifyEmail, intPurgeDuration, blnVerbose;
+            
                 //Getting Status to be purged
                 blnComplete = $("#statusCompletechkBox").prop('checked');
                 blnPending = $("#statusPendingchkBox").prop('checked');
                 blnError = $("#statusErrorchkBox").prop('checked');
-
+            
                 if (!blnComplete && !blnPending && !blnError) {
                     return false;
                 }
-
+            
                 //Getting Schedule Pattern
                 strScheduleType = $("input[name=TEMPNAME-logretention]:checked").attr('check-text');
                 blnPurgeNow = $("#purgeNowRadio").prop('checked');
@@ -304,26 +367,26 @@
                         return false;
                     }
                 }
-
+            
                 strUserNotifyEmail = $("#usersToNotifyTextBox").val();
                 if (strUserNotifyEmail.length == 0) {
                     return false;
                 }
-
+            
                 //Getting Purge Duration and additional options
                 intPurgeDuration = $("#purgeDurationDropDown").val();
                 if (intPurgeDuration.length == 0) {
                     return false;
                 }
-
+            
                 //Getting HostName
                 var strHostName = $("#WFWebAppsDropDown").val();
                 if (strHostName.length == 0) {
                     return false;
                 }
-
+            
                 blnVerbose = $("#verboseChkBox").prop('checked');
-
+            
                 ws_ajaxCall('/Scheduler/CreatePurgeServiceEntry',
                             {
                                 isStatusComplete: blnComplete,

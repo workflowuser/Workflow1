@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Winshuttle - Home</title>
+        <title>Winshuttle - Participant Resolvers</title>
         
         <link href="assets/css/kendo.common.min.css" rel="stylesheet">
         <link href="assets/css/kendo.default.min.css" rel="stylesheet">
@@ -49,9 +49,11 @@
 
                     <div class="span6">
                         <ul class="display-inline-children pull-right">
+                            <!--
                             <li>
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
                             </li>
+                            -->
                             <li>
                                 <select class="input-medium">
                                     <option>Sharepoint - 80</option>
@@ -67,57 +69,121 @@
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span12">
+                        <ul id="breadcrumbs">
+                            <li><a href="#">Administration</a> &rsaquo;</li>
+                            <li><a href="#">Server Administration</a></li>
+                            <li class="related-links">
+								<ul>
+									<li class="related-label">Related Tasks:</li>
+									<li class="link"><a href="#">Extension Configuration</a></li>
+									<li class="link"><a href="#">Plugins</a></li>
+									<li class="link"><a href="#">InfoPath Form Controllers</a></li>
+								</ul>
+							</li>
+                        </ul>
                         <ul id="secnav">
                             <li class="active">
-                                <h1>Administration</h1>
+                                <h1>Participant Resolvers</h1>
                                 <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <!-- /div .row-fluid -->
                 
                 <div class="row-fluid">
-                    <div class="span12">
-							<h2>Logs &amp; Reporting</h2>
-						<ul class="home-links">
-							<li class="charts"><a href="#"><span></span><h3>Charts</h3></a></li>
-							<li class="data-dump"><a href="#"><span></span><h3>Excel Workflow Data Dump</h3></a></li>
-							<li class="logging"><a href="#"><span></span><h3>Logging</h3></a></li>
-							<li class="log-file-viewer"><a href="#"><span></span><h3>Log File Viewer</h3></a></li>
-						</ul>
-                    </div>
-                </div>
-                <!-- /div .row-fluid -->
-                
+					<table class="table table-header">
+						<tbody>
+							<tr>
+								<td>
+									<form>
+										<div>
+										  <label>Participant resolver name contains</label>
+                                    		<input type="text" class="form-control input-xlarge" placeholder="">
+
+										</div>
+										    
+										<div>
+											<label>Participant resolver definition contains</label>
+                                    		<input type="text" class="form-control input-xlarge" placeholder="">
+
+										</div>
+										<div>
+											<label>&nbsp;</label>
+											<div class="input-btn-primary">
+												<input class="btn input-btn-primary" type="submit" name="" value="Search">
+											</div>
+										</div>
+									</form>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>	
+				
                 <div class="row-fluid">
                     <div class="span12">
-							<h2>Processes</h2>
-						<ul class="home-links">
-							<li class="process-control"><a href="#"><span></span><h3>Process Control</h3></a></li>
-							<li class="background-tasks"><a href="#"><span></span><h3>Manage Background Tasks</h3></a></li>
+                        <table class="table table-scheduler table-striped table-bordered">
+                            <thead>
+							<tr class="table-menu">
+								<th colspan="8">
+									<div class="display">
+										<span>Displaying 1 - 50 of 125</span>
+										<select name="" onchange="" class="input-small">
+											<option selected="selected" value="50">50</option>
+											<option value="100">100</option>
+											<option value="200">200</option>
+											<option value="500">500</option>
+										</select>
+									</div>
+								</th>
+							</tr>
+							</thead>
+						  <tr>
+						  	<th><a href="#">Participant resolver Name</a></th>
+						    <th><a href="#">Participant resolver Definition</a></th>
+						  </tr>
+                            <tbody>
+                                <tr>
+									<td>AdoNetQuery <a href="#" class="edit"><i class="icon-edit"></i></a></td>
+                                    <td>&#60;xml code preview goes here&#62;</td>
+                                </tr>
+                                <tr>
+									<td>Custom <a href="#" class="edit"><i class="icon-edit"></i></a></td>
+                                    <td>&#60;xml&#62;</td>
+                                </tr>
+                                 <tr>
+									<td>DynamicSharePointList<a href="#" class="edit"><i class="icon-edit"></i></a></td>
+                                    <td>&#60;xml&#62;</td>
+                                </tr>
+                                 <tr>
+									<td>DynamicWebService <a href="#" class="edit"><i class="icon-edit"></i></a></td>
+                                    <td>&#60;xml&#62;</td>
+                                </tr>
+                                 <tr>
+									<td>GetFromUserProfile <a href="#" class="edit"><i class="icon-edit"></i></a></td>
+                                    <td>&#60;xml&#62;</td>
+                                </tr>
+                                 <tr>
+									<td>SomeOtherThing <a href="#" class="edit"><i class="icon-edit"></i></a></td>
+                                    <td>&#60;xml&#62;</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+						<ul class="pagination">
+							<li><a href="#" class="btn btn-disabled"><span>&larr;</span></a></li>
+							<li><a href="#" class="btn btn-primary"><span>1</span></a></li>
+							<li><a href="#" class="btn"><span>2</span></a></li>
+							<li><a href="#" class="btn"><span>3</span></a></li>
+							<li><a href="#" class="btn"><span>&rarr;</span></a></li>
 						</ul>
-                    </div>
-                </div>
-                <!-- /div .row-fluid -->
+                        
+                    </div><!-- /div .span8 -->
+                </div><!-- /div .row-fluid -->
                 
-                <div class="row-fluid">
-                    <div class="span12">
-							<h2>Server Administration</h2>
-						<ul class="home-links">
-							<li class="admin-commands"><a href="#"><span></span><h3>Admin Commands</h3></a></li>
-							<li class="configure-options"><a href="#"><span></span><h3>Configure Options</h3></a></li>
-							<li class="scheduler"><a href="#"><span></span><h3>Scheduler</h3></a></li>
-							<li class="extensions"><a href="#"><span></span><h3>Workflow Extensions</h3></a></li>
-							<li class="database-status"><a href="#"><span></span><h3>Database Status</h3></a></li>
-							<li class="licenses"><a href="#"><span></span><h3>Licenses</h3></a></li>
-						</ul>
-                    </div>
-                </div>
-                <!-- /div .row-fluid -->
             </div><!-- /div .container-fluid -->
             
-        </div><!-- /div #mainsi -->
+            </div><!-- /div #mainsi -->
         	<div id="footer" class="row-fluid">
                 <div class="container-fluid">
                     <div class="row-fluid">
@@ -146,6 +212,7 @@
                     </div>
                 </div>
             </div>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
         if (!window.jQuery) {

@@ -51,8 +51,7 @@
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
                                 </li>-->
                             <li>
-                                <select class="input-medium" id="select-webapp">
-                                </select>
+                                <select class="input-medium" id="select-webapp"></select>
                             </li>
                         </ul>
                     </div>
@@ -77,6 +76,7 @@
                         <ul id="secnav">
                             <li class="active">
                                 <h1>Process Control</h1>
+                                <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </li>
                         </ul>
                     </div>
@@ -90,13 +90,13 @@
                                         <div>
                                             <label>Server</label>
                                             <select name="webapp" id="select-server" class="input-medium">
-                                            <option selected="selected" value="%">All</option>
+                                                <option selected="selected" value="%">All</option>
                                             </select>
                                         </div>
                                         <div>
                                             <label>Site</label>
                                             <select name="site" id="select-site" class="input-small">
-                                            <option selected="selected" value="%">All</option>
+                                                <option selected="selected" value="%">All</option>
                                             </select>
                                         </div>
                                         <div>
@@ -129,8 +129,7 @@
                                         </div>
                                         <div>
                                             <label>Overdue</label>
-                                            <select name="overdueDate" id="select-overdue" class="input-mini">
-                                            </select>
+                                            <select name="overdueDate" id="select-overdue" class="input-mini"></select>
                                         </div>
                                         <div>
                                             <label>&nbsp;</label>
@@ -190,9 +189,7 @@
                                 <th><a href="#">Due on</a></th>
                             </tr>
                         </thead>
-                        <tbody>
-                           
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                     <ul class="pagination">
                         <li><a href="#" class="btn btn-disabled"><span>&larr;</span></a></li>
@@ -261,35 +258,35 @@
                 trigger: 'click',
                 animation: true
             });
-
-            $('body').on('click', '.js-tooltip-target', function (event) {
+            
+            $('body').on('click', '.js-tooltip-target', function(event) {
                 event.stopPropagation();
-
+                
                 $('div.tooltip').not($(this).siblings('div.tooltip')).remove();
             });
-
+            
             var $administrationProcessControlCommentsButtons = $('div.js-administration-processcontrol-visiblefor-runningprocess');
-
+            
             wsLib_checkAll('processcontrol', undefined, {
-                empty: function () {
+                empty: function() {
                     $administrationProcessControlCommentsButtons.fadeOut();
                 },
-                partial: function () {
+                partial: function() {
                     $administrationProcessControlCommentsButtons.fadeIn();
                 },
-                full: function () {
+                full: function() {
                     $administrationProcessControlCommentsButtons.fadeIn();
                 },
                 toggleCheckbox: {
-                    single: function (whichState, $whichCheckbox) {
+                    single: function(whichState, $whichCheckbox) {
                         wsLib_console({
                             whichState: whichState,
                             whichCheckbox: $whichCheckbox,
                             status: $whichCheckbox.data('status')
                         });
                     },
-                    all: function (whichState) {
-
+                    all: function(whichState) {
+                        
                     }
                 }
             });

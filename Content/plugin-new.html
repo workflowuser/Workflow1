@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Winshuttle - New Plugin</title>
+        <link href="assets/css/kendo.common.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.default.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.default.min.css" rel="stylesheet">
+        <link href="assets/css/winshuttle.css" rel="stylesheet">
+        <link href="assets/css/ws-formitems.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="workflow-header">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="workflow-brand">
+                            <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
+                            <div class="home-dropdown">
+                                <div class="btn-group">
+                                    <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+                                    <ul class="dropdown-menu">
+                                        <div>
+                                            <li class="dropdown-title">Logs &amp; Reporting</li>
+                                            <li><a href="#">Charts</a></li>
+                                            <li><a href="#">Excel Data Dump</a></li>
+                                            <li><a href="#">Logging</a></li>
+                                            <li><a href="#">Log File Viewer</a></li>
+                                            <li class="dropdown-title">Processes</li>
+                                            <li><a href="#">Process Control</a></li>
+                                            <li><a href="#">Manage Background Jobs</a></li>
+                                        </div>
+                                        <div>
+                                            <li class="dropdown-title">Server Administration</li>
+                                            <li><a href="#">Admin Commands</a></li>
+                                            <li><a href="#">Configure Options</a></li>
+                                            <li><a href="#">Scheduler</a></li>
+                                            <li><a href="#">Workflow Extensions</a></li>
+                                            <li><a href="#">Database Status</a></li>
+                                            <li><a href="#">Licenses</a></li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <ul class="display-inline-children pull-right">
+                            <!--<li>
+                                <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
+                                </li>-->
+                            <li>
+                                <select class="input-medium">
+                                    <option>Sharepoint - 80</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mainsi">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <ul id="breadcrumbs">
+                            <li><a href="#">Administration</a> &rsaquo;</li>
+                            <li><a href="#">Server Administration</a> &rsaquo;</li>
+                            <li class="related-links">
+                                <ul>
+                                    <li class="related-label">Related Tasks:</li>
+                                    <li class="link"><a href="#">Extension Configuration</a></li>
+                                    <li class="link"><a href="#">Participant Resolver</a></li>
+                                    <li class="link"><a href="#">InfoPath Form Controllers</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul id="secnav">
+                            <li class="active">
+                                <h1>New Plugin</h1>
+                                <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <form class="form-horizontal">
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <div class="settings-info">
+                                <fieldset class="form-horizontal">
+                                    <div class="control-group">
+                                        <label class="control-label">Plugin Name <span class="required">*</span></label>
+                                        <div class="controls ">
+                                            <input type="text" class="form-control input-block-level" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Create with</label>
+                                        <div class="controls">
+                                            <ul class="checkbox-group inline-list">
+                                                <li>
+                                                    <label>
+                                                    <input type="radio" class="js-createwith-toggle-view-master-0" name="TEMP_create_with" checked="checked">
+                                                    <span>XML</span>
+                                                    <a class="tooltip-help js-tooltip-target" href="#">[?]</a> 
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label>
+                                                    <input type="radio" class="js-createwith-toggle-view-master-1" name="TEMP_create_with" >
+                                                    <span>Plugin Designer</span>
+                                                    <a class="tooltip-help js-tooltip-target" href="#">[?]</a> 
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--if xml choses-->
+                                    <div class="control-group js-createwith-toggle-view-slave-0">
+                                        <label class="control-label">XML <span class="required">*</span></label>
+                                        <div class="controls ">
+                                            <textarea class="js-transform-formexpand input-block-level"></textarea>
+                                        </div>
+                                    </div>
+                                    <!--if plugin designer chosen-->
+                                    <div class="control-group js-createwith-toggle-view-slave-1 js-initial-hide">
+                                        <label class="control-label">Plugin Description <span class="required">*</span></label>
+                                        <div class="controls ">
+                                            <textarea class="input-block-level"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="control-group js-createwith-toggle-view-slave-1 js-initial-hide">
+                                        <label class="control-label">Assembly <span class="required">*</span></label>
+                                        <div class="controls ">
+                                            <input type="text" class="form-control input-block-level" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="control-group js-createwith-toggle-view-slave-1 js-initial-hide">
+                                        <label class="control-label">Plugin Class <span class="required">*</span></label>
+                                        <div class="controls ">
+                                            <input type="text" class="form-control input-block-level" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="control-group js-createwith-toggle-view-slave-1 js-initial-hide">
+                                        <label class="control-label">Validator Class <span class="required">*</span></label>
+                                        <div class="controls ">
+                                            <input type="text" class="form-control input-block-level" placeholder="WFDesigner.Validator.PluginVAlidatorStandardImpI">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <!-- /div .span8 -->
+                    </div>
+                    <h2 class="js-createwith-toggle-view-slave-1 js-initial-hide">Parameters</h2>
+                    <div class="row-fluid js-createwith-toggle-view-slave-1 js-initial-hide">
+                        <div class="span8">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th><a href="#">Add Parameter</a></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="settings-info">
+                                                <fieldset id="js-administration-pluginnew-parameters" class="form-horizontal">
+                                                    <div class="control-group">
+                                                        <label class="control-label">Parameter Name <span class="required">*</span></label>
+                                                        <div class="controls ">
+                                                            <input type="text" name="parameter_name" class="js-form-item form-control input-block-level" placeholder="">
+                                                            <label>
+                                                            <input type="checkbox" name="editable" class="js-form-item">
+                                                            Editable
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">Parameter Description <span class="required">*</span></label>
+                                                        <div class="controls ">
+                                                            <textarea name="parameter_description" class="js-form-item input-block-level"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">Occurrence <span class="required">*</span></label>
+                                                        <div class="controls ">
+                                                            <input name="occurrence" type="text" class="js-form-item form-control input-small" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">Data Type <span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <select name="data_type" class="js-form-item input-large">
+                                                                <option>String</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="settings-info">
+                                                        <h2>Validators</h2>
+                                                        <table class="table table-striped table-bordered table-addedit-form">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th width="22%"><a href="#">Message</a></th>
+                                                                    <th width="%"><a href="#">Regular Expression</a></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="js-administration-pluginnew-parameters-validators" class="js-form-item" data-inner-content="true" name="validators">
+                                                                
+                                                                <tr class="js-rowadd-toggle-view-slave-1 row-add">
+                                                                    <td colspan="2"><a class="js-rowadd-toggle-view-master-0" href="#">Add Validator Section</a></td>
+                                                                </tr>
+                                                                <tr class="js-rowadd-toggle-view-slave-0 row-add js-initial-hide">
+                                                                    <td>
+                                                                        <input type="text" class="form-control input-max" placeholder="Message">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" class="form-control input-twothirds" placeholder="Regular Expression">
+                                                                        
+                                                                        <div class="add-actions">
+                                                                            <button class="js-administration-pluginnew-parameters-validators-addrow js-rowadd-toggle-view-master-1 btn btn-primary"><span>Add</span></button>
+                                                                            <button class="js-rowadd-toggle-view-master-1 btn "><span>Cancel</span></button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                        
+                                                        
+                                                        
+                                                        <div id="js-label-moreoptions" class="fewer-options">
+                                                            <a href="#" class="js-container-moreoptions-trigger">More Options</a>
+                                                            <div id="js-container-moreoptions" class="js-initial-hide">
+                                                                <div class="control-group">
+                                                                    <label class="control-label">List of Values</label>
+                                                                    <div class="controls form-textandbutton">
+                                                                        <input type="text" name="list_of_values" class="js-form-item form-control input-small" placeholder="semi-colon deliniated">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="control-group">
+                                                                    <label class="control-label">Default VAlue</label>
+                                                                    <div class="controls form-textandbutton">
+                                                                        <input type="text" name="default_value" class="js-form-item form-control input-small" placeholder="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="control-group">
+                                                                    <label class="control-label">Include Running</label>
+                                                                    <div class="controls">
+                                                                        <ul class="checkbox-group">
+                                                                            <li>
+                                                                                <label>
+                                                                                <input type="checkbox" name="required_parameter" class="js-form-item">
+                                                                                Required Parameter
+                                                                                </label>
+                                                                            </li>
+                                                                            <li>
+                                                                                <label>
+                                                                                <input type="checkbox" name="variant" class="js-form-item">
+                                                                                Variant
+                                                                                </label>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="js-administration-pluginnew-parameters-action-addrow form-actions" style="padding-left: 15px;">
+                                                        <button class="js-form-button-add btn btn-primary"><span>Add</span></button>
+                                                        <button class="js-form-button-cancel btn"><span>Cancel</span></button>
+                                                    </div>
+                                                    <div class="js-administration-pluginnew-parameters-action-editrow form-actions" style="padding-left: 15px;">
+                                                        <button class="js-form-button-update btn btn-primary"><span>Update</span></button>
+                                                        <button class="js-form-button-cancel btn"><span>Cancel</span></button>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="js-administration-pluginnew-parameters-list" class="row-fluid js-initial-hide">
+                        <div class="span8">
+                            <table class="table table-striped table-bordered table-addedit-form">
+                                <thead>
+                                    <tr>
+                                        <th><a href="#">Name</a></th>
+                                        <th><a href="#">Description</a></th>
+                                        <th><a href="#">Occurrence</a></th>
+                                        <th><a href="#">Type</a></th>
+                                        <th><a href="#">Required</a></th>
+                                        <th><a href="#">Variant</a></th>
+                                        <th><a href="#">Validator</a></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- add new value -->
+                                    <tr class="row-add">
+                                        <td colspan="7"><a class="js-administration-pluginnew-parameters-list-addnewvalue" href="#">Add New Value</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button id="js-debug-submitdata" class="btn btn-primary"><span>Save</span></button>
+                        <button class="btn"><span>Cancel</span></button>
+                    </div>
+                </form>
+            </div>
+            <!-- /div .container-fluid -->
+        </div>
+        <!-- /div #mainsi -->
+        <div id="footer" class="row-fluid">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div id="footer-links">
+                            <ul>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                            <ul>
+                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
+                                <li>Version 10.4</li>
+                                <li>Privacy Mode: Secure</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <ul class="security-logo">
+                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            if (!window.jQuery) {
+                console.error("jQuery CDN is down.")
+                document.write('<script src="assets/js/jquery.min.js"><\/script>');
+            }
+        </script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script>
+            if (!$.fn.modal) {
+                console.error("Bootstrap CDN is down.")
+                document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
+            }
+        </script>
+        <script src="assets/js/kendo.all.min.js"></script>
+        <script src="assets/js/wslib_master.js"></script>
+        <script src="assets/js/wsplugin_master.js"></script>
+        <script src="assets/js/ws_global_initialization_administration.js"></script>
+        <script>
+            (function() {
+                wsLib_toggleViews("rowadd", 2, "default");
+                
+                
+                
+                function createValidatorsTableRowHTML(whichPlugData) {
+                    var currentRowHTML = '';
+                    
+                    currentRowHTML += '<tr class="js-administration-pluginnew-parameters-validators-item">';
+                        currentRowHTML += '<td>';
+                            currentRowHTML += '<div class="js-administration-pluginnew-parameters-validators-display">' + whichPlugData.message + '</div>';
+                            currentRowHTML += '<div class="js-administration-pluginnew-parameters-validators-form js-initial-hide" style="display: none;">';
+                                currentRowHTML += '<input type="text" value="' + whichPlugData.message + '" class="input-max">';
+                            currentRowHTML += '</div>';
+                        currentRowHTML += '</td>';
+                        currentRowHTML += '<td>';
+                            currentRowHTML += '<div class="pull-right">';
+                                currentRowHTML += '<div>';
+                                    currentRowHTML += '<a class="js-administration-pluginnew-parameters-validators-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a>';
+                                    currentRowHTML += '<a class="js-administration-pluginnew-parameters-validators-deleterow" href="#"><i class="icon-trash">&nbsp;&nbsp;</i></a>';
+                                currentRowHTML += '</div>';
+                                currentRowHTML += '<div class="update-actions js-initial-hide" style="display: none;">';
+                                    currentRowHTML += '<button class="js-administration-pluginnew-parameters-validators-editsave js-administration-pluginnew-parameters-validators-edittoggle btn btn-primary"><span>Save</span></button>';
+                                    currentRowHTML += '<button class="js-administration-pluginnew-parameters-validators-edittoggle btn"><span>Cancel</span></button>';
+                                currentRowHTML += '</div>';
+                            currentRowHTML += '</div>';
+                            currentRowHTML += '<div class="js-administration-pluginnew-parameters-validators-display">' + whichPlugData.regularExpression + '</div>';
+                            currentRowHTML += '<div class="js-administration-pluginnew-parameters-validators-form js-initial-hide" style="display: none;">';
+                                currentRowHTML += '<input type="text" value="' + whichPlugData.regularExpression + '" class="input-twothirds">';
+                            currentRowHTML += '</div>';
+                        currentRowHTML += '</td>';
+                    currentRowHTML += '</tr>';
+                    
+                    var $currentRowHTML = $(currentRowHTML);
+                    
+                    $currentRowHTML.data('validator-content', $.extend({}, {}, whichPlugData));
+                    
+                    return $currentRowHTML;
+                }
+                
+                
+                
+                var $pluginNewParametersValidators = $('#js-administration-pluginnew-parameters-validators');
+                
+                $pluginNewParametersValidators.off('click.editToggle')
+                                              .off('click.editSave')
+                                              .off('click.deleteRow')
+                                              .off('click.addRow')
+                                              .on('click.editToggle', '.js-administration-pluginnew-parameters-validators-edittoggle', function(event) {
+                    event.preventDefault();
+                    
+                    var $currentParameterItem = $(this).closest('.js-administration-pluginnew-parameters-validators-item');
+                    
+                    $currentParameterItem.children('td').find('.js-administration-pluginnew-parameters-validators-edittoggle').closest('div').toggle();
+                    
+                    $currentParameterItem.find('.js-administration-pluginnew-parameters-validators-display').toggle();
+                    $currentParameterItem.find('.js-administration-pluginnew-parameters-validators-form').toggle();
+                }).on('click.editSave', '.js-administration-pluginnew-parameters-validators-editsave', function(event) {
+                    event.preventDefault();
+                    
+                    var updatedPlugData = {};
+                    var formType = ['message', 'regularExpression'];
+
+                    $(this).closest('tr').find('.js-administration-pluginnew-parameters-validators-form').find('input').each(function(index) {
+                        var $currentInput = $(this);
+                        var $currentDisplay = $currentInput.closest('.js-administration-pluginnew-parameters-validators-form').siblings('.js-administration-pluginnew-parameters-validators-display');
+                        
+                        if($currentInput.attr('type') === 'checkbox') {
+                            $currentDisplay.text($currentInput.prop('checked'));
+                            
+                            updatedPlugData[formType[index]] = $currentInput.prop('checked');
+                        }
+                        else {
+                            $currentDisplay.text($currentInput.val());
+                            
+                            updatedPlugData[formType[index]] = $currentInput.val();
+                        }
+                    });
+                    
+                    $(this).closest('.js-administration-pluginnew-parameters-validators-item').data('validator-content', $.extend({}, {}, updatedPlugData));
+                }).on('click.deleteRow', '.js-administration-pluginnew-parameters-validators-deleterow', function(event) {
+                    event.preventDefault();
+                    
+                    $(this).closest('tr').remove();
+                }).on('click.addRow', '.js-administration-pluginnew-parameters-validators-addrow', function(event) {
+                    event.preventDefault();
+                    
+                    var currentRowData = [];
+                    
+                    $(this).closest('.row-add').find('input').each(function(index) {
+                        var $currentInput = $(this);
+                        
+                        if($currentInput.attr('type') === 'checkbox') {
+                            currentRowData.push({
+                                index: index,
+                                data: $currentInput.prop('checked')
+                            });
+                            
+                            $currentInput.prop('checked', false);
+                        }
+                        else {
+                            currentRowData.push({
+                                index: index,
+                                data: $currentInput.val()
+                            });
+                            
+                            $currentInput.val('');
+                        }
+                    });
+                    
+                    var currentPlugData = {
+                        message: currentRowData[0].data,
+                        regularExpression: currentRowData[1].data
+                    };
+                    
+                    var $generatedRowHTML = createValidatorsTableRowHTML(currentPlugData);
+                    
+                    $pluginNewParametersValidators.find('.row-add').first().before($generatedRowHTML);
+                });
+                
+                
+                
+                
+                
+                wsLib_toggleViews("createwith", 2, "radio", "no", 200);
+                
+                var $parameters = $('#js-administration-pluginnew-parameters');
+                var $parameterList = $('#js-administration-pluginnew-parameters-list');
+                
+                
+                
+                function checkFormType($whichFormItem, possibleResults) {
+                    if($whichFormItem.data('inner-content')) {
+                        return possibleResults.innerContent;
+                    }
+                    else if($whichFormItem.attr('type') === 'checkbox') {
+                        return possibleResults.checkbox;
+                    }
+                    else {
+                        return possibleResults.default;
+                    }
+                }
+                
+                
+                
+                function createParametersTableRowHTML() {
+                    var parameterData = {};
+                    
+                    $parameters.find('.js-form-item').each(function() {
+                        var $this = $(this);
+                        
+                        parameterData[$this.attr('name')] = checkFormType($this, {
+                            innerContent: (function() {
+                                var formData = [];
+
+                                $this.find('tr.js-administration-pluginnew-parameters-validators-item').each(function(index) {
+                                    formData.push($(this).data('validator-content'));
+                                });
+                                
+                                return formData;
+                            })(),
+                            checkbox: $this.prop('checked'),
+                            default: $this.val()
+                        });
+                    });
+                    
+                    var currentParametersRowHTML = '<tr class="js-administration-newplugin-parameters-datarow">';
+                    
+                    currentParametersRowHTML += '<td>' + parameterData['parameter_name'] + '</td>';
+                    currentParametersRowHTML += '<td>' + parameterData['parameter_description'] + '</td>';
+                    currentParametersRowHTML += '<td>' + parameterData['occurrence'] + '</td>';
+                    currentParametersRowHTML += '<td>' + parameterData['data_type'] + '</td>';
+                    currentParametersRowHTML += '<td>' + parameterData['required_parameter'] + '</td>';
+                    currentParametersRowHTML += '<td>' + parameterData['variant'] + '</td>';
+                    currentParametersRowHTML += '<td>';
+                    currentParametersRowHTML += 'Validator';
+                    currentParametersRowHTML += '<div class="pull-right"><a href="#"><i class="js-administration-newplugin-parameters-datarow-edit icon-edit"></i></a><a href="#"><i class="js-administration-newplugin-parameters-datarow-delete icon-trash"></i></a></div>';
+                    currentParametersRowHTML += '</td>';
+                    
+                    currentParametersRowHTML += '</tr>';
+                    
+                    var $currentParametersRow = $(currentParametersRowHTML);
+                    
+                    $currentParametersRow.data('parameter-content', $.extend({}, {}, parameterData));
+                    
+                    return $currentParametersRow;
+                }
+                
+                
+                
+                $parameters.on('click.addParameter', '.js-administration-pluginnew-parameters-action-addrow .js-form-button-add', function(event) {
+                    event.preventDefault();
+                    
+                    var $currentAddRowHTML = createParametersTableRowHTML();
+                    
+                    $parameterList.find('table').children('tbody').children('.row-add').before($currentAddRowHTML);
+                }).on('click.editParameter', '.js-administration-pluginnew-parameters-action-editrow .js-form-button-update', function(event) {
+                    event.preventDefault();
+                    
+                    var $currentEditRowHTML = createParametersTableRowHTML();
+                    
+                    $parameterList.find('table')
+                                  .children('tbody')
+                                  .find('.js-form-edit-active')
+                                  .replaceWith($currentEditRowHTML);
+                }).on('click.clearParametersFields', '.js-form-button-add, .js-form-button-update, .js-form-button-cancel', function(event) {
+                    event.preventDefault();
+                    
+                    $parameters.closest('table').closest('.row-fluid').slideUp(function() {
+                        $parameters.removeClass('js-form-editmode').find('.js-form-item').each(function() {
+                            var $this = $(this);
+                            
+                            var removalTask = checkFormType($this, {
+                                innerContent: function() {
+                                    $this.find('tr.js-administration-pluginnew-parameters-validators-item').remove();
+                                },
+                                checkbox: function() {
+                                    $this.prop('checked', false);
+                                },
+                                default: function() {
+                                    $this.val('');
+                                }
+                            });
+                            
+                            
+                            
+                            removalTask();
+                        });
+                        
+                        $pluginNewParametersValidators.find('.row-add').find('input').each(function() {
+                            $(this).val('')
+                        });
+                        
+                        $parameterList.slideDown()
+                                      .find('table')
+                                      .children('tbody')
+                                      .find('.js-form-edit-active')
+                                      .removeClass('js-form-edit-active');
+                    });
+                });
+                
+                
+                
+                $parameterList.find('table')
+                              .children('tbody')
+                              .on('click.editDataRow', '.js-administration-newplugin-parameters-datarow .js-administration-newplugin-parameters-datarow-edit', function(event) {
+                    event.preventDefault();
+                    
+                    var $targetRow = $(this).closest('.js-administration-newplugin-parameters-datarow');
+                    
+                    var targetRowData = $targetRow.data('parameter-content');
+                    
+                    $parameters.find('.js-form-item').each(function() {
+                        var $this = $(this);
+                        
+                        var editTask = checkFormType($this, {
+                            innerContent: function() {
+                                var $validatorsHTML = [];
+                                
+                                for(var i = 0; i < targetRowData.validators.length; i++) {
+                                    $validatorsHTML.push(createValidatorsTableRowHTML(targetRowData.validators[i]));
+                                }
+                                
+                                $pluginNewParametersValidators.find('.row-add').first().before($validatorsHTML);
+                            },
+                            checkbox: function() {
+                                $this.prop('checked', targetRowData[$this.attr('name')]);
+                            },
+                            default: function() {
+                                $this.val(targetRowData[$this.attr('name')]);
+                            }
+                        });
+                        
+                        editTask();
+                    });
+                    
+                    $parameterList.slideUp(function() {
+                        $parameters.addClass('js-form-editmode')
+                                   .closest('table')
+                                   .closest('.row-fluid')
+                                   .slideDown();
+                        
+                        $targetRow.addClass('js-form-edit-active');
+                    });
+                }).on('click.deleteDataRow', '.js-administration-newplugin-parameters-datarow .js-administration-newplugin-parameters-datarow-delete', function(event) {
+                    event.preventDefault();
+                    
+                    $(this).closest('.js-administration-newplugin-parameters-datarow').fadeOut(function() {
+                        $(this).remove();
+                    });
+                }).on('click.addNewValue', '.js-administration-pluginnew-parameters-list-addnewvalue', function(event) {
+                    event.preventDefault();
+                    
+                    $parameters.closest('table').closest('.row-fluid').slideDown();
+                });
+                
+                
+                
+                $('#js-debug-submitdata').on('click', function(event) {
+                    event.preventDefault();
+                    
+                    var debugParametersData = [];
+                    
+                    $parameterList.find('table')
+                                  .children('tbody')
+                                  .find('.js-administration-newplugin-parameters-datarow')
+                                  .each(function() {
+                        debugParametersData.push($(this).data('parameter-content'));
+                    });
+                    
+                    wsLib_console(debugParametersData);
+                });
+            })();
+        </script>
+    </body>
+</html>

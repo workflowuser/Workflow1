@@ -3,7 +3,6 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Winshuttle - Logging</title>
-        
         <link href="assets/css/kendo.common.min.css" rel="stylesheet">
         <link href="assets/css/kendo.default.min.css" rel="stylesheet">
         <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
@@ -18,35 +17,34 @@
                     <div class="span6">
                         <div class="workflow-brand">
                             <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
-	                        <div class="home-dropdown">
-								<div class="btn-group">
-								  <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-								  <ul class="dropdown-menu">
-								  	<div>
-								  	<li class="dropdown-title">Logs &amp; Reporting</li>
-								    <li><a href="#">Charts</a></li>
-								    <li><a href="#">Excel Data Dump</a></li>
-								    <li><a href="#">Logging</a></li>
-								    <li><a href="#">Log File Viewer</a></li>
-								  	<li class="dropdown-title">Processes</li>
-								    <li><a href="#">Process Control</a></li>
-								    <li><a href="#">Manage Background Jobs</a></li>
-								    </div>
-								    <div>
-								  	<li class="dropdown-title">Server Administration</li>
-								    <li><a href="#">Admin Commands</a></li>
-								    <li><a href="#">Configure Options</a></li>
-								    <li><a href="#">Scheduler</a></li>
-								    <li><a href="#">Workflow Extensions</a></li>
-								    <li><a href="#">Database Status</a></li>
-								    <li><a href="#">Licenses</a></li>
-								    </div>
-								  </ul>
-								</div>
-							</div>
+                            <div class="home-dropdown">
+                                <div class="btn-group">
+                                    <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+                                    <ul class="dropdown-menu">
+                                        <div>
+                                            <li class="dropdown-title">Logs &amp; Reporting</li>
+                                            <li><a href="#">Charts</a></li>
+                                            <li><a href="#">Excel Data Dump</a></li>
+                                            <li><a href="#">Logging</a></li>
+                                            <li><a href="#">Log File Viewer</a></li>
+                                            <li class="dropdown-title">Processes</li>
+                                            <li><a href="#">Process Control</a></li>
+                                            <li><a href="#">Manage Background Jobs</a></li>
+                                        </div>
+                                        <div>
+                                            <li class="dropdown-title">Server Administration</li>
+                                            <li><a href="#">Admin Commands</a></li>
+                                            <li><a href="#">Configure Options</a></li>
+                                            <li><a href="#">Scheduler</a></li>
+                                            <li><a href="#">Workflow Extensions</a></li>
+                                            <li><a href="#">Database Status</a></li>
+                                            <li><a href="#">Licenses</a></li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                     <div class="span6">
                         <ul class="display-inline-children pull-right">
                             <li>
@@ -62,7 +60,6 @@
                 </div>
             </div>
         </div>
-        
         <div id="mainsi">
             <!--
                 START HERE START HERE START HERE START HERE START HERE
@@ -98,18 +95,19 @@
                             <li><a href="#">Administration</a> &rsaquo;</li>
                             <li><a href="#">Logs &amp; Reporting</a></li>
                             <li class="related-links">
-								<ul>
-									<li class="related-label">Related:</li>
-									<li class="link"><a href="#">Log File Viewer</a></li>
-									<li class="link"><a href="#">Indent Logs</a></li>
-									<li class="link"><a href="#">Documentation</a></li>
-								</ul>
-							</li>
+                                <ul>
+                                    <li class="related-label">Related:</li>
+                                    <li class="link"><a href="#">Log File Viewer</a></li>
+                                    <li class="link"><a href="#">Indent Logs</a></li>
+                                    <li class="link"><a href="#">Documentation</a></li>
+                                </ul>
+                            </li>
                         </ul>
                         <ul id="secnav">
                             <li class="active">
                                 <a href="#">
                                     <h1>Logging</h1>
+                                    <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 </a>
                             </li>
                         </ul>
@@ -117,9 +115,6 @@
                 </div>
                 <div class="row-fluid">
                     <div class="span8">
-                        
-                        
-                        
                         <div class="settings-info">
                             <form class="form-horizontal">
                                 <fieldset>
@@ -129,92 +124,91 @@
                                             <ul class="checkbox-group">
                                                 <li>
                                                     <label>
-                                                        <input type="checkbox" id="check-core" value="false">
-                                                        <span>
-                                                            CORE -- Logs the internals of Winshuttle Workflow running under SharePoint
-                                                        </span>
+                                                    <input type="checkbox" id="check-core" value="false">
+                                                    <span>
+                                                    CORE -- Logs the internals of Winshuttle Workflow running under SharePoint
+                                                    </span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input id="check-svservice" type="checkbox" checked="checked" value="true">
-                                                        <span>
-                                                            SYSERVICE -- Logs the running of SVService
-                                                        </span>
+                                                    <input id="check-svservice" type="checkbox" checked="checked" value="true">
+                                                    <span>
+                                                    SYSERVICE -- Logs the running of SVService
+                                                    </span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input id="check-timer" type="checkbox" value="false">
-                                                        <span>
-                                                            TIMER -- Writes timer information as Winshuttle Workflow runs
-                                                        </span>
+                                                    <input id="check-timer" type="checkbox" value="false">
+                                                    <span>
+                                                    TIMER -- Writes timer information as Winshuttle Workflow runs
+                                                    </span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input id="check-CA" type="checkbox" value="false">
-                                                        <span>
-                                                            CENTRAL ADMIN -- Logs this website
-                                                        </span>
+                                                    <input id="check-CA" type="checkbox" value="false">
+                                                    <span>
+                                                    CENTRAL ADMIN -- Logs this website
+                                                    </span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input  id="check-SVADM" type="checkbox" value="false">
-                                                        <span>
-                                                            SVADM -- Does other things
-                                                        </span>
+                                                    <input id="check-SVADM" type="checkbox" value="false">
+                                                    <span>
+                                                    SVADM -- Does other things
+                                                    </span>
                                                     </label>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    
                                     <div class="control-group">
                                         <label class="control-label">Logging Level</label>
                                         <div class="controls">
-                                            <select  id="select-level" class="input-max" value="false">
+                                            <select id="select-level" class="input-max" value="false">
                                                 <option value="Debug">
                                                     DEBUG  Most verbose level. Use if you intend to send your log file to Winshuttle.
                                                 </option>
-                                                   <option value="Info">
+                                                <option value="Info">
                                                     Info  Most verbose level. Use if you intend to send your log file to Winshuttle.
                                                 </option>
-                                                   <option value="Warn">
+                                                <option value="Warn">
                                                     Warn  Most verbose level. Use if you intend to send your log file to Winshuttle.
                                                 </option>
-                                                   <option value="Error">
+                                                <option value="Error">
                                                     Error  Most verbose level. Use if you intend to send your log file to Winshuttle.
                                                 </option>
                                             </select>
                                         </div>
                                     </div>
-                                    
                                     <div class="control-group">
                                         <label class="control-label">Log Retention</label>
                                         <div class="controls">
-                                            <ul class="checkbox-group inline-list" >
+                                            <ul class="checkbox-group inline-list">
                                                 <li>
                                                     <label>
-                                                        <input id="radio-append" type="radio" name="TEMPNAME-logretention" checked="checked" value="true">
-                                                        <span>
-                                                            Append to Prior Logs
-                                                        </span>
+                                                    <input id="radio-append" type="radio" name="TEMPNAME-logretention" checked="checked" value="true">
+                                                    <span>
+                                                    Append to Prior Logs
+                                                    </span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                        <input id="radio-clear" type="radio" name="TEMPNAME-logretention" value="false">
-                                                        <span>
-                                                            Clear Prior Logs
-                                                        </span>
+                                                    <input id="radio-clear" type="radio" name="TEMPNAME-logretention" value="false">
+                                                    <span>
+                                                    Clear Prior Logs
+                                                    </span>
                                                     </label>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <!--<div class="control-group">
+                                    <!--
+                                    <div class="control-group">
                                         <label class="control-label">Logging Scope</label>
                                         <div class="controls">
                                             <ul class="checkbox-group inline-list">
@@ -236,112 +230,111 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </div>
-                                    -->
+                                        </div>
+                                        -->
                                     <div id="js-label-moreoptions" class="fewer-options">
-                                   		<a class="js-container-moreoptions-trigger" href="javascript:void(0)">More Options</a>
-                                   		
-                                                <div id="js-container-moreoptions" class="js-initial-hide">
-                                   		<div class="control-group">
-                                        	<label class="control-label">Additional Options</label>
-	                                        <div class="controls">
-	                                            <ul class="checkbox-group">
-	                                                <li>
-	                                                    <label>
-	                                                        <input  id="check-stackTrace" type="checkbox" value="false"/>
-	                                                        <span>
-	                                                            Include Stack Trace For Each Logging Statement
-	                                                        </span>
-	                                                    </label>
-	                                                    <div class="help-block">
-	                                                        This option will slow down the system considerably, and should only be used when necessary.
-	                                                    </div>
-	                                                </li>
-	                                                <li>
-	                                                    <label>
-	                                                        <input  id="check-asyncLogging" type="checkbox" value="false"/>
-	                                                        <span>
-	                                                            Asynchronous Logging
-	                                                        </span>
-	                                                    </label>
-	                                                    <div class="help-block">
-	                                                        Causes the system to write a separate thread for execution.  This can make your system more responsive when logging is on, but writing to the log might cause the system to lag slightly.
-	                                                    </div>
-	                                                </li>
-	                                            </ul>
-	                                        </div>
-                                   		</div>
-                                   		<div class="control-group">
-	                                        <label class="control-label">Include only specific classes</label>
-	                                        <div class="controls form-textandbutton">
-	                                        	<input id="input-Classes" type="text" class="form-control input-block-level" placeholder="">
-	                                        </div>
-	                                    </div>
+                                        <a class="js-container-moreoptions-trigger" href="javascript:void(0)">More Options</a>
+                                        <div id="js-container-moreoptions" class="js-initial-hide">
+                                            <div class="control-group">
+                                                <label class="control-label">Additional Options</label>
+                                                <div class="controls">
+                                                    <ul class="checkbox-group">
+                                                        <li>
+                                                            <label>
+                                                            <input id="check-stackTrace" type="checkbox" value="false"/>
+                                                            <span>
+                                                            Include Stack Trace For Each Logging Statement
+                                                            </span>
+                                                            </label>
+                                                            <div class="help-block">
+                                                                This option will slow down the system considerably, and should only be used when necessary.
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <label>
+                                                            <input id="check-asyncLogging" type="checkbox" value="false"/>
+                                                            <span>
+                                                            Asynchronous Logging
+                                                            </span>
+                                                            </label>
+                                                            <div class="help-block">
+                                                                Causes the system to write a separate thread for execution.  This can make your system more responsive when logging is on, but writing to the log might cause the system to lag slightly.
+                                                            </div>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                    </div><!--/fewer-options-->
-                                    
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Include only specific classes</label>
+                                                <div class="controls form-textandbutton">
+                                                    <input id="input-Classes" type="text" class="form-control input-block-level" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/fewer-options-->
                                     <div class="form-actions">
                                         <button id="btn-add" type="submit" class="btn btn-primary"><span>Save</span></button>
                                         <button class="btn"><span>Cancel</span></button>
                                     </div>
-                                    
                                 </fieldset>
                             </form>
                         </div>
-                        
-                    </div><!-- /div .span8 -->
-                </div><!-- /div .row-fluid -->
-            </div><!-- /div .container-fluid -->
-            
-            </div><!-- /div #mainsi -->
-        	<div id="footer" class="row-fluid">
-                <div class="container-fluid">
-                    <div class="row-fluid">
-                        <div class="span8">
-                            <div id="footer-links">
-                                <ul>
-                                    <li><a href="#">Help</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Terms</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                </ul>
-                                <ul>
-                                    <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                    <li>Version 10.4</li>
-                                    <li>Privacy Mode: Secure</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <ul class="security-logo">
-                                <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                                <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                                <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                    </div>
+                    <!-- /div .span8 -->
+                </div>
+                <!-- /div .row-fluid -->
+            </div>
+            <!-- /div .container-fluid -->
+        </div>
+        <!-- /div #mainsi -->
+        <div id="footer" class="row-fluid">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div id="footer-links">
+                            <ul>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                            <ul>
+                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
+                                <li>Version 10.4</li>
+                                <li>Privacy Mode: Secure</li>
                             </ul>
                         </div>
                     </div>
+                    <div class="span4">
+                        <ul class="security-logo">
+                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        
+        </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
-        if (!window.jQuery) {
-            console.error("jQuery CDN is down.")
-            document.write('<script src="assets/js/jquery.min.js"><\/script>');
-        }
+            if (!window.jQuery) {
+                console.error("jQuery CDN is down.")
+                document.write('<script src="assets/js/jquery.min.js"><\/script>');
+            }
         </script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script>
-        if (!$.fn.modal) {
-            console.error("Bootstrap CDN is down.")
-            document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
-        }
+            if (!$.fn.modal) {
+                console.error("Bootstrap CDN is down.")
+                document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
+            }
         </script>
         <script src="assets/js/kendo.all.min.js"></script>
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
         <script src="assets/js/ws_global_initialization_administration.js"></script>
-          <script src="assets/js/ws_common.js"></script>
+        <script src="assets/js/ws_common.js"></script>
         <script>
             $(document).ready(function () {
                 ws_initializeWebApp('/admin/GetAllWebApp', $('#select-webapp'), function () {
@@ -368,7 +361,7 @@
                     }, null, null);
                 });
             });
-
+            
             $("#btn-add").click(function () {
                 var webappUrl = $("#select-webapp").val();
                 var isCore = $("#check-core").prop('checked');

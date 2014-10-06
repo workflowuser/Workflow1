@@ -2,13 +2,14 @@
 <html lang="en">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Winshuttle - Service Details</title>
+        <title>Winshuttle - New Configuration Key</title>
         <link href="assets/css/kendo.common.min.css" rel="stylesheet">
         <link href="assets/css/kendo.default.min.css" rel="stylesheet">
         <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
         <link href="assets/css/kendo.dataviz.default.min.css" rel="stylesheet">
         <link href="assets/css/winshuttle.css" rel="stylesheet">
         <link href="assets/css/ws-formitems.css" rel="stylesheet">
+        <link href="assets/css/chosen.css" rel="stylesheet">
     </head>
     <body>
         <div id="workflow-header">
@@ -47,13 +48,11 @@
                     </div>
                     <div class="span6">
                         <ul class="display-inline-children pull-right">
-                            <!--
                             <li>
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
                             </li>
-                            -->
                             <li>
-                                <select class="input-medium" id="select-webapp">
+                                <select class="input-medium">
                                     <option>Sharepoint - 80</option>
                                 </select>
                             </li>
@@ -63,39 +62,72 @@
             </div>
         </div>
         <div id="mainsi">
+            <!--
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                                                                      -->
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span12">
-                        <ul id="js-admincommands-relatedlinks">
-                            <li>
-                                <a href="#">Background Jobs</a>
-                            </li>
-                            <li>
-                                <a href="#">Process Control</a>
-                            </li>
-                            <li>
-                                <a href="#">Scheduler</a>
-                            </li>
-                        </ul>
                         <ul id="breadcrumbs">
                             <li><a href="#">Administration</a> &rsaquo;</li>
-                            <li><a href="#">Background Jobs</a> &rsaquo;</li>
+                            <li><a href="#">Configuration Options</a></li>
+                            <li class="related-links">
+                                <ul>
+                                    <li class="related-label">Related Tasks:</li>
+                                    <li class="link"><a href="#">Configuration Options</a></li>
+                                    <li class="link"><a href="#">Configuration Documentation</a></li>
+                                </ul>
+                            </li>
                         </ul>
                         <ul id="secnav">
                             <li class="active">
-                                <h1>Service Detail</h1>
+                                <h1>Add Configuration Key</h1>
                                 <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </li>
-                            <li class="pull-right">
-                                <button id="btn-reset-pending" class="btn pull-right"><span>Reset Status to Pending</span></button>
+                                <a class="tooltip-help js-tooltip-target" href="#">[?]</a> 
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="row-fluid">
-                    <div class="span8" id="service-details">
+                    <div class="span8">
+                        <div class="settings-info">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <label class="control-label">Key Name <span class="required">*</span></label>
+                                        <div class="controls ">
+                                            <input type="text" class="form-control input-block-level" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
                     </div>
-                    <!-- /div .span6 -->
+                    <!-- /div .span8 -->
                 </div>
                 <!-- /div .row-fluid -->
             </div>
@@ -145,88 +177,11 @@
             }
         </script>
         <script src="assets/js/kendo.all.min.js"></script>
+        <script src="assets/js/bootstrap.typeahead.js"></script>
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
-        <script src="assets/js/ws_admincommands.js"></script>
-        <script src="assets/js/jquery.tmpl.js"></script>
-        <script src="assets/js/ws_common.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-            
-                ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
-                    var $id = wsPlugin_getURLParameter('id');
-                    var $url = $("#select-webapp").val();
-                    ws_ajaxCall('/service/detail', { id: $id, url: $url }, function (data, callbackdata) {
-            
-                        if (data.StatusCode == 1) {
-                            $("#btn-reset-pending").remove();
-                        }
-            
-                        $("#service-details").empty();
-                        $("#service-details").html($("#service-detail-tmpl").tmpl(data));
-                    }, null, null);
-                });
-            
-                $("#btn-reset-pending").on("click", function () {
-                    var tempid = wsPlugin_getURLParameter('id');
-                    var tempurl = $("#select-webapp").val();
-                    ws_ajaxCall('/service/setpending', { id: tempid, url: tempurl }, function (data, callbackdata) {
-                        // after the operation what should be the next step.
-                    }, null, null);
-                });
-            });
-        </script>
-        <script id="service-detail-tmpl" type="text/x-jQuery-tmpl">
-            <div class="settings-info">
-                <p class="clearfix">
-                    <span class="label">Process</span>
-                    est dd-mmm-yyyy hh:mm AM
-                </p>
-                <p class="clearfix">
-                    <span class="label">Site</span>
-                    http://codedev/marketing
-                </p>
-                <p class="clearfix">
-                    <span class="label">ID</span>
-                    ${ID}
-                </p>
-                <p class="clearfix">
-                    <span class="label">Status</span>
-                    ${Status}
-                </p>
-                <p class="clearfix">
-                    <span class="label">Type</span>
-                    ${Type}
-                </p>
-                <p class="clearfix">
-                    <span class="label">Assembly Name</span>
-                    ${AssemblyName}
-                </p>
-                <p class="clearfix">
-                    <span class="label">Class Name</span>
-                    ${ClassName}
-                </p>
-                <p class="clearfix">
-                    <span class="label">Start Date</span>
-                    ${StartDate}
-                </p>
-                <p class="clearfix">
-                    <span class="label">Completion Date</span>
-                    ${CompletionDate}
-                </p>
-                <p class="clearfix">
-                    <span class="label">XML</span>
-                    ${Xml}
-                </p>
-                <p class="clearfix">
-                    <span class="label">Reference Key</span>
-                    ${ReferenceKey}
-                </p>
-                 <p class="clearfix">
-                    <span class="label">Error</span>
-                    ${Error}
-                </p>
-            </div>
+        <script>
+            $('.chzn-select').chosen();
         </script>
     </body>
 </html>
