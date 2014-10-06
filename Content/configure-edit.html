@@ -232,7 +232,7 @@
                                             <ul class="checkbox-group inline-list">
                                                 <li>
                                                     <label>
-                                                    <input type="radio" name="TEMP_boolean_datatype" checked>
+                                                    <input type="radio" name="TEMP_boolean_datatype" checked="checked">
                                                     <span>True</span>
                                                     </label>
                                                 </li>
@@ -384,6 +384,9 @@
                         if($currentInput.attr('type') === 'checkbox') {
                             $currentDisplay.text($currentInput.prop('checked'));
                         }
+                        else if($currentInput.attr('type') === 'radio') {
+                            $currentDisplay.text(!$currentInput.prop('checked'));
+                        }
                         else {
                             $currentDisplay.text($currentInput.val());
                         }
@@ -478,10 +481,19 @@
                                 currentRowHTML += '</ul>';
                                 }
                                 else if(currentPlugData.type === 'radio') {
-                                currentRowHTML += '<ul class="checkbox-group">';
+                                var valueItemLength = $editConfigurationValue.find('.js-administration-editconfiguration-value-item').length;
+                                
+                                currentRowHTML += '<ul class="checkbox-group inline-list">';
                                     currentRowHTML += '<li>';
                                         currentRowHTML += '<label>';
-                                        currentRowHTML += '<input type="checkbox"' + (currentPlugData.value ? 'checked="checked"' : '') + '>';
+                                        currentRowHTML += '<input type="radio" name="boolean_item_' + valueItemLength + '"' + (currentPlugData.value ? ' checked="checked"' : ' ') + '>';
+                                        currentRowHTML += '<span>True</span>';
+                                        currentRowHTML += '</label>';
+                                    currentRowHTML += '</li>';
+                                    currentRowHTML += '<li>';
+                                        currentRowHTML += '<label>';
+                                        currentRowHTML += '<input type="radio" name="boolean_item_' + valueItemLength + '"' + (currentPlugData.value ? ' ' : ' checked="checked"') + '>';
+                                        currentRowHTML += '<span>False</span>';
                                         currentRowHTML += '</label>';
                                     currentRowHTML += '</li>';
                                 currentRowHTML += '</ul>';

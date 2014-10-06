@@ -115,41 +115,64 @@
                                             <ul class="checkbox-group inline-list">
                                                 <li>
                                                     <label>
-                                                    <input type="radio" name="TEMPNAME-logretention" >
+                                                    <input class="js-archive-toggle-view-master-0" type="radio" name="TEMPNAME-logretention" >
                                                     <span>Now</span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                    <input type="radio" name="TEMPNAME-logretention" checked="checked">
+                                                    <input class="js-archive-toggle-view-master-1" type="radio" name="TEMPNAME-logretention" checked="checked">
                                                     <span>Schedule</span>
                                                     </label>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="control-group">
+                                    <div class="js-archive-toggle-view-slave-1 control-group">
                                         <label class="control-label">Schedule <span class="required">*</span></label>
                                         <div class="controls">
-                                            <select class="input-large">
-                                                <option>First Day of the month</option>
-                                                <option>Last Day of the month</option>
-                                                <option>2nd</option>
-                                                <option>3rd</option>
-                                                <option>4th</option>
-                                                <option>5th</option>
-                                                <option>6th</option>
-                                                <option>7th</option>
+                                            <select class="js-chosen-target input-mid">
+                                                <option value="1">First Day of the month</option>
+                                                <option value="100">Last Day of the month</option>
+                                                <option value="2">2nd</option>
+                                                <option value="3">3rd</option>
+                                                <option value="4">4th</option>
+                                                <option value="5">5th</option>
+                                                <option value="6">6th</option>
+                                                <option value="7">7th</option>
+                                                <option value="8">8th</option>
+                                                <option value="9">9th</option>
+                                                <option value="10">10th</option>
+                                                <option value="11">11th</option>
+                                                <option value="12">12th</option>
+                                                <option value="13">13th</option>
+                                                <option value="14">14th</option>
+                                                <option value="15">15th</option>
+                                                <option value="16">16th</option>
+                                                <option value="17">17th</option>
+                                                <option value="18">18th</option>
+                                                <option value="19">19th</option>
+                                                <option value="20">20th</option>
+                                                <option value="21">21st</option>
+                                                <option value="22">22nd</option>
+                                                <option value="23">23rd</option>
+                                                <option value="24">24th</option>
+                                                <option value="25">25th</option>
+                                                <option value="26">26th</option>
+                                                <option value="27">27th</option>
+                                                <option value="28">28th</option>
+                                                <option value="29">29th</option>
+                                                <option value="30">30th</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="control-group">
+                                    <div class="js-archive-toggle-view-slave-1 control-group">
                                         <label class="control-label">Time <span class="required">*</span></label>
                                         <div class="controls ">
                                             <input type="text" class="js-kendo-timepicker form-control input-small" placeholder="HH:mm">
                                         </div>
                                     </div>
-                                    <div class="control-group">
+                                    <div class="js-archive-toggle-view-slave-1 control-group">
                                         <label class="control-label">User(s) to Notify </label>
                                         <div class="controls ">
                                             <input type="text" class="form-control input-block-level" placeholder="user@winshuttle.com">
@@ -265,5 +288,13 @@
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
         <script src="assets/js/ws_global_initialization_administration.js"></script>
+        <script>
+            $('.js-chosen-target').chosen({
+                width: "210px",
+                disable_search: true
+            });
+            
+            wsLib_toggleViews("archive", 2, "radio", "no", 200);
+        </script>
     </body>
 </html>
