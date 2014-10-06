@@ -235,6 +235,11 @@ ul.date-group > li:not(:first-child) {
   font-size: 12px;
   font-weight: 400;
 }
+
+label.control-label.secondary-label {
+    width: auto;
+}
+
 .table-header td {
 	border-top: 0 none;
 }
@@ -316,11 +321,11 @@ ul.date-group > li:not(:first-child) {
     display: inline;
 }
 .related-links {
-	font-size: 14px;
+    font-size: 13px;
 }
 .related-links a {
   	color: #0066AA !important;
-	font-size: 14px !important;
+	font-size: 13px !important;
 }
 #js-admincommands-relatedlinks > li:before {
     content: "\2022";
@@ -421,25 +426,32 @@ ul.date-group > li:not(:first-child) {
 .table td:hover .edit:hover {
 	opacity: 1;
 }
-.row-add td input,
-.row-add td select,
-.row-add td .btn,
-.row-add td .checkbox-group {
+.table-addedit-form td input,
+.table-addedit-form td select,
+.table-addedit-form td .btn,
+.table-addedit-form td .checkbox-group,
+.table-addedit-form .update-actions .btn,
+.table-addedit-form .checkbox-group {
 	float: left;
 	margin: 0;
 }
-.row-add td .add-actions {
+.table-addedit-form td .add-actions,
+.table-addedit-form .update-actions {
 	display: inline-block;
 	overflow: hidden;
 	float: right;
 }
-.row-add td .add-actions .btn {
+.table-addedit-form td .add-actions .btn,
+.table-addedit-form .update-actions .btn {
 	margin-left: 5px;
 }
-.row-add td .checkbox-group li {
+table .pull-right .update-actions span {
+    padding: 0 0 0 15px;
+}
+.table-addedit-form td .checkbox-group li {
 	padding-top: 8px;
 }
-.row-add td .checkbox-group li label span {
+.table-addedit-form td .checkbox-group li label span {
 	padding-left: 5px;
 }
 .process-status [class^="icon-"],
@@ -504,5 +516,68 @@ ul.date-group > li:not(:first-child) {
 }
 
 .license-key .tooltip.show-copy-link .tooltip-inner .copy-link-parent {
+    display: block;
+}
+
+/* @group FileDrop.js */
+
+.js-filedrop-target {
+    margin-top: 3px;
+}
+
+@keyframes progress {
+    from {
+        background-position: left top;
+    }
+    to {
+        background-position: 30px top;
+    }
+}
+@-moz-keyframes progress {
+    from {
+        background-position: left top;
+    }
+    to {
+        background-position: 30px top;
+    }
+}
+@-webkit-keyframes progress {
+    from {
+        background-position: left top;
+    }
+    to {
+        background-position: 30px top;
+    }
+}
+@-o-keyframes progress {
+    from {
+        background-position: left top;
+    }
+    to {
+        background-position: 30px top;
+    }
+}
+
+.js-filedrop-progressbar {
+    animation: progress .7s linear infinite;
+    -moz-animation: progress .7s linear infinite;
+    -webkit-animation: progress .7s linear infinite;
+    -o-animation: progress .7s linear infinite;
+    display: block;
+    width: 0.00000000001%;
+    height: 1em;
+    background: url(http://filedropjs.org/media/progress.gif);
+}
+
+/* @end */
+
+
+
+#js-administration-pluginnew-parameters.js-form-editmode .js-administration-pluginnew-parameters-action-addrow,
+#js-administration-pluginnew-parameters .js-administration-pluginnew-parameters-action-editrow {
+    display: none;
+}
+#js-administration-pluginnew-parameters .js-administration-pluginnew-parameters-action-addrow,
+#js-administration-pluginnew-parameters.js-form-editmode .js-administration-pluginnew-parameters-action-editrow {
     display: block;
 }

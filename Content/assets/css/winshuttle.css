@@ -716,6 +716,9 @@ border-bottom: 1px solid #EEE;
 .page-header small {
 float: right;
 }
+.page-description {
+    margin: -10px 0 20px 0;
+}
 #ws-brand {
 	height: 30px;
 	background-color: #f7f7f7;
@@ -893,7 +896,7 @@ float: right;
 	#breadcrumbs li a {
 		color: #777;
 		padding: 0 3px;
-		font-size: 12px;
+		font-size: 13px;
 	}
 	#breadcrumbs li a:hover {
 		color: #0066AA;
@@ -910,12 +913,13 @@ float: right;
 	}
 	#breadcrumbs li ul li.link:after {
 		content: "\2022";
+		margin: 0 0 0 5px;
 	}
 	#breadcrumbs li ul li.link:last-of-type:after {
 		content: none;
 	}
 	#breadcrumbs .related-label {
-		color: #99a5aa;
+		color: #777;
 	}
 
 
@@ -1251,7 +1255,7 @@ textarea {
 label {
   display: block;
   margin-bottom: 5px;
-  color: #67747C;
+  color: #303039;
 }
 input,
 textarea,
@@ -1264,7 +1268,7 @@ select,
   margin-bottom: 9px;
   font-size: 12px;
   line-height: 18px;
-  color: #67747C;
+  color: #303039;
   border: 1px solid #cccccc;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1322,8 +1326,7 @@ input[type="submit"] {
   width: auto;
   height: auto;
 }
-select,
-input[type="file"] {
+select {
   height: 28px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
 
@@ -1649,7 +1652,7 @@ select:focus:required:invalid:focus {
   clear: both;
 }
 .form-actions-left {
-  padding-left: 0;
+  padding-left: 0 !important;
 }
 .uneditable-input {
   display: block;
@@ -1876,7 +1879,7 @@ legend + .control-group {
   float: left;
   padding-top: 5px;
   text-align: right;
-  color: #99a5aa;
+  color: #777;
   width: 160px;
   padding-right: 20px;
   text-transform: uppercase;
@@ -3482,19 +3485,37 @@ body.login {
 /* @end */
 
 
-.fewer-options {
+#js-label-moreoptions {
 	position: relative;
-	margin: 30px 0;
+	margin: 30px 0 0 0;
 	padding: 15px 0;
 	border-top: 1px solid #ddd;
 }
-.fewer-options a {
+#js-label-moreoptions a {
 	position: absolute;
 	background-color: #fff;
 	top: -15px;
 	left: 0;
-	padding: 5px 5px 5px 0;
+	padding: 5px 25px 5px 0;
+	font-size: 13px;
 }
+#js-label-moreoptions a:after {
+	content: '';
+	position: absolute;
+	top: 11px;
+	right: 10px;
+	display: block;
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #999;
+}
+#js-label-moreoptions a.options-open:after {
+	border-bottom: 5px solid #999;
+	border-top: 0 none;
+}
+
 ul.log-list {
 	margin: 0;
 	padding: 10px;
