@@ -164,7 +164,7 @@ ul.display-inline-children > * {
 }
 h2.compact {
 	margin-top: 20px;
-	margin-bottom: 0;
+	margin-bottom: 10px;
 	line-height: 0;
 }
 .font-white {
@@ -330,6 +330,7 @@ label.control-label.secondary-label {
 #js-admincommands-relatedlinks > li:before {
     content: "\2022";
     margin: 0 5px;
+    color: #303039;
 }
 #js-admincommands-relatedlinks > li:first-child:before {
     content: "Related: ";
@@ -433,8 +434,14 @@ label.control-label.secondary-label {
 .table-addedit-form .update-actions .btn,
 .table-addedit-form .checkbox-group {
 	float: left;
-	margin: 0;
 }
+.table-addedit-form td input,
+.table-addedit-form td select,
+.table-addedit-form td .checkbox-group,
+.table-addedit-form .checkbox-group {
+    margin: 0;
+}
+
 .table-addedit-form td .add-actions,
 .table-addedit-form .update-actions {
 	display: inline-block;

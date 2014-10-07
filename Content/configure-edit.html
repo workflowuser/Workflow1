@@ -78,7 +78,9 @@
                         <ul id="secnav">
                             <li class="active">
                                 <h1>Edit Configuration</h1>
-                                <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <div class="row-fluid">
+                                    <div class="span8 page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -118,97 +120,64 @@
                             </thead>
                             <tbody id="js-administration-editconfiguration-value">
                                 <tr class="js-administration-editconfiguration-value-item">
-                                    <td>Global</td>
+                                    <td>
+                                        <div class="js-administration-editconfiguration-value-display">Global</div>
+                                        <div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;">Global</div>
+                                    </td>
                                     <td>
                                         <div class="pull-right">
-                                            <div>
-                                                <a class="js-administration-editconfiguration-value-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a>
-                                                <a href="#"><i class="icon-trash">&nbsp;</i></a>
-                                            </div>
-                                            <div class="update-actions js-initial-hide">
-                                                <button class="btn btn-primary"><span>Save</span></button>
-                                                <button class="js-administration-editconfiguration-value-edittoggle btn"><span>Cancel</span></button>
-                                            </div>
+                                            <div><a class="js-administration-editconfiguration-value-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a><a class="js-administration-editconfiguration-value-deleterow" href="#"><i class="icon-trash">&nbsp;&nbsp;</i></a></div>
+                                            <div class="update-actions js-initial-hide" style="display: none;"><button class="js-administration-editconfiguration-value-editsave js-administration-editconfiguration-value-edittoggle btn btn-primary"><span>Save</span></button><button class="js-administration-editconfiguration-value-edittoggle btn"><span>Cancel</span></button></div>
                                         </div>
                                         <div class="js-administration-editconfiguration-value-display">True</div>
-                                        <div class="js-administration-editconfiguration-value-form js-initial-hide">
+                                        <div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;">
                                             <ul class="checkbox-group inline-list">
-                                                <li>
-                                                    <label>
-                                                    <input type="radio" name="TEMP_boolean_value_sample" checked>
-                                                    <span>True</span>
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <label>
-                                                    <input type="radio" name="TEMP_boolean_value_sample">
-                                                    <span>False</span>
-                                                    </label>
-                                                </li>
+                                                <li><label><input type="radio" name="boolean_item_4" checked="checked"><span>True</span></label></li>
+                                                <li><label><input type="radio" name="boolean_item_4"><span>False</span></label></li>
                                             </ul>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr class="js-administration-editconfiguration-value-item">
-                                    <td>formex/</td>
+                                    <td>
+                                        <div class="js-administration-editconfiguration-value-display">formex/</div>
+                                        <div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;">formex/</div>
+                                    </td>
                                     <td>
                                         <div class="pull-right">
-                                            <div>
-                                                <a class="js-administration-editconfiguration-value-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a>
-                                                <a href="#"><i class="icon-trash">&nbsp;</i></a>
-                                            </div>
-                                            <div class="update-actions js-initial-hide">
-                                                <button class="btn btn-primary"><span>Save</span></button>
-                                                <button class="js-administration-editconfiguration-value-edittoggle btn"><span>Cancel</span></button>
-                                            </div>
+                                            <div><a class="js-administration-editconfiguration-value-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a><a class="js-administration-editconfiguration-value-deleterow" href="#"><i class="icon-trash">&nbsp;&nbsp;</i></a></div>
+                                            <div class="update-actions js-initial-hide" style="display: none;"><button class="js-administration-editconfiguration-value-editsave js-administration-editconfiguration-value-edittoggle btn btn-primary"><span>Save</span></button><button class="js-administration-editconfiguration-value-edittoggle btn"><span>Cancel</span></button></div>
                                         </div>
                                         <div class="js-administration-editconfiguration-value-display">user3@winshuttle.com</div>
-                                        <div class="js-administration-editconfiguration-value-form js-initial-hide">
-                                            <input type="text" class="form-control input-large" placeholder="String" value="user3@winshuttle.com">
-                                        </div>
+                                        <div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;"><input type="text" value="user3@winshuttle.com"></div>
                                     </td>
                                 </tr>
                                 <tr class="js-administration-editconfiguration-value-item">
-                                    <td>formex/Announcements</td>
+                                    <td>
+                                        <div class="js-administration-editconfiguration-value-display">formex/Announcements</div>
+                                        <div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;">formex/Announcements</div>
+                                    </td>
                                     <td>
                                         <div class="pull-right">
-                                            <div>
-                                                <a class="js-administration-editconfiguration-value-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a>
-                                                <a href="#"><i class="icon-trash">&nbsp;</i></a>
-                                            </div>
-                                            <div class="update-actions js-initial-hide">
-                                                <button class="btn btn-primary"><span>Save</span></button>
-                                                <button class="js-administration-editconfiguration-value-edittoggle btn"><span>Cancel</span></button>
-                                            </div>
+                                            <div><a class="js-administration-editconfiguration-value-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a><a class="js-administration-editconfiguration-value-deleterow" href="#"><i class="icon-trash">&nbsp;&nbsp;</i></a></div>
+                                            <div class="update-actions js-initial-hide" style="display: none;"><button class="js-administration-editconfiguration-value-editsave js-administration-editconfiguration-value-edittoggle btn btn-primary"><span>Save</span></button><button class="js-administration-editconfiguration-value-edittoggle btn"><span>Cancel</span></button></div>
                                         </div>
                                         <div class="js-administration-editconfiguration-value-display">Bananas</div>
-                                        <div class="js-administration-editconfiguration-value-form js-initial-hide">
-                                            <select class="input-large">
-                                                <option selected="selected">Select</option>
-                                                <option>Apples</option>
-                                                <option selected="selected">Bananas</option>
-                                                <option>Cherries</option>
-                                            </select>
-                                        </div>
+                                        <div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;"><input type="text" value="Bananas"></div>
                                     </td>
                                 </tr>
                                 <tr class="js-administration-editconfiguration-value-item">
-                                    <td>formex/Calendar</td>
+                                    <td>
+                                        <div class="js-administration-editconfiguration-value-display">formex/Calendar</div>
+                                        <div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;">formex/Calendar</div>
+                                    </td>
                                     <td>
                                         <div class="pull-right">
-                                            <div>
-                                                <a class="js-administration-editconfiguration-value-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a>
-                                                <a href="#"><i class="icon-trash">&nbsp;</i></a>
-                                            </div>
-                                            <div class="update-actions js-initial-hide">
-                                                <button class="btn btn-primary"><span>Save</span></button>
-                                                <button class="js-administration-editconfiguration-value-edittoggle btn"><span>Cancel</span></button>
-                                            </div>
+                                            <div><a class="js-administration-editconfiguration-value-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a><a class="js-administration-editconfiguration-value-deleterow" href="#"><i class="icon-trash">&nbsp;&nbsp;</i></a></div>
+                                            <div class="update-actions js-initial-hide" style="display: none;"><button class="js-administration-editconfiguration-value-editsave js-administration-editconfiguration-value-edittoggle btn btn-primary"><span>Save</span></button><button class="js-administration-editconfiguration-value-edittoggle btn"><span>Cancel</span></button></div>
                                         </div>
                                         <div class="js-administration-editconfiguration-value-display">08/15/14</div>
-                                        <div class="js-administration-editconfiguration-value-form js-initial-hide">
-                                            <input type="text" class="form-control input-large" placeholder="String" value="08/15/14">
-                                        </div>
+                                        <div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;"><input type="text" value="08/15/14"></div>
                                     </td>
                                 </tr>
                                 <!-- add new value -->
@@ -382,10 +351,10 @@
                         var $currentDisplay = $currentInput.closest('.js-administration-editconfiguration-value-form').siblings('.js-administration-editconfiguration-value-display');
                         
                         if($currentInput.attr('type') === 'checkbox') {
-                            $currentDisplay.text($currentInput.prop('checked'));
+                            $currentDisplay.text(wsPlugin_capitaliseFirstLetter($currentInput.prop('checked') + ""));
                         }
                         else if($currentInput.attr('type') === 'radio') {
-                            $currentDisplay.text(!$currentInput.prop('checked'));
+                            $currentDisplay.text(wsPlugin_capitaliseFirstLetter(!$currentInput.prop('checked') + ""));
                         }
                         else {
                             $currentDisplay.text($currentInput.val());
@@ -411,6 +380,7 @@
                             currentRowData.push({
                                 index: index,
                                 data: $currentInput.prop('checked'),
+                                dataDisplay: wsPlugin_capitaliseFirstLetter($currentInput.prop('checked') + ""),
                                 type: "checkbox",
                                 HTML: $currentInput
                             });
@@ -421,6 +391,7 @@
                             currentRowData.push({
                                 index: index,
                                 data: $currentInput.prop('checked'),
+                                dataDisplay: wsPlugin_capitaliseFirstLetter($currentInput.prop('checked') + ""),
                                 type: "radio",
                                 HTML: $currentInput
                             });
@@ -431,6 +402,7 @@
                             currentRowData.push({
                                 index: index,
                                 data: $currentInput.val(),
+                                dataDisplay: $currentInput.val(),
                                 type: "text",
                                 HTML: $currentInput
                             });
@@ -442,6 +414,7 @@
                     var currentPlugData = {
                         scope: $editConfigurationAddNewValueSelect.find(':selected').text(),
                         value: currentRowData[0].data,
+                        valueDisplay: currentRowData[0].dataDisplay,
                         type: currentRowData[0].type,
                         HTML: currentRowData[0].HTML
                     };
@@ -468,7 +441,7 @@
                                     currentRowHTML += '<button class="js-administration-editconfiguration-value-edittoggle btn"><span>Cancel</span></button>';
                                 currentRowHTML += '</div>';
                             currentRowHTML += '</div>';
-                            currentRowHTML += '<div class="js-administration-editconfiguration-value-display">' + currentPlugData.value + '</div>';
+                            currentRowHTML += '<div class="js-administration-editconfiguration-value-display">' + currentPlugData.valueDisplay + '</div>';
                             currentRowHTML += '<div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;">';
                             
                                 if(currentPlugData.type === 'checkbox') {

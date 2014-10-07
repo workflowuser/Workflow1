@@ -77,6 +77,18 @@ function wsPlugin_getURLParameter(name) {
 
 
 /**
+ * wsPlugin_capitaliseFirstLetter() takes a string and returns the first letter capitalised.
+ * 
+ * @param {string} string - The string to be capitalised.
+ * @returns {string} - Returns the string with the first letter capitalised.
+ */
+function wsPlugin_capitaliseFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+
+
+/**
  * This adds the method ".hasScrollBar()" to jQuery objects to check if the element has a scrollbar.
  */
 (function($) {

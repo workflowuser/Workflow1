@@ -47,9 +47,11 @@
                     </div>
                     <div class="span6">
                         <ul class="display-inline-children pull-right">
+                            <!--
                             <li>
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
                             </li>
+                            -->
                             <li>
                                 <select class="input-medium"  id="select-webapp">
                                     <option>Sharepoint - 80</option>
@@ -105,10 +107,10 @@
                         </ul>
                         <ul id="secnav">
                             <li class="active">
-                                <a href="#">
-                                    <h1>Logging</h1>
-                                    <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                </a>
+                                <h1>Logging</h1>
+                                <div class="row-fluid">
+                                    <div class="span8 page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -168,18 +170,18 @@
                                     <div class="control-group">
                                         <label class="control-label">Logging Level</label>
                                         <div class="controls">
-                                            <select id="select-level" class="input-max" value="false">
+                                            <select id="select-level" class="input-onethird" value="false">
                                                 <option value="Debug">
-                                                    DEBUG  Most verbose level. Use if you intend to send your log file to Winshuttle.
+                                                    Debug
                                                 </option>
                                                 <option value="Info">
-                                                    Info  Most verbose level. Use if you intend to send your log file to Winshuttle.
+                                                    Info
                                                 </option>
                                                 <option value="Warn">
-                                                    Warn  Most verbose level. Use if you intend to send your log file to Winshuttle.
+                                                    Warn
                                                 </option>
                                                 <option value="Error">
-                                                    Error  Most verbose level. Use if you intend to send your log file to Winshuttle.
+                                                    Error
                                                 </option>
                                             </select>
                                         </div>
@@ -235,7 +237,7 @@
                                     <div id="js-label-moreoptions" class="fewer-options">
                                         <a class="js-container-moreoptions-trigger" href="javascript:void(0)">More Options</a>
                                         <div id="js-container-moreoptions" class="js-initial-hide">
-                                            <div class="control-group">
+                                            <div class="control-group bump-down-20">
                                                 <label class="control-label">Additional Options</label>
                                                 <div class="controls">
                                                     <ul class="checkbox-group">

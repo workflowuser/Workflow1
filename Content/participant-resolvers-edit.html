@@ -82,7 +82,9 @@
                         <ul id="secnav">
                             <li class="active">
                                 <h1>Edit Participant Resolver</h1>
-                                <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <div class="row-fluid">
+                                    <div class="span8 page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -178,7 +180,7 @@
                                 </tr>
                                 <tr class="js-rowadd-toggle-view-slave-0 row-add js-initial-hide">
                                     <td>
-                                        <input type="text" class="form-control input-xxlarge" placeholder="DataSourceName">
+                                        <input type="text" class="form-control input-max" placeholder="DataSourceName">
                                     </td>
                                     <td>
                                         <div class="controls">
@@ -332,7 +334,7 @@
                         currentRowHTML += '<td>';
                             currentRowHTML += '<div class="js-administration-participantresolver-parameters-display">' + currentPlugData.name + '</div>';
                             currentRowHTML += '<div class="js-administration-participantresolver-parameters-form js-initial-hide" style="display: none;">';
-                                currentRowHTML += '<input type="text" value="' + currentPlugData.name + '">';
+                                currentRowHTML += '<input type="text" class="input-max" value="' + currentPlugData.name + '">';
                             currentRowHTML += '</div>';
                         currentRowHTML += '</td>';
                         currentRowHTML += '<td>';

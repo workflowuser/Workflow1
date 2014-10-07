@@ -89,7 +89,9 @@
                         <ul id="secnav">
                             <li class="active">
                                 <h1>Mark Inactive Processes</h1>
-                                <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <div class="row-fluid">
+                                    <div class="span8 page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -105,18 +107,18 @@
                                             <ul class="display-inline-children checkbox-group">
                                                 <li>
                                                     <label>
-                                                    <input type="radio" name="startmarking" class="js-startmarking-toggle-view-master-0"> Now
+                                                    <input type="radio" name="startmarking" class="js-startmarking-toggle-view-master-0" checked="checked"> Now
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                    <input type="radio" name="startmarking" class="js-startmarking-toggle-view-master-1" checked="checked"> Schedule
+                                                    <input type="radio" name="startmarking" class="js-startmarking-toggle-view-master-1"> Schedule
                                                     </label>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="js-startmarking-toggle-view-slave-1 control-group">
+                                    <div class="js-startmarking-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">Day <span class="required">*</span></label>
                                         <div class="controls">
                                             <select class="js-chosen-target input-twothirds">
@@ -154,7 +156,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="js-startmarking-toggle-view-slave-1 control-group">
+                                    <div class="js-startmarking-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">Time <span class="required">*</span></label>
                                         <div class="controls">
                                             <input class="js-kendo-timepicker input-onethirds" type="text" placeholder="HH:mm">
@@ -163,7 +165,7 @@
                                     <div class="control-group">
                                         <label class="control-label">User(s) to Notify <span class="required">*</span></label>
                                         <div class="controls">
-                                            <input type="text" placeholder="user@winshuttle.com" class="input-twothirds">
+                                            <input type="text" placeholder="user@winshuttle.com" class="input-max">
                                         </div>
                                     </div>
                                     <div class="form-actions">
@@ -230,7 +232,7 @@
         <script src="assets/js/ws_admincommands.js"></script>
         <script>
             $('.js-chosen-target').chosen({
-                width: "210px",
+                width: "33.33333%",
                 disable_search: true
             });
             

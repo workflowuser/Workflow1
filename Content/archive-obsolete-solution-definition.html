@@ -80,10 +80,10 @@
                         </ul>
                         <ul id="secnav">
                             <li class="active">
-                                <a href="#">
-                                    <h1>Archive Obsolete Solution Definition</h1>
-                                    <p class="page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                </a>
+                                <h1>Archive Obsolete Solution Definition</h1>
+                                <div class="row-fluid">
+                                    <div class="span8 page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -115,20 +115,20 @@
                                             <ul class="checkbox-group inline-list">
                                                 <li>
                                                     <label>
-                                                    <input class="js-archive-toggle-view-master-0" type="radio" name="TEMPNAME-logretention" >
+                                                    <input class="js-archive-toggle-view-master-0" type="radio" name="TEMPNAME-logretention" checked="checked">
                                                     <span>Now</span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                    <input class="js-archive-toggle-view-master-1" type="radio" name="TEMPNAME-logretention" checked="checked">
+                                                    <input class="js-archive-toggle-view-master-1" type="radio" name="TEMPNAME-logretention">
                                                     <span>Schedule</span>
                                                     </label>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="js-archive-toggle-view-slave-1 control-group">
+                                    <div class="js-archive-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">Schedule <span class="required">*</span></label>
                                         <div class="controls">
                                             <select class="js-chosen-target input-mid">
@@ -166,13 +166,13 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="js-archive-toggle-view-slave-1 control-group">
+                                    <div class="js-archive-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">Time <span class="required">*</span></label>
                                         <div class="controls ">
                                             <input type="text" class="js-kendo-timepicker form-control input-small" placeholder="HH:mm">
                                         </div>
                                     </div>
-                                    <div class="js-archive-toggle-view-slave-1 control-group">
+                                    <div class="js-archive-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">User(s) to Notify </label>
                                         <div class="controls ">
                                             <input type="text" class="form-control input-block-level" placeholder="user@winshuttle.com">
