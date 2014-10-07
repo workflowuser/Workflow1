@@ -198,10 +198,6 @@ h2.compact {
     color: red;
 }
 
-.btn.js-form-button-cancel {
-    margin-left: 10px;
-}
-
 .form-textandbutton > button {
     float: none;
     margin: 0 0 7px 7px;
@@ -251,11 +247,12 @@ label.control-label.secondary-label {
 }
 
 .control-group .controls ul.checkbox-group {
-    margin-top: 4px;
+    margin-top: 5px;
     margin-bottom: 0;
 }
-.control-group .controls ul.checkbox-group li {
-    padding-bottom: 6px;
+.control-group .controls ul.checkbox-group:not(.display-inline-children) li,
+.control-group .controls ul.checkbox-group:not(.inline-list) li {
+    padding-bottom: 10px;
 }
 .settings-info .form-horizontal .controls .plain-text {
     padding-top: 5px;

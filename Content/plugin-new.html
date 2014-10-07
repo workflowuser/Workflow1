@@ -105,14 +105,18 @@
                                                     <label>
                                                     <input type="radio" class="js-createwith-toggle-view-master-0" name="TEMP_create_with" checked="checked">
                                                     <span>XML</span>
+                                                    <!--
                                                     <a class="tooltip-help js-tooltip-target" href="#">[?]</a> 
+                                                    -->
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
                                                     <input type="radio" class="js-createwith-toggle-view-master-1" name="TEMP_create_with" >
                                                     <span>Plugin Designer</span>
+                                                    <!--
                                                     <a class="tooltip-help js-tooltip-target" href="#">[?]</a> 
+                                                    -->
                                                     </label>
                                                 </li>
                                             </ul>
@@ -173,6 +177,10 @@
                                                         <label class="control-label">Parameter Name <span class="required">*</span></label>
                                                         <div class="controls ">
                                                             <input type="text" name="parameter_name" class="js-form-item form-control input-block-level" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <div class="controls ">
                                                             <label>
                                                             <input type="checkbox" name="editable" class="js-form-item">
                                                             Editable
@@ -188,13 +196,13 @@
                                                     <div class="control-group">
                                                         <label class="control-label">Occurrence <span class="required">*</span></label>
                                                         <div class="controls ">
-                                                            <input name="occurrence" type="text" class="js-form-item form-control input-small" placeholder="">
+                                                            <input name="occurrence" type="text" class="js-form-item form-control input-onethirds" placeholder="">
                                                         </div>
                                                     </div>
                                                     <div class="control-group">
                                                         <label class="control-label">Data Type <span class="required">*</span></label>
                                                         <div class="controls">
-                                                            <select name="data_type" class="js-form-item input-large">
+                                                            <select name="data_type" class="js-form-item input-onethirds">
                                                                 <option>String</option>
                                                             </select>
                                                         </div>
@@ -238,13 +246,13 @@
                                                                 <div class="control-group bump-down-20">
                                                                     <label class="control-label">List of Values</label>
                                                                     <div class="controls form-textandbutton">
-                                                                        <input type="text" name="list_of_values" class="js-form-item form-control input-small" placeholder="semi-colon deliniated">
+                                                                        <input type="text" name="list_of_values" class="js-form-item form-control input-max" placeholder="semi-colon deliniated">
                                                                     </div>
                                                                 </div>
                                                                 <div class="control-group">
                                                                     <label class="control-label">Default VAlue</label>
                                                                     <div class="controls form-textandbutton">
-                                                                        <input type="text" name="default_value" class="js-form-item form-control input-small" placeholder="">
+                                                                        <input type="text" name="default_value" class="js-form-item form-control input-max" placeholder="">
                                                                     </div>
                                                                 </div>
                                                                 <div class="control-group">
@@ -308,9 +316,13 @@
                             </table>
                         </div>
                     </div>
-                    <div class="form-actions">
-                        <button id="js-debug-submitdata" class="btn btn-primary"><span>Save</span></button>
-                        <button class="btn"><span>Cancel</span></button>
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <div class="form-actions">
+                                <button id="js-debug-submitdata" class="btn btn-primary"><span>Save</span></button>
+                                <button class="btn"><span>Cancel</span></button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -597,7 +609,7 @@
                             $(this).val('')
                         });
                         
-                        $parameterList.slideDown()
+                        $parameterList.fadeIn()
                                       .find('table')
                                       .children('tbody')
                                       .find('.js-form-edit-active')
@@ -640,7 +652,7 @@
                         editTask();
                     });
                     
-                    $parameterList.slideUp(function() {
+                    $parameterList.fadeOut(function() {
                         $parameters.addClass('js-form-editmode')
                                    .closest('table')
                                    .closest('.row-fluid')
