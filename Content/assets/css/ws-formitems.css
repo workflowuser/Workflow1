@@ -158,10 +158,6 @@ ul.home-links li a h3 {
 	margin-top: -2px;
 	text-decoration: none !important;
 }
-ul.display-inline-children > * {
-    display: inline-block;
-    margin-right: 10px;
-}
 h2.compact {
 	margin-top: 20px;
 	margin-bottom: 10px;
@@ -250,7 +246,6 @@ label.control-label.secondary-label {
     margin-top: 5px;
     margin-bottom: 0;
 }
-.control-group .controls ul.checkbox-group:not(.display-inline-children) li,
 .control-group .controls ul.checkbox-group:not(.inline-list) li {
     padding-bottom: 10px;
 }
@@ -437,6 +432,11 @@ label.control-label.secondary-label {
 .table-addedit-form td .checkbox-group,
 .table-addedit-form .checkbox-group {
     margin: 0;
+}
+
+.add-actions .btn,
+.update-actions .btn {
+    margin-right: 10px;
 }
 
 .table-addedit-form td .add-actions,
