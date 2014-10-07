@@ -519,7 +519,7 @@ table {
 }
 
 .table th, .table td {
-  padding: 8px;
+  padding: 10px;
   line-height: 18px;
   text-align: left;
   vertical-align: middle;
@@ -530,7 +530,7 @@ table {
 }
 .table-menu th {
 	border: 0 none;
-	padding-top: 10px;
+	padding: 5px 0 0 0;
 	vertical-align: top;
 	border-bottom: 1px solid #ccc;
 }
@@ -1225,7 +1225,7 @@ form {
 }
 fieldset {
   padding: 0;
-  margin: 0;
+  margin: 0 0 10px 0;
   border: 0;
 }
 legend {
@@ -1468,19 +1468,19 @@ select:focus {
 }
 .input-onethirds[type="text"],
 .input-onethirds[type="password"] {
-    width: calc(33.3333333333% - 10px);
+    width: calc(33.3333333333% - 0px);
 }
 .input-mid[type="text"],
 .input-mid[type="password"] {
-    width: calc(50% - 10px);
+    width: calc(50% - 0px);
 }
 .input-twothirds[type="text"],
 .input-twothirds[type="password"] {
-    width: calc(66.6666666666% - 10px);
+    width: calc(66.6666666666% - 0px);
 }
 .input-max[type="text"],
 .input-max[type="password"] {
-    width: calc(100% - 10px);
+    width: calc(100% - 0px);
 }
 select.input-xlarge {
   width: 280px;
@@ -1637,12 +1637,11 @@ select:focus:required:invalid:focus {
   box-shadow: 0 0 6px #f8b9b7;
 }
 .form-actions {
-  padding: 0px 20px 18px;
-  margin-bottom: 18px;
+  padding: 0px 20px 0;
   *zoom: 1;
 }
 .form-actions .btn {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 .form-actions:before,
 .form-actions:after {
@@ -1852,7 +1851,7 @@ select:focus:required:invalid:focus {
   margin-bottom: 5px;
 }
 .form-horizontal .control-group {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   *zoom: 1;
 }
 .table-header form {
@@ -1910,7 +1909,6 @@ legend + .control-group {
   /* padding-left: 180px; */
   border-top: 1px solid #ccc;
   padding-top: 20px;
-  margin-top: 20px;
 }
 /* @end */
 
