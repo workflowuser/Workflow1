@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0080)http://startinteractive.com/clients/winshuttle/central/administration/index.html -->
-<html lang="en" class="k-webkit k-webkit37"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Winshuttle</title>
         
         <link href="assets/css/kendo.common.min.css" rel="stylesheet">
@@ -17,15 +17,43 @@
                 <div class="row-fluid">
                     <div class="span6">
                         <div class="workflow-brand">
-                            <img src="assets/img/ws-logo-central.png" alt="Winshuttle"/>
+                            <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
+	                        <div class="home-dropdown">
+								<div class="btn-group">
+								  <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+								  <ul class="dropdown-menu">
+								  	<div>
+								  	<li class="dropdown-title">Logs &amp; Reporting</li>
+								    <li><a href="#">Charts</a></li>
+								    <li><a href="#">Excel Data Dump</a></li>
+								    <li><a href="#">Logging</a></li>
+								    <li><a href="#">Log File Viewer</a></li>
+								  	<li class="dropdown-title">Processes</li>
+								    <li><a href="#">Process Control</a></li>
+								    <li><a href="#">Manage Background Jobs</a></li>
+								    </div>
+								    <div>
+								  	<li class="dropdown-title">Server Administration</li>
+								    <li><a href="#">Admin Commands</a></li>
+								    <li><a href="#">Configure Options</a></li>
+								    <li><a href="#">Scheduler</a></li>
+								    <li><a href="#">Workflow Extensions</a></li>
+								    <li><a href="#">Database Status</a></li>
+								    <li><a href="#">Licenses</a></li>
+								    </div>
+								  </ul>
+								</div>
+							</div>
                         </div>
                     </div>
 
                     <div class="span6">
                         <ul class="display-inline-children pull-right">
+                            <!--
                             <li>
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
                             </li>
+                            -->
                             <li>
                                 <select>
                                     <option>Sharepoint - 80</option>
@@ -47,8 +75,8 @@
                             </li>
                         </ul>
                         <ul id="breadcrumbs">
-                            <li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html#">Home</a> ›</li>
-                            <li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html#">Administration</a> ›</li>
+                            <li><a href="#">Home</a> &rsaquo;</li>
+                            <li><a href="#">Administration</a> &rsaquo;</li>
                         </ul>
                         <ul id="secnav">
                             <li id="js-header" class="active">
@@ -57,22 +85,63 @@
                         </ul>
                     </div>
                 </div>
-                <div id="js-admincommands-base" class="row-fluid"><div class="list-of-lists"><ul><li><h3>Configuration</h3></li><li><ul><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=setconfigvalue">Set Config Value</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=removeconfigvalue">Remove Config Value</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=encryptconfigvalue">Encrypt Config Value</a></li></ul></li></ul><ul><li><h3>Processes</h3></li><li><ul><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=defineprocessdefinition">Define Process Definition</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=describeprocessdefinition">Describe Process Definition</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=enumprocessdefinition">Enumerate Process Definition</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=exportprocess">Export Process</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=unmarkinactiveprocesses">Un-mark Inactive Processes</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=dumpprocess">Dump Process</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=updateprocessstatuslist">Update Process Status List</a></li></ul></li></ul><ul><li><h3>Assignments</h3></li><li><ul><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=exportassignments">Export Assignments</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=updateassignmentstatuslist">Update Assignment Status List</a></li></ul></li></ul><ul><li><h3>Forms</h3></li><li><ul><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=deletesavedforms">Delete Saved Forms</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=deleteformcache">Delete Form Cache</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=addformreport">Add Form Report</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=removeformreport">Remove Form Report</a></li></ul></li></ul><ul><li><h3>Misc.</h3></li><li><ul><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=updatedateformat">Update Date Format</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=indentlog">Indent Log</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=adddocumentmonitor">Add Document Monitor</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=removedocumentmonitoring">Remove Document Monitoring</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=reassigntasks">Reassign Tasks</a></li><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=setapprovedversions">Set Approved Versions</a></li></ul></li></ul><ul><li><h3></h3></li><li><ul><li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html?admincommandID=allfields">Testing - All Available Field Types</a></li></ul></li></ul></div></div><!-- /div .row-fluid -->
+                <div id="js-admincommands-base" class="row-fluid">
+                    <div class="span6">
+                        <div class="settings-info js-initial-hide">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <label class="control-label">Admin Command <span class="required">*</span></label>
+                                        <div class="controls">
+                                            <select id="js-admincommands-operation-list" class="input-max"></select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-info">
+                            <form id="js-admincommands-form-base" class="form-horizontal">
+                                <fieldset></fieldset>
+                            </form>
+                        </div>
+                        
+                        
+                        
+                        <div class="settings-info">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div id="js-form-submitcancel" class="form-actions">
+                                        <button class="js-form-button-submit btn btn-primary"><span>Continue</span></button>
+                                        <button class="js-form-button-cancel btn"><span>Cancel</span></button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        
+                    </div><!-- /div .span6 -->
+                    <div class="span6">
+                        <div id="js-terminal">
+                            <div>Output goes here after form submission.</div>
+                        </div>
+                    </div><!-- /div .span6 -->
+                </div><!-- /div .row-fluid -->
             </div><!-- /div .container-fluid -->
             
-            <div id="footer" class="row-fluid">
+            </div><!-- /div #mainsi -->
+        	<div id="footer" class="row-fluid">
                 <div class="container-fluid">
                     <div class="row-fluid">
                         <div class="span8">
                             <div id="footer-links">
                                 <ul>
-                                    <li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html#">Help</a></li>
-                                    <li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html#">About</a></li>
-                                    <li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html#">Terms</a></li>
-                                    <li><a href="http://startinteractive.com/clients/winshuttle/central/administration/index.html#">Privacy Policy</a></li>
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Terms</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
                                 </ul>
                                 <ul>
-                                    <li>© 2008-2011 Winshuttle, LLC</li>
+                                    <li>&copy; 2008-2011 Winshuttle, LLC</li>
                                     <li>Version 10.4</li>
                                     <li>Privacy Mode: Secure</li>
                                 </ul>
@@ -80,15 +149,14 @@
                         </div>
                         <div class="span4">
                             <ul class="security-logo">
-                                <li><img src="./adminoverview_files/security-te.png" alt="TRUSTe"></li>
-                                <li><img src="./adminoverview_files/security-sh.png" alt="Safe Harbor"></li>
-                                <li><img src="./adminoverview_files/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"></li>
+                                <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                                <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                                <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!-- /div #mainsi -->
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
@@ -105,14 +173,14 @@
         }
         </script>
         <script src="assets/js/kendo.all.min.js"></script>
-        <script src="../../JavaScripts/wslib_master.js"></script>
-        <script src="../../JavaScripts/wsplugin_master.js"></script>
+        <script src="assets/js/filedrop-min.js"></script>
+        <script src="assets/js/wslib_master.js"></script>
+        <script src="assets/js/wsplugin_master.js"></script>
         <script src="assets/js/ws_admincommands.js"></script>
         <script>
             var ws_externalAdminCommands = ws_admincommands();
             
             wsLib_console(ws_externalAdminCommands);
         </script>
-    
-
-</body></html>
+    </body>
+</html>

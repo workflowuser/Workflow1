@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Winshuttle</title>
+        <title>Winshuttle - New Configuration Key</title>
         <link href="assets/css/kendo.common.min.css" rel="stylesheet">
         <link href="assets/css/kendo.default.min.css" rel="stylesheet">
         <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
@@ -48,11 +48,13 @@
                     </div>
                     <div class="span6">
                         <ul class="display-inline-children pull-right">
-                            <!--<li>
-                                <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
-                                </li>-->
+                            <!--
                             <li>
-                                <select id="select-webapp">
+                                <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
+                            </li>
+                            -->
+                            <li>
+                                <select class="input-medium">
                                     <option>Sharepoint - 80</option>
                                 </select>
                             </li>
@@ -62,31 +64,52 @@
             </div>
         </div>
         <div id="mainsi">
+            <!--
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                                                                      -->
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span12">
                         <ul id="breadcrumbs">
                             <li><a href="#">Administration</a> &rsaquo;</li>
-                            <li><a href="#">Logs & Reporting</a></li>
+                            <li><a href="#">Configuration Options</a></li>
                             <li class="related-links">
                                 <ul>
-                                    <li class="related-label">Related:</li>
-                                    <li class="link"><a href="#">Log File Viewer</a></li>
-                                    <li class="link"><a href="#">Charts</a></li>
-                                    <li class="link"><a href="#">Scheduler</a></li>
+                                    <li class="related-label">Related Tasks:</li>
+                                    <li class="link"><a href="#">Configuration Options</a></li>
+                                    <li class="link"><a href="#">Configuration Documentation</a></li>
                                 </ul>
                             </li>
                         </ul>
                         <ul id="secnav">
-                            <li id="js-header" class="active">
-                                <h1>Excel Workflow Data Dump</h1>
+                            <li class="active">
+                                <h1>Add Configuration Key</h1>
                                 <div class="row-fluid">
                                     <div class="span8 page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                                </div>
-                                <div class="tooltip" role="tooltip">
-                                    <div class="tooltip-inner">
-                                        This operation can be time consuming, so it will run in the background. Users will be notified on completion, if email addresses are entered.
-                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -95,47 +118,13 @@
                 <div class="row-fluid">
                     <div class="span8">
                         <div class="settings-info">
-                            <form id="form-data" class="form-horizontal">
+                            <form class="form-horizontal">
                                 <fieldset>
                                     <div class="control-group">
-                                        <label class="control-label">Site <span class="required">*</span></label>
-                                        <div class="controls">
-                                            <select id="select-site" data-generation-level="1" data-generationdropdown-id="location" class="js-admincommands-form-field-generation input-max">
-                                                <option value="N/A">Select</option>
-                                            </select>
-                                            <div class="help-block">Only fully-qualified SharePoint sites are available.</div>
+                                        <label class="control-label">Key Name <span class="required">*</span></label>
+                                        <div class="controls ">
+                                            <input type="text" class="form-control input-block-level" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]">
                                         </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Save To <span class="required">*</span></label>
-                                        <div class="controls">
-                                            <select id="select-doclib" data-generation-level="2" data-generationdropdown-id="location" class="js-admincommands-form-field-generation input-max" disabled="disabled">
-                                                <option value="N/A">Select</option>
-                                            </select>
-                                            <div class="help-block">Document Library to save data dump in.</div>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">File Extension <span class="required">*</span></label>
-                                        <div class="controls">
-                                            <select id="select-ext">
-                                                <option value="N/A">Select file type</option>
-                                                <option value=".html">.html</option>
-                                                <option value=".csv">.csv</option>
-                                                <option value=".xls">.xls</option>
-                                                <option value=".txt">.txt</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Send Notification to</label>
-                                        <div class="controls string-max">
-                                            <input id="input-email" type="text"  class="input-max" placeholder="user@winshuttle, user@email.com">
-                                        </div>
-                                    </div>
-                                    <div class="form-actions">
-                                        <button id="btn-save" class="btn btn-primary"><span>Save</span></button>
-                                        <button class="btn"><span>Cancel</span></button>
                                     </div>
                                 </fieldset>
                             </form>
@@ -179,78 +168,24 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
-                console.error("jQuery CDN is down.");
+                console.error("jQuery CDN is down.")
                 document.write('<script src="assets/js/jquery.min.js"><\/script>');
             }
         </script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script>
             if (!$.fn.modal) {
-                console.error("Bootstrap CDN is down.");
+                console.error("Bootstrap CDN is down.")
                 document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
             }
         </script>
         <script src="assets/js/kendo.all.min.js"></script>
         <script src="assets/js/chosen.jquery.min.js"></script>
+        <script src="assets/js/bootstrap.typeahead.js"></script>
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
-        <script src="assets/js/ws_workflow_admin.js"></script>
-        <script src="assets/js/ws_common.js"></script>
         <script>
             $('.chzn-select').chosen();
-            
-            $(document).ready(function () {
-                ws_initializeWebApp('/admin/GetAllWebApp', $('#select-webapp'), function () {
-                    var $webappUrl = $('#select-webapp').val();
-                    ws_ajaxCall('/admin/getallsites', { server: $webappUrl }, function (data) {
-            
-                        var options = '';
-                        $.each(data, function (key, value) {
-            
-                            options += '<option value="' + value.ServerRelativeURL + '">' + value.Name + '</option>';
-                        });
-            
-                        $("#select-site").append(options);
-                    }, null, null);
-            
-                    $("#select-site").on("change", function () {
-                        var selected = $(this).find("option:selected").val();
-                        $("#select-doclib").find("option:not(:first)").remove();
-            
-                        if (selected == 'N/A') {
-                            $("#select-doclib").prop('disabled', 'disabled');
-                            return;
-                        }
-            
-                        ws_ajaxCall('/admin/getalldoclib', { site: $webappUrl + selected }, function (data) {
-                            var options = '';
-                            $.each(data, function (key, value) {
-            
-                                options += '<option value="' + value.Name + '">' + value.Name + '</option>';
-                            });
-            
-                            $("#select-doclib").append(options);
-                            $("#select-doclib").prop('disabled', '');
-                        }, null, null);
-                    });
-            
-                    $("#btn-save").on("click", function () {
-                        var siteurl = $("#select-site option:selected").val();
-                        var list = $("#select-doclib option:selected").val();
-                        var email = $("#input-email").val();
-                        var ext = $("#select-ext option:selected").val();
-                        var data = { webappUrl: $webappUrl, siteUrl: siteurl, doclib: list, email: email, ext: ext };
-                        ws_ajaxCall('/workflowdump/dump', data, function (successData) {
-            
-                            // success message here.
-            
-                        }, null, null);
-            
-                        return false;
-                    });
-                });
-            });
-            
         </script>
     </body>
 </html>

@@ -3,7 +3,6 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Winshuttle</title>
-        
         <link href="assets/css/kendo.common.min.css" rel="stylesheet">
         <link href="assets/css/kendo.default.min.css" rel="stylesheet">
         <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
@@ -20,40 +19,39 @@
                     <div class="span6">
                         <div class="workflow-brand">
                             <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
-	                        <div class="home-dropdown">
-								<div class="btn-group">
-								  <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-								  <ul class="dropdown-menu">
-								  	<div>
-								  	<li class="dropdown-title">Logs &amp; Reporting</li>
-								    <li><a href="#">Charts</a></li>
-								    <li><a href="#">Excel Data Dump</a></li>
-								    <li><a href="#">Logging</a></li>
-								    <li><a href="#">Log File Viewer</a></li>
-								  	<li class="dropdown-title">Processes</li>
-								    <li><a href="#">Process Control</a></li>
-								    <li><a href="#">Manage Background Jobs</a></li>
-								    </div>
-								    <div>
-								  	<li class="dropdown-title">Server Administration</li>
-								    <li><a href="#">Admin Commands</a></li>
-								    <li><a href="#">Configure Options</a></li>
-								    <li><a href="#">Scheduler</a></li>
-								    <li><a href="#">Workflow Extensions</a></li>
-								    <li><a href="#">Database Status</a></li>
-								    <li><a href="#">Licenses</a></li>
-								    </div>
-								  </ul>
-								</div>
-							</div>
+                            <div class="home-dropdown">
+                                <div class="btn-group">
+                                    <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+                                    <ul class="dropdown-menu">
+                                        <div>
+                                            <li class="dropdown-title">Logs &amp; Reporting</li>
+                                            <li><a href="#">Charts</a></li>
+                                            <li><a href="#">Excel Data Dump</a></li>
+                                            <li><a href="#">Logging</a></li>
+                                            <li><a href="#">Log File Viewer</a></li>
+                                            <li class="dropdown-title">Processes</li>
+                                            <li><a href="#">Process Control</a></li>
+                                            <li><a href="#">Manage Background Jobs</a></li>
+                                        </div>
+                                        <div>
+                                            <li class="dropdown-title">Server Administration</li>
+                                            <li><a href="#">Admin Commands</a></li>
+                                            <li><a href="#">Configure Options</a></li>
+                                            <li><a href="#">Scheduler</a></li>
+                                            <li><a href="#">Workflow Extensions</a></li>
+                                            <li><a href="#">Database Status</a></li>
+                                            <li><a href="#">Licenses</a></li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                     <div class="span6">
                         <ul class="display-inline-children pull-right">
                             <!--<li>
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
-                            </li>-->
+                                </li>-->
                             <li>
                                 <select class="input-medium" id="select-webapp">
                                     <option>Sharepoint - 80</option>
@@ -64,14 +62,13 @@
                 </div>
             </div>
         </div>
-        
         <div id="mainsi">
             <div class="container-fluid">
-            	<div class="container-alert">
-	                <div id="js-alert-licensekey-copied" class="alert alert-success alert-dismissible js-initial-hide" role="alert">
-	                    License key has been copied to clipboard.
-	                </div>
-            	</div>
+                <div class="container-alert">
+                    <div id="js-alert-licensekey-copied" class="alert alert-success alert-dismissible js-initial-hide" role="alert">
+                        License key has been copied to clipboard.
+                    </div>
+                </div>
                 <div class="row-fluid">
                     <div class="span12">
                         <ul id="breadcrumbs">
@@ -81,14 +78,15 @@
                         <ul id="secnav">
                             <li class="active">
                                 <h1>Winshuttle Licensing</h1>
+                                <div class="row-fluid">
+                                    <div class="span8 page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="row-fluid">
                     <div class="span12">
-                        
-                        
                         <table class="js-table table table-striped table-bordered" id="table-license">
                             <thead>
                                 <tr>
@@ -116,10 +114,8 @@
                                 </tr>
                             </thead>
                             <tbody id="table-body-license">
-                                
                             </tbody>
                         </table>
-                        
                         <div>
                             <form>
                                 <fieldset>
@@ -127,48 +123,45 @@
                                         <input type="text" id="input-licensekey" class="form-control input-xxlarge" placeholder="New license number">
                                         <button id="btn-add" class="btn btn-primary"><span>Add</span></button>
                                     </div>
-                                    <div>
-                                        <button type="submit" class="js-form-button-save btn btn-primary"><span>Save</span></button>
-                                        <button class="js-form-button-cancel btn"><span>Cancel</span></button>
-                                    </div>
                                 </fieldset>
                             </form>
                         </div>
-                        
-                    </div><!-- /div .span8 -->
-                </div><!-- /div .row-fluid -->
-            </div><!-- /div .container-fluid -->
-            
-            </div><!-- /div #mainsi -->
-        	<div id="footer" class="row-fluid">
-                <div class="container-fluid">
-                    <div class="row-fluid">
-                        <div class="span8">
-                            <div id="footer-links">
-                                <ul>
-                                    <li><a href="#">Help</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Terms</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                </ul>
-                                <ul>
-                                    <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                    <li>Version 10.4</li>
-                                    <li>Privacy Mode: Secure</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <ul class="security-logo">
-                                <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                                <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                                <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                    </div>
+                    <!-- /div .span8 -->
+                </div>
+                <!-- /div .row-fluid -->
+            </div>
+            <!-- /div .container-fluid -->
+        </div>
+        <!-- /div #mainsi -->
+        <div id="footer" class="row-fluid">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div id="footer-links">
+                            <ul>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                            <ul>
+                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
+                                <li>Version 10.4</li>
+                                <li>Privacy Mode: Secure</li>
                             </ul>
                         </div>
                     </div>
+                    <div class="span4">
+                        <ul class="security-logo">
+                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        
+        </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
@@ -195,63 +188,63 @@
                 trigger: 'click',
                 animation: true
             });
-
+            
             $('body').on('click', '.js-tooltip-target', function (event) {
                 event.stopPropagation();
-
+            
                 var $licenseKeyCopiedAlert = $('#js-alert-licensekey-copied');
                 var $copyTextTooltip = $(this).closest('.license-key').find('.tooltip');
-
+            
                 $('div.tooltip').not($(this).siblings('div.tooltip')).remove();
-
+            
                 var currentCopyPlugin = new ZeroClipboard($('.js-link-copy'));
-
+            
                 currentCopyPlugin.on('ready', function (event) {
                     $copyTextTooltip.addClass('show-copy-link');
-
+            
                     currentCopyPlugin.on('copy', function (event) {
                         var clipboard = event.clipboardData;
-
+            
                         clipboard.setData("text/plain", $copyTextTooltip.find('.js-link-copy-target').text());
-
+            
                         $copyTextTooltip.fadeOut(function () {
                             $copyTextTooltip.remove();
                         });
-
+            
                         $licenseKeyCopiedAlert.css('display', 'inline-block');
-
+            
                         setTimeout(function () {
                             $licenseKeyCopiedAlert.slideUp();
                         }, 3000);
                     });
                 });
             });
-
-
-
+            
+            
+            
             ZeroClipboard.config({
                 swfPath: "assets/swf/ZeroClipboard.swf"
             });
-
+            
             $("#btn-add").click(function () {
-
+            
                 var licenseKey = $("#input-licensekey").val();
                 ws_ajaxCall('/license/Add', { key: licenseKey }, add, null, null);
                 return false;
             });
-
+            
             function add(data, callbackdata) {
                 var row = createRow(data[0]);
                 $("#table-license > tbody:last").append(row);
                 attachEvents($("#table-license > tbody:last > tr:last"));
             }
-
+            
             $(document).ready(function () {
                 ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
                     ws_ajaxCall('/license/getall', null, onLoad, null, null);
                 });
             });
-
+            
             function onLoad(data, callbackdata) {
                 $.each(data, function (key, value) {
                     var row = createRow(value);
@@ -259,25 +252,25 @@
                     attachEvents($("#table-license > tbody:last > tr:last"));
                 });
             }
-
+            
             function createRow(rowData) {
                 var row = '<tr><td>' + rowData.HostName + '</td><td>' + rowData.Company + '</td><td>' + rowData.Processes + '</td><td>' + rowData.Expiration + '</td><td>' + rowData.Environment + '</td><td class="license-key"><a href="#" class="js-tooltip-target" title="<div class=\'interactive\'><div class=\'js-link-copy-target\'>' + rowData.Key + '</div><div class=\'copy-link-parent\'><a href=\'#\' class=\'js-link-copy\'>Copy License</a></div></div>">#####...</a></td><td><a href="#"><i class="icon-trash"></i></a></td></tr>';
                 return row;
             }
-
+            
             function attachEvents(row) {
                 $(row).find(".icon-trash").click(function () {
                     var hostName = $(row).find("td:first").html();
                     ws_ajaxCall('/license/delete', { hostName: hostName }, trash, null, row);
                 });
-
+            
                 $(row).find('a.js-tooltip-target').tooltip({
                     html: true,
                     trigger: 'click',
                     animation: true
                 });
             }
-
+            
             function trash(data, callbackdata) {
                 $(callbackdata).remove();
             }

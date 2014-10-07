@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Winshuttle - Cluster Status</title>
+        <link href="assets/css/kendo.common.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.default.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.default.min.css" rel="stylesheet">
+        <link href="assets/css/winshuttle.css" rel="stylesheet">
+        <link href="assets/css/ws-formitems.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="workflow-header" class="cockpit">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="workflow-brand">
+                            <img src="assets/img/ws-logo-central.png" alt="Winshuttle">
+                            <div class="home-dropdown">
+                                <div class="btn-group">
+                                    <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+                                    <ul class="dropdown-menu">
+                                        <div>
+                                            <li class="dropdown-title">Logs &amp; Reporting</li>
+                                            <li><a href="#">Charts</a></li>
+                                            <li><a href="#">Excel Data Dump</a></li>
+                                            <li><a href="#">Logging</a></li>
+                                            <li><a href="#">Log File Viewer</a></li>
+                                            <li class="dropdown-title">Processes</li>
+                                            <li><a href="#">Process Control</a></li>
+                                            <li><a href="#">Manage Background Jobs</a></li>
+                                        </div>
+                                        <div>
+                                            <li class="dropdown-title">Server Administration</li>
+                                            <li><a href="#">Admin Commands</a></li>
+                                            <li><a href="#">Configure Options</a></li>
+                                            <li><a href="#">Scheduler</a></li>
+                                            <li><a href="#">Workflow Extensions</a></li>
+                                            <li><a href="#">Database Status</a></li>
+                                            <li><a href="#">Licenses</a></li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <ul class="display-inline-children pull-right">
+                            <!--
+                            <li>
+                                <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
+                            </li>
+                            -->
+                            <li>
+                                <select class="input-medium">
+                                    <option>Sharepoint - 80</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mainsi">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <ul id="breadcrumbs">
+                            <li><a href="#">Home</a> &rsaquo;</li>
+                            <li><a href="#">Server Management</a> &rsaquo;</li>
+                            <li class="related-links">
+                                <ul>
+                                    <li class="related-label">Related:</li>
+                                    <li class="link"><a href="#">All Tasks</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul id="secnav">
+                            <li class="active">
+                                <h1>Infrastructure Details</h1>
+                                <div class="row-fluid">
+                                    <div class="span8 page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h2>Manager Cluster</h2>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="settings-info">
+                            <p class="clearfix">
+                                <span class="label">Total Tasks</span>
+                                n since dd-MMM-yyy
+                            </p>
+                            <p class="clearfix">
+                                <span class="label">Queued Tasks</span>
+                                n since dd-MMM-yyy
+                            </p>
+                            <p class="clearfix">
+                                <span class="label">Running Tasks</span>
+                                n since dd-MMM-yyy
+                            </p>
+                            <p class="clearfix">
+                                <span class="label">Completed Tasks</span>
+                                n since dd-MMM-yyy
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /div .span6 -->
+                </div>
+                <!-- /div .row-fluid -->
+                
+                <h2>Manager Nodes</h2>
+                <div class="row-fluid">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="15%"><a href="#">Status</a></th>
+                                <th><a href="#">Node Name</a></th>
+                                <th><a href="#">CPU Utilization</a></th>
+                                <th><a href="#">Memory Usage</a></th>
+                                <th><a href="#">IP Address</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="icon-status-red"></span> Down</td>
+                                <td>WorkerB</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerB</td>
+                                <td><span class="icon-status-green"></span> 15%</td>
+                                <td><span class="icon-status-green"></span> 10%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerNode54</td>
+                                <td><span class="icon-status-green"></span> 45%</td>
+                                <td><span class="icon-status-red"></span> 95%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerNode12</td>
+                                <td><span class="icon-status-red"></span> 97%</td>
+                                <td><span class="icon-status-yellow"></span> 63%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-red"></span> Down</td>
+                                <td>WorkerB</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerB</td>
+                                <td><span class="icon-status-green"></span> 15%</td>
+                                <td><span class="icon-status-green"></span> 10%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerNode54</td>
+                                <td><span class="icon-status-green"></span> 45%</td>
+                                <td><span class="icon-status-red"></span> 95%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-idle"></span> Idle</td>
+                                <td>WorkerNode12</td>
+                                <td><span class="icon-status-green"></span> 5%</td>
+                                <td><span class="icon-status-green"></span> 10%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Queue</h2>
+                <div class="row-fluid">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="15%"><a href="#">Status</a></th>
+                                <th><a href="#">Node Name</a></th>
+                                <th><a href="#">CPU Utilization</a></th>
+                                <th><a href="#">Memory Usage</a></th>
+                                <th><a href="#">IP Address</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="icon-status-red"></span> Down</td>
+                                <td>WorkerB</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerB</td>
+                                <td><span class="icon-status-green"></span> 15%</td>
+                                <td><span class="icon-status-green"></span> 10%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerNode54</td>
+                                <td><span class="icon-status-green"></span> 45%</td>
+                                <td><span class="icon-status-red"></span> 95%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerNode12</td>
+                                <td><span class="icon-status-red"></span> 97%</td>
+                                <td><span class="icon-status-yellow"></span> 63%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-red"></span> Down</td>
+                                <td>WorkerB</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerB</td>
+                                <td><span class="icon-status-green"></span> 15%</td>
+                                <td><span class="icon-status-green"></span> 10%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerNode54</td>
+                                <td><span class="icon-status-green"></span> 45%</td>
+                                <td><span class="icon-status-red"></span> 95%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-idle"></span> Idle</td>
+                                <td>WorkerNode12</td>
+                                <td><span class="icon-status-green"></span> 5%</td>
+                                <td><span class="icon-status-green"></span> 10%</td>
+                                <td>nn.n.nnn.n</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Workers</h2>
+                <div class="row-fluid">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="15%"><a href="#">Worker Status</a></th>
+                                <th><a href="#">Worker Name</a></th>
+                                <th><a href="#">Assigned Tasks</a></th>
+                                <th><a href="#">CPU Utilization</a></th>
+                                <th><a href="#">Memory Utilization</a></th>
+                                <th><a href="#">IP Address</a></th>
+                                <th><a href="#">Capabilities</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="icon-status-red"></span> Down</td>
+                                <td>WorkerB</td>
+                                <td>2</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerB</td>
+                                <td>3</td>
+                                <td><span class="icon-status-green"></span> 15%</td>
+                                <td><span class="icon-status-green"></span> 10%</td>
+                                <td>nn.n.nnn.n</td>
+                                <td>Transaction Auto Post</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerNode54</td>
+                                <td>2</td>
+                                <td><span class="icon-status-green"></span> 45%</td>
+                                <td><span class="icon-status-red"></span> 95%</td>
+                                <td>nn.n.nnn.n</td>
+                                <td>Transaction Web Service</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerNode12</td>
+                                <td>12</td>
+                                <td><span class="icon-status-red"></span> 97%</td>
+                                <td><span class="icon-status-yellow"></span> 63%</td>
+                                <td>nn.n.nnn.n</td>
+                                <td>Transaction Publish</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-red"></span> Down</td>
+                                <td>WorkerB</td>
+                                <td>2</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td><span class="icon-status-red"></span> -</td>
+                                <td>-</td>
+                                <td>Query Auto Run</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerB</td>
+                                <td>3</td>
+                                <td><span class="icon-status-green"></span> 15%</td>
+                                <td><span class="icon-status-green"></span> 10%</td>
+                                <td>nn.n.nnn.n</td>
+                                <td>Query Web Service</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-green"></span> Running</td>
+                                <td>WorkerNode54</td>
+                                <td>2</td>
+                                <td><span class="icon-status-green"></span> 45%</td>
+                                <td><span class="icon-status-red"></span> 95%</td>
+                                <td>nn.n.nnn.n</td>
+                                <td>Transaction Auto Post</td>
+                            </tr>
+                            <tr>
+                                <td><span class="icon-status-idle"></span> Idle</td>
+                                <td>WorkerNode12</td>
+                                <td>0</td>
+                                <td><span class="icon-status-green"></span> 5%</td>
+                                <td><span class="icon-status-green"></span> 10%</td>
+                                <td>nn.n.nnn.n</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /div .row-fluid -->
+        </div>
+        <!-- /div .container-fluid -->
+        </div><!-- /div #mainsi -->
+        <div id="footer" class="row-fluid">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div id="footer-links">
+                            <ul>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                            <ul>
+                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
+                                <li>Version 10.4</li>
+                                <li>Privacy Mode: Secure</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <ul class="security-logo">
+                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            if (!window.jQuery) {
+                console.error("jQuery CDN is down.")
+                document.write('<script src="assets/js/jquery.min.js"><\/script>');
+            }
+        </script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script>
+            if (!$.fn.modal) {
+                console.error("Bootstrap CDN is down.")
+                document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
+            }
+        </script>
+        <script src="assets/js/kendo.all.min.js"></script>
+        <script src="assets/js/wslib_master.js"></script>
+        <script src="assets/js/wsplugin_master.js"></script>
+    </body>
+</html>

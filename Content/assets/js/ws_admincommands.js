@@ -1,19 +1,17 @@
 function ws_admincommands() {
     var externalOptions = {};
     var commandsList;
-
+    
     //var apiURL = "assets/json/ac_operator_defs.json";
     var baseURL = '/command';
     var apiURL = "";
     
     var whichAdminCommand = wsPlugin_getURLParameter('admincommandID');
-
+    
     if (whichAdminCommand != undefined && whichAdminCommand != null) {
-
         apiURL = baseURL.concat('/get?commandKey=' + whichAdminCommand);
     }
     else {
-
         apiURL = baseURL.concat('/getall');
     }
     
@@ -35,7 +33,7 @@ function ws_admincommands() {
         $.ajax({
             url: apiURL,
             dataType: 'json',
-            cache:false,
+            cache: false,
             success: function(data) {
                 commandsList = data;
                 
@@ -293,6 +291,11 @@ function ws_admincommands() {
                                 ifFalse: ' name="fielditem_' + i + '"'
                             });
                             
+                            fieldHTML += optionsPath(currentField.submitType, {
+                                ifTrue: ' data-submit-type="' + currentField.submitType + '"',
+                                ifFalse: ' data-submit-type="string"'
+                            });
+                            
                             fieldHTML += optionsPath(currentField.options.placeholder, {
                                 ifTrue: ' placeholder="' + currentField.options.placeholder + '"'
                             });
@@ -332,6 +335,11 @@ function ws_admincommands() {
                             fieldHTML += optionsPath(currentField.fieldID, {
                                 ifTrue: ' name="' + currentField.fieldID + '"',
                                 ifFalse: ' name="fielditem_' + i + '"'
+                            });
+                            
+                            fieldHTML += optionsPath(currentField.submitType, {
+                                ifTrue: ' data-submit-type="' + currentField.submitType + '"',
+                                ifFalse: ' data-submit-type="string"'
                             });
                             
                             fieldHTML += optionsPath(currentField.options.placeholder, {
@@ -397,6 +405,8 @@ function ws_admincommands() {
                                             ifTrue: ' name="' + currentField.checkboxList[j].checkboxID + '"',
                                             ifFalse: ' name="fielditem_' + i + '-' + j + '"'
                                         });
+                                        
+                                        fieldHTML += ' data-submit-type="boolean"';
 
                                         fieldHTML += optionsPath(currentCheckbox.defaultValue, {
                                             ifTrue: ' checked="checked"'
@@ -426,6 +436,8 @@ function ws_admincommands() {
                                             ifTrue: ' name="' + currentField.fieldID + '"',
                                             ifFalse: ' name="fielditem_' + i + '"'
                                         });
+                                        
+                                        fieldHTML += ' data-submit-type="boolean"';
 
                                         fieldHTML += optionsPath(currentField.options.defaultValue, {
                                             ifTrue: ' checked="checked"'
@@ -493,6 +505,11 @@ function ws_admincommands() {
                                     ifFalse: ' name="fielditem_' + i + '-' + j + '"'
                                 });
                                 
+                                fieldHTML += optionsPath(currentField.dateList[j]['submitType'], {
+                                    ifTrue: ' data-submit-type="' + currentField.dateList[j]['submitType'] + '"',
+                                    ifFalse: ' data-submit-type="string"'
+                                });
+                                
                                 fieldHTML += optionsPath(currentDate.dateLabel, {
                                     ifTrue: ' placeholder="' + currentDate.dateLabel + '"',
                                     ifFalse: ' placeholder="Date"'
@@ -517,6 +534,11 @@ function ws_admincommands() {
                                 fieldHTML += optionsPath(currentField.fieldID, {
                                     ifTrue: ' name="' + currentField.fieldID + '"',
                                     ifFalse: ' name="fielditem_' + i + '"'
+                                });
+                                
+                                fieldHTML += optionsPath(currentField.submitType, {
+                                    ifTrue: ' data-submit-type="' + currentField.submitType + '"',
+                                    ifFalse: ' data-submit-type="string"'
                                 });
                                 
                                 fieldHTML += ' placeholder="Date" class="js-kendo-datepicker">';
@@ -555,6 +577,11 @@ function ws_admincommands() {
                             fieldHTML += optionsPath(currentField.fieldID, {
                                 ifTrue: ' name="' + currentField.fieldID + '"',
                                 ifFalse: ' name="fielditem_' + i + '"'
+                            });
+                            
+                            fieldHTML += optionsPath(currentField.submitType, {
+                                ifTrue: ' data-submit-type="' + currentField.submitType + '"',
+                                ifFalse: ' data-submit-type="string"'
                             });
                             
                             fieldHTML += optionsPath(currentField.options.cssClasses, {
@@ -608,15 +635,18 @@ function ws_admincommands() {
                         
                         fieldHTML += '<div class="controls">';
                         
-                            fieldHTML += '<input type="file"';
+                            fieldHTML += '<div';
                             
                             fieldHTML += optionsPath(currentField.fieldID, {
-                                ifTrue: ' name="' + currentField.fieldID + '"',
-                                ifFalse: ' name="fielditem_' + i + '"'
+                                ifTrue: ' id="' + currentField.fieldID + '"',
+                                ifFalse: ' id="fielditem_' + i + '"'
                             });
                             
+                            fieldHTML += ' class="js-filedrop-target';
+                            
                             fieldHTML += optionsPath(currentField.options.cssClasses, {
-                                ifTrue: ' class="' + currentField.options.cssClasses + '"'
+                                ifTrue: ' ' + currentField.options.cssClasses + '"',
+                                ifFalse: '"'
                             });
                             
                             fieldHTML += optionsPath(currentField.options.style, {
@@ -624,13 +654,28 @@ function ws_admincommands() {
                             });
                             
                             fieldHTML += '>';
+                            
+                                fieldHTML += '<div class="js-filedrop-progressbar js-initial-hide"></div>';
+                                
+                                fieldHTML += '<div class="js-filedrop-notice js-initial-hide">';
+                                
+                                    fieldHTML += 'Uploaded: ';
+                                    fieldHTML += '<span class="js-filedrop-label-filename"></span>';
+                                    fieldHTML += ' (<a class="js-filedrop-trigger-delete" href="#">Delete</a>)';
+                                
+                                fieldHTML += '</div>';
+                            
+                            fieldHTML += '</div>';
                         
                         fieldHTML += '</div>';
                     
                     fieldHTML += '</div>';
+                    
+                    endTrigger.fileUpload = true;
                 }
                 
                 else if(currentField.fieldType === 'generationDropdown') {
+                    /*
                     dataBank[currentField.fieldID] = currentField.dropdownList;
                     
                     for(var j = 0; j < currentField.generationData.length; j++) {
@@ -702,10 +747,80 @@ function ws_admincommands() {
                     }
                     
                     endTrigger.generationDropdown = true;
+                    */
+                }
+                
+                else if(currentField.fieldType === 'dropdownExpansion') {
+                    var initialQueryDataParam = '';
+
+                    if(currentField.initialQueryData !== undefined) {
+                        initialQueryDataParam = $.param(currentField.initialQueryData);
+                    }
+                    
+                    fieldHTML += '<div class="control-group">';
+                    
+                        fieldHTML += '<label class="control-label">';
+
+                            fieldHTML += currentField.label;
+
+                            fieldHTML += optionsPath(currentField.options.required, {
+                                ifTrue: ' <span class="required">*</span>'
+                            });
+
+                        fieldHTML += '</label>';
+
+                        fieldHTML += '<div class="controls">';
+
+                            fieldHTML += '<select';
+                            
+                            fieldHTML += optionsPath(currentField.fieldID, {
+                                ifTrue: ' name="' + currentField.fieldID + '"',
+                                ifFalse: ' name="fielditem_' + i + '"'
+                            });
+                            
+                            fieldHTML += ' data-option-source="' + currentField.optionSource + '"';
+                            
+                            fieldHTML += optionsPath(currentField.initialQueryData, {
+                                ifTrue: ' data-initial-query-data="' + initialQueryDataParam + '"',
+                            });
+                            
+                            fieldHTML += optionsPath(currentField.nextExpansionTarget, {
+                                ifTrue: ' data-next-expansion-target="' + currentField.nextExpansionTarget + '"',
+                            });
+                            
+                            fieldHTML += optionsPath(currentField.submitType, {
+                                ifTrue: ' data-submit-type="' + currentField.submitType + '"',
+                                ifFalse: ' data-submit-type="string"'
+                            });
+                            
+                            fieldHTML += ' class="js-admincommands-form-field-dropdownexpansion';
+                            
+                            fieldHTML += optionsPath(currentField.options.cssClasses, {
+                                ifTrue: ' ' + currentField.options.cssClasses + '"',
+                                ifFalse: '"'
+                            });
+                            
+                            fieldHTML += optionsPath(currentField.options.style, {
+                                ifTrue: ' style="' + currentField.options.style + '"'
+                            });
+                            
+                            fieldHTML += optionsPath(currentField.isProgenitor, {
+                                ifTrue: '>',
+                                ifFalse: ' disabled="disabled">'
+                            });
+                            
+                            fieldHTML += '<option value="_CANCEL" selected="selected">Select Option</option>';
+                            
+                            fieldHTML += '</select>';
+                        fieldHTML += '</div>';
+                    
+                    fieldHTML += '</div>';
+                    
+                    endTrigger.dropdownExpansion = true;
                 }
                 
                 else if(currentField.fieldType === 'event-MOREOPTIONS') {
-                    fieldHTML += '<div id="js-label-moreoptions" class="control-group"><label class="control-label"><a class="js-container-moreoptions-trigger" href="#">More Options</a></label><div class="controls"><div class="line"></div></div></div>';
+                    fieldHTML += '<div id="js-label-moreoptions" class="control-group"><label class="control-label"><a class="js-container-moreoptions-trigger" href="#">More Options</a></label><div class="controls"></div></div>';
                     fieldHTML += '<div id="js-container-moreoptions" class="js-initial-hide">';
                     
                     endTrigger.moreOptions = true;
@@ -736,7 +851,57 @@ function ws_admincommands() {
                 $('input.js-kendo-datepicker').kendoDatePicker();
             }
             
+            
+            
+            if(endTrigger.fileUpload) {
+                window.fd.hasConsole = false;
+                
+                $('div.js-filedrop-target').each(function() {
+                    var $currentFiledrop = $(this);
+                    var $currentFiledropNotice = $currentFiledrop.find('.js-filedrop-notice');
+                    var $currentFiledropProgressbar = $currentFiledrop.find('.js-filedrop-progressbar');
+                    var $currentFiledropLabelFilename = $currentFiledrop.find('.js-filedrop-label-filename');
+                    
+                    var zone = new FileDrop($currentFiledrop.get(0));
+                    
+                    zone.event('send', function (files) {
+                        files.each(function (file) {
+                            file.event('sendXHR', function () {
+                                $currentFiledrop.find('iframe').closest('div').add($currentFiledropNotice).hide();
+                                $currentFiledropProgressbar.show()
+                                                           .css('width', 0);
+                            });
+                            
+                            file.event('progress', function (current, total) {
+                                var width = current / total * 100 + '%';
+                                
+                                $currentFiledropProgressbar.css('width', width);
+                            });
+                            
+                            file.event('done', function (xhr, e) {
+                                $currentFiledropLabelFilename.text(file.name);
+                                
+                                $currentFiledropNotice.show();
+                                $currentFiledropProgressbar.hide();
+                            });
+                            
+                            file.sendTo('assets/samples/upload.php'); // ### ATTENTION - Appropriate link to server for file retrieval here
+                        });
+                    });
+                    
+                    $currentFiledrop.off('click.deleteUploadedFile').on('click.deleteUploadedFile', '.js-filedrop-trigger-delete', function(event) {
+                        event.preventDefault();
+                        
+                        $currentFiledropNotice.hide();
+                        $currentFiledrop.find('iframe').closest('div').show();
+                    });
+                });
+            }
+            
+            
+            
             if(endTrigger.generationDropdown) {
+                /*
                 var $allGenerationDropdownSelects = $('select.js-admincommands-form-field-generation');
                 
                 $targetForm.off('change.generationDropdown').on('change.generationDropdown', 'select.js-admincommands-form-field-generation', function() {
@@ -772,7 +937,7 @@ function ws_admincommands() {
                                         ifTrue: ' value="' + currentDataBank[i].value + '"'
                                     });
 
-                                    targetOptionHTML += ' data-item-id="' + currentDataBank[i].ID + '">'
+                                    targetOptionHTML += ' data-item-id="' + currentDataBank[i].ID + '">';
                                     targetOptionHTML += currentDataBank[i].label;
                                     targetOptionHTML += '</option>';
                                 }
@@ -807,11 +972,101 @@ function ws_admincommands() {
                                                      .prop("disabled", true);
                     }
                 });
+                */
             }
             
             
             
-            var verboseText = '<div class="control-group"><label class="control-label">Verbose</label><div class="controls"><ul class="checkbox-group"><li><label><input name="_verbose" type="checkbox"></label></li></ul></div></div>';
+            if(endTrigger.dropdownExpansion) {
+                function populateDropdownExpansion($whichDropdown, selectedData) {
+                    var currentDropdownData = $whichDropdown.data();
+                    
+                    var selectedQueryData = $.param({ selected: selectedData });
+                    
+                    var $nextExpansionTarget = $('select.js-admincommands-form-field-dropdownexpansion[name="' + currentDropdownData.nextExpansionTarget + '"]');
+                    
+                    $whichDropdown.prop("disabled", false);
+                    
+                    if(currentDropdownData.initialQueryData !== undefined) {
+                        selectedQueryData = currentDropdownData.initialQueryData + '&' + selectedQueryData;
+                    }
+                    
+                    
+                    
+                    function disableDropdownChain($nextToDisable) {
+                        $nextToDisable.prop("disabled", true).val('_CANCEL');
+                        
+                        if($nextToDisable.data('next-expansion-target') !== undefined) {
+                            disableDropdownChain($('select.js-admincommands-form-field-dropdownexpansion[name="' + $nextToDisable.data('next-expansion-target') + '"]'));
+                        }
+                    }
+                    
+                    
+                    
+                    if($whichDropdown.length > 0) {
+                        $.ajax({
+                            url: currentDropdownData.optionSource + '?' + selectedQueryData,
+                            dataType: 'json',
+                            success: function(queryData) {
+                                var optionsHTML = '<option value="_CANCEL" selected="selected">Select Option</option>';
+
+                                for(var j = 0; j < queryData.length; j++) {
+                                    var currentDropdownItem = queryData[j];
+
+                                    optionsHTML += '<option';
+
+                                    optionsHTML += optionsPath(currentDropdownItem.ID, {
+                                        ifTrue: ' value="' + currentDropdownItem.ID + '"'
+                                    });
+
+                                    optionsHTML += '>';
+
+                                    optionsHTML += currentDropdownItem.label;
+                                    optionsHTML += '</option>';
+                                }
+
+                                $whichDropdown.empty().append(optionsHTML);
+                                
+                                if(currentDropdownData.nextExpansionTarget !== undefined) {
+                                    disableDropdownChain($nextExpansionTarget);
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                wsLib_console({
+                                    xhr: xhr,
+                                    status: status,
+                                    error: error
+                                });
+                            }
+                        });
+                    }
+                    
+                    
+                    
+                    $whichDropdown.off('change.dropdownExpansion').on('change.dropdownExpansion', function() {
+                        if(currentDropdownData.nextExpansionTarget !== undefined) {
+                            if($whichDropdown.val() !== '_CANCEL') {
+                                populateDropdownExpansion($nextExpansionTarget, $whichDropdown.val());
+                            }
+                            else {
+                                disableDropdownChain($nextExpansionTarget);
+                            }
+                        }
+                    });
+                }
+                
+                $('select.js-admincommands-form-field-dropdownexpansion').each(function() {
+                    var $this = $(this);
+                    
+                    if(!$this.prop('disabled')) {
+                        populateDropdownExpansion($this);
+                    }
+                });
+            }
+            
+            
+            
+            var verboseText = '<div class="control-group"><label class="control-label">Verbose</label><div class="controls"><ul class="checkbox-group"><li><label><input name="_verbose" data-submit-type="boolean" type="checkbox"></label></li></ul></div></div>';
             
             if(endTrigger.moreOptions) {
                 $('#js-label-moreoptions').off('click.moreoptionsToggle').on('click.moreoptionsToggle', '.js-container-moreoptions-trigger', function(event) {
@@ -821,7 +1076,18 @@ function ws_admincommands() {
                     
                     var currentText = $this.text();
                     
-                    $this.text(currentText === 'More Options' ? 'Fewer Options' : 'More Options');
+                    if(currentText === 'More Options') {
+                        currentText = 'Less Options';
+                        
+                        $this.text(currentText)
+                             .addClass('options-open');
+                    }
+                    else {
+                        currentText = 'More Options';
+                        
+                        $this.text(currentText)
+                             .removeClass('options-open');
+                    }
                     
                     $('#js-container-moreoptions').slideToggle();
                 });
@@ -832,15 +1098,24 @@ function ws_admincommands() {
                 $targetFormOperations.append(verboseText);
             }
             
-            
-            
+    
             $('#js-form-submitcancel').on('click', '.js-form-button-submit', function(event) {
                 event.preventDefault();
                 
-                var serializedData = $targetForm.serialize();
+                var queryToSubmit = {};
+                
+                $targetForm.find('input, textarea, select').each(function() {
+                    var $this = $(this);
+                    
+                    queryToSubmit[$this.attr('name')] = {
+                        value: $this.val(),
+                        type: $this.data('submit-type')
+                    };
+                });
                 
                 wsLib_console({
-                    serializedData: serializedData
+                    data: queryToSubmit,
+                    query: $.param(queryToSubmit)
                 });
             });
         }

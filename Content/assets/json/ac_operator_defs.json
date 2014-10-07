@@ -14,103 +14,59 @@
             ],
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "location",
-                    "generationData": [
-                        {
-                            "generationID": "server",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "site",
-                            "label": "Site",
-                            "required": true
-                        },
-                        {
-                            "generationID": "list",
-                            "label": "List"
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "gen": 0,
-                            "ID": "XXX1",
-                            "label": "Option 1",
-                            "value": "Value 1"
-                        },
-                        {
-                            "gen": 0,
-                            "ID": "XXX2",
-                            "label": "Option 2",
-                            "value": "Value 2"
-                        },
-                        {
-                            "gen": 1,
-                            "ID": "XXX1-1",
-                            "parent": "XXX1",
-                            "label": "Option 1-1",
-                            "value": "Value 1-1"
-                        },
-                        {
-                            "gen": 1,
-                            "ID": "XXX1-2",
-                            "parent": "XXX1",
-                            "label": "Option 1-2",
-                            "value": "Value 1-2"
-                        },
-                        {
-                            "gen": 1,
-                            "ID": "XXX2-1",
-                            "parent": "XXX2",
-                            "label": "Option 2-1",
-                            "value": "Value 2-1"
-                        },
-                        {
-                            "gen": 1,
-                            "ID": "XXX2-2",
-                            "parent": "XXX2",
-                            "label": "Option 2-2",
-                            "value": "Value 2-2"
-                        },
-                        {
-                            "gen": 2,
-                            "ID": "XXX1-1-1",
-                            "parent": "XXX1-1",
-                            "label": "Options 1-1-1",
-                            "value": "Value 1-1-1"
-                        },
-                        {
-                            "gen": 2,
-                            "ID": "XXX1-1-2",
-                            "parent": "XXX1-1",
-                            "label": "Options 1-1-2",
-                            "value": "Value 1-1-2"
-                        },
-                        {
-                            "gen": 2,
-                            "ID": "XXX1-2-1",
-                            "parent": "XXX1-2",
-                            "label": "Options 1-2-1",
-                            "value": "Value 1-2-1"
-                        },
-                        {
-                            "gen": 2,
-                            "ID": "XXX2-1-1",
-                            "parent": "XXX2-1",
-                            "label": "Options 2-1-1",
-                            "value": "Value 2-1-1"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
                 {
                     "NOTE": "for integer, set class to 'integer', for email set to 'email'.",
                     "fieldType": "string",
-                    "fieldID": "XXX",
+                    "fieldID": "sample_string",
                     "label": "String",
+                    "submitType": "number",
                     "options": {
                         "required": true,
                         "style": false,
@@ -119,8 +75,9 @@
                 },
                 {
                     "fieldType": "dropdown",
-                    "fieldID": "dropdown1",
+                    "fieldID": "sample_dropdown",
                     "label": "Dropdown",
+                    "submitType": "number",
                     "dropdownOptionsList": [
                         {
                             "label": "Option A",
@@ -143,8 +100,9 @@
                 },
                 {
                     "fieldType": "password",
-                    "fieldID": "XXX",
+                    "fieldID": "sample_password",
                     "label": "password",
+                    "submitType": "number",
                     "options": {
                         "required": true,
                         "style": false,
@@ -152,7 +110,7 @@
                     }
                 },
                 {
-                    "fieldID": "XXX",
+                    "fieldID": "sample_checkbox",
                     "fieldType": "checkbox",
                     "label": "Checkbox",
                     "options": {
@@ -162,18 +120,18 @@
                     }
                 },
                 {
-                    "fieldID": "XXX",
+                    "fieldID": "sample_checkboxgroup",
                     "fieldType": "checkbox",
                     "group": true,
                     "label": "Checkbox Group",
                     "checkboxList": [
                         {
-                            "checkboxID": "XXX",
+                            "checkboxID": "sample_checkboxgroup_1",
                             "checkboxLabel": "Default is FALSE",
                             "defaultValue": false
                         },
                         {
-                            "checkboxID": "XXX",
+                            "checkboxID": "sample_checkboxgroup_2",
                             "checkboxLabel": "Default is TRUE",
                             "defaultValue": true
                         }
@@ -186,9 +144,10 @@
                     }
                 },
                 {
-                    "fieldID": "XXX",
+                    "fieldID": "sample_date",
                     "fieldType": "date",
                     "label": "Date",
+                    "submitType": "number",
                     "options": {
                         "required": true,
                         "style": false,
@@ -196,18 +155,20 @@
                     }
                 },
                 {
-                    "fieldID": "XXX",
+                    "fieldID": "sample_dategroup",
                     "fieldType": "date",
                     "group": true,
                     "label": "Date Group",
                     "dateList": [
                         {
-                            "dateID": "XXX",
-                            "dateLabel": "Start Date"
+                            "dateID": "sample_dategroup_startdate",
+                            "dateLabel": "Start Date",
+                            "submitType": "number"
                         },
                         {
-                            "dateID": "XXX",
+                            "dateID": "sample_dategroup_enddate",
                             "dateLabel": "End Date",
+                            "submitType": "number",
                             "dateValue": "TODAY"
                         }
                     ],
@@ -222,11 +183,34 @@
                     "fieldType": "event-MOREOPTIONS"
                 },
                 {
-                    "fieldID": "XXX",
+                    "fieldID": "sample_file",
                     "fieldType": "file",
                     "label": "Select File",
+                    "submitType": "number",
                     "options": {
                         "placeholder": "SAMPLE FILE",
+                        "style": false,
+                        "cssClasses": false
+                    }
+                },
+                {
+                    "fieldID": "sample_file_2",
+                    "fieldType": "file",
+                    "label": "Select File 2",
+                    "submitType": "number",
+                    "options": {
+                        "placeholder": "SAMPLE FILE 2",
+                        "style": false,
+                        "cssClasses": false
+                    }
+                },
+                {
+                    "fieldID": "sample_file_3",
+                    "fieldType": "file",
+                    "label": "Select File 3",
+                    "submitType": "number",
+                    "options": {
+                        "placeholder": "SAMPLE FILE 3",
                         "style": false,
                         "cssClasses": false
                     }
@@ -258,32 +242,52 @@
             ],
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "location",
-                    "generationData": [
-                        {
-                            "generationID": "server",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "site",
-                            "label": "Site",
-                            "required": true
-                        },
-                        {
-                            "generationID": "list",
-                            "label": "List"
-                        }
-                    ],
-                    "options": {
-                        "cssClasses": "input-max"
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
                     },
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ]
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
                 },
                 {
                     "fieldType": "string",
@@ -341,31 +345,50 @@
             ],
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "location",
-                    "generationData": [
-                        {
-                            "generationID": "server",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "site",
-                            "label": "Site",
-                            "required": true
-                        },
-                        {
-                            "generationID": "list",
-                            "label": "List",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
@@ -517,26 +540,50 @@
             "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-enumprocessdefinition.htm",
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "location",
-                    "generationData": [
-                        {
-                            "generationID": "server",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "site",
-                            "label": "Site",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 }
@@ -640,55 +687,98 @@
             "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-updateprocessstatuslist.htm",
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "sourceLocation",
-                    "generationData": [
-                        {
-                            "generationID": "sourceServer",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "sourceSite",
-                            "label": "Site",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "statusLocation",
-                    "generationData": [
-                        {
-                            "generationID": "statusServer",
-                            "label": "Status Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "statusSite",
-                            "label": "Status Site",
-                            "required": true
-                        },
-                        {
-                            "generationID": "statusList",
-                            "label": "Status List",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_A",
+                    "label": "Dropdown Expansion A",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_B",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_B",
+                    "label": "Dropdown Expansion B",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_C",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_C",
+                    "label": "Dropdown Expansion C",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
@@ -784,55 +874,98 @@
             "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-updateassignmentstatuslist.htm",
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "sourceLocation",
-                    "generationData": [
-                        {
-                            "generationID": "sourceServer",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "sourceSite",
-                            "label": "Site",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "statusLocation",
-                    "generationData": [
-                        {
-                            "generationID": "statusServer",
-                            "label": "Status Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "statusSite",
-                            "label": "Status Site",
-                            "required": true
-                        },
-                        {
-                            "generationID": "statusList",
-                            "label": "Status List",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_A",
+                    "label": "Dropdown Expansion A",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_B",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_B",
+                    "label": "Dropdown Expansion B",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_C",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_C",
+                    "label": "Dropdown Expansion C",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
@@ -862,30 +995,50 @@
             "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-deletesavedforms.htm",
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "location",
-                    "generationData": [
-                        {
-                            "generationID": "Server",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "site",
-                            "label": "Site",
-                            "required": true
-                        },
-                        {
-                            "generationID": "list",
-                            "label": "list"
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
@@ -916,29 +1069,50 @@
             "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-deleteformcache.htm",
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "location",
-                    "generationData": [
-                        {
-                            "generationID": "Server",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "site",
-                            "label": "Site"
-                        },
-                        {
-                            "generationID": "list",
-                            "label": "list"
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
@@ -961,31 +1135,50 @@
             "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-addformreport.htm",
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "location",
-                    "generationData": [
-                        {
-                            "generationID": "Server",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "site",
-                            "label": "Site",
-                            "required": true
-                        },
-                        {
-                            "generationID": "list",
-                            "label": "list",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
@@ -1045,31 +1238,50 @@
             "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-removeformreport.htm",
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "location",
-                    "generationData": [
-                        {
-                            "generationID": "Server",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "site",
-                            "label": "Site",
-                            "required": true
-                        },
-                        {
-                            "generationID": "list",
-                            "label": "list",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
@@ -1093,31 +1305,50 @@
             "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-updatedateformat.htm",
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "location",
-                    "generationData": [
-                        {
-                            "generationID": "Server",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "site",
-                            "label": "Site",
-                            "required": true
-                        },
-                        {
-                            "generationID": "list",
-                            "label": "list",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
@@ -1167,31 +1398,50 @@
             "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-adddocmonitor.htm",
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "location",
-                    "generationData": [
-                        {
-                            "generationID": "Server",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "site",
-                            "label": "Site",
-                            "required": true
-                        },
-                        {
-                            "generationID": "list",
-                            "label": "list",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
@@ -1241,31 +1491,50 @@
             "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-removedocmonitor.htm",
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "location",
-                    "generationData": [
-                        {
-                            "generationID": "Server",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "site",
-                            "label": "Site",
-                            "required": true
-                        },
-                        {
-                            "generationID": "list",
-                            "label": "list",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
@@ -1317,26 +1586,50 @@
             "operationDoc": "http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle-workflow-administrator-guide-svadm-commands-setapprovedversions.htm",
             "listOfFields": [
                 {
-                    "fieldType": "generationDropdown",
-                    "fieldID": "sourceLocation",
-                    "generationData": [
-                        {
-                            "generationID": "sourceServer",
-                            "label": "Server",
-                            "required": true
-                        },
-                        {
-                            "generationID": "sourceSite",
-                            "label": "Site",
-                            "required": true
-                        }
-                    ],
-                    "dropdownList": [
-                        {
-                            "NOTE": "generated content goes here"
-                        }
-                    ],
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion",
+                    "label": "Dropdown Expansion",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "servers"
+                    },
+                    "isProgenitor": true,
+                    "nextExpansionTarget": "sample_dropdown_expansion_2",
                     "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_2",
+                    "label": "Dropdown Expansion 2",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "sites"
+                    },
+                    "nextExpansionTarget": "sample_dropdown_expansion_3",
+                    "options": {
+                        "required": true,
+                        "style": false,
+                        "cssClasses": "input-max"
+                    }
+                },
+                {
+                    "fieldType": "dropdownExpansion",
+                    "fieldID": "sample_dropdown_expansion_3",
+                    "label": "Dropdown Expansion 3",
+                    "submitType": "number",
+                    "optionSource": "assets/samples/mockListDistributor.php",
+                    "initialQueryData": {
+                        "targetitem": "lists"
+                    },
+                    "options": {
+                        "required": true,
+                        "style": false,
                         "cssClasses": "input-max"
                     }
                 },
