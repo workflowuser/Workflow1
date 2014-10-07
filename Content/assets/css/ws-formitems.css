@@ -236,7 +236,7 @@ label.control-label.secondary-label {
 	border-top: 0 none;
 }
 .checkbox-group label {
-	margin: 0;
+    margin: 0 20px 0 0;
 }
 .control-group .controls ul {
     margin-left: 0;
@@ -447,7 +447,8 @@ label.control-label.secondary-label {
 }
 .table-addedit-form td .add-actions .btn,
 .table-addedit-form .update-actions .btn {
-	margin-left: 5px;
+    margin-left: 5px;
+    min-width: 60px;
 }
 table .pull-right .update-actions span {
     padding: 0 0 0 15px;
@@ -584,4 +585,10 @@ table .pull-right .update-actions span {
 #js-administration-pluginnew-parameters .js-administration-pluginnew-parameters-action-addrow,
 #js-administration-pluginnew-parameters.js-form-editmode .js-administration-pluginnew-parameters-action-editrow {
     display: block;
+}
+
+td .contain-long-word {
+    width: 200px;
+    word-wrap: break-word;
+    line-height: 18px;
 }
