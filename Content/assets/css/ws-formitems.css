@@ -187,9 +187,7 @@ ul.home-links li a h3 {
 .display-inline {
     display: inline;
 }
-.bump-down-20 {
-    margin-top: 20px;
-}
+
 .tooltip-help {
 	color: #99a5aa !important;
 	letter-spacing: 1px;
@@ -638,5 +636,5 @@ td .contain-long-word {
 }
 
 #js-label-moreoptions #js-container-moreoptions {
-    padding-top: 30px;
+    margin-top: 20px;
 }
