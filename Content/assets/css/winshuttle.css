@@ -538,9 +538,13 @@ table {
 	float: left;
 	display: block;
 	margin-right: 10px;
+        padding-left: 10px;
 }
-.table-menu th input.btn{
+.table-menu th input.btn {
 	vertical-align: top;
+}
+.table-menu th button.btn {
+    margin-top: 4px;
 }
 .table-menu th input[type="checkbox"]{
 	vertical-align: top;
@@ -2877,7 +2881,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#03b84c', endC
 }
 .icon-status-running,
 .icon-status-executing {
-    background-position: -304px -36px;
+    background-position: -304px -37px;
 }
 
 /*.icon-glass {
@@ -3450,7 +3454,7 @@ body.login {
 
 /*settings*/
 .settings-info {
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .settings-info h2 {
 	float: left;
