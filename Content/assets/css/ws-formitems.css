@@ -447,7 +447,6 @@ label.control-label.secondary-label {
 }
 .table-addedit-form td .add-actions .btn,
 .table-addedit-form .update-actions .btn {
-    margin-left: 5px;
     min-width: 60px;
 }
 table .pull-right .update-actions span {
@@ -591,4 +590,9 @@ td .contain-long-word {
     width: 200px;
     word-wrap: break-word;
     line-height: 18px;
+}
+
+.form-horizontal .form-actions.top-line {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
 }
