@@ -1906,9 +1906,7 @@ legend + .control-group {
   margin-bottom: 0;
 }
 .form-horizontal .form-actions {
-  /* padding-left: 180px; */
-  border-top: 1px solid #ccc;
-  padding-top: 20px;
+    /* padding-left: 180px; */
 }
 /* @end */
 

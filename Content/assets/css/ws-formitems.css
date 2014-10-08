@@ -158,10 +158,6 @@ ul.home-links li a h3 {
 	margin-top: -2px;
 	text-decoration: none !important;
 }
-ul.display-inline-children > * {
-    display: inline-block;
-    margin-right: 10px;
-}
 h2.compact {
 	margin-top: 20px;
 	margin-bottom: 10px;
@@ -240,7 +236,7 @@ label.control-label.secondary-label {
 	border-top: 0 none;
 }
 .checkbox-group label {
-	margin: 0;
+    margin: 0 20px 0 0;
 }
 .control-group .controls ul {
     margin-left: 0;
@@ -250,7 +246,6 @@ label.control-label.secondary-label {
     margin-top: 5px;
     margin-bottom: 0;
 }
-.control-group .controls ul.checkbox-group:not(.display-inline-children) li,
 .control-group .controls ul.checkbox-group:not(.inline-list) li {
     padding-bottom: 10px;
 }
@@ -439,6 +434,11 @@ label.control-label.secondary-label {
     margin: 0;
 }
 
+.add-actions .btn,
+.update-actions .btn {
+    margin-right: 10px;
+}
+
 .table-addedit-form td .add-actions,
 .table-addedit-form .update-actions {
 	display: inline-block;
@@ -447,7 +447,7 @@ label.control-label.secondary-label {
 }
 .table-addedit-form td .add-actions .btn,
 .table-addedit-form .update-actions .btn {
-	margin-left: 5px;
+    min-width: 60px;
 }
 table .pull-right .update-actions span {
     padding: 0 0 0 15px;
@@ -584,4 +584,15 @@ table .pull-right .update-actions span {
 #js-administration-pluginnew-parameters .js-administration-pluginnew-parameters-action-addrow,
 #js-administration-pluginnew-parameters.js-form-editmode .js-administration-pluginnew-parameters-action-editrow {
     display: block;
+}
+
+td .contain-long-word {
+    width: 200px;
+    word-wrap: break-word;
+    line-height: 18px;
+}
+
+.form-horizontal .form-actions.top-line {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
 }
