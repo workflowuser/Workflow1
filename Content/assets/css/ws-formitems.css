@@ -638,3 +638,142 @@ td .contain-long-word {
 #js-label-moreoptions #js-container-moreoptions {
     margin-top: 20px;
 }
+
+/* @group Dropdown Tree Menu */
+
+.dropdown-tree-menu {
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.dropdown-tree-menu .dropdown {
+    border-bottom: 1px solid #ddd;
+}
+.dropdown-tree-menu .dropdown a{
+    padding: 0 10px;
+    display: block;
+    text-decoration: none;
+}
+.dropdown-tree-menu .dropdown-toggle {
+    padding: 5px 10px !important;
+}
+.dropdown-tree-menu .dropdown-toggle span {
+    background-image: url("assets/img/winshuttle-sprite.png");
+    background-position: -32px -36px;
+    content: "";
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    margin-top: -3px;
+    margin-left: 5px;
+}
+.dropdown-tree-menu .dropdown.open .dropdown-toggle {
+    background-color: #f7f7f7;
+    color: #444;
+}
+.dropdown-tree-menu .dropdown-menu {
+    width: 100%;
+    background-color: #fff;
+    margin-left: -1px;
+    padding: 5px 0;
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.dropdown-tree-menu .dropdown-menu li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+} 
+.dropdown-tree-menu .dropdown-menu a.btn {
+    display: block;
+    float: none;
+    margin: 0;
+    padding-left: 0;
+}  
+.dropdown-tree-menu .dropdown-menu a span {
+    padding-left: 0px;
+} 
+.dropdown-tree-menu .dropdown-menu a.btn span {
+    padding-left: 10px;
+}  
+.dropdown-tree-menu ul {
+    list-style: none outside none;
+    margin: 0;
+}
+.dropdown-tree-menu > ul {
+    padding: 0 0 10px 0;
+}
+.dropdown-tree-menu li a {
+    line-height: 25px;
+}
+.dropdown-tree-menu ul li a {
+    color: #3B4C56;
+    display: block;
+    font-weight: normal;
+    position: relative;
+    text-decoration: none;
+}
+.dropdown-tree-menu li a {
+    padding: 5px 0 5px 10px;
+}
+.dropdown-tree-menu li a span {
+    padding: 0 0 0 5px;
+}
+.dropdown-tree-menu li a .plus-minus {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    display: block;
+    right: 10px;
+    top: 8px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.dropdown-tree-menu li a .plus-minus:hover {
+    opacity: 1;
+}
+.dropdown-tree-menu li.parent.active {
+    background-color: #f4f4f4;
+}
+.dropdown-tree-menu ul li.active > a:before {
+    background-position: -16px -36px;
+}
+.dropdown-tree-menu ul li ul {
+    overflow: hidden;
+    margin-left: 15px;
+}
+.dropdown-tree-menu ul li ul li a {
+    padding-left: 36px;
+}
+.dropdown-tree-menu ul li ul li ul li a {
+    padding-left: 62px;
+}
+.dropdown-tree-menu ul li ul li ul li ul li  a {
+    padding-left: 88px;
+}
+.dropdown-tree-menu ul li ul li {
+    position: relative;
+}
+.dropdown-tree-menu ul.dropdown-menu li a.active {
+    color: #fff;
+    background-color: #444;
+}
+
+.dropdown-tree-menu ul.dropdown-menu li a.js-menu-inactive {
+    color: #aaa;
+    font-style: italic;
+}
+.dropdown-tree-menu ul.dropdown-menu li a.js-menu-inactive:hover {
+    background-color: transparent;
+    font-weight: normal;
+}
+
+/* @end */

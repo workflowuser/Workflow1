@@ -193,12 +193,33 @@
                                 </tr>
                                 <tr class="js-rowadd-toggle-view-slave-0 row-add js-initial-hide">
                                     <td>
-                                        <select id="js-administration-editconfiguration-addnewvalue-select" class="js-addnewvalue-toggle-view-master-0 input-max">
-                                            <option selected="selected" data-toggle-view="0">Select</option>
-                                            <option value="A" data-toggle-view="1">Sample String Data Type</option>
-                                            <option value="B" data-toggle-view="2">Sample Boolean Data Type</option>
-                                            <option value="C" data-toggle-view="3">Sample Menu Data Type</option>
-                                        </select>
+                                        <div id="js-administration-editconfiguration-addnewvalue-select" class="dropdown-tree-menu">
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">All Sites & Lists</a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="#"><span>All Sites & Lists</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="js-menu-inactive" href="#"><span>formex/</span></a>
+                                                        <ul>
+                                                            <li><a class="js-menu-inactive" href="#"><span>Announcements</span></a></li>
+                                                            <li><a class="js-menu-inactive" href="#"><span>Calendar</span></a></li>
+                                                            <li><a href="#"><span>Tasks</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><span>Site B/</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><span>Site C/</span></a>
+                                                        <ul>
+                                                            <li><a href="#"><span>List 12</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="js-addnewvalue-toggle-view-slave-1 js-initial-hide">
