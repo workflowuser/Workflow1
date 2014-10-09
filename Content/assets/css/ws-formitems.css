@@ -110,6 +110,46 @@ ul.home-links li a h3 {
        -o-transition: all 0.15s linear;
           transition: all 0.15s linear;
 }
+
+.table .table-sort th {
+    padding: 0;
+}
+.table .table-sort th a {
+    display: block;
+    position: relative;
+    padding: 8px;
+}
+.table .table-sort th a:after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: 7px;
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #ccc;
+}
+.table .table-sort th:hover a:after,
+.table .table-sort th.sortdown a:after {
+    border-top-color: #777;
+}
+.table .table-sort th.sortup a:after {
+    border-bottom: 4px solid #777;
+    border-top: 0 none;
+}
+.table .table-sort th.sortdown a,
+.table .table-sort th.sortup a {
+    color: #777;
+    font-weight: bold;
+}
+.table .table-sort th.no-sort {
+    padding: 8px;
+}
+.table .table-sort th.no-sort a:after {
+    display: none;
+}
+
 .table .text-right {
     text-align: right;
     vertical-align: bottom;
@@ -147,9 +187,7 @@ ul.home-links li a h3 {
 .display-inline {
     display: inline;
 }
-.bump-down-20 {
-    margin-top: 20px;
-}
+
 .tooltip-help {
 	color: #99a5aa !important;
 	letter-spacing: 1px;
@@ -595,4 +633,8 @@ td .contain-long-word {
 .form-horizontal .form-actions.top-line {
     border-top: 1px solid #ccc;
     padding-top: 20px;
+}
+
+#js-label-moreoptions #js-container-moreoptions {
+    margin-top: 20px;
 }

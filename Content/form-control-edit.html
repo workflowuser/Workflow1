@@ -96,8 +96,8 @@
                                 <fieldset class="form-horizontal">
                                     <div class="control-group">
                                         <label class="control-label">Form Control Name <span class="required">*</span></label>
-                                        <div class="controls ">
-                                            <input type="text" class="form-control input-block-level" placeholder="CalendarChecker">
+                                        <div class="controls">
+                                            <input type="text" class="form-control input-block-level input-max" placeholder="CalendarChecker">
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -106,13 +106,13 @@
                                             <ul class="checkbox-group inline-list">
                                                 <li>
                                                     <label>
-                                                    <input type="radio" class="js-createwith-toggle-view-master-0" name="TEMP_RENAMETHIS_create_with" checked="checked">
+                                                    <input type="radio" class="js-administration-topline-toggle js-createwith-toggle-view-master-0" data-administration-topline="true" name="TEMP_RENAMETHIS_create_with" checked="checked">
                                                     <span>XML</span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                    <input type="radio" class="js-createwith-toggle-view-master-1" name="TEMP_RENAMETHIS_create_with">
+                                                    <input type="radio" class="js-administration-topline-toggle js-createwith-toggle-view-master-1" data-administration-topline="false" name="TEMP_RENAMETHIS_create_with">
                                                     <span>Form Control Designer</span>
                                                     </label>
                                                 </li>
@@ -130,7 +130,7 @@
                                     <div class="control-group js-createwith-toggle-view-slave-1 js-initial-hide">
                                         <label class="control-label">Class ID <span class="required">*</span></label>
                                         <div class="controls ">
-                                            <input type="text" class="form-control input-block-level" placeholder="gh45-s6023-49684-firio">
+                                            <input type="text" class="form-control input-block-level input-max" placeholder="gh45-s6023-49684-firio">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -155,7 +155,7 @@
                                 <tr class="js-rowadd-toggle-view-slave-0 row-add js-initial-hide">
                                     <td>
                                         <div class="controls">
-                                            <input type="text" class="form-control input-xxlarge" placeholder="DataSourceName">
+                                            <input type="text" class="form-control input-twothirds" placeholder="DataSourceName">
                                         </div>
                                         <div class="add-actions">
                                             <button class="js-administration-formcontrol-variants-addrow js-rowadd-toggle-view-master-1 btn btn-primary"><span>Add</span></button>
@@ -170,7 +170,7 @@
                 <div class="row-fluid">
                     <div class="span8">
                         <fieldset class="form-horizontal">
-                            <div class="form-actions">
+                            <div class="js-administration-topline-target form-actions top-line">
                                 <button type="submit" class="btn btn-primary"><span>Save</span></button>
                                 <button class="btn"><span>Cancel</span></button>
                             </div>
@@ -231,6 +231,19 @@
             (function() {
                 wsLib_toggleViews("createwith", 2, "radio", "no", 200);
                 wsLib_toggleViews("rowadd", 2, "default");
+                
+                
+                
+                $('input.js-administration-topline-toggle').on('click.toggleTopline', function() {
+                    if($(this).data('administration-topline')) {
+                        $('div.js-administration-topline-target').addClass('top-line');
+                    }
+                    else {
+                        $('div.js-administration-topline-target').removeClass('top-line');
+                    }
+                });
+                
+                
                 
                 var $formControlVariants = $('#js-administration-formcontrol-variants');
                 
@@ -310,7 +323,7 @@
                             currentRowHTML += '</div>';
                             currentRowHTML += '<div class="js-administration-formcontrol-variants-display">' + currentPlugData.name + '</div>';
                             currentRowHTML += '<div class="js-administration-formcontrol-variants-form js-initial-hide" style="display: none;">';
-                                currentRowHTML += '<input type="text" class="input-mid" value="' + currentPlugData.name + '">';
+                                currentRowHTML += '<input type="text" class="input-twothirds" value="' + currentPlugData.name + '">';
                             currentRowHTML += '</div>';
                         currentRowHTML += '</td>';
                     currentRowHTML += '</tr>';
