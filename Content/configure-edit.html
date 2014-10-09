@@ -112,7 +112,7 @@
                     <div class="span8">
                         <h2>Value</h2>
                         <table class="table table-striped table-bordered table-addedit-form">
-                            <thead class="table-sort">
+                            <thead>
                                 <tr>
                                     <th width="33.3333333333%"><a href="#">Scope</a></th>
                                     <th width="66.6666666667%"><a href="#">Value</a></th>
@@ -163,7 +163,14 @@
                                             <div class="update-actions js-initial-hide" style="display: none;"><button class="js-administration-editconfiguration-value-editsave js-administration-editconfiguration-value-edittoggle btn btn-primary"><span>Save</span></button><button class="js-administration-editconfiguration-value-edittoggle btn"><span>Cancel</span></button></div>
                                         </div>
                                         <div class="js-administration-editconfiguration-value-display">Bananas</div>
-                                        <div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;"><input type="text" class="input-mid" value="Bananas"></div>
+                                        <div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;">
+                                            <select>
+                                                <option>Select</option>
+                                                <option>Apples</option>
+                                                <option selected="selected">Bananas</option>
+                                                <option>Cherries</option>
+                                            </select>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr class="js-administration-editconfiguration-value-item">
@@ -214,8 +221,8 @@
                                             </ul>
                                         </div>
                                         <div class="js-addnewvalue-toggle-view-slave-3 js-initial-hide">
-                                            <select class="input-large">
-                                                <option selected="selected">Select</option>
+                                            <select>
+                                                <option>Select</option>
                                                 <option>Apples</option>
                                                 <option>Bananas</option>
                                                 <option>Cherries</option>
@@ -346,7 +353,7 @@
                 }).on('click.editSave', '.js-administration-editconfiguration-value-editsave', function(event) {
                     event.preventDefault();
                     
-                    $(this).closest('tr').find('.js-administration-editconfiguration-value-form').find('input').each(function() {
+                    $(this).closest('tr').find('.js-administration-editconfiguration-value-form').find('input, select').each(function() {
                         var $currentInput = $(this);
                         var $currentDisplay = $currentInput.closest('.js-administration-editconfiguration-value-form').siblings('.js-administration-editconfiguration-value-display');
                         
@@ -355,6 +362,9 @@
                         }
                         else if($currentInput.attr('type') === 'radio') {
                             $currentDisplay.text(wsPlugin_capitaliseFirstLetter(!$currentInput.prop('checked') + ""));
+                        }
+                        else if($currentInput.is('select')) {
+                            $currentDisplay.text($currentInput.val());
                         }
                         else {
                             $currentDisplay.text($currentInput.val());
@@ -397,6 +407,19 @@
                             });
                             
                             $currentInput.prop('checked', true);
+                        }
+                        else if($currentInput.is('select')) {
+                            $currentInput.find(':selected').attr('selected', 'selected');
+                            
+                            currentRowData.push({
+                                index: index,
+                                data: $currentInput.val(),
+                                dataDisplay: $currentInput.val(),
+                                type: "select",
+                                HTML: $currentInput.clone()
+                            });
+                            
+                            $currentInput.find(':selected').removeAttr('selected');
                         }
                         else {
                             currentRowData.push({
@@ -470,6 +493,11 @@
                                         currentRowHTML += '</label>';
                                     currentRowHTML += '</li>';
                                 currentRowHTML += '</ul>';
+                                }
+                                else if(currentPlugData.type === 'select') {
+                                currentRowHTML += '<select>';
+                                    currentRowHTML += currentPlugData.HTML.html();
+                                currentRowHTML += '</select>';
                                 }
                                 else {
                                 currentRowHTML += '<input type="text" class="input-mid" value="' + currentPlugData.value + '">';
