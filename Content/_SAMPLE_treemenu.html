@@ -55,7 +55,10 @@
                 background-color: #f7f7f7;
                 margin-left: -1px;
                 padding: 5px 0;
-            }  
+                height: 300px;
+                overflow-x: hidden;
+                overflow-y: scroll;
+            }
             .dropdown-tree-menu .dropdown-menu li {
                 -webkit-box-sizing: border-box;
                 -moz-box-sizing: border-box;
@@ -133,14 +136,19 @@
             .dropdown-tree-menu ul li ul li {
                 position: relative;
             }
-            
-            /* Integrate the following below into "winshuttle.css" */
             .dropdown-tree-menu ul.dropdown-menu li a:hover {
                 background-color: red;
             }
             .dropdown-tree-menu ul.dropdown-menu li a.active {
                 color: #fff;
                 background-color: #444;
+            }
+            
+            .dropdown-tree-menu ul.dropdown-menu li a.js-menu-inactive {
+                color: red;
+            }
+            .dropdown-tree-menu ul.dropdown-menu li a.js-menu-inactive:hover {
+                background-color: transparent;
             }
         </style>
         
@@ -156,25 +164,25 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Library Title A</a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a><span>Library Title A</span></a>
+                                    <a href="#"><span>Library Title A</span></a>
                                     <ul>
                                         <li><a href="#"><span>Folder Name 1</span></a></li>
-                                        <li><a href="#"><span>Folder Name 2</span></a></li>
+                                        <li><a class="js-menu-inactive" href="#"><span>Folder Name 2</span></a></li>
                                         <li><a href="#"><span>Folder Name 3</span></a></li>
                                     </ul>
                                 </li>
-                                <li><a><span>Library Title B</span></a></li>
-                                <li><a><span>Library Title C</span></a></li>
+                                <li><a href="#"><span>Library Title B</span></a></li>
+                                <li><a href="#"><span>Library Title C</span></a></li>
                                 <li>
-                                    <a href="#"><span>Library Title D</span></a>
+                                    <a class="js-menu-inactive" href="#"><span>Library Title D</span></a>
                                     <ul>
                                         <li>
                                             <a href="#"><span>Folder Name 1</span></a>
                                             <ul>
                                                 <li><a href="#"><span>Folder Name 1</span></a></li>
-                                                <li><a href="#"><span>Folder Name 2</span></a></li>
+                                                <li><a class="js-menu-inactive" href="#"><span>Folder Name 2</span></a></li>
                                                 <li>
-                                                    <a href="#"><span>Folder Name 3</span></a>
+                                                    <a class="js-menu-inactive" href="#"><span>Folder Name 3</span></a>
                                                     <ul>
                                                         <li><a href="#"><span>Folder Name 1</span></a></li>
                                                         <li><a href="#"><span>Folder Name 2</span></a></li>
@@ -185,8 +193,8 @@
                                         <li><a href="#"><span>Folder Name 2</span></a></li>
                                     </ul>
                                 </li>
-                                <li><a><span>Library Title E</span></a></li>
-                                <li><a><span>Library Title F</span></a></li>
+                                <li><a href="#"><span>Library Title E</span></a></li>
+                                <li><a href="#"><span>Library Title F</span></a></li>
                                 <li>
                                     <a href="#"><span>Library Title G</span></a>
                                     <ul>
@@ -194,7 +202,7 @@
                                         <li><a href="#"><span>Folder Name 2</span></a></li>
                                     </ul>
                                 </li>
-                                <li><a><span>Library Title H2</span></a></li>
+                                <li><a href="#"><span>Library Title H2</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -219,5 +227,11 @@
         <script src="assets/js/chosen.jquery.min.js"></script>
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
+        
+        <script>
+            $('div.dropdown-tree-menu').find('.dropdown-menu').on('click', '.js-menu-inactive', function(event) {
+                event.stopPropagation();
+            });
+        </script>
     </body>
 </html>
