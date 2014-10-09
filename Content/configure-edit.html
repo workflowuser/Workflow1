@@ -198,13 +198,16 @@
                                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">All Sites & Lists</a>
                                                 <ul class="dropdown-menu">
                                                     <li>
-                                                        <a href="#"><span>All Sites & Lists</span></a>
+                                                        <a class="js-addnewvalue-toggle-view-master-0" data-corresponding-value-type="-1" href="#"><span>All Sites & Lists</span></a>
                                                     </li>
                                                     <li>
-                                                        <a class="js-menu-inactive" href="#"><span>formex/</span></a>
+                                                        <a class="js-addnewvalue-toggle-view-master-2" data-corresponding-value-type="10002" href="#"><span>Global</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="js-addnewvalue-toggle-view-master-1 js-menu-inactive" data-corresponding-value-type="10001" href="#"><span>formex/</span></a>
                                                         <ul>
-                                                            <li><a class="js-menu-inactive" href="#"><span>Announcements</span></a></li>
-                                                            <li><a class="js-menu-inactive" href="#"><span>Calendar</span></a></li>
+                                                            <li><a class="js-addnewvalue-toggle-view-master-3 js-menu-inactive" data-corresponding-value-type="10003" href="#"><span>Announcements</span></a></li>
+                                                            <li><a class="js-addnewvalue-toggle-view-master-1 js-menu-inactive" data-corresponding-value-type="10001" href="#"><span>Calendar</span></a></li>
                                                             <li><a href="#"><span>Tasks</span></a></li>
                                                         </ul>
                                                     </li>
@@ -222,10 +225,10 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="js-addnewvalue-toggle-view-slave-1 js-initial-hide">
+                                        <div class="js-addnewvalue-toggle-view-slave-1 js-initial-hide" data-corresponding-value-type="10001">
                                             <input type="text" class="form-control input-mid" placeholder="String">
                                         </div>
-                                        <div class="js-addnewvalue-toggle-view-slave-2 js-initial-hide">
+                                        <div class="js-addnewvalue-toggle-view-slave-2 js-initial-hide" data-corresponding-value-type="10002">
                                             <ul class="checkbox-group inline-list">
                                                 <li>
                                                     <label>
@@ -241,7 +244,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="js-addnewvalue-toggle-view-slave-3 js-initial-hide">
+                                        <div class="js-addnewvalue-toggle-view-slave-3 js-initial-hide" data-corresponding-value-type="10003">
                                             <select class="input-mid">
                                                 <option>Select</option>
                                                 <option>Apples</option>
@@ -319,26 +322,55 @@
         <script src="assets/js/ws_global_initialization_administration.js"></script>
         <script>
             (function() {
-                wsLib_toggleViews("createwith", 2, "radio", "no", 200);
-                wsLib_toggleViews("rowadd", 2, "default");
-                wsLib_toggleViews("addnewvalue", 4, "select", "no");
-                
                 var $editConfigurationValue = $('#js-administration-editconfiguration-value');
                 var $editConfigurationAddNewValueSelect = $('#js-administration-editconfiguration-addnewvalue-select');
                 
+                $editConfigurationAddNewValueSelect.find('.js-menu-inactive').on('click.preventInactiveEvents', function(event) {
+                    event.stopImmediatePropagation();
+                    event.preventDefault();
+                });
                 
+                wsLib_toggleViews("createwith", 2, "radio", "no", 200);
+                wsLib_toggleViews("rowadd", 2, "default");
+                wsLib_toggleViews("addnewvalue", 4, "default", "no");
                 
-                $editConfigurationAddNewValueSelect.on('change', function() {
+                $editConfigurationAddNewValueSelect.on('click.toggleAddNewValue', '.dropdown-menu a', function(event) {
+                    event.preventDefault();
+                    
                     var $this = $(this);
                     
-                    var addNewValueSelected = parseInt($this.find(':selected').data('toggle-view'));
+                    
+                    
+                    function generateValueTypeLabel($whichLink) {
+                        var currentText = $whichLink.text();
+                        
+                        if(currentText === '') {
+                            return currentText;
+                        }
+                        else {
+                            return generateValueTypeLabel($whichLink.closest('ul').siblings('a').not('.dropdown-toggle')) + currentText;
+                        }
+                    }
+                    
+                    var typeName = generateValueTypeLabel($this);
+                    
+                    
+                    
+                    $this.closest('.dropdown')
+                         .children('.dropdown-toggle')
+                         .text(typeName)
+                         .data('selected-value-type', {
+                             type: typeName
+                         });
+                    
+                    var addNewValueSelected = parseInt($this.data('corresponding-value-type'));
                     
                     $this.closest('tr.row-add')
                          .children('td')
                          .eq(1)
                          .children('div')
                          .removeClass('js-form-active')
-                         .filter('.js-addnewvalue-toggle-view-slave-' + addNewValueSelected)
+                         .filter('[data-corresponding-value-type="' + addNewValueSelected + '"]')
                          .addClass('js-form-active');
                 });
                 
@@ -381,6 +413,10 @@
                     $(this).closest('tr').remove();
                 }).on('click.addRow', '.js-administration-editconfiguration-value-addrow', function(event) {
                     event.preventDefault();
+                    
+                    var selectedValueTypeLabel = $editConfigurationAddNewValueSelect.children('.dropdown')
+                                                                                    .children('.dropdown-toggle')
+                                                                                    .data('selected-value-type');
                     
                     var currentRowHTML = '';
                     var currentRowData = [];
@@ -440,7 +476,7 @@
                     });
                     
                     var currentPlugData = {
-                        scope: $editConfigurationAddNewValueSelect.find(':selected').text(),
+                        scope: selectedValueTypeLabel.type,
                         value: currentRowData[0].data,
                         valueDisplay: currentRowData[0].dataDisplay,
                         type: currentRowData[0].type,
