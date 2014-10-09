@@ -164,7 +164,7 @@
                                         </div>
                                         <div class="js-administration-editconfiguration-value-display">Bananas</div>
                                         <div class="js-administration-editconfiguration-value-form js-initial-hide" style="display: none;">
-                                            <select>
+                                            <select class="input-mid">
                                                 <option>Select</option>
                                                 <option>Apples</option>
                                                 <option selected="selected">Bananas</option>
@@ -221,7 +221,7 @@
                                             </ul>
                                         </div>
                                         <div class="js-addnewvalue-toggle-view-slave-3 js-initial-hide">
-                                            <select>
+                                            <select class="input-mid">
                                                 <option>Select</option>
                                                 <option>Apples</option>
                                                 <option>Bananas</option>
@@ -304,22 +304,6 @@
                 
                 var $editConfigurationValue = $('#js-administration-editconfiguration-value');
                 var $editConfigurationAddNewValueSelect = $('#js-administration-editconfiguration-addnewvalue-select');
-                
-                
-                
-                var scopeListData = [{
-                    "label": "Sample String Data Type",
-                    "value": "A",
-                    "type": "string"
-                }, {
-                    "label": "Sample Boolean Data Type",
-                    "value": "B",
-                    "type": "boolean"
-                }, {
-                    "label": "Sample Menu Data Type",
-                    "value": "C",
-                    "type": "select"
-                }];
                 
                 
                 
@@ -495,7 +479,7 @@
                                 currentRowHTML += '</ul>';
                                 }
                                 else if(currentPlugData.type === 'select') {
-                                currentRowHTML += '<select>';
+                                currentRowHTML += '<select class="input-mid">';
                                     currentRowHTML += currentPlugData.HTML.html();
                                 currentRowHTML += '</select>';
                                 }

@@ -580,7 +580,7 @@
                         return possibleResults.checkbox;
                     }
                     else {
-                        return possibleResults.default;
+                        return possibleResults.defaultItem;
                     }
                 }
                 
@@ -603,7 +603,7 @@
                                 return formData;
                             })(),
                             checkbox: $this.prop('checked'),
-                            default: $this.val()
+                            defaultItem: $this.val()
                         });
                     });
                     
@@ -660,7 +660,7 @@
                                 checkbox: function() {
                                     $this.prop('checked', false);
                                 },
-                                default: function() {
+                                defaultItem: function() {
                                     $this.val('');
                                 }
                             });
@@ -715,7 +715,7 @@
                             checkbox: function() {
                                 $this.prop('checked', targetRowData[$this.attr('name')]);
                             },
-                            default: function() {
+                            defaultItem: function() {
                                 $this.val(targetRowData[$this.attr('name')]);
                             }
                         });
