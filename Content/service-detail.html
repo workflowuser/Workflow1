@@ -3,6 +3,7 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Winshuttle - Service Details</title>
+        
         <link href="assets/css/kendo.common.min.css" rel="stylesheet">
         <link href="assets/css/kendo.default.min.css" rel="stylesheet">
         <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
@@ -17,41 +18,40 @@
                     <div class="span6">
                         <div class="workflow-brand">
                             <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
-                            <div class="home-dropdown">
-                                <div class="btn-group">
-                                    <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-                                    <ul class="dropdown-menu">
-                                        <div>
-                                            <li class="dropdown-title">Logs &amp; Reporting</li>
-                                            <li><a href="#">Charts</a></li>
-                                            <li><a href="#">Excel Data Dump</a></li>
-                                            <li><a href="#">Logging</a></li>
-                                            <li><a href="#">Log File Viewer</a></li>
-                                            <li class="dropdown-title">Processes</li>
-                                            <li><a href="#">Process Control</a></li>
-                                            <li><a href="#">Manage Background Jobs</a></li>
-                                        </div>
-                                        <div>
-                                            <li class="dropdown-title">Server Administration</li>
-                                            <li><a href="#">Admin Commands</a></li>
-                                            <li><a href="#">Configure Options</a></li>
-                                            <li><a href="#">Scheduler</a></li>
-                                            <li><a href="#">Workflow Extensions</a></li>
-                                            <li><a href="#">Database Status</a></li>
-                                            <li><a href="#">Licenses</a></li>
-                                        </div>
-                                    </ul>
-                                </div>
-                            </div>
+	                        <div class="home-dropdown">
+								<div class="btn-group">
+								  <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+								  <ul class="dropdown-menu">
+								  	<div>
+								  	<li class="dropdown-title">Logs &amp; Reporting</li>
+								    <li><a href="#">Charts</a></li>
+								    <li><a href="#">Excel Data Dump</a></li>
+								    <li><a href="#">Logging</a></li>
+								    <li><a href="#">Log File Viewer</a></li>
+								  	<li class="dropdown-title">Processes</li>
+								    <li><a href="#">Process Control</a></li>
+								    <li><a href="#">Manage Background Jobs</a></li>
+								    </div>
+								    <div>
+								  	<li class="dropdown-title">Server Administration</li>
+								    <li><a href="#">Admin Commands</a></li>
+								    <li><a href="#">Configure Options</a></li>
+								    <li><a href="#">Scheduler</a></li>
+								    <li><a href="#">Workflow Extensions</a></li>
+								    <li><a href="#">Database Status</a></li>
+								    <li><a href="#">Licenses</a></li>
+								    </div>
+								  </ul>
+								</div>
+							</div>
                         </div>
                     </div>
+
                     <div class="span6">
-                        <ul class="inline-list pull-right">
-                            <!--
+                        <ul class="display-inline-children pull-right">
                             <li>
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
                             </li>
-                            -->
                             <li>
                                 <select class="input-medium" id="select-webapp">
                                     <option>Sharepoint - 80</option>
@@ -62,6 +62,7 @@
                 </div>
             </div>
         </div>
+        
         <div id="mainsi">
             <div class="container-fluid">
                 <div class="row-fluid">
@@ -82,56 +83,54 @@
                             <li><a href="#">Background Jobs</a> &rsaquo;</li>
                         </ul>
                         <ul id="secnav">
-                            <li class="pull-right">
-                                <button id="btn-reset-pending" class="btn pull-right"><span>Reset Status to Pending</span></button>
-                            </li>
                             <li class="active">
                                 <h1>Service Detail</h1>
-                                <div class="row-fluid">
-                                    <div class="span8 page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                                </div>
+                                <a class="tooltip-help js-tooltip-target" href="#">[?]</a> 
+                            </li>
+                            <li class="pull-right">
+                            	<button id="btn-reset-pending" class="btn pull-right"><span>Reset Status to Pending</span></button>
                             </li>
                         </ul>
                     </div>
                 </div>
+                
                 <div class="row-fluid">
                     <div class="span8" id="service-details">
-                    </div>
-                    <!-- /div .span6 -->
-                </div>
-                <!-- /div .row-fluid -->
-            </div>
-            <!-- /div .container-fluid -->
-        </div>
-        <!-- /div #mainsi -->
-        <div id="footer" class="row-fluid">
-            <div class="container-fluid">
-                <div class="row-fluid">
-                    <div class="span8">
-                        <div id="footer-links">
-                            <ul>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Terms</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                            <ul>
-                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                <li>Version 10.4</li>
-                                <li>Privacy Mode: Secure</li>
+                        
+                    </div><!-- /div .span6 -->
+                </div><!-- /div .row-fluid -->
+            </div><!-- /div .container-fluid -->
+            
+            </div><!-- /div #mainsi -->
+        	<div id="footer" class="row-fluid">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <div id="footer-links">
+                                <ul>
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Terms</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                                <ul>
+                                    <li>&copy; 2008-2011 Winshuttle, LLC</li>
+                                    <li>Version 10.4</li>
+                                    <li>Privacy Mode: Secure</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <ul class="security-logo">
+                                <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                                <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                                <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="span4">
-                        <ul class="security-logo">
-                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
-        </div>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
@@ -154,21 +153,21 @@
         <script src="assets/js/ws_common.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-            
+
                 ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
                     var $id = wsPlugin_getURLParameter('id');
                     var $url = $("#select-webapp").val();
                     ws_ajaxCall('/service/detail', { id: $id, url: $url }, function (data, callbackdata) {
-            
+
                         if (data.StatusCode == 1) {
                             $("#btn-reset-pending").remove();
                         }
-            
+
                         $("#service-details").empty();
                         $("#service-details").html($("#service-detail-tmpl").tmpl(data));
                     }, null, null);
                 });
-            
+
                 $("#btn-reset-pending").on("click", function () {
                     var tempid = wsPlugin_getURLParameter('id');
                     var tempurl = $("#select-webapp").val();

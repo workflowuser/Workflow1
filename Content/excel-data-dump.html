@@ -200,6 +200,7 @@
             $('.chzn-select').chosen();
             
             $(document).ready(function () {
+                ws_showProgressBar();
                 ws_initializeWebApp('/admin/GetAllWebApp', $('#select-webapp'), function () {
                     var $webappUrl = $('#select-webapp').val();
                     ws_ajaxCall('/admin/getallsites', { server: $webappUrl }, function (data) {
@@ -211,9 +212,11 @@
                         });
             
                         $("#select-site").append(options);
+                        ws_hideProgressBar();
                     }, null, null);
             
                     $("#select-site").on("change", function () {
+                        ws_showProgressBar();
                         var selected = $(this).find("option:selected").val();
                         $("#select-doclib").find("option:not(:first)").remove();
             
@@ -231,10 +234,12 @@
             
                             $("#select-doclib").append(options);
                             $("#select-doclib").prop('disabled', '');
+                            ws_hideProgressBar();
                         }, null, null);
                     });
             
                     $("#btn-save").on("click", function () {
+                        ws_showProgressBar();
                         var siteurl = $("#select-site option:selected").val();
                         var list = $("#select-doclib option:selected").val();
                         var email = $("#input-email").val();
@@ -242,7 +247,7 @@
                         var data = { webappUrl: $webappUrl, siteUrl: siteurl, doclib: list, email: email, ext: ext };
                         ws_ajaxCall('/workflowdump/dump', data, function (successData) {
             
-                            // success message here.
+                            ws_hideProgressBar();
             
                         }, null, null);
             

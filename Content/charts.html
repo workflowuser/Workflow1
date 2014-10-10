@@ -214,6 +214,7 @@
         <script src="assets/js/ws_common.js"></script>
         <script>
             $(document).ready(function () {
+                ws_showProgressBar();
                 ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
 
                     var webapp = $('#select-webapp').val();
@@ -221,14 +222,19 @@
                 });
 
                 $("#select-site").on('change', function () {
+                    ws_showProgressBar();
                     loadControls();
+                    ws_hideProgressBar();
                 });
 
                 $("#select-reporttype").on('change', function () {
+                    ws_showProgressBar();
                     onReportChange();
+                    ws_hideProgressBar();
                 });
 
                 $('#btn-submit').on('click', function () {
+                    ws_showProgressBar();
                     onSubmit();
                     return false;
                 });
@@ -252,12 +258,12 @@
             }
 
             function callOnError() {
-
+                ws_hideProgressBar();
             }
 
             function callbackAfterSubmitSuccess(data, callbackdata) {
 
-
+                ws_hideProgressBar();
             }
 
             function loadSite(data, callbackdata) {
@@ -283,6 +289,7 @@
 
             function loadSiteError() {
 
+                ws_hideProgressBar();
             }
 
             function fillControls(data) {
@@ -294,6 +301,7 @@
                 fillSelect(data.ReportTypes, reportType);
                 fillSelect(data.ProcessNames, process);
                 fillSelect(data.ChartTypes, chartType);
+                ws_hideProgressBar();
             }
 
             function fillSelect(data, selectElmt) {
