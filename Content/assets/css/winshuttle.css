@@ -3557,11 +3557,9 @@ ul.log-list li {
   z-index:1001;
 }
 
-span.no-padding{
-    padding:0;
+.usage-table #inactive-processes, .usage-table #current-date, .usage-table #obsolete-solutions {
+	padding: 0;
 }
-
-
 
 
 
