@@ -449,12 +449,7 @@
                         parametersData.push($(this).data('parameter-content'));
                     });
                     
-                    if(parametersData.length > 0 || isSaveButton) {
-                        $finalSaveCancelContainer.fadeIn();
-                    }
-                    else {
-                        $finalSaveCancelContainer.fadeOut();
-                    }
+                    $finalSaveCancelContainer.fadeIn();
                     
                     if($parameterList.is(':visible')) {
                         $finalSaveCancelContainer.find('.form-actions').removeClass('top-line');
@@ -759,6 +754,9 @@
                         $finalSaveCancelContainer.fadeIn()
                                                  .find('.form-actions')
                                                  .addClass('top-line');
+                    }
+                    else if(parametersData.length === 0 && $parameters.closest('table').closest('.row-fluid').is(':visible')) {
+                        $finalSaveCancelContainer.stop().fadeOut();
                     }
                 });
                 
