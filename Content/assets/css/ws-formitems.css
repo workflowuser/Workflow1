@@ -111,6 +111,11 @@ ul.home-links li a h3 {
           transition: all 0.15s linear;
 }
 
+
+.row-fluid.spacer {
+    height: 100px;
+}
+
 .table .table-sort th {
     padding: 0;
 }
@@ -662,8 +667,8 @@ td .contain-long-word {
 .dropdown-tree-menu .dropdown-toggle {
     padding: 5px 10px !important;
 }
-.dropdown-tree-menu .dropdown-toggle span {
-    background-image: url("assets/img/winshuttle-sprite.png");
+.dropdown-tree-menu .dropdown-toggle .dropdown-toggle-symbol {
+    background-image: url("../img/winshuttle-sprite.png");
     background-position: -32px -36px;
     content: "";
     display: inline-block;
@@ -672,6 +677,7 @@ td .contain-long-word {
     vertical-align: middle;
     margin-top: -3px;
     margin-left: 5px;
+    float: right;
 }
 .dropdown-tree-menu .dropdown.open .dropdown-toggle {
     background-color: #f7f7f7;
