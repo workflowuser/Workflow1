@@ -439,7 +439,7 @@
                 
                 
                 
-                function updateParametersData() {
+                function updateParametersData(isSaveButton) {
                     parametersData = [];
                     
                     $parameterList.find('table')
@@ -449,7 +449,7 @@
                         parametersData.push($(this).data('parameter-content'));
                     });
                     
-                    if(parametersData.length > 0) {
+                    if(parametersData.length > 0 || isSaveButton) {
                         $finalSaveCancelContainer.fadeIn();
                     }
                     else {
@@ -750,9 +750,11 @@
                     updateParametersData();
                     
                     if($(this).data('finalsavecancel-alwaysshow')) {
-                        $parameters.find('.js-form-button-cancel')
-                                   .first()
-                                   .trigger('click.clearParametersFields', true);
+                        if(parametersData.length > 0) {
+                            $parameters.find('.js-form-button-cancel')
+                                       .first()
+                                       .trigger('click.clearParametersFields', true);
+                        }
                         
                         $finalSaveCancelContainer.fadeIn()
                                                  .find('.form-actions')
@@ -765,7 +767,7 @@
                 $('#js-debug-submitdata').on('click', function(event) {
                     event.preventDefault();
                     
-                    updateParametersData();
+                    updateParametersData(true);
                     
                     wsLib_console(parametersData);
                 });
