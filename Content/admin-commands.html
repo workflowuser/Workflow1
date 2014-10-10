@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Winshuttle - Home</title>
+        <title>Winshuttle</title>
         
         <link href="assets/css/kendo.common.min.css" rel="stylesheet">
         <link href="assets/css/kendo.default.min.css" rel="stylesheet">
@@ -17,29 +17,29 @@
                 <div class="row-fluid">
                     <div class="span6">
                         <div class="workflow-brand">
-                            <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle"/>
+                            <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
 	                        <div class="home-dropdown">
 								<div class="btn-group">
 								  <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
 								  <ul class="dropdown-menu">
 								  	<div>
 								  	<li class="dropdown-title">Logs &amp; Reporting</li>
-								    <li><a href="charts.html">Charts</a></li>
-								    <li><a href="excel-data-dump.html">Excel Data Dump</a></li>
-								    <li><a href="logging.html">Logging</a></li>
-								    <li><a href="log-file-viewer.html">Log File Viewer</a></li>
+								    <li><a href="#">Charts</a></li>
+								    <li><a href="#">Excel Data Dump</a></li>
+								    <li><a href="#">Logging</a></li>
+								    <li><a href="#">Log File Viewer</a></li>
 								  	<li class="dropdown-title">Processes</li>
-								    <li><a href="process-control.html">Process Control</a></li>
+								    <li><a href="#">Process Control</a></li>
 								    <li><a href="#">Manage Background Jobs</a></li>
 								    </div>
 								    <div>
 								  	<li class="dropdown-title">Server Administration</li>
-								    <li><a href="admin-commands.html">Admin Commands</a></li>
+								    <li><a href="#">Admin Commands</a></li>
 								    <li><a href="#">Configure Options</a></li>
 								    <li><a href="#">Scheduler</a></li>
-								    <li><a href="workflow-extension-setup.html">Workflow Extensions</a></li>
+								    <li><a href="#">Workflow Extensions</a></li>
 								    <li><a href="#">Database Status</a></li>
-								    <li><a href="licensing.html">Licenses</a></li>
+								    <li><a href="#">Licenses</a></li>
 								    </div>
 								  </ul>
 								</div>
@@ -48,15 +48,13 @@
                     </div>
 
                     <div class="span6">
-                        <ul class="inline-list pull-right">
-                            <!--
+                        <ul class="display-inline-children pull-right">
                             <li>
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
                             </li>
-                            -->
                             <li>
-                                <select class="input-medium" id="select-webapp">
-                                    <option>Sharepoint - 80</option>
+                                <select id="select-webapp">
+                                    
                                 </select>
                             </li>
                         </ul>
@@ -69,56 +67,65 @@
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span12">
+                        <ul id="js-admincommands-relatedlinks">
+                            <li>
+                                <a href="http://winshuttle-help.s3.amazonaws.com/foundation/en/winshuttle_svadm_tool_commands.htm">Documentation</a>
+                            </li>
+                        </ul>
+                        <ul id="breadcrumbs">
+                            <li><a href="#">Home</a> &rsaquo;</li>
+                            <li><a href="#">Administration</a> &rsaquo;</li>
+                        </ul>
                         <ul id="secnav">
-                            <li class="active">
-                                <h1>Administration</h1>
+                            <li id="js-header" class="active">
+                                <h1 class="js-text-header">Admin Commands</h1>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <!-- /div .row-fluid -->
-                
-                <div class="row-fluid">
-                    <div class="span12">
-							<h2>Logs &amp; Reporting</h2>
-						<ul class="home-links">
-							<li class="charts"><a href="charts.html"><span></span><h3>Charts</h3></a></li>
-							<li class="data-dump"><a href="excel-data-dump.html"><span></span><h3>Excel Workflow Data Dump</h3></a></li>
-							<li class="logging"><a href="logging.html"><span></span><h3>Logging</h3></a></li>
-							<li class="log-file-viewer"><a href="log-file-viewer.html"><span></span><h3>Log File Viewer</h3></a></li>
-						</ul>
-                    </div>
-                </div>
-                <!-- /div .row-fluid -->
-                
-                <div class="row-fluid">
-                    <div class="span12">
-							<h2>Processes</h2>
-						<ul class="home-links">
-							<li class="process-control"><a href="process-control.html"><span></span><h3>Process Control</h3></a></li>
-							<li class="background-tasks"><a href="#"><span></span><h3>Manage Background Tasks</h3></a></li>
-						</ul>
-                    </div>
-                </div>
-                <!-- /div .row-fluid -->
-                
-                <div class="row-fluid">
-                    <div class="span12">
-							<h2>Server Administration</h2>
-						<ul class="home-links">
-							<li class="admin-commands"><a href="admin-commands.html"><span></span><h3>Admin Commands</h3></a></li>
-							<li class="configure-options"><a href="#"><span></span><h3>Configure Options</h3></a></li>
-							<li class="scheduler"><a href="#"><span></span><h3>Scheduler</h3></a></li>
-							<li class="extensions"><a href="workflow-extension-setup.html"><span></span><h3>Workflow Extensions</h3></a></li>
-							<li class="database-status"><a href="#"><span></span><h3>Database Status</h3></a></li>
-							<li class="licenses"><a href="licensing.html"><span></span><h3>Licenses</h3></a></li>
-						</ul>
-                    </div>
-                </div>
-                <!-- /div .row-fluid -->
+                <div id="js-admincommands-base" class="row-fluid">
+                    <div class="span6">
+                        <div class="settings-info js-initial-hide">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <label class="control-label">Admin Command <span class="required">*</span></label>
+                                        <div class="controls">
+                                            <select id="js-admincommands-operation-list" class="input-max"></select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-info">
+                            <form id="js-admincommands-form-base" class="form-horizontal">
+                                <fieldset></fieldset>
+                            </form>
+                        </div>
+                        
+                        
+                        
+                        <div class="settings-info">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div id="js-form-submitcancel" class="form-actions">
+                                        <button class="js-form-button-submit btn btn-primary"><span>Continue</span></button>
+                                        <button class="js-form-button-cancel btn"><span>Cancel</span></button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        
+                    </div><!-- /div .span6 -->
+                    <div class="span6">
+                        <div id="js-terminal">
+                        </div>
+                    </div><!-- /div .span6 -->
+                </div><!-- /div .row-fluid -->
             </div><!-- /div .container-fluid -->
             
-        </div><!-- /div #mainsi -->
+            </div><!-- /div #mainsi -->
         	<div id="footer" class="row-fluid">
                 <div class="container-fluid">
                     <div class="row-fluid">
@@ -147,6 +154,7 @@
                     </div>
                 </div>
             </div>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
         if (!window.jQuery) {
@@ -162,26 +170,22 @@
         }
         </script>
         <script src="assets/js/kendo.all.min.js"></script>
-        <script src="assets/js/chosen.jquery.min.js"></script>
+        <script src="assets/js/filedrop-min.js"></script>
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
+        <script src="assets/js/ws_admincommands.js"></script>
         <script src="assets/js/ws_common.js"></script>
         <script>
-            $('a.js-tooltip-target').tooltip({
-                html: true,
-                trigger: 'click',
-                animation: true
-            });
-            
-            $('body').on('click', '.js-tooltip-target', function(event) {
-                event.stopPropagation();
-                
-                $('div.tooltip').not($(this).siblings('div.tooltip')).remove();
-            });
-			
-			 $(document).ready(function () {
+            $(document).ready(function () {
                 ws_showProgressBar();
-                ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function (data, callbackdata) { ws_hideProgressBar() });
+                ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function (data, callbackdata) {
+
+                    var server = $('#select-webapp :selected').val();
+                    var ws_externalAdminCommands = ws_admincommands(server);
+
+                    wsLib_console(ws_externalAdminCommands);
+                    ws_hideProgressBar();
+                });
             });
         </script>
     </body>

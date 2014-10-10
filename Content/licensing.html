@@ -239,9 +239,9 @@
             });
             
             $("#btn-add").click(function () {
-            
+                ws_showProgressBar();
                 var licenseKey = $("#input-licensekey").val();
-                ws_ajaxCall('/license/Add', { key: licenseKey }, add, null, null);
+                ws_ajaxCall('/license/Add', { key: licenseKey }, add, onError, null);
                 return false;
             });
             
@@ -249,11 +249,14 @@
                 var row = createRow(data[0]);
                 $("#table-license > tbody:last").append(row);
                 attachEvents($("#table-license > tbody:last > tr:last"));
+
+                ws_hideProgressBar();
             }
             
             $(document).ready(function () {
+                ws_showProgressBar();
                 ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
-                    ws_ajaxCall('/license/getall', null, onLoad, null, null);
+                    ws_ajaxCall('/license/getall', null, onLoad, onError, null);
                 });
             });
             
@@ -263,17 +266,20 @@
                     $("#table-license > tbody:last").append(row);
                     attachEvents($("#table-license > tbody:last > tr:last"));
                 });
+
+                ws_hideProgressBar();
             }
-            
+
             function createRow(rowData) {
                 var row = '<tr><td>' + rowData.HostName + '</td><td>' + rowData.Company + '</td><td>' + rowData.Processes + '</td><td>' + rowData.Expiration + '</td><td>' + rowData.Environment + '</td><td class="license-key"><a href="#" class="js-tooltip-target" title="<div class=\'interactive\'><div class=\'js-link-copy-target\'>' + rowData.Key + '</div><div class=\'copy-link-parent\'><a href=\'#\' class=\'js-link-copy\'>Copy License</a></div></div>">#####...</a></td><td><a href="#"><i class="icon-trash"></i></a></td></tr>';
                 return row;
             }
-            
+
             function attachEvents(row) {
                 $(row).find(".icon-trash").click(function () {
+                    ws_showProgressBar();
                     var hostName = $(row).find("td:first").html();
-                    ws_ajaxCall('/license/delete', { hostName: hostName }, trash, null, row);
+                    ws_ajaxCall('/license/delete', { hostName: hostName }, trash, onError, row);
                 });
             
                 $(row).find('a.js-tooltip-target').tooltip({
@@ -282,9 +288,15 @@
                     animation: true
                 });
             }
-            
+
             function trash(data, callbackdata) {
                 $(callbackdata).remove();
+
+                ws_hideProgressBar();
+            }
+
+            function onError(xhr, status, error, callbackdata) {
+                ws_hideProgressBar();
             }
         </script>
     </body>

@@ -207,15 +207,19 @@
         <script src="assets/js/ws_common.js"></script>
         <script>
             $(document).ready(function () {
+                ws_showProgressBar();
                 ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
+                    ws_hideProgressBar();
                     $("#btn-display-logset").click(function () {
-            
+                        ws_showProgressBar();
                         var serializeData = $("#logviewer-form").serialize();
                         ws_ajaxCall('/logviewer/GetLogs', serializeData, function (data, callbackdata) {
             
                             var logList = $("#log-list");
                             logList.html('');
                             logList.html(data);
+
+                            ws_hideProgressBar();
                         }, null, null);
                     });
             

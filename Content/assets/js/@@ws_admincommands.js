@@ -849,54 +849,6 @@ function ws_admincommands(server) {
             if (endTrigger.kendoDatePicker) {
                 $('input.js-kendo-datepicker').kendoDatePicker();
             }
-			
-
-
-			if(endTrigger.fileUpload) {
-                window.fd.hasConsole = false;
-                
-                $('div.js-filedrop-target').each(function() {
-                    var $currentFiledrop = $(this);
-                    var $currentFiledropNotice = $currentFiledrop.find('.js-filedrop-notice');
-                    var $currentFiledropProgressbar = $currentFiledrop.find('.js-filedrop-progressbar');
-                    var $currentFiledropLabelFilename = $currentFiledrop.find('.js-filedrop-label-filename');
-                    
-                    var zone = new FileDrop($currentFiledrop.get(0));
-                    
-                    zone.event('send', function (files) {
-                        files.each(function (file) {
-                            file.event('sendXHR', function () {
-                                $currentFiledrop.find('iframe').closest('div').add($currentFiledropNotice).hide();
-                                $currentFiledropProgressbar.show()
-                                                           .css('width', 0);
-                            });
-                            
-                            file.event('progress', function (current, total) {
-                                var width = current / total * 100 + '%';
-                                
-                                $currentFiledropProgressbar.css('width', width);
-                            });
-                            
-                            file.event('done', function (xhr, e) {
-                                $currentFiledropLabelFilename.text(file.name);
-                                
-                                $currentFiledropNotice.show();
-                                $currentFiledropProgressbar.hide();
-                            });
-                            
-                            file.sendTo('assets/samples/upload.php'); // ### ATTENTION - Appropriate link to server for file retrieval here
-                        });
-                    });
-                    
-                    $currentFiledrop.off('click.deleteUploadedFile').on('click.deleteUploadedFile', '.js-filedrop-trigger-delete', function(event) {
-                        event.preventDefault();
-                        
-                        $currentFiledropNotice.hide();
-                        $currentFiledrop.find('iframe').closest('div').show();
-                    });
-                });
-            }
-
 
             if (endTrigger.generationDropdown) {
                 /*
@@ -1007,7 +959,6 @@ function ws_admincommands(server) {
                     }
 
                     if ($whichDropdown.length > 0) {
-                        ws_showProgressBar();
                         $.ajax({
                             url: currentDropdownData.optionSource + '?' + selectedQueryData,
                             dataType: 'json',
@@ -1036,12 +987,8 @@ function ws_admincommands(server) {
                                 if (currentDropdownData.nextExpansionTarget !== undefined) {
                                     disableDropdownChain($nextExpansionTarget);
                                 }
-
-                                ws_hideProgressBar();
                             },
                             error: function (xhr, status, error) {
-
-                                ws_hideProgressBar();
                                 wsLib_console({
                                     xhr: xhr,
                                     status: status,
@@ -1110,7 +1057,6 @@ function ws_admincommands(server) {
 
 
             $('#js-form-submitcancel').on('click', '.js-form-button-submit', function (event) {
-                ws_showProgressBar();
                 event.preventDefault();
 
                 var queryToSubmit = {};
@@ -1148,11 +1094,9 @@ function ws_admincommands(server) {
                     traditional: true,
                     success: function (data) {
                         $('#js-terminal').html('<div>' + data + '</div>');
-                        ws_hideProgressBar();
                     },
                     error: function (xhr, status, error) {
                         $('#js-terminal').html('<div>' + xhr.responseText + '</div>');
-                        ws_hideProgressBar();
                     }
                 });
 
