@@ -150,9 +150,9 @@
                                     <div class="control-group js-logretention-toggle-view-slave-1 js-initial-hide">
                                         <label class="control-label">Day <span class="required">*</span></label>
                                         <div class="controls">
-                                            <select class="js-chosen-target input-mid" id="purgeScheduleDayDropDown">
-                                                <option value="1">First Day of the month</option>
-                                                <option value="100">Last Day of the month</option>
+                                            <select class="js-chosen-target input-onethirds" id="purgeScheduleDayDropDown">
+                                                <option value="1">First day of month</option>
+                                                <option value="100">Last day of month</option>
                                                 <option value="2">2nd</option>
                                                 <option value="3">3rd</option>
                                                 <option value="4">4th</option>
@@ -188,7 +188,7 @@
                                     <div class="control-group js-logretention-toggle-view-slave-1 js-initial-hide">
                                         <label class="control-label">Time <span class="required">*</span></label>
                                         <div class="controls ">
-                                            <input type="text" id="purgeScheduleTimeDropDown" class="js-kendo-timepicker form-control input-small" placeholder="HH:mm">
+                                            <input type="text" id="purgeScheduleTimeDropDown" class="js-kendo-timepicker form-control input-onethirds" placeholder="HH:MM">
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -330,7 +330,7 @@
             wsLib_toggleViews("logretention", 2, "radio", "no", 200);
             
             $('.js-chosen-target').chosen({
-                width: "210px",
+                width: "33.3333333333%",
                 disable_search: true
             });
             
