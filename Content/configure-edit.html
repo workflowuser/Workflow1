@@ -193,18 +193,46 @@
                                 </tr>
                                 <tr class="js-rowadd-toggle-view-slave-0 row-add js-initial-hide">
                                     <td>
-                                        <select id="js-administration-editconfiguration-addnewvalue-select" class="js-addnewvalue-toggle-view-master-0 input-max">
-                                            <option selected="selected" data-toggle-view="0">Select</option>
-                                            <option value="A" data-toggle-view="1">Sample String Data Type</option>
-                                            <option value="B" data-toggle-view="2">Sample Boolean Data Type</option>
-                                            <option value="C" data-toggle-view="3">Sample Menu Data Type</option>
-                                        </select>
+                                        <div id="js-administration-editconfiguration-addnewvalue-select" class="dropdown-tree-menu">
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                    <span class="js-administration-editconfiguration-addnewvalue-select-display">All Sites & Lists</span>
+                                                    <span class="dropdown-toggle-symbol"></span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="js-addnewvalue-toggle-view-master-0" data-corresponding-value-type="-1" href="#"><span>All Sites & Lists</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="js-addnewvalue-toggle-view-master-2" data-corresponding-value-type="10002" href="#"><span>Global</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="js-addnewvalue-toggle-view-master-1" data-corresponding-value-type="10001" href="#"><span>formex/</span></a>
+                                                        <ul>
+                                                            <li><a class="js-addnewvalue-toggle-view-master-3" data-corresponding-value-type="10003" href="#"><span>Announcements</span></a></li>
+                                                            <li><a class="js-addnewvalue-toggle-view-master-4 js-menu-inactive" data-corresponding-value-type="10004" href="#"><span>Calendar</span></a></li>
+                                                            <li><a class="js-addnewvalue-toggle-view-master-5" data-corresponding-value-type="10005" href="#"><span>Tasks</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a class="js-addnewvalue-toggle-view-master-6 js-menu-inactive" data-corresponding-value-type="10006" href="#"><span>Site B/</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="js-addnewvalue-toggle-view-master-7" data-corresponding-value-type="10007" href="#"><span>Site C/</span></a>
+                                                        <ul>
+                                                            <li><a class="js-addnewvalue-toggle-view-master-8 js-menu-inactive" data-corresponding-value-type="10008" href="#"><span>List 12</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
-                                        <div class="js-addnewvalue-toggle-view-slave-1 js-initial-hide">
+                                        <div class="js-addnewvalue-toggle-view-slave-1 js-initial-hide" data-corresponding-value-type="10001">
                                             <input type="text" class="form-control input-mid" placeholder="String">
                                         </div>
-                                        <div class="js-addnewvalue-toggle-view-slave-2 js-initial-hide">
+                                        
+                                        <div class="js-addnewvalue-toggle-view-slave-2 js-initial-hide" data-corresponding-value-type="10002">
                                             <ul class="checkbox-group inline-list">
                                                 <li>
                                                     <label>
@@ -220,7 +248,8 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="js-addnewvalue-toggle-view-slave-3 js-initial-hide">
+                                        
+                                        <div class="js-addnewvalue-toggle-view-slave-3 js-initial-hide" data-corresponding-value-type="10003">
                                             <select class="input-mid">
                                                 <option>Select</option>
                                                 <option>Apples</option>
@@ -228,8 +257,51 @@
                                                 <option>Cherries</option>
                                             </select>
                                         </div>
+                                        
+                                        <div class="js-addnewvalue-toggle-view-slave-4 js-initial-hide" data-corresponding-value-type="10004">
+                                            <input type="text" class="form-control input-mid" placeholder="String 2">
+                                        </div>
+                                        
+                                        <div class="js-addnewvalue-toggle-view-slave-5 js-initial-hide" data-corresponding-value-type="10005">
+                                            <select class="input-mid">
+                                                <option>Select</option>
+                                                <option>Task 1</option>
+                                                <option>Task 2</option>
+                                                <option>Task 3</option>
+                                                <option>Task 4</option>
+                                                <option>Task 5</option>
+                                                <option>Task 6</option>
+                                                <option>Task 7</option>
+                                                <option>Task 8</option>
+                                                <option>Task 9</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="js-addnewvalue-toggle-view-slave-6 js-initial-hide" data-corresponding-value-type="10006">
+                                            <input type="text" class="form-control input-mid" placeholder="String 3">
+                                        </div>
+                                        
+                                        <div class="js-addnewvalue-toggle-view-slave-7 js-initial-hide" data-corresponding-value-type="10007">
+                                            <input type="text" class="form-control input-mid" placeholder="String 4">
+                                        </div>
+                                        
+                                        <div class="js-addnewvalue-toggle-view-slave-8 js-initial-hide" data-corresponding-value-type="10008">
+                                            <input type="text" class="form-control input-mid" placeholder="String 5">
+                                        </div>
+                                        
                                         <div class="add-actions">
-                                            <button class="js-administration-editconfiguration-value-addrow js-rowadd-toggle-view-master-1 js-addnewvalue-toggle-view-slave-1 js-addnewvalue-toggle-view-slave-2 js-addnewvalue-toggle-view-slave-3 btn btn-primary js-initial-hide"><span>Add</span></button>
+                                            <button class="js-administration-editconfiguration-value-addrow js-rowadd-toggle-view-master-1
+                                                    js-addnewvalue-toggle-view-slave-1
+                                                    js-addnewvalue-toggle-view-slave-2
+                                                    js-addnewvalue-toggle-view-slave-3
+                                                    js-addnewvalue-toggle-view-slave-4
+                                                    js-addnewvalue-toggle-view-slave-5
+                                                    js-addnewvalue-toggle-view-slave-6
+                                                    js-addnewvalue-toggle-view-slave-7
+                                                    js-addnewvalue-toggle-view-slave-8
+                                                    btn btn-primary js-initial-hide">
+                                                <span>Add</span>
+                                            </button>
                                             <button class="js-rowadd-toggle-view-master-1 btn"><span>Cancel</span></button>
                                         </div>
                                     </td>
@@ -246,6 +318,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="row-fluid spacer"></div>
             </div>
             <!-- /div .container-fluid -->
         </div>
@@ -298,26 +371,60 @@
         <script src="assets/js/ws_global_initialization_administration.js"></script>
         <script>
             (function() {
-                wsLib_toggleViews("createwith", 2, "radio", "no", 200);
-                wsLib_toggleViews("rowadd", 2, "default");
-                wsLib_toggleViews("addnewvalue", 4, "select", "no");
+                var numberOfValueTypes = 8; // ### ATTENTION - This number should be the amount of types of Values that exist in this form.
+                
+                
                 
                 var $editConfigurationValue = $('#js-administration-editconfiguration-value');
                 var $editConfigurationAddNewValueSelect = $('#js-administration-editconfiguration-addnewvalue-select');
                 
+                $editConfigurationAddNewValueSelect.find('.js-menu-inactive').on('click.preventInactiveEvents', function(event) {
+                    event.stopImmediatePropagation();
+                    event.preventDefault();
+                });
                 
+                wsLib_toggleViews("createwith", 2, "radio", "no", 200);
+                wsLib_toggleViews("rowadd", 2, "default");
+                wsLib_toggleViews("addnewvalue", (numberOfValueTypes + 1), "default", "no");
                 
-                $editConfigurationAddNewValueSelect.on('change', function() {
+                $editConfigurationAddNewValueSelect.on('click.toggleAddNewValue', '.dropdown-menu a', function(event) {
+                    event.preventDefault();
+                    
                     var $this = $(this);
                     
-                    var addNewValueSelected = parseInt($this.find(':selected').data('toggle-view'));
+                    
+                    
+                    function generateValueTypeLabel($whichLink) {
+                        var currentText = $whichLink.text();
+                        
+                        if(currentText === '') {
+                            return currentText;
+                        }
+                        else {
+                            return generateValueTypeLabel($whichLink.closest('ul').siblings('a').not('.dropdown-toggle')) + currentText;
+                        }
+                    }
+                    
+                    var typeName = generateValueTypeLabel($this);
+                    
+                    
+                    
+                    $this.closest('.dropdown')
+                         .children('.dropdown-toggle')
+                         .children('.js-administration-editconfiguration-addnewvalue-select-display')
+                         .text(typeName)
+                         .data('selected-value-type', {
+                             type: typeName
+                         });
+                    
+                    var addNewValueSelected = parseInt($this.data('corresponding-value-type'));
                     
                     $this.closest('tr.row-add')
                          .children('td')
                          .eq(1)
                          .children('div')
                          .removeClass('js-form-active')
-                         .filter('.js-addnewvalue-toggle-view-slave-' + addNewValueSelected)
+                         .filter('[data-corresponding-value-type="' + addNewValueSelected + '"]')
                          .addClass('js-form-active');
                 });
                 
@@ -360,6 +467,11 @@
                     $(this).closest('tr').remove();
                 }).on('click.addRow', '.js-administration-editconfiguration-value-addrow', function(event) {
                     event.preventDefault();
+                    
+                    var selectedValueTypeLabel = $editConfigurationAddNewValueSelect.children('.dropdown')
+                                                                                    .children('.dropdown-toggle')
+                                                                                    .children('.js-administration-editconfiguration-addnewvalue-select-display')
+                                                                                    .data('selected-value-type');
                     
                     var currentRowHTML = '';
                     var currentRowData = [];
@@ -419,7 +531,7 @@
                     });
                     
                     var currentPlugData = {
-                        scope: $editConfigurationAddNewValueSelect.find(':selected').text(),
+                        scope: selectedValueTypeLabel.type,
                         value: currentRowData[0].data,
                         valueDisplay: currentRowData[0].dataDisplay,
                         type: currentRowData[0].type,
