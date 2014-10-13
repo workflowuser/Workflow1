@@ -51,7 +51,7 @@
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
                                 </li>-->
                             <li>
-                                <select class="input-medium">
+                                <select class="input-medium" id="select-webapp">
                                     <option>Sharepoint - 80</option>
                                 </select>
                             </li>
@@ -78,7 +78,7 @@
                         </ul>
                         <ul id="secnav">
                             <li class="pull-right">
-                                <button class="btn pull-right"><span>Add Plugin</span></button>
+                                <button id="btn-plugin-add" class="btn pull-right"><span>Add Plugin</span></button>
                             </li>
                             <li class="active">
                                 <h1>Plugins</h1>
@@ -92,18 +92,18 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <form>
+                                    <form id="form-plugin">
                                         <div>
                                             <label>Plugin name contains</label>
-                                            <input type="text" class="form-control input-large" placeholder="">
+                                            <input type="text" name="name" id="input-plugin-name" class="form-control input-large" placeholder="">
                                         </div>
                                         <div>
                                             <label>Plugin Definition contains</label>
-                                            <input type="text" class="form-control input-large" placeholder="">
+                                            <input type="text" name="def" id="input-plugin-def" class="form-control input-large" placeholder="">
                                         </div>
                                         <div>
                                             <label>&nbsp;</label>
-                                            <button class="btn btn-primary"><span>Search</span></button>
+                                            <button class="btn btn-primary" id="btn-search"><span>Search</span></button>
                                         </div>
                                     </form>
                                 </td>
@@ -113,12 +113,12 @@
                 </div>
                 <div class="row-fluid">
                     <div class="span12">
-                        <table class="table table-scheduler table-striped table-bordered">
+                        <table class="table table-scheduler table-striped table-bordered" id="table-plugin-list">
                             <thead>
                                 <tr class="table-menu">
-                                    <th colspan="8">
+                                    <th colspan="2">
                                         <div class="display">
-                                            <span>Displaying 1 - 50 of 125 <a href="#">Export</a></span>
+                                            <span>Displaying 1 - 50 of 125 <a href="#" onclick="return exportList()">Export</a></span>
                                             <select name="" onchange="" class="input-small">
                                                 <option selected="selected" value="20">20</option>
                                                 <option value="50">50</option>
@@ -133,106 +133,7 @@
                                     <th><a href="#">Plugin Name</a></th>
                                     <th><a href="#">Plugin Definition</a></th>
                                 </tr>
-                            <tbody>
-                                <tr>
-                                    <td class="table-dropdown">
-                                        <span>Add Attachment</span>
-                                        <div class="btn-group">
-                                            <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">View Details</a></li>
-                                                <li><a href="#">Edit</a></li>
-                                                <li><a href="#">Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td>&#60;xml code preview goes here&#62;</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-dropdown">
-                                        <span>Clone Files</span>
-                                        <div class="btn-group">
-                                            <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">View Details</a></li>
-                                                <li><a href="#">Edit</a></li>
-                                                <li><a href="#">Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td>&#60;xml&#62;</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-dropdown">
-                                        <span>Copy Attachments URL</span>
-                                        <div class="btn-group">
-                                            <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">View Details</a></li>
-                                                <li><a href="#">Edit</a></li>
-                                                <li><a href="#">Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td>&#60;xml&#62;</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-dropdown">
-                                        <span>Copy Attachments</span>
-                                        <div class="btn-group">
-                                            <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">View Details</a></li>
-                                                <li><a href="#">Edit</a></li>
-                                                <li><a href="#">Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td>&#60;xml&#62;</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-dropdown">
-                                        <span>Copy Document</span>
-                                        <div class="btn-group">
-                                            <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">View Details</a></li>
-                                                <li><a href="#">Edit</a></li>
-                                                <li><a href="#">Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td>&#60;xml&#62;</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-dropdown">
-                                        <span>Copy Group</span>
-                                        <div class="btn-group">
-                                            <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">View Details</a></li>
-                                                <li><a href="#">Edit</a></li>
-                                                <li><a href="#">Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td>&#60;xml&#62;</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-dropdown">
-                                        <span>Delete Attachments</span>
-                                        <div class="btn-group">
-                                            <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">View Details</a></li>
-                                                <li><a href="#">Edit</a></li>
-                                                <li><a href="#">Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td>&#60;xml&#62;</td>
-                                </tr>
-                            </tbody>
+                            <tbody></tbody>
                         </table>
                         <ul class="pagination">
                             <li><a href="#" class="btn btn-disabled"><span>&larr;</span></a></li>
@@ -249,27 +150,34 @@
             <!-- /div .container-fluid -->
         </div>
         <!-- /div #mainsi -->
-        
         <div id="footer" class="row-fluid">
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span8">
                         <div id="footer-links">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">{{Back to Central}}</a></li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                            <ul>
+                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
+                                <li>Version 10.4</li>
+                                <li>Privacy Mode: Secure</li>
                             </ul>
                         </div>
                     </div>
                     <div class="span4">
-                        <div class="pull-right">
-                            &copy; 2008-2015 Winshuttle, LLC
-                        </div>
+                        <ul class="security-logo">
+                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
@@ -288,6 +196,7 @@
         <script src="assets/js/chosen.jquery.min.js"></script>
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
+        <script src="assets/js/ws_common.js"></script>
         <script>
             $('a.js-tooltip-target').tooltip({
                 html: true,
@@ -300,6 +209,80 @@
                 
                 $('div.tooltip').not($(this).siblings('div.tooltip')).remove();
             });
+
+            $(document).ready(function () {
+
+                ws_showProgressBar();
+                ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function (data, callbackdata) {
+                    var webapp = $('#select-webapp option:selected').val();
+                    var data = "url=" + webapp;
+                    loadPlugins('/serverconfig/getallplugins', data, 1);
+                });
+
+                $('#btn-search').on('click', function () {
+                    ws_showProgressBar();
+                    var webapp = $('#select-webapp option:selected').val();
+                    var url = '/serverconfig/getplugin';
+                    var name = $('#input-plugin-name').val();
+                    var def = $('#input-plugin-def').val();
+                    var data = 'name=' + name + "&url=" + webapp + '&def=' + def;
+
+                    if (name == '' && def == '') {
+                        url = '/serverconfig/getallplugins';
+                        data = "url=" + webapp;
+                    }
+
+                    loadPlugins(url, data, 1);
+                    return false;
+                });
+
+                $('#btn-plugin-add').on('click', function () {
+
+                    window.location.href = "plugin-new.html";
+                    return false;
+                });
+
+                return false;
+            });
+
+            function fillTable(data, callbackdata) {
+
+                $('#table-plugin-list tbody tr').remove();
+                $.each(data, function (key, value) {
+
+                    var row = '<tr><td class="table-dropdown"><span>' + value.Name + '</span><div class="btn-group"><a class="btn btn-actiondropdown-toggle" data-toggle="dropdown" href="#"></a><ul class="dropdown-menu"><li><a href="#">ViewDetails</a></li><li><a href="#">Edit</a></li><li><a href="#" onclick="callDelete(' + value.Id + ')">Delete</a></li></ul></div></td><td>' + ws_getEncodedData(value.MetaData) + '</td></tr>';
+
+                    $('#table-plugin-list tbody').append(row);
+                });
+
+                ws_hideProgressBar();
+            }
+
+            function onError(xhr, status, error) {
+                ws_hideProgressBar();
+            }
+
+            function loadPlugins(url, data, curPage) {
+                data += '&curPage=' + curPage;
+
+                ws_ajaxCall(url, data, fillTable, onError, null);
+            }
+
+            function callDelete(id) {
+                ws_showProgressBar();
+                var webapp = $('#select-webapp option:selected').val();
+                ws_ajaxCall('/serverconfig/DeletePlugin', { url: webapp, id: id }, function (data, callbackdata) {
+
+                    $('#btn-search').click();
+                }, onError, null);
+            }
+
+            function exportList() {
+                var webapp = $('#select-webapp option:selected').val();
+                var name = $('#input-plugin-name').val();
+                window.open('/serverconfig/export?url=' + webapp + '&name=' + name);
+            }
+            
         </script>
     </body>
 </html>

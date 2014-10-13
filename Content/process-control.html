@@ -149,16 +149,16 @@
                             <tr class="table-menu">
                                 <th colspan="11">
                                     <div class="js-administration-processcontrol-visiblefor-runningprocess js-initial-hide">
-                                        <input type="text" class="form-control input-large" placeholder="Comments">
+                                        <input type="text" class="form-control input-large" placeholder="Comments" id="input-comment">
                                     </div>
                                     <div class="input-btn js-administration-processcontrol-visiblefor-runningprocess js-initial-hide">
-                                        <input class="btn" type="submit" name="" value="cancel">
+                                        <input class="btn" type="submit" name="" value="cancel" id="btn-cancel" field-action="cancel">
                                     </div>
                                     <div class="input-btn js-administration-processcontrol-visiblefor-runningprocess js-initial-hide">
-                                        <input class="btn" type="submit" name="" value="reject">
+                                        <input class="btn" type="submit" name="" value="reject" id="btn-reject" field-action="cancel">
                                     </div>
                                     <div class="input-btn js-administration-processcontrol-visiblefor-runningprocess js-initial-hide">
-                                        <input class="btn" type="submit" name="" value="approve">
+                                        <input class="btn" type="submit" name="" value="approve" id="btn-approve" field-action="cancel">
                                     </div>
                                     <div class="display">
                                         <span>Displaying 1 - 50 of 125 <a href="#" onclick="return exportProcess();">Export</a></span>
@@ -174,7 +174,7 @@
                             <tr class="table-sort">
                                 <th title="checkbox" class="no-sort" width="2%">
                                     <span title="Select All">
-                                    <input class="js-processcontrol-check-all-master" type="checkbox" name="" onclick="selectAll(this);">
+                                    <input class="js-processcontrol-check-all-master" type="checkbox" name="">
                                     </span>
                                 </th>
                                 <th><a href="#">ID</a></th>
@@ -203,27 +203,34 @@
             <!-- /div .container-fluid -->
         </div>
         <!-- /div #mainsi -->
-        
         <div id="footer" class="row-fluid">
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span8">
                         <div id="footer-links">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">{{Back to Central}}</a></li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                            <ul>
+                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
+                                <li>Version 10.4</li>
+                                <li>Privacy Mode: Secure</li>
                             </ul>
                         </div>
                     </div>
                     <div class="span4">
-                        <div class="pull-right">
-                            &copy; 2008-2015 Winshuttle, LLC
-                        </div>
+                        <ul class="security-logo">
+                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
+                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
+                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
@@ -311,6 +318,34 @@
                 $('#btn-submit').on('click', function () {
                     ws_showProgressBar();
                     loadProcess(1);
+                    return false;
+                });
+
+                $('#btn-cancel,#btn-reject,#btn-approve').on('click', function () {
+                    ws_showProgressBar();
+                    var webapp = $('#select-server option:selected').val();
+                    var action = $(this).attr('field-action');
+                    var comment = $('#input-comment').val();
+                    var process = new Array();
+                    $.each($('#tbl-process-control > tbody tr').filter(':has(:checkbox:checked)').find('td:eq(1)'), function (k, v) {
+                        process.push($(v).html());
+                    });
+
+                    var data = { webApp: webapp, action: action, processId: process, comment: comment };
+
+                    $.ajax({
+                        url: '/workflowprocess/doaction',
+                        data: data,
+                        cache: false,
+                        traditional: true,
+                        success: function (data) {
+                            ws_hideProgressBar();
+                        },
+                        error: function (xhr, status, error) {
+                            onError();
+                        }
+                    });
+
                     return false;
                 });
             });
