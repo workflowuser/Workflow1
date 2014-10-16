@@ -380,7 +380,26 @@
                 wsLib_toggleViews("rowadd", 2, "default");
                 wsLib_toggleViews("addnewvalue", (numberOfValueTypes + 1), "default", "no");
                 
-                $editConfigurationAddNewValueSelect.on('click.toggleAddNewValue', '.dropdown-menu a', function(event) {
+                $editConfigurationAddNewValueSelect.on('click.scrollToItem', '.dropdown-toggle', function(event) {
+                    event.preventDefault();
+                    
+                    var activeValueType = $editConfigurationAddNewValueSelect.data('active-value-type');
+                    
+                    if(activeValueType !== undefined) {
+                        setTimeout(function() {
+                            var targetScrollTop = $editConfigurationAddNewValueSelect.find('.dropdown-menu')
+                                                                                     .scrollTop(0)
+                                                                                     .find('a')
+                                                                                     .filter('[data-corresponding-value-type="' + activeValueType + '"]')
+                                                                                     .first()
+                                                                                     .closest('li')
+                                                                                     .position()
+                                                                                     .top;
+                            
+                            $editConfigurationAddNewValueSelect.find('.dropdown-menu').scrollTop(targetScrollTop);
+                        }, 1);
+                    }
+                }).on('click.toggleAddNewValue', '.dropdown-menu a', function(event) {
                     event.preventDefault();
                     
                     var $this = $(this);
@@ -411,6 +430,8 @@
                          });
                     
                     var addNewValueSelected = parseInt($this.data('corresponding-value-type'));
+                    
+                    $editConfigurationAddNewValueSelect.data('active-value-type', addNewValueSelected);
                     
                     $this.closest('tr.row-add')
                          .children('td')
