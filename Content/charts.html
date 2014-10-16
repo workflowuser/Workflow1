@@ -110,13 +110,13 @@
                                         </div>
                                     </div>
                                     <div class="control-group row">
-                                        <div class="controls controls-row span2">
+                                        <div class="controls controls-row span3">
                                             <label class="control-label">Report Period <span class="required">*</span></label>
-                                            <input id="input-startdate" type="text" class="js-kendo-datepicker form-control input-small" placeholder="Start Date">
+                                            <input id="input-startdate" type="text" class="js-kendo-datepicker form-control input-max" placeholder="Start Date (MM/DD/YYYY)">
                                         </div>
-                                        <div class="controls controls-row span2">
+                                        <div class="controls controls-row span3">
                                             <label class="control-label">&nbsp;</label>
-                                            <input id="input-enddate" type="text" class="js-kendo-datepicker form-control input-small" placeholder="End Date">
+                                            <input id="input-enddate" type="text" class="js-kendo-datepicker form-control input-max" placeholder="End Date (MM/DD/YYYY)">
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -126,13 +126,13 @@
                                         </div>
                                     </div>
                                     <div class="control-group row">
-                                        <div class="controls controls-row span2">
+                                        <div class="controls controls-row span3">
                                             <label class="control-label">Height (PX)</label>
-                                            <input type="text" id="input-height" class="form-control input-small" placeholder="">
+                                            <input type="text" id="input-height" class="form-control input-max" placeholder="">
                                         </div>
-                                        <div class="controls controls-row span2">
+                                        <div class="controls controls-row span3">
                                             <label class="control-label">Width (PX)</label>
-                                            <input type="text" id="input-width" class="form-control input-small" placeholder="">
+                                            <input type="text" id="input-width" class="form-control input-max" placeholder="">
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -165,34 +165,27 @@
             <!-- /div .container-fluid -->
         </div>
         <!-- /div #mainsi -->
+        
         <div id="footer" class="row-fluid">
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span8">
                         <div id="footer-links">
                             <ul>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Terms</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                            <ul>
-                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                <li>Version 10.4</li>
-                                <li>Privacy Mode: Secure</li>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">{{Back to Central}}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="span4">
-                        <ul class="security-logo">
-                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
-                        </ul>
+                        <div class="pull-right">
+                            &copy; 2008-2015 Winshuttle, LLC
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {

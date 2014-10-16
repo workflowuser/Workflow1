@@ -93,7 +93,7 @@
                                     <div class="control-group">
                                         <label class="control-label">Plugin Name <span class="required">*</span></label>
                                         <div class="controls ">
-                                            <input type="text" id="input-plugin-name" disabled="disabled" class="form-control input-block-level input-max" placeholder="">
+                                            <input type="text" id="input-plugin-name" class="form-control input-block-level input-max" placeholder="">
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -786,47 +786,24 @@
                 });
             })();
 
-            function load() {
-
-                var server = getServer();
-                $('#select-webapp').val(server);
-                var name = wsPlugin_getURLParameter('name');
-                var data = { url: server, name: name };
-                ws_ajaxCall('/serverconfig/getplugin', data, function (data, callbackData) {
-
-                    _pluginData.Id = data[0].Id;
-                    _pluginData.MetaData = data[0].MetaData;
-
-                    parsePluginXmlToHtml(data[0].MetaData);
-                    ws_hideProgressBar();
-                }, onError, null);
-            }
-
-            var _pluginData = {};
             $(document).ready(function () {
                 ws_showProgressBar();
                 ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
-
-                    load();
+                    ws_hideProgressBar();
                 });
 
                 $('#js-debug-submitdata').on("click", function () {
                     ws_showProgressBar();
-                    updatePlugin();
+                    savePlugin();
                 });
 
                 $('#btn-plugin-cancel').on('click', function () {
                     window.location.href = "plugins.html";
                     return false;
                 });
-
-                $('#select-webapp').on('change', function () {
-
-                    window.location.href = 'plugin-edit.html?name=' + wsPlugin_getURLParameter('name') + '&server=' + $('#select-webapp :selected').val();
-                });
             });
 
-            function updatePlugin() {
+            function savePlugin() {
 
                 // call api - /serverconfig/addplugin
                 if (!validateParameterList()) {
@@ -838,13 +815,15 @@
                 var pluginData = getPluginData();
                 $.ajax({
                     type: 'POST',
-                    url: '/serverconfig/updateplugin',
-                    data: { url: webapp, metadata: pluginData.xml, name: pluginData.name, id: _pluginData.Id },
+                    url: '/serverconfig/addplugin',
+                    data: { url: webapp, metadata: pluginData.xml, name: pluginData.name },
                     success: function (data) {
                         onSuccess(data, null);
+
                     },
                     error: function (xhr, status, error) {
                         onError(xhr, status, error);
+
                     }
                 });
             }
@@ -943,128 +922,6 @@
 
                 return status;
             }
-
-            var parsePluginXmlToHtml = function (xml) {
-
-                var pluginJson = createPluginJson(xml);
-                $('#input-plugin-xml').val(xml);
-                $('#input-plugin-name').val(pluginJson.Name);
-                $('#input-plugin-description').val(pluginJson.Description);
-                $('#input-plugin-assembly').val(pluginJson.Assembly);
-                $('#input-plugin-class').val(pluginJson.Class);
-                $('#input-plugin-validator').val(pluginJson.ValidatorClass);
-                $('#input-plugin-validatorArgs').val(pluginJson.ValidatorArguments);
-                $('#input-plugin-paramName').val(pluginJson.ParamNames);
-
-                $.each(pluginJson.parameters, function (key, value) {
-                    parameterData = value;
-                    var currentParametersRowHTML = '<tr class="js-administration-newplugin-parameters-datarow">';
-
-                    currentParametersRowHTML += '<td>' + parameterData['parameter_name'] + '</td>';
-                    currentParametersRowHTML += '<td>' + parameterData['parameter_description'] + '</td>';
-                    currentParametersRowHTML += '<td>' + parameterData['occurrence'] + '</td>';
-                    currentParametersRowHTML += '<td>' + parameterData['data_type'] + '</td>';
-                    currentParametersRowHTML += '<td>' + parameterData['required_parameter'] + '</td>';
-                    currentParametersRowHTML += '<td>' + parameterData['variant'] + '</td>';
-                    currentParametersRowHTML += '<td>';
-                    currentParametersRowHTML += 'Validator';
-                    currentParametersRowHTML += '<div class="pull-right"><a href="#"><i class="js-administration-newplugin-parameters-datarow-edit icon-edit"></i></a><a href="#"><i class="js-administration-newplugin-parameters-datarow-delete icon-trash"></i></a></div>';
-                    currentParametersRowHTML += '</td>';
-
-                    currentParametersRowHTML += '</tr>';
-
-                    var $currentAddRowHTML = $(currentParametersRowHTML);
-
-                    $currentAddRowHTML.data('parameter-content', $.extend({}, {}, parameterData));
-
-                    var $parameterList = $('#js-administration-pluginnew-parameters-list');
-                    $parameterList.find('table').children('tbody').children('.row-add').before($currentAddRowHTML);
-                });
-
-                var $parameters = $('#js-administration-pluginnew-parameters');
-                var $parameterList = $('#js-administration-pluginnew-parameters-list');
-                var $pluginNewParametersValidators = $('#js-administration-pluginnew-parameters-validators');
-
-                $parameters.closest('table').closest('.row-fluid').slideUp(function () {
-                    $parameters.removeClass('js-form-editmode').find('.js-form-item').each(function () { });
-
-                    $parameterList.fadeIn()
-                                      .find('table')
-                                      .children('tbody')
-                                      .find('.js-form-edit-active')
-                                      .removeClass('js-form-edit-active');
-                });
-            }
-
-            function createPluginJson(xml) {
-                var pluginJson = {};
-                var parameters = [];
-                pluginJson.parameters = parameters;
-
-                var xmlDoc = $.parseXML(xml);
-                var xml = $(xmlDoc);
-
-                var plugin = xml.find("Plugin");
-                var variantList = plugin.attr('Variants').split(',');
-
-                pluginJson.Name = plugin.attr('Name');
-                pluginJson.Description = plugin.attr('Description');
-                pluginJson.Assembly = plugin.attr('Assembly');
-                pluginJson.Class = plugin.attr('Class');
-                pluginJson.ParamNames = plugin.attr('ParmNames');
-                pluginJson.ValidatorClass = plugin.attr('ValidatorClass');
-                pluginJson.ValidatorArguments = plugin.attr('ValidatorArguments');
-                pluginJson.Variants = plugin.attr('Variants');
-
-                // find parameters
-                plugin.find('Parameters Parameter').each(function (k, v) {
-                    var parameterJson = {};
-                    var validators = [];
-                    parameterJson.validators = validators;
-                    parameterJson.occurrence = $(v).attr('Occurence');
-                    parameterJson.parameter_description = $(v).attr('Description');
-                    parameterJson.data_type = $(v).attr('Datatype');
-                    parameterJson.default_value = $(v).attr('Value');
-                    parameterJson.parameter_name = $(v).attr('Name');
-                    parameterJson.list_of_values = $(v).attr('ListOfValues');
-                    parameterJson.editable = $(v).attr('EditableName');
-                    parameterJson.required_parameter = $(v).attr('Required');
-                    parameterJson.variant = containsItem(variantList, $(v).attr('Name'));
-
-                    pluginJson.parameters.push(parameterJson);
-
-                    // find validators
-                    $(v).find('Validators Validator').each(function (k1, v1) {
-                        var validatorJson = {};
-                        validatorJson.message = $(v1).attr('Message');
-                        validatorJson.regularExpression = $(v1).attr('RegularExpression');
-                        parameterJson.validators.push(validatorJson);
-                    });
-                });
-
-                return pluginJson;
-            }
-
-            var containsItem = function (col, item) {
-
-                if ($.inArray(item, col) == -1) {
-                    return false;
-                }
-                else {
-                    return true;
-                }
-            }
-
-            function getServer() {
-
-                var server = wsPlugin_getURLParameter('server');
-                if (server == undefined || server == null || server == '') {
-                    server = $('#select-webapp :selected').val();
-                }
-
-                return server;
-            }
-
         </script>
     </body>
 </html>

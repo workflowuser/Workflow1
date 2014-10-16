@@ -52,6 +52,7 @@
                                 </li>-->
                             <li>
                                 <select class="input-medium" id="select-webapp">
+                                    <option>Sharepoint - 80</option>
                                 </select>
                             </li>
                         </ul>
@@ -209,25 +210,19 @@
                 $('div.tooltip').not($(this).siblings('div.tooltip')).remove();
             });
 
-            function load(data, callbackdata) {
-
-                var webapp = getServer();
-                $('#select-webapp').val(webapp);
-                var data = "url=" + webapp;
-                loadPlugins('/serverconfig/getallplugins', data, 1);
-            }
-
             $(document).ready(function () {
 
                 ws_showProgressBar();
                 ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function (data, callbackdata) {
-                    load(data, callbackdata);
+                    var webapp = $('#select-webapp option:selected').val();
+                    var data = "url=" + webapp;
+                    loadPlugins('/serverconfig/getallplugins', data, 1);
                 });
 
                 $('#btn-search').on('click', function () {
                     ws_showProgressBar();
                     var webapp = $('#select-webapp option:selected').val();
-                    var url = '/serverconfig/getplugins';
+                    var url = '/serverconfig/getplugin';
                     var name = $('#input-plugin-name').val();
                     var def = $('#input-plugin-def').val();
                     var data = 'name=' + name + "&url=" + webapp + '&def=' + def;
@@ -247,11 +242,6 @@
                     return false;
                 });
 
-                $('#select-webapp').on('change', function () {
-
-                    window.location.href = 'plugins.html?server=' + $('#select-webapp option:selected').val();
-                });
-
                 return false;
             });
 
@@ -260,7 +250,7 @@
                 $('#table-plugin-list tbody tr').remove();
                 $.each(data, function (key, value) {
 
-                    var row = '<tr><td class="table-dropdown"><span>' + value.Name + '</span><div class="btn-group"><a class="btn btn-actiondropdown-toggle" data-toggle="dropdown" href="#"></a><ul class="dropdown-menu"><li><a href="plugin-edit.html?name=' + value.Name + '">Edit</a></li><li><a href="#" onclick="callDelete(' + value.Id + ')">Delete</a></li></ul></div></td><td>' + ws_getEncodedData(value.MetaData) + '</td></tr>';
+                    var row = '<tr><td class="table-dropdown"><span>' + value.Name + '</span><div class="btn-group"><a class="btn btn-actiondropdown-toggle" data-toggle="dropdown" href="#"></a><ul class="dropdown-menu"><li><a href="#">ViewDetails</a></li><li><a href="#">Edit</a></li><li><a href="#" onclick="callDelete(' + value.Id + ')">Delete</a></li></ul></div></td><td>' + ws_getEncodedData(value.MetaData) + '</td></tr>';
 
                     $('#table-plugin-list tbody').append(row);
                 });
@@ -291,16 +281,6 @@
                 var webapp = $('#select-webapp option:selected').val();
                 var name = $('#input-plugin-name').val();
                 window.open('/serverconfig/export?url=' + webapp + '&name=' + name);
-            }
-
-            function getServer() {
-
-                var server = wsPlugin_getURLParameter('server');
-                if (server == undefined || server == null || server == '') {
-                    server = $('#select-webapp :selected').val();
-                }
-
-                return server;
             }
             
         </script>
