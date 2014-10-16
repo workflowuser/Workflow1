@@ -53,7 +53,6 @@
                                 </li>-->
                             <li>
                                 <select id="select-webapp">
-                                    <option>Sharepoint - 80</option>
                                 </select>
                             </li>
                         </ul>
@@ -195,42 +194,37 @@
             $(document).ready(function () {
                 ws_showProgressBar();
                 ws_initializeWebApp('/admin/GetAllWebApp', $('#select-webapp'), function () {
-                    var $webappUrl = $('#select-webapp').val();
-                    ws_ajaxCall('/admin/getallsites', { server: $webappUrl }, function (data) {
-            
-                        var options = '';
-                        $.each(data, function (key, value) {
-            
-                            options += '<option value="' + value.ServerRelativeURL + '">' + value.Name + '</option>';
-                        });
-            
-                        $("#select-site").append(options);
-                        ws_hideProgressBar();
-                    }, null, null);
-            
+
+                    load();
+
                     $("#select-site").on("change", function () {
                         ws_showProgressBar();
                         var selected = $(this).find("option:selected").val();
                         $("#select-doclib").find("option:not(:first)").remove();
-            
+
                         if (selected == 'N/A') {
                             $("#select-doclib").prop('disabled', 'disabled');
                             return;
                         }
-            
+
                         ws_ajaxCall('/admin/getalldoclib', { site: $webappUrl + selected }, function (data) {
                             var options = '';
                             $.each(data, function (key, value) {
-            
+
                                 options += '<option value="' + value.Name + '">' + value.Name + '</option>';
                             });
-            
+
                             $("#select-doclib").append(options);
                             $("#select-doclib").prop('disabled', '');
                             ws_hideProgressBar();
                         }, null, null);
                     });
-            
+
+                    $('#select-webapp').on('change', function () {
+
+                        window.location.href = 'excel-data-dump.html?server=' + $('#select-webapp :selected').val();
+                    });
+
                     $("#btn-save").on("click", function () {
                         ws_showProgressBar();
                         var siteurl = $("#select-site option:selected").val();
@@ -239,15 +233,42 @@
                         var ext = $("#select-ext option:selected").val();
                         var data = { webappUrl: $webappUrl, siteUrl: siteurl, doclib: list, email: email, ext: ext };
                         ws_ajaxCall('/workflowdump/dump', data, function (successData) {
-            
+
                             ws_hideProgressBar();
-            
+
                         }, null, null);
-            
+
                         return false;
                     });
                 });
             });
+
+            function load() {
+                var $webappUrl = getServer();
+                $('#select-webapp').val($webappUrl);
+
+                ws_ajaxCall('/admin/getallsites', { server: $webappUrl }, function (data) {
+
+                    var options = '';
+                    $.each(data, function (key, value) {
+
+                        options += '<option value="' + value.ServerRelativeURL + '">' + value.Name + '</option>';
+                    });
+
+                    $("#select-site").append(options);
+                    ws_hideProgressBar();
+                }, null, null);
+            }
+
+            function getServer() {
+
+                var server = wsPlugin_getURLParameter('server');
+                if (server == undefined || server == null || server == '') {
+                    server = $('#select-webapp :selected').val();
+                }
+
+                return server;
+            }
             
         </script>
     </body>

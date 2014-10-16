@@ -52,8 +52,7 @@
                                 <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
                                 </li>-->
                             <li>
-                                <select class="input-medium">
-                                    <option>Sharepoint - 80</option>
+                                <select class="input-medium"  id="WFWebAppsDropDown">
                                 </select>
                             </li>
                         </ul>
@@ -82,7 +81,7 @@
                             <li class="active">
                                 <h1>Archive Obsolete Solution Definition</h1>
                                 <div class="row-fluid">
-                                    <div class="span8 page-description">Page description goes here.  If no page description exists, delete this paragraph.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                    <div class="span8 page-description">To Archive Workflow Solution(.wssln) files.</div>
                                 </div>
                             </li>
                         </ul>
@@ -94,17 +93,9 @@
                             <form class="form-horizontal">
                                 <fieldset>
                                     <div class="control-group">
-                                        <label class="control-label">Source Server</label>
-                                        <div class="controls">
-                                            <select class="input-max">
-                                                <option>http://server/</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
                                         <label class="control-label">Source Site <span class="required">*</span></label>
                                         <div class="controls">
-                                            <select class="input-max">
+                                            <select class="input-max" id="sourceSiteDropDown">
                                                 <option>site:3000</option>
                                             </select>
                                         </div>
@@ -115,13 +106,13 @@
                                             <ul class="checkbox-group inline-list">
                                                 <li>
                                                     <label>
-                                                    <input class="js-archive-toggle-view-master-0" type="radio" name="TEMPNAME-logretention" checked="checked">
+                                                    <input class="js-archive-toggle-view-master-0" id="archiveNowRadio" type="radio" name="TEMPNAME-logretention" checked="checked"  check-text="now">
                                                     <span>Now</span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                    <input class="js-archive-toggle-view-master-1" type="radio" name="TEMPNAME-logretention">
+                                                    <input class="js-archive-toggle-view-master-1" id="archiveScheduleRadio" type="radio" name="TEMPNAME-logretention"  check-text="Schedule">
                                                     <span>Schedule</span>
                                                     </label>
                                                 </li>
@@ -131,7 +122,7 @@
                                     <div class="js-archive-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">Schedule <span class="required">*</span></label>
                                         <div class="controls">
-                                            <select class="js-chosen-target input-onethirds">
+                                            <select id="archiveScheduleDayDropDown" class="js-chosen-target input-onethirds">
                                                 <option value="1">First day of month</option>
                                                 <option value="100">Last day of month</option>
                                                 <option value="2">2nd</option>
@@ -169,13 +160,13 @@
                                     <div class="js-archive-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">Time <span class="required">*</span></label>
                                         <div class="controls ">
-                                            <input type="text" class="js-kendo-timepicker form-control input-onethirds" placeholder="HH:MM">
+                                            <input type="text" id="archiveScheduleTimeDropDown" class="js-kendo-timepicker form-control input-onethirds" placeholder="HH:MM">
                                         </div>
                                     </div>
                                     <div class="js-archive-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">User(s) to Notify </label>
                                         <div class="controls ">
-                                            <input type="text" class="form-control input-block-level input-max" placeholder="user@winshuttle.com">
+                                            <input type="text" id="userToNotifyTextBox" class="form-control input-block-level input-max" placeholder="user@winshuttle.com">
                                         </div>
                                     </div>
                                     <div class="page-header clearfix">
@@ -184,7 +175,7 @@
                                     <div class="control-group">
                                         <label class="control-label">Server <span class="required">*</span></label>
                                         <div class="controls">
-                                            <select class="input-max">
+                                            <select class="input-max" id = "destinationServerDropDown">
                                                 <option>http://server/</option>
                                             </select>
                                         </div>
@@ -192,7 +183,7 @@
                                     <div class="control-group">
                                         <label class="control-label">Site <span class="required">*</span></label>
                                         <div class="controls">
-                                            <select class="input-max">
+                                            <select class="input-max" id = "destinationSiteDropDown">
                                                 <option>site:3000</option>
                                             </select>
                                         </div>
@@ -200,34 +191,13 @@
                                     <div class="control-group">
                                         <label class="control-label">Document Library <span class="required">*</span></label>
                                         <div class="controls">
-                                            <select class="input-max">
+                                            <select class="input-max" id = "destinationLibraryDropDown">
                                                 <option>Expense Report Archive</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="page-header clearfix">
-                                        <h2>Criteria</h2>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Revisions Older Than</label>
-                                        <div class="controls form-textandbutton">
-                                            <input type="text" class="js-kendo-datepicker form-control input-onethirds" placeholder="MM/DD/YYYY">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">Obsolete Revisions Only</label>
-                                        <div class="controls">
-                                            <ul class="checkbox-group">
-                                                <li>
-                                                    <label>
-                                                    <input type="checkbox">
-                                                    </label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                     <div class="form-actions top-line">
-                                        <button type="submit" class="btn btn-primary"><span>Save</span></button>
+                                        <button type="submit" class="btn btn-primary" id="btnSave"><span>Save</span></button>
                                         <button class="btn"><span>Cancel</span></button>
                                     </div>
                                 </fieldset>
@@ -281,6 +251,7 @@
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
         <script src="assets/js/ws_global_initialization_administration.js"></script>
+        <script src="assets/js/ws_common.js"></script>
         <script>
             $('.js-chosen-target').chosen({
                 width: "33.3333333333%",
@@ -288,6 +259,162 @@
             });
             
             wsLib_toggleViews("archive", 2, "radio", "no", 200);
+
+            var ws_fillSite = function (url, target, callback) {
+
+                ws_ajaxCall(url, null, function (data, callbackdata) {
+                    $(target).find('option').remove();
+                    var options = getOption(data);
+                    $(target).append($(options));
+
+                    // callback after this.
+                    if (callback != null && callback != undefined) {
+                        callback(data, callbackdata);
+                    }
+                }, null, null);
+
+                function getOption(data) {
+                    var option = '';
+
+                    $.each(data, function (k, v) {
+                        option += '<option value="' + v.URL + '">' + v.URL + '</option>';
+                    });
+
+                    return option;
+                }
+            }
+
+            var ws_fillList = function (url, target, callback) {
+
+                ws_ajaxCall(url, null, function (data, callbackdata) {
+                    $(target).find('option').remove();
+                    var options = getOption(data);
+                    $(target).append($(options));
+
+                    // callback after this.
+                    if (callback != null && callback != undefined) {
+                        callback(data, callbackdata);
+                    }
+                }, null, null);
+
+                function getOption(data) {
+                    var option = '';
+
+                    $.each(data, function (k, v) {
+                        option += '<option value="' + v.Name + '">' + v.Name + '</option>';
+                    });
+
+                    return option;
+                }
+            }
+
+            var ws_FillDestinationSiteAndLibrary = function () {
+                var selectedWebApp = $('#destinationServerDropDown').val();
+                ws_fillSite("/admin/GetAllSites?server=" + selectedWebApp, $('#destinationSiteDropDown'), function (data, callbackdata) {
+                    var selectedSite = $('#destinationSiteDropDown').val();
+                    ws_fillList("/admin/GetAllDocLib?site=" + selectedSite, $('#destinationLibraryDropDown'), null);
+                });
+            }
+
+            var ws_FillSourceSite = function () {
+                var selectedWebApp = $('#WFWebAppsDropDown').val();
+                ws_fillSite("/admin/GetAllSites?server=" + selectedWebApp, $('#sourceSiteDropDown'), null);
+            }
+
+            $(document).ready(function () {
+                ws_initializeWebApp("/admin/GetAllWebApp", $('#WFWebAppsDropDown'), function (data, callbackdata) {
+                    ws_FillSourceSite();
+                });
+
+                ws_initializeWebApp("/admin/GetAllWebApp", $('#destinationServerDropDown'), function (data, callbackdata) {
+                    ws_FillDestinationSiteAndLibrary();
+                });
+            });
+
+
+            $("#WFWebAppsDropDown").change(function () {
+                ws_FillSourceSite();
+            });
+
+            $("#destinationServerDropDown").change(function () {
+                ws_FillDestinationSiteAndLibrary();
+            });
+
+            $("#destinationSiteDropDown").change(function () {
+                var selectedSite = $('#destinationSiteDropDown').val();
+                ws_fillList("/admin/GetAllDocLib?site=" + selectedSite, $('#destinationLibraryDropDown'), null);
+            });
+
+            function CallBackFunction(data, callbackdata) {
+                alert(data);
+            }
+
+            $("#btnSave").click(function () {
+                var strSite, blnArchiveNow, strScheduleDay, strScheduleTime, strUserNotifyEmail, strScheduleType, strDestinationServer, strDestinationSite, strDestinationLibrary;
+
+                //Getting Source details
+
+                strSite = $("#sourceSiteDropDown").val();
+                if (strSite.length == 0) {
+                    return false;
+                }
+
+
+                //Getting Schedule Details
+                strScheduleType = $("input[name=TEMPNAME-logretention]:checked").attr('check-text');
+                blnArchiveNow = $("#archiveNowRadio").prop('checked');
+                if (blnArchiveNow == false) {
+                    strScheduleDay = $("#archiveScheduleDayDropDown").val();
+                    if (strScheduleDay.length == 0) {
+                        return false;
+                    }
+                    strScheduleTime = $("#archiveScheduleTimeDropDown").val();
+                    if (strScheduleTime.length == 0) {
+                        return false;
+                    }
+                }
+
+                strUserNotifyEmail = $("#userToNotifyTextBox").val();
+
+                //Getting Destination Details
+                var strDestinationServer = $("#destinationServerDropDown").val();
+                if (strDestinationServer.length == 0) {
+                    return false;
+                }
+
+                var strDestinationSite = $("#destinationSiteDropDown").val();
+                if (strDestinationSite.length == 0) {
+                    return false;
+                }
+
+                var strDestinationLibrary = $("#destinationLibraryDropDown").val();
+                if (strDestinationLibrary.length == 0) {
+                    return false;
+                }
+
+               
+                //Getting HostName
+                var strHostName = $("#WFWebAppsDropDown").val();
+
+                blnIsObsoleteRevisionsOnly = $("#criteriaObsoleteRevisionsCheckBox").prop('checked');
+
+                ws_ajaxCall('/Scheduler/CreateArchiveSolutionServiceEntry',
+                            {
+                                sourceSite: strSite,
+                                isArchiveNow: blnArchiveNow,
+                                scheduleType: strScheduleType,
+                                scheduleDay: strScheduleDay,
+                                scheduleTime: strScheduleTime,
+                                usersToNotify: strUserNotifyEmail,
+                                destinationServer: strDestinationServer,
+                                destinationSite: strDestinationSite,
+                                destinationLibrary: strDestinationLibrary,
+                                hostName: strHostName
+                            },
+                              CallBackFunction, null,
+                              null);
+                return false;
+            });
         </script>
     </body>
 </html>

@@ -53,8 +53,7 @@
                             </li>
                             -->
                             <li>
-                                <select class="input-medium">
-                                    <option>Sharepoint - 80</option>
+                                <select class="input-medium" id="select-webapp">
                                 </select>
                             </li>
                         </ul>
@@ -107,7 +106,8 @@
                 					</li>
                 				</ul>
                 				<div class="pull-right">
-                					<p><span id="inactive-processes" class="no-padding">5678</span> Inactive Processes as of <span id="current-date">mmm-dd-yyyy hh:mm</span> (<span id="obsolete-solutions" class="no-padding">34</span> Obsolete Solutions)</p>
+                                                    <p><span id="inactive-processes">5678</span> Inactive Processes as of <span id="current-date">mmm-dd-yyyy hh:mm</span></p>
+                                                    <p><span id="obsolete-solutions">34</span> Obsolete Solutions</p>
                 				</div>
                 			</td>
                 		</tr>
@@ -230,10 +230,11 @@
         <script src="assets/js/ws_common.js"></script>
         <script>
             $(document).ready(function () {
+                ws_showProgressBar();
                 ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
                     var webappUrl = $('#select-webapp').val();
-                    ws_ajaxCall('/DatabaseUsage/GetDataUsageforTables', { server: 'http://wid101/' }, onLoadDataUsage, null, null);
-                    
+                    ws_ajaxCall('/DatabaseUsage/GetDataUsageforTables', { server: $('#select-webapp').val() }, onLoadDataUsage, null, null);
+                    ws_hideProgressBar();
                 });
             });
 
@@ -260,20 +261,27 @@
                 var ConfigurationPercent = getPercent(ConfigurationSize, total);
                 var SolutionPercent = getPercent(SolutionSize, total);
                 var TransactionPercent = getPercent(TransactionSize, total);
+                var ConfigurationSizeInMB = CalculateDataInMB(ConfigurationSize);
+                var SolutionSizeInMB = CalculateDataInMB(SolutionSize);
+                var TransactionSizeInMB = CalculateDataInMB(TransactionSize);
                 $('#Configuration-Percent').width(ConfigurationPercent);
-                $('#Configuration-Percent').text(CalculateDataInMB(ConfigurationSize));
+                $('#Configuration-Percent').text(ConfigurationSizeInMB);
+                $('#Configuration-Percent').attr('title', ConfigurationSizeInMB);
                 $('#Solution-Percent').width(SolutionPercent);
-                $('#Solution-Percent').text(CalculateDataInMB(SolutionSize));
+                $('#Solution-Percent').text(SolutionSizeInMB);
+                $('#Solution-Percent').attr('title', SolutionSizeInMB);
                 $('#Transaction-Percent').width(TransactionPercent);
-                $('#Transaction-Percent').text(CalculateDataInMB(TransactionSize));
+                $('#Transaction-Percent').text(TransactionSizeInMB);
+                $('#Transaction-Percent').attr('title', TransactionSizeInMB);
 
-                ws_ajaxCall('/DatabaseUsage/GetInactiveAndObsoleteSolutionsCount', { server: 'http://wid101/' }, onLoadInactiveObsoleteCount, null, null);
+                ws_ajaxCall('/DatabaseUsage/GetInactiveAndObsoleteSolutionsCount', { server: $('#select-webapp').val() }, onLoadInactiveObsoleteCount, null, null);
             }
 
             function onLoadInactiveObsoleteCount(data, callbackdata) {
                 $('#inactive-processes').text(data.Table[0].InactiveProcessCount);
                 $('#obsolete-solutions').text(data.Table1[0].ObsoleteSolutionCount);
                 $('#current-date').text(currentDateTime());
+                ws_hideProgressBar();
             }
             function createRow(rowData) {
                 var row = '<tr><td>' + rowData.tableName + '</td><td>' + rowData.data_size + '</td></tr>';
@@ -282,34 +290,14 @@
             function CalculateDataInMB(value) {
                   return (parseInt(value) / (1024)).toFixed(2) + "MB";
              }
-            function CalculateDataUnit(value) {
-                if (value < 1024) {
-                    return value + " KB";
-                }
-                else {
-                    value = parseInt(value) / 1024;
-                    if (value < 1024) {
-                        return value.toFixed(2) + " MB";
-                    }
-                    else {
-                        value = parseInt(value) / 1024;
-                        if (value < 1024) {
-                            return value.toFixed(2) + " GB";
-                        }
-                        else {
-                            value = (parseInt(value) / 1024);
-                            return value.toFixed(2) + " TB";
-                        }
-                    }
-                }
-            }
+        
             function currentDateTime() {
                 var tdate = new Date();
                 var dd = tdate.getDate(); //yields day
                 var MM = tdate.getMonth(); //yields month
                 var yyyy = tdate.getFullYear(); //yields year
-                var hh = tdate.getHours();
-                var mm =tdate.getMinutes();
+                //var hh = tdate.getHours();
+                //var mm =tdate.getMinutes();
                 // return (MM + 1) + "-" + dd + "-" + yyyy + ' ' + (hh < 10 ? '0' : '') + hh + ':' + (mm < 10 ? '0' : '') + mm;
                 return (MM + 1) + "-" + dd + "-" + yyyy;
 
@@ -320,4 +308,3 @@
             </script>
     </body>
 </html>
-//

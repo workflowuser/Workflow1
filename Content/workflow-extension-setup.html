@@ -133,9 +133,9 @@
                                 </fieldset>
                                 
                                 <div class="page-header clearfix">
-                                	<h2>Database Settings</h2>
-                           		 </div>
-                           		 <fieldset>
+                                    <h2>Database Settings</h2>
+                                </div>
+                                <fieldset>
                                     <div class="control-group">
                                         <label class="control-label">Database Instance Name <span class="required">*</span></label>
                                         <div class="controls">
@@ -224,12 +224,12 @@
                                         </div>
                                     </div>
                                 </fieldset>
-								<fieldset>
-									<div class="form-actions top-line">
-										<button type="submit" id="btn_Save" class="btn btn-primary"><span>Save</span></button>
-										<button class="btn"><span>Cancel</span></button>
-									</div>
-								</fieldset>
+                                <fieldset>
+                                    <div class="form-actions top-line">
+                                        <button type="submit" id="btn_Save" class="btn btn-primary"><span>Save</span></button>
+                                        <button class="btn"><span>Cancel</span></button>
+                                    </div>
+                                </fieldset>
                             </form>
                         </div>
                     </div>
@@ -293,21 +293,21 @@
                 ws_initializeWebApp("/admin/GetAllWebApp", $('#WFWebAppsDropDown'), null);
                 ws_initializeWebApp("/admin/GetNonWFWebApps", $('#nonWFWebApps'), null);
             });
-            
-            function CallBackFunctionSuccess(data, callbackdata) {
-            alert(data);
-            location.reload();
-            }
-            
-            function CallBackFunctionFailure(xhr, status, error, callbackdata) {
-            if (xhr.responseText != null && xhr.responseText != undefined) {
-            alert("Status: " + xhr.Status + ", Error: " + xhr.responseText);
-            }
-            }
-            
+
+			function CallBackFunctionSuccess(data, callbackdata) {
+			    alert(data);
+			    location.reload();
+			}
+
+			function CallBackFunctionFailure(xhr, status, error, callbackdata) {
+			    if (xhr.responseText != null && xhr.responseText != undefined) {
+			        alert("Status: " + xhr.Status + ", Error: " + xhr.responseText);
+			    }
+			}
+
             $("#btn_Save").click(function () {
                 var theUrl, bIsTrustedInstallation, sDbcUser, sDbcPwd, sDbcDomain, bIsTrustedLogin, sDbUser, sDbPwd, sDbDomain, sDbInstance, sDbName;
-            
+
                 //Get the Web APP URL
                 var radioWebAppValue = $("#nonWFWebAppsRadio").prop('checked');
                 if (radioWebAppValue == true) {
@@ -319,18 +319,18 @@
                         return false;
                     }
                 }
-            
+
                 // Get the DB Instance Name and authentication type to create database.
                 sDbInstance = $("#dbInstanceName").val();
                 if (sDbInstance == null || sDbInstance.length == 0) {
                     return false;
                 }
-            
+
                 sDbName = $("#dbName").val();
                 if (sDbName == null || sDbName.length == 0) {
                     return false;
                 }
-            
+
                 var radioDBCreatorAuthentication = $("#dbCreatorAuthenticationWindows").prop('checked');
                 if (radioDBCreatorAuthentication == true) {
                     bIsTrustedInstallation = true;
@@ -338,12 +338,12 @@
                     if (sDbcUser == null || sDbcUser.length == 0) {
                         return false;
                     }
-            
+
                     sDbcPwd = $("#dbCreatorPassword").val();
                     if (sDbcPwd == null || sDbcPwd.length == 0) {
                         return false;
                     }
-            
+
                     sDbcDomain = $("#dbCreatorDomainName").val();
                 }
                 else {
@@ -352,15 +352,15 @@
                     if (sDbcUser == null || sDbcUser.length == 0) {
                         return false;
                     }
-            
+
                     sDbcPwd = $("#dbCreatorPassword").val();
                     if (sDbcPwd == null || sDbcPwd.length == 0) {
                         return false;
                     }
-            
+
                     sDbcDomain = null;
                 }
-            
+
                 // Get the user credentials to be created in the DB, and used in Workflow DB connection string.
                 var radioDBInitialization = $("#databaseinitializationWindows").prop('checked');
                 if (radioDBInitialization == true) {
@@ -369,12 +369,12 @@
                     if (sDbUser == null || sDbUser.length == 0) {
                         return false;
                     }
-            
+
                     sDbPwd = $("#databaseinitializationPassword").val();
                     if (sDbPwd == null || sDbPwd.length == 0) {
                         return false;
                     }
-            
+
                     sDbDomain = $("#databaseinitializationDomain").val();
                 }
                 else {
@@ -383,16 +383,16 @@
                     if (sDbUser == null || sDbUser.length == 0) {
                         return false;
                     }
-            
+
                     sDbPwd = $("#databaseinitializationPassword").val();
                     if (sDbPwd == null || sDbPwd.length == 0) {
                         return false;
                     }
-            
+
                     sDbDomain = null;
                 }
-            
-            
+
+
                 ws_ajaxCall('/ExtendWorkflow/ExtendWorkflow',
                             {
                                 url: theUrl,

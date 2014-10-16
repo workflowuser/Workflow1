@@ -172,13 +172,38 @@
                 ws_showProgressBar();
                 ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function (data, callbackdata) {
 
-                    var server = $('#select-webapp :selected').val();
-                    var ws_externalAdminCommands = ws_admincommands(server);
+                    loadCommands(data, callbackdata);
+                });
 
-                    wsLib_console(ws_externalAdminCommands);
-                    ws_hideProgressBar();
+                $('#select-webapp').on('change', function () {
+                    var adminCommand = wsPlugin_getURLParameter('admincommandID');
+                    if (adminCommand == null || adminCommand == undefined) {
+                        adminCommand = '';
+                    }
+
+                    var server = $('#select-webapp :selected').val();
+                    window.location.href = 'admin-commands.html?admincommandID=' + adminCommand + '&server=' + server;
                 });
             });
+
+            function loadCommands(data, callbackdata) {
+                var server = getServer();
+                $('#select-webapp').val(server)
+                var ws_externalAdminCommands = ws_admincommands(server);
+
+                wsLib_console(ws_externalAdminCommands);
+                ws_hideProgressBar();
+            }
+
+            function getServer() {
+                
+                var server = wsPlugin_getURLParameter('server');
+                if (server == undefined || server == null || server == '') {
+                    server = $('#select-webapp :selected').val();
+                }
+
+                return server;
+            }
         </script>
     </body>
 </html>

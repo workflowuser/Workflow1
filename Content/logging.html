@@ -335,25 +335,26 @@
                 ws_initializeWebApp('/admin/GetAllWebApp', $('#select-webapp'), function () {
                     var webappUrl = $('#select-webapp').val();
                     ws_ajaxCall('/logging/GetData', { server: webappUrl }, function (data, successData) {
-                        $("#check-core").prop('checked', data[0].Core);
-                        $("#check-svservice").prop('checked', data[0].SVService);
-                        $("#check-timer").prop('checked', data[0].Timer);
-                        $("#check-CA").prop('checked', data[0].CA);
-                        $("#check-SVADM").prop('checked', data[0].SVAdm);
-                        if (data[0].LogRetention) {
-                            $("#radio-append").prop('checked', true);
-                            $("#radio-clear").prop('checked', false);
-                        }
-                        else {
-                            $("#radio-clear").prop('checked', true);
-                            $("#radio-append").prop('checked', false);
-                        }
-                       // $("#radio-currentFrontEnd").prop('checked', data[0].LoggingScope);
-                        $("#check-stackTrace").prop('checked', data[0].StackTrace);
-                        $("#check-asyncLogging").prop('checked', data[0].AsyncLogging);
-                        $("#input-Classes").val(data[0].LoggingClasses);
-                        $("#select-level").val(data[0].LoggingLevel);
-                    }, null, null);
+                        if (data[0] != null && data[0] != 'undefined') {
+                            $("#check-core").prop('checked', data[0].Core);
+                            $("#check-svservice").prop('checked', data[0].SVService);
+                            $("#check-timer").prop('checked', data[0].Timer);
+                            $("#check-CA").prop('checked', data[0].CA);
+                            $("#check-SVADM").prop('checked', data[0].SVAdm);
+                            if (data[0].LogRetention) {
+                                $("#radio-append").prop('checked', true);
+                                $("#radio-clear").prop('checked', false);
+                            }
+                            else {
+                                $("#radio-clear").prop('checked', true);
+                                $("#radio-append").prop('checked', false);
+                            }
+                            // $("#radio-currentFrontEnd").prop('checked', data[0].LoggingScope);
+                            $("#check-stackTrace").prop('checked', data[0].StackTrace);
+                            $("#check-asyncLogging").prop('checked', data[0].AsyncLogging);
+                            $("#input-Classes").val(data[0].LoggingClasses);
+                            $("#select-level").val(data[0].LoggingLevel);
+                        }}, null, null);
                 });
             });
 
