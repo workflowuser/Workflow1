@@ -225,12 +225,6 @@
                 });
             });
             
-            
-            
-            ZeroClipboard.config({
-                swfPath: "assets/swf/ZeroClipboard.swf"
-            });
-            
             $("#btn-add").click(function () {
                 ws_showProgressBar();
                 var licenseKey = $("#input-licensekey").val();
@@ -291,6 +285,12 @@
             function onError(xhr, status, error, callbackdata) {
                 ws_hideProgressBar();
             }
+            
+            
+            
+            ZeroClipboard.config({
+                swfPath: "assets/swf/ZeroClipboard.swf"
+            });
         </script>
     </body>
 </html>
