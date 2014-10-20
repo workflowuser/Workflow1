@@ -15,71 +15,23 @@
         <div id="workflow-header">
             <div class="container-fluid">
                 <div class="row-fluid">
-                    <div class="span6">
-                        <div class="workflow-brand">
-                            <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
-                            <div class="home-dropdown">
-                                <div class="btn-group">
-                                    <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
-                                    <ul class="dropdown-menu">
-                                        <div>
-                                            <li class="dropdown-title">Logs &amp; Reporting</li>
-                                            <li><a href="#">Charts</a></li>
-                                            <li><a href="#">Excel Data Dump</a></li>
-                                            <li><a href="#">Logging</a></li>
-                                            <li><a href="#">Log File Viewer</a></li>
-                                            <li class="dropdown-title">Processes</li>
-                                            <li><a href="#">Process Control</a></li>
-                                            <li><a href="#">Manage Background Jobs</a></li>
-                                        </div>
-                                        <div>
-                                            <li class="dropdown-title">Server Administration</li>
-                                            <li><a href="#">Admin Commands</a></li>
-                                            <li><a href="#">Configure Options</a></li>
-                                            <li><a href="#">Scheduler</a></li>
-                                            <li><a href="#">Workflow Extensions</a></li>
-                                            <li><a href="#">Database Status</a></li>
-                                            <li><a href="#">Licenses</a></li>
-                                        </div>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span6">
-                        <ul class="inline-list pull-right">
-                            <!--<li>
-                                <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
-                                </li>-->
-                            <li>
-                                <select class="input-medium">
-                                    <option>Sharepoint - 80</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="mainsi">
-            <div class="container-fluid">
-                <div class="row-fluid">
                     <div class="span12">
                         <ul id="js-admincommands-relatedlinks">
+                            <li class="related-label">Related:</li>
                             <li>
-                                <a href="#">Scheduler</a>
+                                <a href="../Scheduler">Scheduler</a>
                             </li>
                             <li>
-                                <a href="#">Purge Services</a>
+                                <a href="../Scheduler/PurgeServices">Purge Services</a>
                             </li>
                             <li>
-                                <a href="#">Archive List</a>
+                                <a href="../Scheduler/PurgeProcessData">Purge Process Data</a>
                             </li>
                             <li>
-                                <a href="#">Archive Solution Definition</a>
+                                <a href="../Scheduler/ArchiveSolutionDef">Archive Solution Definition</a>
                             </li>
                             <li>
-                                <a href="#">Unmark Inactive Processes</a>
+                                <a href="../Command?admincommandID=unmarkinactiveprocesses">Unmark Inactive Processes</a>
                             </li>
                         </ul>
                         <ul id="breadcrumbs">
@@ -102,17 +54,37 @@
                             <form class="form-horizontal">
                                 <fieldset>
                                     <div class="control-group">
+                                        <label class="control-label">Dry Run</label>
+                                        <div class="controls">
+                                            <ul class="checkbox-group">
+                                                <li>                                                    
+                                                    <label>
+                                                        <input type="checkbox" id="dryRunChkBox" checked="checked"/>                                                        
+                                                    </label>
+                                                </li>                                            
+                                            </ul>
+                                        </div>
+                                         <label class="control-label">Delete Inactive Processes</label>
+                                        <div class="controls">
+                                            <ul class="checkbox-group">
+                                                <li>
+                                                    <label>
+                                                        <input type="checkbox" id="deleteInactiveProcessesChkBox" checked="checked"/>                                                        
+                                                    </label>
+                                                </li>                                               
+                                            </ul>
+                                        </div>
                                         <label class="control-label">Start Marking</label>
                                         <div class="controls">
                                             <ul class="inline-list checkbox-group">
                                                 <li>
                                                     <label>
-                                                    <input type="radio" name="startmarking" class="js-startmarking-toggle-view-master-0" checked="checked"> Now
+                                                    <input type="radio" name="startmarking"  id= "markInactiveNowRadio" class="js-startmarking-toggle-view-master-0" checked="checked" check-text="now" /> Now
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                    <input type="radio" name="startmarking" class="js-startmarking-toggle-view-master-1"> Schedule
+                                                    <input type="radio" name="startmarking" id= "markInactiveScheduleRadio" class="js-startmarking-toggle-view-master-1" check-text="schedule"/> Schedule 
                                                     </label>
                                                 </li>
                                             </ul>
@@ -121,7 +93,7 @@
                                     <div class="js-startmarking-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">Day <span class="required">*</span></label>
                                         <div class="controls">
-                                            <select class="js-chosen-target input-onethirds">
+                                            <select class="input-large" id="markInactiveScheduleDayDropDown">
                                                 <option value="1">First day of month</option>
                                                 <option value="100">Last day of month</option>
                                                 <option value="2">2nd</option>
@@ -159,17 +131,17 @@
                                     <div class="js-startmarking-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">Time <span class="required">*</span></label>
                                         <div class="controls">
-                                            <input class="js-kendo-timepicker input-onethirds" type="text" placeholder="HH:MM">
+                                            <input class="js-kendo-timepicker input-onethirds" type="text" placeholder="HH:MM" id="markInactiveScheduleTimeDropDown"/>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">User(s) to Notify <span class="required">*</span></label>
+                                        <label class="control-label">User(s) to Notify </label>
                                         <div class="controls">
-                                            <input type="text" placeholder="user@winshuttle.com" class="input-max">
+                                            <input type="text" placeholder="user@winshuttle.com" class="input-max" id="usersToNotifyTxtBox"/>
                                         </div>
                                     </div>
                                     <div class="form-actions top-line">
-                                        <button type="submit" class="btn btn-primary"><span>Save</span></button>
+                                        <button id="btnSave" class="btn btn-primary"><span>Save</span></button>
                                         <button class="btn"><span>Cancel</span></button>
                                     </div>
                                 </fieldset>
@@ -204,7 +176,7 @@
             </div>
         </div>
         
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
                 console.error("jQuery CDN is down.")
@@ -218,20 +190,137 @@
                 document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
             }
         </script>
-        <script src="assets/js/kendo.all.min.js"></script>
-        <script src="assets/js/chosen.jquery.min.js"></script>
-        <script src="assets/js/wslib_master.js"></script>
-        <script src="assets/js/wsplugin_master.js"></script>
-        <script src="assets/js/ws_admincommands.js"></script>
+        <script src="../../Content/assets/js/kendo.all.min.js"></script>
+        <script src="../../Content/assets/js/chosen.jquery.min.js"></script>
+        <script src="../../Content/assets/js/wslib_master.js"></script>
+        <script src="../../Content/assets/js/wsplugin_master.js"></script>
+        <script src="../../Content/assets/js/ws_admincommands.js"></script>        
+        <script src="../../Content/assets/js/ws_common.js"></script>
         <script>
             $('.js-chosen-target').chosen({
                 width: "33.3333333333%",
                 disable_search: true
             });
-            
+
             wsLib_toggleViews("startmarking", 2, "radio", "no", 200);
-            
+
             $('input.js-kendo-timepicker').kendoTimePicker();
-        </script>
+
+
+            $(document).ready(function () {
+                //                ws_showProgressBar();
+                ws_initializeWebApp("/admin/GetAllWebApp", $('#select-webapp'), function () {
+                    var $id = wsPlugin_getURLParameter('id');
+                    var $url = $("#select-webapp").val();
+                    if ($id != null) {
+                        ws_ajaxCall('/service/detail', { id: $id, url: $url }, function (data, callbackdata) {
+
+                            var xml = data.Xml;
+                            var xmlDocumentObj = loadXMLString(xml);
+
+                            var isDryRun = $(xmlDocumentObj).find("IsDryRun").text();
+                            var isDeleteProcesses = $(xmlDocumentObj).find("IsDeleteProcesses").text();
+                            var usersToNotify = $(xmlDocumentObj).find("UsersToNotify").text();
+                            var hostName = $(xmlDocumentObj).find("HostName").text();
+                            var scheduleXml = $(xmlDocumentObj).find("ScheduleXml").text();
+
+                            xmlDocumentObj = loadXMLString(scheduleXml);
+                            var scheduleType = $(xmlDocumentObj).find("Type").text();
+                            var scheduleDay = $(xmlDocumentObj).find("ScheduleDay").text();
+                            var scheduleTime = $(xmlDocumentObj).find("ScheduleTime").text();
+
+                            $("#dryRunChkBox").attr('checked', isDryRun.toLowerCase() === 'true');
+                            $("#deleteInactiveProcessesChkBox").attr('checked', isDeleteProcesses.toLowerCase() === 'true');
+
+                            if (scheduleType == 'now') {
+                                $('#markInactiveNowRadio').prop('checked', true).change();
+                            }
+                            else {
+                                $('#markInactiveScheduleRadio').prop('checked', true).change();
+                                $("#markInactiveScheduleDayDropDown").val(scheduleDay);
+                                $("#markInactiveScheduleTimeDropDown").val(scheduleTime);
+                            }
+
+                            $("#usersToNotifyTxtBox").val(usersToNotify);
+                            $("#select-webapp").val(hostName);
+                        }, null, null);
+                    }
+                });
+
+            });
+
+            function CallBackFunction(data, callbackdata) {
+                alert(data);
+                if (callbackdata != null) {
+                    window.location.href = callbackdata;
+                }
+            }
+
+            $("#btnSave").click(function () {
+                var blnIsDryRun, blnIsDeleteInactiveProcesses, blnMarkInactiveNow, strScheduleType, strScheduleDay, strScheduleTime, strUserNotifyEmail;
+
+                blnIsDryRun = $("#dryRunChkBox").prop('checked');
+                blnIsDeleteInactiveProcesses = $("#deleteInactiveProcessesChkBox").prop('checked');
+
+                //Getting Schedule Pattern
+                blnMarkInactiveNow = $("#markInactiveNowRadio").prop('checked');
+                strScheduleType = $("input[name=startmarking]:checked").attr('check-text');
+                if (blnMarkInactiveNow == false) {
+                    strScheduleDay = $("#markInactiveScheduleDayDropDown").val();
+                    if (strScheduleDay.length == 0) {
+                        return false;
+                    }
+                    strScheduleTime = $("#markInactiveScheduleTimeDropDown").val();
+                    if (strScheduleTime.length == 0) {
+                        return false;
+                    }
+                    strUserNotifyEmail = $("#usersToNotifyTxtBox").val();
+                    if (strUserNotifyEmail.length == 0) {
+                        return false;
+                    }
+                }
+
+                //Getting HostName
+                var strHostName = $("#select-webapp").val();
+                if (strHostName.length == 0) {
+                    return false;
+                }
+
+                var $id = wsPlugin_getURLParameter('id');
+
+                if ($id == null) {
+                    ws_ajaxCall('/Scheduler/CreateMarkInactiveProcessesEntry',
+                            {
+                                isDryRun: blnIsDryRun,
+                                isDeleteInactiveProcesses: blnIsDeleteInactiveProcesses,
+                                isMarckInactiveNow: blnMarkInactiveNow,
+                                scheduleType: strScheduleType,
+                                scheduleDay: strScheduleDay,
+                                scheduleTime: strScheduleTime,
+                                usersToNotify: strUserNotifyEmail,
+                                hostName: strHostName
+                            },
+                              CallBackFunction, null,
+                              null);
+                } else {
+                    var sourceUrl = wsPlugin_getURLParameter('source');
+                    ws_ajaxCall('/Scheduler/UpdateMarkInactiveProcessesEntry',
+                            {
+                                id: $id,
+                                isDryRun: blnIsDryRun,
+                                isDeleteInactiveProcesses: blnIsDeleteInactiveProcesses,
+                                isMarckInactiveNow: blnMarkInactiveNow,
+                                scheduleType: strScheduleType,
+                                scheduleDay: strScheduleDay,
+                                scheduleTime: strScheduleTime,
+                                usersToNotify: strUserNotifyEmail,
+                                hostName: strHostName
+                            },
+                              CallBackFunction, null,
+                              sourceUrl);
+                }
+                return false;
+            });
+        </script>	
     </body>
 </html>
