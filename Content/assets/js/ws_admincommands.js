@@ -1,20 +1,22 @@
-function ws_admincommands() {
+function ws_admincommands(server) {
     var externalOptions = {};
     var commandsList;
     
     //var apiURL = "assets/json/ac_operator_defs.json";
-    var baseURL = '/command';
-    var apiURL = "";
+    //var baseURL = '/command/getall';
+    var apiURL = "/command/getall";
     
     var whichAdminCommand = wsPlugin_getURLParameter('admincommandID');
     
-    if (whichAdminCommand != undefined && whichAdminCommand != null) {
-        apiURL = baseURL.concat('/get?commandKey=' + whichAdminCommand);
-    }
-    else {
-        apiURL = baseURL.concat('/getall');
-    }
+    //    if (whichAdminCommand != undefined && whichAdminCommand != null) {
     
+    //        apiURL = baseURL.concat('/get?commandKey=' + whichAdminCommand);
+    //    }
+    //    else {
+
+    //        apiURL = baseURL.concat('/getall');
+    //    }
+
     var activeURL = [location.protocol, '//', location.host, location.pathname].join('');
     var todaysDate = new Date();
     
@@ -168,7 +170,7 @@ function ws_admincommands() {
                 for(var j = 0; j < directoryItems[whichDirectoryKey].operations.length; j++) {
                     directoryOperationHTML += '<li>';
                     directoryOperationHTML += '<a href="';
-                    directoryOperationHTML += directoryItems[whichDirectoryKey].operations[j].url;
+                    directoryOperationHTML += directoryItems[whichDirectoryKey].operations[j].url + '&server=' + server;
                     directoryOperationHTML += '">';
                     directoryOperationHTML += directoryItems[whichDirectoryKey].operations[j].name;
                     directoryOperationHTML += '</a>';
@@ -981,8 +983,12 @@ function ws_admincommands() {
                 function populateDropdownExpansion($whichDropdown, selectedData) {
                     var currentDropdownData = $whichDropdown.data();
                     
-                    var selectedQueryData = $.param({ selected: selectedData });
+                    var selectedQueryData = '';
                     
+                    if (selectedData != undefined && selectedData != "") {
+                        selectedQueryData = currentDropdownData.requestParam + '=' + selectedData; // $.param({ selected: selectedData });
+                    }
+
                     var $nextExpansionTarget = $('select.js-admincommands-form-field-dropdownexpansion[name="' + currentDropdownData.nextExpansionTarget + '"]');
                     
                     $whichDropdown.prop("disabled", false);
@@ -991,7 +997,10 @@ function ws_admincommands() {
                         selectedQueryData = currentDropdownData.initialQueryData + '&' + selectedQueryData;
                     }
                     
-                    
+                    if (currentDropdownData.requestData !== undefined) {
+                        var requestData = currentDropdownData.requestParam + '=' + window[currentDropdownData.requestData]();
+                        selectedQueryData = requestData + '&' + selectedQueryData;
+                    }
                     
                     function disableDropdownChain($nextToDisable) {
                         $nextToDisable.prop("disabled", true).val('_CANCEL');
@@ -1001,37 +1010,42 @@ function ws_admincommands() {
                         }
                     }
                     
-                    
-                    
-                    if($whichDropdown.length > 0) {
+                    if ($whichDropdown.length > 0) {
+                        ws_showProgressBar();
                         $.ajax({
                             url: currentDropdownData.optionSource + '?' + selectedQueryData,
                             dataType: 'json',
-                            success: function(queryData) {
-                                var optionsHTML = '<option value="_CANCEL" selected="selected">Select Option</option>';
+                            cache: false,
+                            success: function (queryData) {
+                                var optionsHTML = window[currentDropdownData.callback](queryData);
+                                //                                var optionsHTML = '<option value="_CANCEL" selected="selected">Select Option</option>';
 
-                                for(var j = 0; j < queryData.length; j++) {
-                                    var currentDropdownItem = queryData[j];
+                                //                                for(var j = 0; j < queryData.length; j++) {
+                                //                                    var currentDropdownItem = queryData[j];
 
-                                    optionsHTML += '<option';
+                                //                                    optionsHTML += '<option';
 
-                                    optionsHTML += optionsPath(currentDropdownItem.ID, {
-                                        ifTrue: ' value="' + currentDropdownItem.ID + '"'
-                                    });
+                                //                                    optionsHTML += optionsPath(currentDropdownItem.ID, {
+                                //                                        ifTrue: ' value="' + currentDropdownItem.ID + '"'
+                                //                                    });
 
-                                    optionsHTML += '>';
+                                //                                    optionsHTML += '>';
 
-                                    optionsHTML += currentDropdownItem.label;
-                                    optionsHTML += '</option>';
-                                }
+                                //                                    optionsHTML += currentDropdownItem.label;
+                                //                                    optionsHTML += '</option>';
+                                //                                }
 
                                 $whichDropdown.empty().append(optionsHTML);
                                 
                                 if(currentDropdownData.nextExpansionTarget !== undefined) {
                                     disableDropdownChain($nextExpansionTarget);
                                 }
+
+                                ws_hideProgressBar();
                             },
                             error: function (xhr, status, error) {
+
+                                ws_hideProgressBar();
                                 wsLib_console({
                                     xhr: xhr,
                                     status: status,
@@ -1066,7 +1080,7 @@ function ws_admincommands() {
             
             
             
-            var verboseText = '<div class="control-group"><label class="control-label">Verbose</label><div class="controls"><ul class="checkbox-group"><li><label><input name="_verbose" data-submit-type="boolean" type="checkbox"></label></li></ul></div></div>';
+            var verboseText = '<div class="control-group"><label class="control-label">Verbose</label><div class="controls"><ul class="checkbox-group"><li><label><input name="verbose" data-submit-type="boolean" type="checkbox"></label></li></ul></div></div>';
             
             if(endTrigger.moreOptions) {
                 $('#js-label-moreoptions').off('click.moreoptionsToggle').on('click.moreoptionsToggle', '.js-container-moreoptions-trigger', function(event) {
@@ -1099,20 +1113,53 @@ function ws_admincommands() {
             }
             
     
-            $('#js-form-submitcancel').on('click', '.js-form-button-submit', function(event) {
+            $('#js-form-submitcancel').on('click', '.js-form-button-submit', function (event) {
+                ws_showProgressBar();
                 event.preventDefault();
                 
                 var queryToSubmit = {};
+                var array = new Array();
                 
-                $targetForm.find('input, textarea, select').each(function() {
+                $targetForm.find('input:not(:checkbox), textarea, select').each(function () {
                     var $this = $(this);
                     
-                    queryToSubmit[$this.attr('name')] = {
+                    array.push($.param({
+                        name: $this.attr('name'),
                         value: $this.val(),
                         type: $this.data('submit-type')
-                    };
+                    }));
                 });
                 
+                $targetForm.find('input:checkbox').each(function () {
+                    var $this = $(this);
+
+                    if ($this.prop('checked')) {
+                        array.push($.param({
+                            name: $this.attr('name'),
+                            value: $this.val(),
+                            type: $this.data('submit-type')
+                        }));
+                    }
+                });
+
+                var site = wsPlugin_getURLParameter('server');
+                var op = wsPlugin_getURLParameter('admincommandID');
+                $.ajax({
+                    url: '/command/execute',
+                    data: { site: site, commandName: op, commandArgs: array },
+                    dataType: 'text',
+                    cache: false,
+                    traditional: true,
+                    success: function (data) {
+                        $('#js-terminal').html('<div>' + data + '</div>');
+                        ws_hideProgressBar();
+                    },
+                    error: function (xhr, status, error) {
+                        $('#js-terminal').html('<div>' + xhr.responseText + '</div>');
+                        ws_hideProgressBar();
+                    }
+                });
+
                 wsLib_console({
                     data: queryToSubmit,
                     query: $.param(queryToSubmit)
@@ -1129,4 +1176,36 @@ function ws_admincommands() {
     externalOptions.$targetForm = $targetForm;
     
     return externalOptions;
+}
+
+function ws_getServerParam() {
+    return wsPlugin_getURLParameter('server');
+}
+
+function ws_fillSite(data) {
+    var optionsHTML = '<option value="_CANCEL" selected="selected">Select Option</option>';
+
+    $.each(data, function (key, value) {
+
+        optionsHTML += '<option';
+        optionsHTML += ' value="' + value.URL + '" >';
+        optionsHTML += value.Name;
+        optionsHTML += '</option>';
+    });
+
+    return optionsHTML;
+}
+
+function ws_fillList(data) {
+    var optionsHTML = '<option value="_CANCEL" selected="selected">Select Option</option>';
+
+    $.each(data, function (key, value) {
+
+        optionsHTML += '<option';
+        optionsHTML += ' value="' + value.Name + '" >';
+        optionsHTML += value.Name;
+        optionsHTML += '</option>';
+    });
+
+    return optionsHTML;
 }

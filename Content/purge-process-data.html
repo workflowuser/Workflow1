@@ -120,25 +120,25 @@
                                             <ul class="checkbox-group inline-list">
                                                 <li>
                                                     <label>
-                                                    <input class="js-archive-toggle-view-master-0" type="radio" name="TEMPNAME-archive" id="archiveNowRadio">
+                                                    <input class="js-archive-toggle-view-master-0" type="radio" name="TEMPNAME-archive" id="archiveNowRadio" checked="checked">
                                                     <span>Now</span>
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label>
-                                                    <input class="js-archive-toggle-view-master-1" type="radio" name="TEMPNAME-archive" id="archiveScheduleRadio" checked="checked">
+                                                    <input class="js-archive-toggle-view-master-1" type="radio" name="TEMPNAME-archive" id="archiveScheduleRadio">
                                                     <span>Schedule</span>
                                                     </label>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="js-archive-toggle-view-slave-1 control-group">
+                                    <div class="js-archive-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">Schedule <span class="required">*</span></label>
                                         <div class="controls">
-                                            <select class="js-chosen-target input-mid" id="archiveScheduleDayDropDown">
-                                                <option value="1">First Day of the month</option>
-                                                <option value="100">Last Day of the month</option>
+                                            <select class="js-chosen-target input-onethirds" id="archiveScheduleDayDropDown">
+                                                <option value="1">First day of month</option>
+                                                <option value="100">Last day of month</option>
                                                 <option value="2">2nd</option>
                                                 <option value="3">3rd</option>
                                                 <option value="4">4th</option>
@@ -171,10 +171,10 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="js-archive-toggle-view-slave-1 control-group">
+                                    <div class="js-archive-toggle-view-slave-1 control-group js-initial-hide">
                                         <label class="control-label">Time <span class="required">*</span></label>
                                         <div class="controls ">
-                                            <input type="text" id="archiveScheduleTimeDropDown" class="js-kendo-timepicker form-control input-small" placeholder="HH:mm">
+                                            <input type="text" id="archiveScheduleTimeDropDown" class="js-kendo-timepicker form-control input-onethirds" placeholder="HH:MM">
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -215,18 +215,18 @@
                                         <label class="control-label">Date <span class="required">*</span></label>
                                         <div class="controls">
                                             <div class="js-archiveby-toggle-view-slave-0">
-                                                <input type="text" id="ArchiveDateDropDown" class="js-kendo-datepicker form-control input-small" placeholder="Date">
+                                                <input type="text" id="ArchiveDateDropDown" class="js-kendo-datepicker form-control input-onethirds" placeholder="MM/DD/YYYY">
                                             </div>
                                             <div class="js-archiveby-toggle-view-slave-1 js-initial-hide">
-                                                <input type="text" class="form-control input-small" placeholder="Days">
+                                                <input type="text" class="form-control input-onethirds" placeholder="Days">
                                             </div>
                                             <div class="js-archiveby-toggle-view-slave-2 js-initial-hide">
                                                 <ul class="date-group">
-                                                    <li>
-                                                        <input type="text" class="js-kendo-datepicker form-control input-small" placeholder="Start Date">
+                                                    <li style="width:33.333%">
+                                                        <input type="text" class="js-kendo-datepicker form-control input-max" placeholder="Start Date (MM/DD/YYYY)">
                                                     </li>
-                                                    <li>
-                                                        <input type="text" class="js-kendo-datepicker form-control input-small" placeholder="End Date">
+                                                    <li style="width:33.333%">
+                                                        <input type="text" class="js-kendo-datepicker form-control input-max" placeholder="End Date (MM/DD/YYYY)">
                                                     </li>
                                                 </ul>
                                             </div>
@@ -250,13 +250,13 @@
                                             <div class="control-group">
                                                 <label class="control-label">Versions</label>
                                                 <div class="controls form-textandbutton">
-                                                    <input type="text" id="VersionsTextBox" class="form-control input-small" placeholder="">
+                                                    <input type="text" id="VersionsTextBox" class="form-control input-onethirds" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
                                                 <label class="control-label">Record Limit</label>
                                                 <div class="controls form-textandbutton">
-                                                    <input type="text" id="RecordLimitTextBox" class="form-control input-small" placeholder="">
+                                                    <input type="text" id="RecordLimitTextBox" class="form-control input-onethirds" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -314,34 +314,27 @@
             <!-- /div .container-fluid -->
         </div>
         <!-- /div #mainsi -->
+        
         <div id="footer" class="row-fluid">
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span8">
                         <div id="footer-links">
                             <ul>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Terms</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                            <ul>
-                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                <li>Version 10.4</li>
-                                <li>Privacy Mode: Secure</li>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">{{Back to Central}}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="span4">
-                        <ul class="security-logo">
-                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
-                        </ul>
+                        <div class="pull-right">
+                            &copy; 2008-2015 Winshuttle, LLC
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
@@ -364,7 +357,7 @@
         <script src="assets/js/ws_common.js"></script>
         <script>
             $('.js-chosen-target').chosen({
-                width: "210px",
+                width: "33.3333333333%",
                 disable_search: true
             });
             

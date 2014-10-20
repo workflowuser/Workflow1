@@ -53,8 +53,7 @@
                             </li>
                             -->
                             <li>
-                                <select class="input-medium">
-                                    <option>Sharepoint - 80</option>
+                                <select class="input-medium" id="webappdropdown">                                    
                                 </select>
                             </li>
                         </ul>
@@ -97,7 +96,7 @@
                                     <div class="control-group">
                                         <label class="control-label">Form Control Name <span class="required">*</span></label>
                                         <div class="controls ">
-                                            <input type="text" class="form-control input-block-level input-max" placeholder="">
+                                            <input type="text" id="txtControlName" class="form-control input-block-level input-max" placeholder="">
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -106,7 +105,7 @@
                                             <ul class="checkbox-group inline-list">
                                                 <li>
                                                     <label>
-                                                    <input type="radio" class="js-administration-topline-toggle js-createwith-toggle-view-master-0" data-administration-topline="true" name="TEMP_RENAMETHIS_create_with" checked="checked">
+                                                    <input type="radio" id="radioXML" class="js-administration-topline-toggle js-createwith-toggle-view-master-0" data-administration-topline="true" name="TEMP_RENAMETHIS_create_with" checked="checked">
                                                     <span>XML</span>
                                                     </label>
                                                 </li>
@@ -123,14 +122,14 @@
                                     <div class="control-group js-createwith-toggle-view-slave-0">
                                         <label class="control-label">XML <span class="required">*</span></label>
                                         <div class="controls ">
-                                            <textarea class="js-transform-formexpand input-block-level" rows="5"></textarea>
+                                            <textarea id="txtXML" class="js-transform-formexpand input-block-level" rows="5"></textarea>
                                         </div>
                                     </div>
                                     <!--if form control designer chosen-->
                                     <div class="control-group js-createwith-toggle-view-slave-1 js-initial-hide">
                                         <label class="control-label">Class ID <span class="required">*</span></label>
                                         <div class="controls ">
-                                            <input type="text" class="form-control input-block-level input-max" placeholder="">
+                                            <input id="txtClsId" type="text" class="form-control input-block-level input-max" placeholder="">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -171,8 +170,8 @@
                     <div class="span8">
                         <fieldset class="form-horizontal">
                             <div class="js-administration-topline-target form-actions top-line">
-                                <button type="submit" class="btn btn-primary"><span>Save</span></button>
-                                <button class="btn"><span>Cancel</span></button>
+                                <button type="submit" class="btn btn-primary" id="btnSave"><span>Save</span></button>
+                                <button class="btn" id="btnCancel"><span>Cancel</span></button>
                             </div>
                         </fieldset>
                     </div>
@@ -181,34 +180,27 @@
             <!-- /div .container-fluid -->
         </div>
         <!-- /div #mainsi -->
+        
         <div id="footer" class="row-fluid">
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span8">
                         <div id="footer-links">
                             <ul>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Terms</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                            <ul>
-                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                <li>Version 10.4</li>
-                                <li>Privacy Mode: Secure</li>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">{{Back to Central}}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="span4">
-                        <ul class="security-logo">
-                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
-                        </ul>
+                        <div class="pull-right">
+                            &copy; 2008-2015 Winshuttle, LLC
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
@@ -227,6 +219,7 @@
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
         <script src="assets/js/ws_global_initialization_administration.js"></script>
+        <script src="assets/js/ws_common.js" type="text/javascript"></script>
         <script>
             (function() {
                 wsLib_toggleViews("createwith", 2, "radio", "no", 200);
@@ -251,86 +244,266 @@
                                               .off('click.editSave')
                                               .off('click.deleteRow')
                                               .off('click.addRow')
-                                              .on('click.editToggle', '.js-administration-formcontrol-variants-edittoggle', function(event) {
-                    event.preventDefault();
-                    
-                    var $currentParameterItem = $(this).closest('.js-administration-formcontrol-variants-item');
-                    
-                    $currentParameterItem.children('td').find('.js-administration-formcontrol-variants-edittoggle').closest('div').toggle();
-                    
-                    $currentParameterItem.find('.js-administration-formcontrol-variants-display').toggle();
-                    $currentParameterItem.find('.js-administration-formcontrol-variants-form').toggle();
-                }).on('click.editSave', '.js-administration-formcontrol-variants-editsave', function(event) {
-                    event.preventDefault();
-                    
-                    $(this).closest('tr').find('.js-administration-formcontrol-variants-form').find('input').each(function() {
-                        var $currentInput = $(this);
-                        var $currentDisplay = $currentInput.closest('.js-administration-formcontrol-variants-form').siblings('.js-administration-formcontrol-variants-display');
-                        
-                        if($currentInput.attr('type') === 'checkbox') {
-                            $currentDisplay.text($currentInput.prop('checked'));
-                        }
-                        else {
-                            $currentDisplay.text($currentInput.val());
-                        }
-                    });
-                }).on('click.deleteRow', '.js-administration-formcontrol-variants-deleterow', function(event) {
-                    event.preventDefault();
-                    
-                    $(this).closest('tr').remove();
-                }).on('click.addRow', '.js-administration-formcontrol-variants-addrow', function(event) {
-                    event.preventDefault();
-                    
-                    var currentRowHTML = '';
-                    var currentRowData = [];
-                    
-                    $(this).closest('.row-add').find('input').each(function(index) {
-                        var $currentInput = $(this);
-                        
-                        if($currentInput.attr('type') === 'checkbox') {
-                            currentRowData.push({
-                                index: index,
-                                data: $currentInput.prop('checked')
-                            });
-                            
-                            $currentInput.prop('checked', false);
-                        }
-                        else {
-                            currentRowData.push({
-                                index: index,
-                                data: $currentInput.val()
-                            });
-                            
-                            $currentInput.val('');
-                        }
-                    });
-                    
-                    var currentPlugData = {
-                        name: currentRowData[0].data
-                    };
-                    
-                    currentRowHTML += '<tr class="js-administration-formcontrol-variants-item">';
-                        currentRowHTML += '<td>';
-                            currentRowHTML += '<div class="pull-right">';
-                                currentRowHTML += '<div>';
-                                    currentRowHTML += '<a class="js-administration-formcontrol-variants-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a>';
-                                    currentRowHTML += '<a class="js-administration-formcontrol-variants-deleterow" href="#"><i class="icon-trash">&nbsp;&nbsp;</i></a>';
-                                currentRowHTML += '</div>';
-                                currentRowHTML += '<div class="update-actions js-initial-hide" style="display: none;">';
-                                    currentRowHTML += '<button class="js-administration-formcontrol-variants-editsave js-administration-formcontrol-variants-edittoggle btn btn-primary"><span>Save</span></button>';
-                                    currentRowHTML += '<button class="js-administration-formcontrol-variants-edittoggle btn"><span>Cancel</span></button>';
-                                currentRowHTML += '</div>';
-                            currentRowHTML += '</div>';
-                            currentRowHTML += '<div class="js-administration-formcontrol-variants-display">' + currentPlugData.name + '</div>';
-                            currentRowHTML += '<div class="js-administration-formcontrol-variants-form js-initial-hide" style="display: none;">';
-                                currentRowHTML += '<input type="text" class="input-twothirds" value="' + currentPlugData.name + '">';
-                            currentRowHTML += '</div>';
-                        currentRowHTML += '</td>';
-                    currentRowHTML += '</tr>';
-                    
-                    $formControlVariants.find('.row-add').first().before(currentRowHTML);
-                });
+                                              .on('click.editToggle', '.js-administration-formcontrol-variants-edittoggle', function (event) {
+                                                  event.preventDefault();
+
+                                                  var $currentParameterItem = $(this).closest('.js-administration-formcontrol-variants-item');
+
+                                                  $currentParameterItem.children('td').find('.js-administration-formcontrol-variants-edittoggle').closest('div').toggle();
+
+                                                  $currentParameterItem.find('.js-administration-formcontrol-variants-display').toggle();
+                                                  $currentParameterItem.find('.js-administration-formcontrol-variants-form').toggle();
+                                              }).on('click.editSave', '.js-administration-formcontrol-variants-editsave', function (event) {
+                                                  event.preventDefault();
+
+                                                  $(this).closest('tr').find('.js-administration-formcontrol-variants-form').find('input').each(function () {
+                                                      var $currentInput = $(this);
+                                                      var $currentDisplay = $currentInput.closest('.js-administration-formcontrol-variants-form').siblings('.js-administration-formcontrol-variants-display');
+
+                                                      if ($currentInput.attr('type') === 'checkbox') {
+                                                          $currentDisplay.text($currentInput.prop('checked'));
+                                                      }
+                                                      else {
+                                                          $currentDisplay.text($currentInput.val());
+                                                      }
+                                                  });
+                                              }).on('click.deleteRow', '.js-administration-formcontrol-variants-deleterow', function (event) {
+                                                  event.preventDefault();
+
+                                                  $(this).closest('tr').remove();
+                                              }).on('click.addRow', '.js-administration-formcontrol-variants-addrow', function (event) {
+                                                  event.preventDefault();
+
+                                                  var currentRowHTML = '';
+                                                  var currentRowData = [];
+
+                                                  $(this).closest('.row-add').find('input').each(function (index) {
+                                                      var $currentInput = $(this);
+
+                                                      if ($currentInput.attr('type') === 'checkbox') {
+                                                          currentRowData.push({
+                                                              index: index,
+                                                              data: $currentInput.prop('checked')
+                                                          });
+
+                                                          $currentInput.prop('checked', false);
+                                                      }
+                                                      else {
+                                                          currentRowData.push({
+                                                              index: index,
+                                                              data: $currentInput.val()
+                                                          });
+
+                                                          $currentInput.val('');
+                                                      }
+                                                  });
+
+                                                  if (currentRowData[0].data != undefined && currentRowData[0].data.length > 0) {
+
+                                                      var currentPlugData = {
+                                                          name: currentRowData[0].data
+                                                      };
+
+                                                      currentRowHTML += '<tr class="js-administration-formcontrol-variants-item">';
+                                                      currentRowHTML += '<td>';
+                                                      currentRowHTML += '<div class="pull-right">';
+                                                      currentRowHTML += '<div>';
+                                                      currentRowHTML += '<a class="js-administration-formcontrol-variants-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a>';
+                                                      currentRowHTML += '<a class="js-administration-formcontrol-variants-deleterow" href="#"><i class="icon-trash">&nbsp;&nbsp;</i></a>';
+                                                      currentRowHTML += '</div>';
+                                                      currentRowHTML += '<div class="update-actions js-initial-hide" style="display: none;">';
+                                                      currentRowHTML += '<button class="js-administration-formcontrol-variants-editsave js-administration-formcontrol-variants-edittoggle btn btn-primary"><span>Save</span></button>';
+                                                      currentRowHTML += '<button class="js-administration-formcontrol-variants-edittoggle btn"><span>Cancel</span></button>';
+                                                      currentRowHTML += '</div>';
+                                                      currentRowHTML += '</div>';
+                                                      currentRowHTML += '<div class="js-administration-formcontrol-variants-display">' + currentPlugData.name + '</div>';
+                                                      currentRowHTML += '<div class="js-administration-formcontrol-variants-form js-initial-hide" style="display: none;">';
+                                                      currentRowHTML += '<input type="text" class="input-twothirds" value="' + currentPlugData.name + '">';
+                                                      currentRowHTML += '</div>';
+                                                      currentRowHTML += '</td>';
+                                                      currentRowHTML += '</tr>';
+
+                                                      $formControlVariants.find('.row-add').first().before(currentRowHTML);
+                                                  }
+                                              });
             })();
+        </script>
+         <script>
+            (function ($) {
+                $(document).ready(function () {
+                    ws_initializeWebApp("/admin/GetAllWebApp", $('#webappdropdown'), OnLoad);
+                    $('#webappdropdown').change(function () {
+                        return false;
+                    });
+
+                    $('#btnSave').click(function () {
+                        SaveData();
+                        return false;
+                    });
+                });
+
+                function OnLoad() {
+                    var server = wsPlugin_getURLParameter('server');
+                    var name = wsPlugin_getURLParameter('name');
+                    if (server != null && server != undefined && server.length > 0) {
+                        $.each($('#webappdropdown >option'), function (index, value) {
+                            if ($(this).val().toLowerCase() == server.toLowerCase()) {
+                                $(this).attr('selected', 'selected');
+                            }
+                        });
+                    }
+                    return false;
+                }
+
+                function SaveData() {
+                    //
+                    ws_showProgressBar();
+                    var theControlXML = undefined;
+                    var name = null;
+                    var clsid = null;
+                    var variants = null;
+                    if (ValidateParameters() == true) {
+                        var isXML = ($('.js-createwith-toggle-view-slave-0').css('display') == "block");
+                        if (isXML) {
+                            var theControlXML = $('#txtXML').val();
+                            if (isValidXMLString(theControlXML)) {
+                                var xmlDoc = loadXMLString(theControlXML);
+                                name = (xmlDoc.documentElement.getAttribute('Name'));
+                                clsid = (xmlDoc.documentElement.getAttribute('ClsId'));
+                                variants = xmlDoc.documentElement.getAttribute('Variants');
+                            }
+                        }
+                        else {
+                            name = $('#txtControlName').val();
+                            clsid = $('#txtClsId').val();
+                            var variant = $('#js-administration-formcontrol-variants div.js-administration-formcontrol-variants-display');
+                            var values = new Array();
+                            if (variant.length > 0) {
+                                for (var i = 0; i < variant.length; i++) {
+                                    values.push($(variant[i]).html());
+                                }
+                            }
+
+                            variants = values.join(",");
+                        }
+
+                        ws_ajaxCall("/ServerConfig/AddInfoPathControl", { server: $('#webappdropdown').val(),
+                            variants: variants,
+                            clsid: clsid,
+                            name: name
+                        }, CallBackSuccess, CallBackFailure, null);
+                    }
+                    else {
+                        alert("Parameter set not complete or valid.");
+                    }
+
+                    ws_hideProgressBar();
+                    return false;
+                }
+
+                function CallBackFailure(xhr, status, error, callbackdata) {
+                    ws_hideProgressBar();
+                    if (xhr.responseText != null && xhr.responseText != undefined) {
+                        alert("Status: " + xhr.Status + ", Error: " + xhr.responseText);
+                    }
+                }
+
+                function CallBackSuccess(data) {
+                    ws_hideProgressBar();
+                    window.location = "/content/form-control.html?server=" + $('#webappdropdown').val();
+                    return false;
+                }
+
+                function ValidateParameters() {
+                    //radioXML
+                    var guidRegex = /\b[a-fA-F0-9]{8}(?:-[a-fA-F0-9]{4}){3}-[a-fA-F0-9]{12}\b/;
+                    var isXML = ($('.js-createwith-toggle-view-slave-0').css('display') == "block");
+                    if (isXML) {
+                        var theControlXML = $('#txtXML').val();
+                        if (isValidXMLString(theControlXML)) {
+                            var xmlDoc = loadXMLString(theControlXML);
+                            if (xmlDoc != null && xmlDoc != undefined) {
+                                var name = (xmlDoc.documentElement.getAttribute('Name'));
+                                var clsid = (xmlDoc.documentElement.getAttribute('ClsId'));
+                                var variants = xmlDoc.documentElement.getAttribute('Variants');
+                                if (name == undefined || name.length < 0) {
+                                    return false;
+                                }
+
+                                if (clsid == undefined || clsid.length < 0) {
+                                    return false;
+                                }
+                                else {
+                                    if (clsid.match(guidRegex) == undefined) {
+                                        return false;
+                                    }
+                                }
+
+                                if (variants == undefined || variants.length < 0) {
+                                    return false;
+                                }
+                                else {
+                                    var array = variants.split(",");
+                                    if (array.length > 0) {
+                                        var foundBlank = false;
+                                        for (var i = 0; i < array.length; i++) {
+                                            if (array[i].length <= 0) {
+                                                foundBlank = true;
+                                            }
+                                        }
+
+                                        if (foundBlank) {
+                                            return false;
+                                        }
+                                    }
+                                    else {
+                                        return false;
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            return false;
+                        }
+                    }
+                    else {
+                        var name = $('#txtControlName').val();
+                        var clsid = $('#txtClsId').val();
+                        var variants = $('#js-administration-formcontrol-variants div.js-administration-formcontrol-variants-display');
+                        if (name == undefined || name.length < 0) {
+                            return false;
+                        }
+
+                        if (clsid == undefined || clsid.length < 0) {
+                            return false;
+                        }
+                        else {
+                            if (clsid.match(guidRegex) == undefined) {
+                                return false;
+                            }
+                        }
+
+                        if (variants == undefined || variants.length <= 0) {
+                            return false;
+                        }
+                        else {
+                            var array = variants;
+                            var foundBlank = false;
+                            for (var i = 0; i < array.length; i++) {
+                                if ($(array[i]).html().length <= 0) {
+                                    foundBlank = true;
+                                }
+                            }
+
+                            if (foundBlank) {
+                                return false;
+                            }
+                        }
+                    }
+
+                    return true;
+                }
+            })(jQuery);
         </script>
     </body>
 </html>

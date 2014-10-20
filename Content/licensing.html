@@ -146,34 +146,27 @@
             <!-- /div .container-fluid -->
         </div>
         <!-- /div #mainsi -->
+        
         <div id="footer" class="row-fluid">
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span8">
                         <div id="footer-links">
                             <ul>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Terms</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                            <ul>
-                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                <li>Version 10.4</li>
-                                <li>Privacy Mode: Secure</li>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">{{Back to Central}}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="span4">
-                        <ul class="security-logo">
-                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
-                        </ul>
+                        <div class="pull-right">
+                            &copy; 2008-2015 Winshuttle, LLC
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
@@ -232,16 +225,10 @@
                 });
             });
             
-            
-            
-            ZeroClipboard.config({
-                swfPath: "assets/swf/ZeroClipboard.swf"
-            });
-            
             $("#btn-add").click(function () {
-            
+                ws_showProgressBar();
                 var licenseKey = $("#input-licensekey").val();
-                ws_ajaxCall('/license/Add', { key: licenseKey }, add, null, null);
+                ws_ajaxCall('/license/Add', { key: licenseKey }, add, onError, null);
                 return false;
             });
             
@@ -249,11 +236,14 @@
                 var row = createRow(data[0]);
                 $("#table-license > tbody:last").append(row);
                 attachEvents($("#table-license > tbody:last > tr:last"));
+
+                ws_hideProgressBar();
             }
             
             $(document).ready(function () {
+                ws_showProgressBar();
                 ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
-                    ws_ajaxCall('/license/getall', null, onLoad, null, null);
+                    ws_ajaxCall('/license/getall', null, onLoad, onError, null);
                 });
             });
             
@@ -263,17 +253,20 @@
                     $("#table-license > tbody:last").append(row);
                     attachEvents($("#table-license > tbody:last > tr:last"));
                 });
+
+                ws_hideProgressBar();
             }
-            
+
             function createRow(rowData) {
                 var row = '<tr><td>' + rowData.HostName + '</td><td>' + rowData.Company + '</td><td>' + rowData.Processes + '</td><td>' + rowData.Expiration + '</td><td>' + rowData.Environment + '</td><td class="license-key"><a href="#" class="js-tooltip-target" title="<div class=\'interactive\'><div class=\'js-link-copy-target\'>' + rowData.Key + '</div><div class=\'copy-link-parent\'><a href=\'#\' class=\'js-link-copy\'>Copy License</a></div></div>">#####...</a></td><td><a href="#"><i class="icon-trash"></i></a></td></tr>';
                 return row;
             }
-            
+
             function attachEvents(row) {
                 $(row).find(".icon-trash").click(function () {
+                    ws_showProgressBar();
                     var hostName = $(row).find("td:first").html();
-                    ws_ajaxCall('/license/delete', { hostName: hostName }, trash, null, row);
+                    ws_ajaxCall('/license/delete', { hostName: hostName }, trash, onError, row);
                 });
             
                 $(row).find('a.js-tooltip-target').tooltip({
@@ -282,10 +275,22 @@
                     animation: true
                 });
             }
-            
+
             function trash(data, callbackdata) {
                 $(callbackdata).remove();
+
+                ws_hideProgressBar();
             }
+
+            function onError(xhr, status, error, callbackdata) {
+                ws_hideProgressBar();
+            }
+            
+            
+            
+            ZeroClipboard.config({
+                swfPath: "assets/swf/ZeroClipboard.swf"
+            });
         </script>
     </body>
 </html>

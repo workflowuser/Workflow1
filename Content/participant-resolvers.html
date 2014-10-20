@@ -53,8 +53,7 @@
                                 </li>
                                 -->
                             <li>
-                                <select class="input-medium">
-                                    <option>Sharepoint - 80</option>
+                                <select class="input-medium" id="webappdropdown">
                                 </select>
                             </li>
                         </ul>
@@ -96,15 +95,15 @@
                                     <form>
                                         <div>
                                             <label>Name Contains</label>
-                                            <input type="text" class="form-control input-xlarge" placeholder="">
+                                            <input type="text" id="txtNameControl" class="form-control input-xlarge" placeholder="">
                                         </div>
                                         <div>
                                             <label>Definition Contains</label>
-                                            <input type="text" class="form-control input-xlarge" placeholder="">
+                                            <input type="text" id="txtDefinitionControl" class="form-control input-xlarge" placeholder="">
                                         </div>
                                         <div>
                                             <label>&nbsp;</label>
-                                            <button class="btn btn-primary"><span>Search</span></button>
+                                            <button id="btnSearch" class="btn btn-primary"><span>Search</span></button>
                                         </div>
                                     </form>
                                 </td>
@@ -114,17 +113,22 @@
                 </div>
                 <div class="row-fluid">
                     <div class="span12">
-                        <table class="table table-scheduler table-striped table-bordered">
+                        <table id="table-controls" class="table table-scheduler table-striped table-bordered">
                             <thead>
                                 <tr class="table-menu">
                                     <th colspan="2">
                                         <div class="display">
                                             <span>Displaying 1 - 50 of 125</span>
-                                            <select name="" onchange="" class="input-small">
-                                                <option selected="selected" value="50">50</option>
+                                            <select name="" id="pagesizedropdown" onchange="" class="input-small">
+                                                <option selected="selected" value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="30">30</option>
+                                                <option value="50">50</option>
                                                 <option value="100">100</option>
                                                 <option value="200">200</option>
+                                                <option value="300">300</option>
                                                 <option value="500">500</option>
+
                                             </select>
                                         </div>
                                     </th>
@@ -176,34 +180,27 @@
             <!-- /div .container-fluid -->
         </div>
         <!-- /div #mainsi -->
+        
         <div id="footer" class="row-fluid">
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span8">
                         <div id="footer-links">
                             <ul>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Terms</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                            <ul>
-                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                <li>Version 10.4</li>
-                                <li>Privacy Mode: Secure</li>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">{{Back to Central}}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="span4">
-                        <ul class="security-logo">
-                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
-                        </ul>
+                        <div class="pull-right">
+                            &copy; 2008-2015 Winshuttle, LLC
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
@@ -222,6 +219,7 @@
         <script src="assets/js/chosen.jquery.min.js"></script>
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
+        <script src="assets/js/ws_common.js" type="text/javascript"></script>
         <script>
             $('a.js-tooltip-target').tooltip({
                 html: true,
@@ -235,5 +233,100 @@
                 $('div.tooltip').not($(this).siblings('div.tooltip')).remove();
             });
         </script>
+        <script>
+           var thePageCount;
+           var theRecordCount;
+           var thePagenumber = 1;
+           $('a.js-tooltip-target').tooltip({
+               html: true,
+               trigger: 'click',
+               animation: true
+           });
+
+           $('body').on('click', '.js-tooltip-target', function (event) {
+               event.stopPropagation();
+
+               $('div.tooltip').not($(this).siblings('div.tooltip')).remove();
+           });
+
+           $(document).ready(function () {
+               ws_initializeWebApp("/admin/GetAllWebApp", $('#webappdropdown'), OnLoad);
+               $("#btnSearch").click(function () {
+                   LoadData(thePagenumber);
+                   return false;
+               });
+
+               $('#webappdropdown, #pagesizedropdown').change(function () {
+                   thePagenumber = 1;
+                   OnLoad(thePagenumber);
+                   return false;
+               });
+           });
+
+           function OnLoad() {
+               $("#txtNameControl").val("");
+               $("#txtDefinitionControl").val("");
+               thePagenumber = 1;
+               LoadData(thePagenumber);
+               return false;
+           }
+
+           function LoadData(pagenumber) {
+               ws_showProgressBar();
+               ws_ajaxCall("/ServerConfig/GetAllParticipantResolvers", { server: $('#webappdropdown').val(),
+                   pagesize: $('#pagesizedropdown').val(),
+                   pagenumber: pagenumber,
+                   namefilter: $("#txtNameControl").val(),
+                   descfilter: $("#txtDefinitionControl").val()
+               }, CallBackSuccess, CallBackFailure, null);
+               return false;
+           }
+
+           function CallBackFailure(xhr, status, error, callbackdata) {
+               ws_hideProgressBar();
+               if (xhr.responseText != null && xhr.responseText != undefined) {
+                   alert("Status: " + xhr.Status + ", Error: " + xhr.responseText);
+               }
+           }
+
+           function CallBackSuccess(data) {
+               if (data.PageCount != undefined && data.RecordCount != undefined && data.Records != undefined) {
+                   $('#table-controls > tbody tr').remove();
+                   thePageCount = data.PageCount;
+                   theRecordCount = data.RecordCount;
+                   $.each(data.Records, function (k, v) {
+                        var row = CreateRow(v);
+                        $("#table-controls > tbody:last").append(row);
+                   });
+               }
+
+               ws_hideProgressBar();
+               return false;
+           }
+
+
+           function CreateRow(obj) {
+               var markup = 
+                '<tr>' +
+                '  <td>' + obj.Name + '<a href="participant-resolvers-edit.html?server=' + $('#webappdropdown').val() + '&name=' + obj.Name + '" class="edit"><i class="icon-edit"></i></a></td>' +
+                '        <td>' + $('<span/>').text(obj.MetaData.toString()).html() + '</td>' +
+                '   </tr>';
+               
+               return markup;
+           }
+
+           function DeletePR(id) {
+               ws_showProgressBar();
+               ws_ajaxCall("/ServerConfig/DeleteParticipantResolver", { server: $('#webappdropdown').val(),
+                   id: id,
+                   pagenumber: 1,
+                   pagesize: $('#pagesizedropdown').val(),
+                   namefilter: $("#txtNameControl").val(),
+                   descfilter: $("#txtDefinitionControl").val()
+               }, CallBackSuccess, CallBackFailure, null);
+
+               return false;
+           }
+           </script>
     </body>
 </html>

@@ -37,3 +37,14 @@ function ws_ajaxCall(url, data, callbackSuccess, callbackError, callbackdata) {
         }
     });
 }	
+function ws_showProgressBar() {
+    $(document.body).append('<div id="div-loading-elmt"><img alt="loading" id="img-loading-elmt" src="/Content/assets/img/loading.png"/></div>');
+    var left = $(window).width() / 2;
+    var top = $(window).height() / 2;
+    $('#div-loading-elmt').css('display', 'block');
+    $('#img-loading-elmt').css({ top: top, left: left });
+}
+
+function ws_hideProgressBar() {
+    $(document.body).find('#div-loading-elmt').remove();
+}

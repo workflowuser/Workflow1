@@ -55,8 +55,7 @@
                             </li>
                             -->
                             <li>
-                                <select class="input-medium">
-                                    <option>Sharepoint - 80</option>
+                                <select class="input-medium" id="webappdropdown">                                    
                                 </select>
                             </li>
                         </ul>
@@ -93,7 +92,7 @@
                 
                 <div class="row-fluid">
                     <div class="span12">
-                        <table class="table table-scheduler table-striped table-bordered">
+                        <table id="tableData" class="table table-scheduler table-striped table-bordered">
                             <thead>
 								<tr class="table-sort">
 							  		<th width="25%"><a href="#">Extension Type</a></th>
@@ -102,21 +101,6 @@
 							    </tr>
 						    </thead>
                             <tbody>
-                                <tr>
-                                    <td>Plugins</td>
-                                    <td><a href="#">n</a></td>
-                                    <td>Add Attachment, Copy Files, Copy Attachment URL, Copy Attachments, Copy Document, Copy Group, Delete Attachment, Delete Document, Delete Gr...</td>
-                                </tr>
-                                <tr>
-                                    <td>Participant Resolvers</td>
-                                    <td><a href="#">n</a></td>
-                                    <td>AddNetQuery, Custom,DynamicSharePointList, DynamicWebService, GetFromUserProfile, OtherName, SomeOtherThing, StandardTimeDifference, St...</td>
-                                </tr>
-                                <tr>
-                                    <td>InfoPath Controllers</td>
-                                    <td><a href="#">n</a></td>
-                                    <td>Lookup, Query, SharePointUsers, SharePointLists, OtherControl, OtherName, SomeOtherThing2</td>
-                                </tr>
                             </tbody>
                         </table>
                         
@@ -126,34 +110,26 @@
             </div><!-- /div .container-fluid -->
             
             </div><!-- /div #mainsi -->
-        	<div id="footer" class="row-fluid">
-                <div class="container-fluid">
-                    <div class="row-fluid">
-                        <div class="span8">
-                            <div id="footer-links">
-                                <ul>
-                                    <li><a href="#">Help</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Terms</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                </ul>
-                                <ul>
-                                    <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                    <li>Version 10.4</li>
-                                    <li>Privacy Mode: Secure</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <ul class="security-logo">
-                                <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                                <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                                <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
+        
+        <div id="footer" class="row-fluid">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div id="footer-links">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">{{Back to Central}}</a></li>
                             </ul>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="pull-right">
+                            &copy; 2008-2015 Winshuttle, LLC
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
@@ -173,6 +149,7 @@
         <script src="assets/js/chosen.jquery.min.js"></script>
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
+        <script src="assets/js/ws_common.js" type="text/javascript"></script>
         <script>
             $('a.js-tooltip-target').tooltip({
                 html: true,
@@ -185,6 +162,68 @@
                 
                 $('div.tooltip').not($(this).siblings('div.tooltip')).remove();
             });
+        </script>
+        <script>
+            $(document).ready(function () {
+                ws_initializeWebApp("/admin/GetAllWebApp", $('#webappdropdown'), OnLoad);
+
+                $('#webappdropdown').change(function () {
+                    OnLoad();
+                    return false;
+                });
+            });
+
+            function OnLoad() {
+                var server = wsPlugin_getURLParameter('server');
+                if (server != null && server != undefined && server.length > 0) {
+                    $.each($('#webappdropdown >option'), function (index, value) {
+                        if ($(this).val().toLowerCase() == server.toLowerCase()) {
+                            $(this).attr('selected', 'selected');
+                        }
+                    });
+                }
+
+                ws_ajaxCall("/ServerConfig/GetAllDataWithCount", { server: $('#webappdropdown').val()
+                }, CallBackSuccess, CallBackFailure, null);
+
+                return false;
+            }
+
+            function CallBackSuccess(data) {
+                var html = '';
+                if (data != null && data != undefined) {
+                    for (var i = 0; i < data.length; i++) {
+                        var obj = data[i]; {
+                            var link = '';
+                            if (obj.Key == "1") {
+                                link = "/content/plugins.html";
+                            }
+                            else if (obj.Key == "3") {
+                                link = "/content/participant-resolvers.html";
+                            }
+                            else if (obj.Key == "4") {
+                                link = "/content/form-control.html";
+                            }
+
+                            html += '<tr>' +
+                                    '<td>' + obj.Type + '</td>' +
+                                    '<td><a href="' + link + '">' + obj.Count + '</a></td>' +
+                                    '<td>' + obj.Values.substring(0, 150) + '...</td>' +
+                                '</tr>';
+                        }
+                    } 
+                }
+
+                $("#tableData > tbody tr").remove();                
+                $("#tableData > tbody").html(html);
+            }
+
+            function CallBackFailure(xhr, status, error, callbackdata) {
+                ws_hideProgressBar();
+                if (xhr.responseText != null && xhr.responseText != undefined) {
+                    alert("Status: " + xhr.Status + ", Error: " + xhr.responseText);
+                }
+            }
         </script>
     </body>
 </html>

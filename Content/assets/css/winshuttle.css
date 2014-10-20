@@ -561,7 +561,7 @@ table {
 	color: #67747C;
 	text-transform: uppercase;
 	font-weight: 400;
-	font-size: 11px;
+	font-size: 12px;
 	background-color: #f7f7f7;
 }
 .table th a {
@@ -2027,6 +2027,15 @@ input[type=submit] {
 	padding-right: 2px;
 }
 .input-btn-primary input[type=submit] {
+	display: block;
+	color: #fff;	
+	border : none;
+	height: 30px;
+	padding-left: 10px;
+	padding-right: 8px;
+	background:transparent url("../img/button-sprite.png") no-repeat 0px -120px;
+}
+.input-btn-primary input[type=button] {
 	display: block;
 	color: #fff;	
 	border : none;
@@ -3527,10 +3536,30 @@ ul.log-list li {
 	border-top:	1px solid #ccc;
 }
 
+#div-loading-elmt {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  display: block;
+  opacity: 0.7;
+  filter:alpha(opacity=70); 
+  background-color:#ffffff;
+  z-index: 1000;
+  text-align: center;
+  vertical-align:middle;
+  display:none;
+}
 
+#img-loading-elmt {
+  position: absolute;
+  z-index:1001;
+}
 
-
-
+.usage-table #inactive-processes, .usage-table #current-date, .usage-table #obsolete-solutions {
+	padding: 0;
+}
 
 
 

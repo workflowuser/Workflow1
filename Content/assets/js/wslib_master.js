@@ -125,28 +125,34 @@ function wsLib_checkAll(whichGroup, whichMessages, whichCallback) {
     ///// jQuery Event Listeners Functions
 
     // Perform actions when $master checkbox checked/unchecked
+    
+    if(slaveCount > 0) {
+        $master.change(function() {
+            var checkAllStatus = this.checked;
 
-    $master.change(function() {
-        var checkAllStatus = this.checked;
+            $slaves.prop('checked', checkAllStatus);
 
-        $slaves.prop('checked', checkAllStatus);
+            checkExistDisplay(checkAllStatus);
+            whichCallback.toggleCheckbox.all(checkAllStatus);
 
-        checkExistDisplay(checkAllStatus);
-        whichCallback.toggleCheckbox.all(checkAllStatus);
+            if(checkAllStatus) {
+                whichCallback.full();
 
-        if(checkAllStatus) {
-            whichCallback.full();
-            
-            $allCheckedBar.slideDown('fast');
-        }
-        else {
-            whichCallback.empty();
-            
-            $allCheckedBar.slideUp('fast', function() {
-                $allCheckedBar.html(allCheckedNotice[0]);
-            });
-        }
-    });
+                $allCheckedBar.slideDown('fast');
+            }
+            else {
+                whichCallback.empty();
+
+                $allCheckedBar.slideUp('fast', function() {
+                    $allCheckedBar.html(allCheckedNotice[0]);
+                });
+            }
+        });
+    }
+    else {
+        $master.prop('disabled', true);
+    }
+
 
     // Perform actions when one of the $slaves checkboxes checked/unchecked
     $slaves.change(function() {
@@ -160,7 +166,7 @@ function wsLib_checkAll(whichGroup, whichMessages, whichCallback) {
         var checkboxCheckedCount = $slaveRing.children(':checked').length;
 
         checkExistDisplay(checkboxCheckedCount !== 0);
-
+        
         if(checkboxCheckedCount === slaveCount) {
             $master.prop({'checked': true, 'indeterminate': false});
             
@@ -179,6 +185,10 @@ function wsLib_checkAll(whichGroup, whichMessages, whichCallback) {
         }
         else {
             $master.prop('indeterminate', false);
+            
+            if(slaveCount === 1) {
+                $master.prop('checked', false);
+            }
             
             whichCallback.empty();
         }

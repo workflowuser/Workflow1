@@ -53,8 +53,8 @@
                             </li>
                             -->
                             <li>
-                                <select class="input-medium">
-                                    <option>Sharepoint - 80</option>
+                                <select class="input-medium" id="webappdropdown">
+                                    
                                 </select>
                             </li>
                         </ul>
@@ -97,13 +97,13 @@
                                     <div class="control-group">
                                         <label class="control-label">Resolver Name <span class="required">*</span></label>
                                         <div class="controls ">
-                                            <input type="text" class="form-control input-block-level input-max" placeholder="CalendarChecker">
+                                            <input type="text" id="txtPRName" class="form-control input-block-level input-max">
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Create with</label>
                                         <div class="controls">
-                                            <ul class="checkbox-group inline-list">
+                                            <ul class="checkbox-group inline-list" id="optionList">
                                                 <li>
                                                     <label>
                                                     <input type="radio" class="js-administration-topline-toggle js-createwith-toggle-view-master-0" data-administration-topline="true" name="TEMP_RENAMETHIS_create_with" checked="checked">
@@ -123,7 +123,7 @@
                                     <div class="control-group js-createwith-toggle-view-slave-0">
                                         <label class="control-label">XML <span class="required">*</span></label>
                                         <div class="controls ">
-                                            <textarea class="js-transform-formexpand input-block-level" rows="5"></textarea>
+                                            <textarea id="txtXML" class="js-transform-formexpand input-block-level" rows="5"></textarea>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -142,45 +142,13 @@
                                     <th><a href="#">Variant</a></th>
                                 </tr>
                             </thead>
-                            <tbody id="js-administration-participantresolver-parameters">
-                                <!--
-                                <tr class="js-administration-participantresolver-parameters-item">
-                                    <td>
-                                        <div class="js-administration-participantresolver-parameters-display">ParameterName</div>
-                                        <div class="js-administration-participantresolver-parameters-form js-initial-hide">
-                                            <input type="text" value="ParameterName">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="pull-right">
-                                            <div>
-                                                <a class="js-administration-participantresolver-parameters-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a>
-                                                <a class="js-administration-participantresolver-parameters-deleterow" href="#"><i class="icon-trash">&nbsp;&nbsp;</i></a>
-                                            </div>
-                                            <div class="update-actions js-initial-hide">
-                                                <button class="js-administration-participantresolver-parameters-editsave js-administration-participantresolver-parameters-edittoggle btn btn-primary"><span>Save</span></button>
-                                                <button class="js-administration-participantresolver-parameters-edittoggle btn"><span>Cancel</span></button>
-                                            </div>
-                                        </div>
-                                        <div class="js-administration-participantresolver-parameters-display">True</div>
-                                        <div class="js-administration-participantresolver-parameters-form js-initial-hide">
-                                            <ul class="checkbox-group">
-                                                <li>
-                                                    <label>
-                                                    <input type="checkbox">
-                                                    </label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                                -->
+                            <tbody id="js-administration-participantresolver-parameters">                                
                                 <tr class="js-rowadd-toggle-view-slave-1 row-add">
-                                    <td colspan="2"><a class="js-rowadd-toggle-view-master-0" href="#">Add Variant</a></td>
+                                    <td colspan="2"><a class="js-rowadd-toggle-view-master-0" href="#">Add Parameter</a></td>
                                 </tr>
                                 <tr class="js-rowadd-toggle-view-slave-0 row-add js-initial-hide">
                                     <td>
-                                        <input type="text" class="form-control input-max" placeholder="DataSourceName">
+                                        <input type="text" id="txtEditPRName" class="form-control input-max" placeholder="DataSourceName">
                                     </td>
                                     <td>
                                         <div class="controls">
@@ -194,7 +162,7 @@
                                         </div>
                                         <div class="add-actions">
                                             <button class="js-administration-participantresolver-parameters-addrow js-rowadd-toggle-view-master-1 btn btn-primary"><span>Add</span></button>
-                                            <button class="js-rowadd-toggle-view-master-1 btn "><span>Cancel</span></button>
+                                            <button class="js-rowadd-toggle-view-master-1 btn " id="btnCancel"><span>Cancel</span></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -206,7 +174,7 @@
                     <div class="span8">
                         <fieldset class="form-horizontal">
                             <div class="js-administration-topline-target form-actions top-line">
-                                <button type="submit" class="btn btn-primary"><span>Save</span></button>
+                                <button type="submit" id="btnSave" class="btn btn-primary"><span>Save</span></button>
                                 <button class="btn"><span>Cancel</span></button>
                             </div>
                         </fieldset>
@@ -216,34 +184,27 @@
             <!-- /div .container-fluid -->
         </div>
         <!-- /div #mainsi -->
+        
         <div id="footer" class="row-fluid">
             <div class="container-fluid">
                 <div class="row-fluid">
                     <div class="span8">
                         <div id="footer-links">
                             <ul>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Terms</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                            <ul>
-                                <li>&copy; 2008-2011 Winshuttle, LLC</li>
-                                <li>Version 10.4</li>
-                                <li>Privacy Mode: Secure</li>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">{{Back to Central}}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="span4">
-                        <ul class="security-logo">
-                            <li><img src="assets/img/security-te.png" alt="TRUSTe"/></li>
-                            <li><img src="assets/img/security-sh.png" alt="Safe Harbor"/></li>
-                            <li><img src="assets/img/security-soc.png" alt="SSAE 16 / ISAE 3402 Type II SOC 1"/></li>
-                        </ul>
+                        <div class="pull-right">
+                            &copy; 2008-2015 Winshuttle, LLC
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
@@ -262,6 +223,7 @@
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
         <script src="assets/js/ws_global_initialization_administration.js"></script>
+        <script src="assets/js/ws_common.js" type="text/javascript"></script>
         <script>
             (function() {
                 wsLib_toggleViews("createwith", 2, "radio", "no", 200);
@@ -286,99 +248,386 @@
                                               .off('click.editSave')
                                               .off('click.deleteRow')
                                               .off('click.addRow')
-                                              .on('click.editToggle', '.js-administration-participantresolver-parameters-edittoggle', function(event) {
-                    event.preventDefault();
-                    
-                    var $currentParameterItem = $(this).closest('.js-administration-participantresolver-parameters-item');
-                    
-                    $currentParameterItem.children('td').find('.js-administration-participantresolver-parameters-edittoggle').closest('div').toggle();
-                    
-                    $currentParameterItem.find('.js-administration-participantresolver-parameters-display').toggle();
-                    $currentParameterItem.find('.js-administration-participantresolver-parameters-form').toggle();
-                }).on('click.editSave', '.js-administration-participantresolver-parameters-editsave', function(event) {
-                    event.preventDefault();
-                    
-                    $(this).closest('tr').find('.js-administration-participantresolver-parameters-form').find('input').each(function() {
-                        var $currentInput = $(this);
-                        var $currentDisplay = $currentInput.closest('.js-administration-participantresolver-parameters-form').siblings('.js-administration-participantresolver-parameters-display');
-                        
-                        if($currentInput.attr('type') === 'checkbox') {
-                            $currentDisplay.text($currentInput.prop('checked'));
-                        }
-                        else {
-                            $currentDisplay.text($currentInput.val());
-                        }
-                    });
-                }).on('click.deleteRow', '.js-administration-participantresolver-parameters-deleterow', function(event) {
-                    event.preventDefault();
-                    
-                    $(this).closest('tr').remove();
-                }).on('click.addRow', '.js-administration-participantresolver-parameters-addrow', function(event) {
-                    event.preventDefault();
-                    
-                    var currentRowHTML = '';
-                    var currentRowData = [];
-                    
-                    $(this).closest('.row-add').find('input').each(function(index) {
-                        var $currentInput = $(this);
-                        
-                        if($currentInput.attr('type') === 'checkbox') {
-                            currentRowData.push({
-                                index: index,
-                                data: $currentInput.prop('checked')
-                            });
-                            
-                            $currentInput.prop('checked', false);
-                        }
-                        else {
-                            currentRowData.push({
-                                index: index,
-                                data: $currentInput.val()
-                            });
-                            
-                            $currentInput.val('');
-                        }
-                    });
-                    
-                    var currentPlugData = {
-                        name: currentRowData[0].data,
-                        variant: currentRowData[1].data
-                    };
-                    
-                    currentRowHTML += '<tr class="js-administration-participantresolver-parameters-item">';
-                        currentRowHTML += '<td>';
-                            currentRowHTML += '<div class="js-administration-participantresolver-parameters-display">' + currentPlugData.name + '</div>';
-                            currentRowHTML += '<div class="js-administration-participantresolver-parameters-form js-initial-hide" style="display: none;">';
-                                currentRowHTML += '<input type="text" class="input-max" value="' + currentPlugData.name + '">';
-                            currentRowHTML += '</div>';
-                        currentRowHTML += '</td>';
-                        currentRowHTML += '<td>';
-                            currentRowHTML += '<div class="pull-right">';
-                                currentRowHTML += '<div>';
-                                    currentRowHTML += '<a class="js-administration-participantresolver-parameters-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a>';
-                                    currentRowHTML += '<a class="js-administration-participantresolver-parameters-deleterow" href="#"><i class="icon-trash">&nbsp;&nbsp;</i></a>';
-                                currentRowHTML += '</div>';
-                                currentRowHTML += '<div class="update-actions js-initial-hide" style="display: none;">';
-                                    currentRowHTML += '<button class="js-administration-participantresolver-parameters-editsave js-administration-participantresolver-parameters-edittoggle btn btn-primary"><span>Save</span></button>';
-                                    currentRowHTML += '<button class="js-administration-participantresolver-parameters-edittoggle btn"><span>Cancel</span></button>';
-                                currentRowHTML += '</div>';
-                            currentRowHTML += '</div>';
-                            currentRowHTML += '<div class="js-administration-participantresolver-parameters-display">' + currentPlugData.variant + '</div>';
-                            currentRowHTML += '<div class="js-administration-participantresolver-parameters-form js-initial-hide" style="display: none;">';
-                                currentRowHTML += '<ul class="checkbox-group">';
-                                    currentRowHTML += '<li>';
-                                        currentRowHTML += '<label>';
-                                        currentRowHTML += '<input type="checkbox"' + (currentPlugData.variant ? 'checked="checked"' : '') + '>';
-                                        currentRowHTML += '</label>';
-                                    currentRowHTML += '</li>';
-                                currentRowHTML += '</ul>';
-                            currentRowHTML += '</div>';
-                        currentRowHTML += '</td>';
-                    currentRowHTML += '</tr>';
-                    
-                    $participantResolverParameters.find('.row-add').first().before(currentRowHTML);
-                });
+                                              .on('click.editToggle', '.js-administration-participantresolver-parameters-edittoggle', function (event) {
+                                                  event.preventDefault();
+
+                                                  var $currentParameterItem = $(this).closest('.js-administration-participantresolver-parameters-item');
+
+                                                  $currentParameterItem.children('td').find('.js-administration-participantresolver-parameters-edittoggle').closest('div').toggle();
+
+                                                  $currentParameterItem.find('.js-administration-participantresolver-parameters-display').toggle();
+                                                  $currentParameterItem.find('.js-administration-participantresolver-parameters-form').toggle();
+                                              }).on('click.editSave', '.js-administration-participantresolver-parameters-editsave', function (event) {
+                                                  event.preventDefault();
+
+                                                  $(this).closest('tr').find('.js-administration-participantresolver-parameters-form').find('input').each(function () {
+                                                      var $currentInput = $(this);
+                                                      var $currentDisplay = $currentInput.closest('.js-administration-participantresolver-parameters-form').siblings('.js-administration-participantresolver-parameters-display');
+
+                                                      if ($currentInput.attr('type') === 'checkbox') {
+                                                          $currentDisplay.text($currentInput.prop('checked'));
+                                                      }
+                                                      else {
+                                                          $currentDisplay.text($currentInput.val());
+                                                      }
+                                                  });
+                                              }).on('click.deleteRow', '.js-administration-participantresolver-parameters-deleterow', function (event) {
+                                                  event.preventDefault();
+
+                                                  $(this).closest('tr').remove();
+                                              }).on('click.addRow', '.js-administration-participantresolver-parameters-addrow', function (event) {
+                                                  event.preventDefault();
+
+                                                  var currentRowHTML = '';
+                                                  var currentRowData = [];
+
+                                                  $(this).closest('.row-add').find('input').each(function (index) {
+                                                      var $currentInput = $(this);
+
+                                                      if ($currentInput.attr('type') === 'checkbox') {
+                                                          currentRowData.push({
+                                                              index: index,
+                                                              data: $currentInput.prop('checked')
+                                                          });
+
+                                                          $currentInput.prop('checked', false);
+                                                      }
+                                                      else {
+                                                          currentRowData.push({
+                                                              index: index,
+                                                              data: $currentInput.val()
+                                                          });
+
+                                                          $currentInput.val('');
+                                                      }
+                                                  });
+
+                                                  var currentPlugData = {
+                                                      name: currentRowData[0].data,
+                                                      variant: currentRowData[1].data
+                                                  };
+
+                                                  if (currentPlugData.name != undefined && currentPlugData.name.length > 0) {
+
+                                                      currentRowHTML += '<tr class="js-administration-participantresolver-parameters-item">';
+                                                      currentRowHTML += '<td>';
+                                                      currentRowHTML += '<div class="js-administration-participantresolver-parameters-display">' + currentPlugData.name + '</div>';
+                                                      currentRowHTML += '<div class="js-administration-participantresolver-parameters-form js-initial-hide" style="display: none;">';
+                                                      currentRowHTML += '<input type="text" class="input-max" value="' + currentPlugData.name + '">';
+                                                      currentRowHTML += '</div>';
+                                                      currentRowHTML += '</td>';
+                                                      currentRowHTML += '<td>';
+                                                      currentRowHTML += '<div class="pull-right">';
+                                                      currentRowHTML += '<div>';
+                                                      currentRowHTML += '<a class="js-administration-participantresolver-parameters-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a>';
+                                                      currentRowHTML += '<a class="js-administration-participantresolver-parameters-deleterow" href="#"><i class="icon-trash">&nbsp;&nbsp;</i></a>';
+                                                      currentRowHTML += '</div>';
+                                                      currentRowHTML += '<div class="update-actions js-initial-hide" style="display: none;">';
+                                                      currentRowHTML += '<button class="js-administration-participantresolver-parameters-editsave js-administration-participantresolver-parameters-edittoggle btn btn-primary"><span>Save</span></button>';
+                                                      currentRowHTML += '<button class="js-administration-participantresolver-parameters-edittoggle btn"><span>Cancel</span></button>';
+                                                      currentRowHTML += '</div>';
+                                                      currentRowHTML += '</div>';
+                                                      currentRowHTML += '<div class="js-administration-participantresolver-parameters-display">' + currentPlugData.variant + '</div>';
+                                                      currentRowHTML += '<div class="js-administration-participantresolver-parameters-form js-initial-hide" style="display: none;">';
+                                                      currentRowHTML += '<ul class="checkbox-group">';
+                                                      currentRowHTML += '<li>';
+                                                      currentRowHTML += '<label>';
+                                                      currentRowHTML += '<input type="checkbox"' + (currentPlugData.variant ? 'checked="checked"' : '') + '>';
+                                                      currentRowHTML += '</label>';
+                                                      currentRowHTML += '</li>';
+                                                      currentRowHTML += '</ul>';
+                                                      currentRowHTML += '</div>';
+                                                      currentRowHTML += '</td>';
+                                                      currentRowHTML += '</tr>';
+
+                                                      $participantResolverParameters.find('.row-add').first().before(currentRowHTML);
+                                                  }
+                                              });
             })();
+        </script>
+        <script>
+            var theID;
+            $(document).ready(function () {
+                ws_initializeWebApp("/admin/GetAllWebApp", $('#webappdropdown'), OnLoad);
+
+                $('#webappdropdown').change(function () {
+                    OnLoad();
+                    return false;
+                });
+
+                $('#btnSave').click(function () {
+                    SaveData();
+                });
+
+
+                $("#btnCancel").click(function () {
+                    history.back();
+                    return false;
+                }); 
+            });
+
+            function SaveData() {
+                //
+                ws_showProgressBar();
+                var theControlXML = undefined;
+                var name = null;
+                var params = '';
+                var variants = '';
+                var paramss = new Array();
+                var variantss = new Array();
+                if (ValidateParameters() == true) {
+                    var isXML = ($('.js-createwith-toggle-view-slave-0').css('display') == "block");
+                    if (isXML) {
+                        var theControlXML = $('#txtXML').val();
+                        if (isValidXMLString(theControlXML)) {
+                            var xmlDoc = loadXMLString(theControlXML);
+                            name = (xmlDoc.documentElement.getAttribute('Name'));
+                            params = (xmlDoc.documentElement.getAttribute('ParmNames'));
+                            variants = xmlDoc.documentElement.getAttribute('Variants');
+                        }
+                    }
+                    else {
+                        name = $('#txtPRName').val();
+                        var parameter = $('.js-administration-participantresolver-parameters-item');
+                        if (parameter.length > 0) {
+                            for (var i = 0; i < parameter.length; i++) {
+                                var paramname = $(parameter[i]).find('.js-administration-participantresolver-parameters-display').first().html();
+                                paramss.push(paramname);
+                                var isVariant = ($(parameter[i]).find('.js-administration-participantresolver-parameters-display').last().html().toLowerCase() == "true");
+                                if (isVariant) {
+                                    variantss.push(paramname);
+                                }
+                            }
+
+                            params = paramss.join(",");
+                            variants = variantss.join(",");
+                        } 
+                    }
+
+                    ws_ajaxCall("/ServerConfig/UpdateParticipantResolver", { server: $('#webappdropdown').val(),
+                        id: theID,
+                        variants: variants,
+                        param: params,
+                        name: name,
+                        status: 1
+                    }, function () {
+                        ws_hideProgressBar();
+                        window.location = "/content/participant-resolvers.html?server=" + $('#webappdropdown').val();
+                    },
+                                    CallBackFailure, null);
+                }
+                else {
+                    alert("Parameter set not complete or valid.");
+                }
+
+                ws_hideProgressBar();
+                return false;
+            }
+
+            function OnLoad() {
+                var server = wsPlugin_getURLParameter('server');
+                if (server != null && server != undefined && server.length > 0) {
+                    $.each($('#webappdropdown >option'), function (index, value) {
+                        if ($(this).val().toLowerCase() == server.toLowerCase()) {
+                            $(this).attr('selected', 'selected');
+                        }
+                    });
+                }
+
+                LoadData();
+                return false;
+            }
+
+            function LoadData() {
+                ws_showProgressBar();
+                ws_ajaxCall("/ServerConfig/GetParticipantResolver", { server: $('#webappdropdown').val(),
+                    name: wsPlugin_getURLParameter('name')
+                }, CallBackSuccess, CallBackFailure, null);
+                return false;
+            }
+
+            function CallBackFailure(xhr, status, error, callbackdata) {
+                ws_hideProgressBar();
+                if (xhr.responseText != null && xhr.responseText != undefined) {
+                    alert("Status: " + xhr.Status + ", Error: " + xhr.responseText);
+                }
+            }
+
+            function CallBackSuccess(data) {
+                if (data != null && data != undefined && data.length > 0) {
+                    if (data[0].MetaData != null && data[0].MetaData != undefined) {
+                        var xmlDoc = loadXMLString(data[0].MetaData);
+                        if (xmlDoc != null && xmlDoc != undefined) {
+                            theID = data[0].ID;
+                            $('#txtPRName').val(xmlDoc.documentElement.getAttribute('Name'));
+                            $('#txtXML').val(xmlDoc.documentElement.xml);
+                            var variants = xmlDoc.documentElement.getAttribute("Variants");
+                            var params = xmlDoc.documentElement.getAttribute("ParmNames");
+                            var variantArray = [];
+                            var paramArray = new Array();
+                            if (variants != null && variants != undefined) {
+                                $.each(variants.split(","), function (index, value) {
+                                    if ($.trim(value).length > 0) {
+                                        variantArray[value] = 1;
+                                    }
+                                });
+
+                            }
+
+                            if (params != null && params != undefined) {
+                                $.each(params.split(","), function (index, value) {
+                                    if ($.trim(value).length > 0) {
+                                        paramArray.push(value);
+                                    }
+                                });
+                            }
+
+                            $.each(paramArray, function (index, value) {
+                                var $participantResolverParameters = $('#js-administration-participantresolver-parameters');
+                                $participantResolverParameters.find('.row-add').first().before(CreateRow(value, (variantArray[value] == 1 ? true : false)));
+                            });
+                        }
+                    }
+                }
+                ws_hideProgressBar();
+                return false;
+            }
+
+
+            function CreateRow(paramName, isVariant) {
+                var currentRowHTML = '';
+                currentRowHTML += '<tr class="js-administration-participantresolver-parameters-item">';
+                currentRowHTML += '<td>';
+                currentRowHTML += '<div class="js-administration-participantresolver-parameters-display">' + paramName + '</div>';
+                currentRowHTML += '<div class="js-administration-participantresolver-parameters-form js-initial-hide" style="display: none;">';
+                currentRowHTML += '<input type="text" class="input-max" value="' + paramName + '">';
+                currentRowHTML += '</div>';
+                currentRowHTML += '</td>';
+                currentRowHTML += '<td>';
+                currentRowHTML += '<div class="pull-right">';
+                currentRowHTML += '<div>';
+                currentRowHTML += '<a class="js-administration-participantresolver-parameters-edittoggle" href="#"><i class="icon-edit">&nbsp;&nbsp;</i></a>';
+                currentRowHTML += '<a class="js-administration-participantresolver-parameters-deleterow" href="#"><i class="icon-trash">&nbsp;&nbsp;</i></a>';
+                currentRowHTML += '</div>';
+                currentRowHTML += '<div class="update-actions js-initial-hide" style="display: none;">';
+                currentRowHTML += '<button class="js-administration-participantresolver-parameters-editsave js-administration-participantresolver-parameters-edittoggle btn btn-primary"><span>Save</span></button>';
+                currentRowHTML += '<button class="js-administration-participantresolver-parameters-edittoggle btn"><span>Cancel</span></button>';
+                currentRowHTML += '</div>';
+                currentRowHTML += '</div>';
+                currentRowHTML += '<div class="js-administration-participantresolver-parameters-display">' + isVariant + '</div>';
+                currentRowHTML += '<div class="js-administration-participantresolver-parameters-form js-initial-hide" style="display: none;">';
+                currentRowHTML += '<ul class="checkbox-group">';
+                currentRowHTML += '<li>';
+                currentRowHTML += '<label>';
+                currentRowHTML += '<input type="checkbox"' + (isVariant ? 'checked="checked"' : '') + '>';
+                currentRowHTML += '</label>';
+                currentRowHTML += '</li>';
+                currentRowHTML += '</ul>';
+                currentRowHTML += '</div>';
+                currentRowHTML += '</td>';
+                currentRowHTML += '</tr>';
+                return currentRowHTML;
+            }
+
+            function ValidateParameters() {
+                //radioXML
+                var isXML = ($('.js-createwith-toggle-view-slave-0').css('display') == "block");
+                if (isXML) {
+                    var theControlXML = $('#txtXML').val();
+                    if (isValidXMLString(theControlXML)) {
+                        var xmlDoc = loadXMLString(theControlXML);
+                        if (xmlDoc != null && xmlDoc != undefined) {
+                            var name = (xmlDoc.documentElement.getAttribute('Name'));
+                            var params = (xmlDoc.documentElement.getAttribute('ParmNames'));
+                            var variants = xmlDoc.documentElement.getAttribute('Variants');
+                            if (name == undefined || name.length < 0) {
+                                return false;
+                            }
+
+                            if (params == undefined || params.length < 0) {
+                                return false;
+                            }
+                            else {
+                                var array = params.split(",");
+                                if (array.length > 0) {
+                                    var foundBlank = false;
+                                    for (var i = 0; i < array.length; i++) {
+                                        if (array[i].length <= 0) {
+                                            foundBlank = true;
+                                        }
+                                    }
+
+                                    if (foundBlank) {
+                                        return false;
+                                    }
+                                }
+                                else {
+                                    return false;
+                                }
+                            }                           
+
+                            if (variants == undefined || variants.length < 0) {
+                                return false;
+                            }
+                            else {
+                                var array = variants.split(",");
+                                if (array.length > 0) {
+                                    var foundBlank = false;
+                                    for (var i = 0; i < array.length; i++) {
+                                        if (array[i].length <= 0) {
+                                            foundBlank = true;
+                                        }
+                                    }
+
+                                    if (foundBlank) {
+                                        return false;
+                                    }
+                                }
+                                else {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else {
+                    var name = $('#txtPRName').val();
+                    if (name == undefined || name.length < 0) {
+                        return false;
+                    }
+
+                    var parameters = new Array();
+                    var parameter = $('.js-administration-participantresolver-parameters-item');
+                    if (parameter.length > 0) {
+                        for (var i = 0; i < parameter.length; i++) {
+                            var paramname = $(parameter[i]).find('.js-administration-participantresolver-parameters-display').first().html();
+                            parameters.push(paramname);
+                        }
+                    }                                       
+
+                    if (parameters == undefined || parameters.length < 0) {
+                        return false;
+                    }
+                    else {
+                        var array = parameters;
+                        var foundBlank = false;
+                        for (var i = 0; i < array.length; i++) {
+                            if (array[i].length <= 0) {
+                                foundBlank = true;
+                            }
+                        }
+
+                        if (foundBlank) {
+                            return false;
+                        }
+                    }
+                }
+
+                return true;
+            }
         </script>
     </body>
 </html>
