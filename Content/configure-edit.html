@@ -7,6 +7,7 @@
         <link href="assets/css/kendo.default.min.css" rel="stylesheet">
         <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
         <link href="assets/css/kendo.dataviz.default.min.css" rel="stylesheet">
+        <link href="assets/css/chosen.css" rel="stylesheet">
         <link href="assets/css/winshuttle.css" rel="stylesheet">
         <link href="assets/css/ws-formitems.css" rel="stylesheet">
     </head>
@@ -228,6 +229,22 @@
                                         </div>
                                     </td>
                                     <td>
+                                        <div class="add-actions">
+                                            <button class="js-administration-editconfiguration-value-addrow js-rowadd-toggle-view-master-1
+                                                    js-addnewvalue-toggle-view-slave-1
+                                                    js-addnewvalue-toggle-view-slave-2
+                                                    js-addnewvalue-toggle-view-slave-3
+                                                    js-addnewvalue-toggle-view-slave-4
+                                                    js-addnewvalue-toggle-view-slave-5
+                                                    js-addnewvalue-toggle-view-slave-6
+                                                    js-addnewvalue-toggle-view-slave-7
+                                                    js-addnewvalue-toggle-view-slave-8
+                                                    btn btn-primary js-initial-hide">
+                                                <span>Add</span>
+                                            </button>
+                                            <button class="js-rowadd-toggle-view-master-1 btn"><span>Cancel</span></button>
+                                        </div>
+                                        
                                         <div class="js-addnewvalue-toggle-view-slave-1 js-initial-hide" data-corresponding-value-type="10001">
                                             <input type="text" class="form-control input-mid" placeholder="String">
                                         </div>
@@ -263,8 +280,7 @@
                                         </div>
                                         
                                         <div class="js-addnewvalue-toggle-view-slave-5 js-initial-hide" data-corresponding-value-type="10005">
-                                            <select class="input-mid">
-                                                <option>Select</option>
+                                            <select class="js-chosen-target input-mid" multiple tabindex="3" data-placeholder="Select">
                                                 <option>Task 1</option>
                                                 <option>Task 2</option>
                                                 <option>Task 3</option>
@@ -287,22 +303,6 @@
                                         
                                         <div class="js-addnewvalue-toggle-view-slave-8 js-initial-hide" data-corresponding-value-type="10008">
                                             <input type="text" class="form-control input-mid" placeholder="String 5">
-                                        </div>
-                                        
-                                        <div class="add-actions">
-                                            <button class="js-administration-editconfiguration-value-addrow js-rowadd-toggle-view-master-1
-                                                    js-addnewvalue-toggle-view-slave-1
-                                                    js-addnewvalue-toggle-view-slave-2
-                                                    js-addnewvalue-toggle-view-slave-3
-                                                    js-addnewvalue-toggle-view-slave-4
-                                                    js-addnewvalue-toggle-view-slave-5
-                                                    js-addnewvalue-toggle-view-slave-6
-                                                    js-addnewvalue-toggle-view-slave-7
-                                                    js-addnewvalue-toggle-view-slave-8
-                                                    btn btn-primary js-initial-hide">
-                                                <span>Add</span>
-                                            </button>
-                                            <button class="js-rowadd-toggle-view-master-1 btn"><span>Cancel</span></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -359,6 +359,7 @@
             }
         </script>
         <script src="assets/js/kendo.all.min.js"></script>
+        <script src="assets/js/chosen.jquery.min.js"></script>
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
         <script src="assets/js/ws_global_initialization_administration.js"></script>
@@ -581,6 +582,11 @@
         <script>
             // Hoa's code
             (function() {
+                $('.js-chosen-target').toggleClass('js-chosen-target js-chosen-target-active')
+                                      .chosen({
+                    width: "50%"
+                });
+                
                 var numberOfValueTypes = 8; // ### ATTENTION - This number should be the amount of types of Values that exist in this form.
                 
                 
@@ -677,13 +683,21 @@
                     
                     $(this).closest('tr').find('.js-administration-editconfiguration-value-form').find('input, select').each(function() {
                         var $currentInput = $(this);
-                        var $currentDisplay = $currentInput.closest('.js-administration-editconfiguration-value-form').siblings('.js-administration-editconfiguration-value-display');
+                        var $currentDisplay = $currentInput.closest('.js-administration-editconfiguration-value-form')
+                                                           .siblings('.js-administration-editconfiguration-value-display');
                         
                         if($currentInput.attr('type') === 'checkbox') {
                             $currentDisplay.text(wsPlugin_capitaliseFirstLetter($currentInput.prop('checked') + ""));
                         }
                         else if($currentInput.attr('type') === 'radio') {
                             $currentDisplay.text(wsPlugin_capitaliseFirstLetter(!$currentInput.prop('checked') + ""));
+                        }
+                        else if($currentInput.is('select.js-chosen-target-active')) {
+                            var currentChosenValuesString = $currentInput.val().join();
+                            
+                            setTimeout(function() {
+                                $currentDisplay.html(currentChosenValuesString);
+                            }, 1);
                         }
                         else if($currentInput.is('select')) {
                             $currentDisplay.text($currentInput.val());
@@ -734,6 +748,23 @@
                             });
                             
                             $currentInput.prop('checked', true);
+                        }
+                        else if($currentInput.is('select.js-chosen-target-active')) {
+                            $currentInput.find(':selected').attr('selected', 'selected');
+                            
+                            currentRowData.push({
+                                index: index,
+                                data: $currentInput.val(),
+                                dataDisplay: $currentInput.val(),
+                                type: "select.js-chosen-target-active",
+                                HTML: $currentInput.clone()
+                            });
+                            
+                            $currentInput.find('option')
+                                         .prop('selected', false)
+                                         .removeAttr('selected');
+                            
+                            $currentInput.trigger('chosen:updated');
                         }
                         else if($currentInput.is('select')) {
                             $currentInput.find(':selected').attr('selected', 'selected');
@@ -821,6 +852,11 @@
                                     currentRowHTML += '</li>';
                                 currentRowHTML += '</ul>';
                                 }
+                                else if(currentPlugData.type === 'select.js-chosen-target-active') {
+                                currentRowHTML += '<select class="js-chosen-target input-mid" multiple tabindex="3" data-placeholder="Select">';
+                                    currentRowHTML += currentPlugData.HTML.html();
+                                currentRowHTML += '</select>';
+                                }
                                 else if(currentPlugData.type === 'select') {
                                 currentRowHTML += '<select class="input-mid">';
                                     currentRowHTML += currentPlugData.HTML.html();
@@ -835,6 +871,13 @@
                     currentRowHTML += '</tr>';
                     
                     $editConfigurationValue.find('.row-add').first().before(currentRowHTML);
+                    
+                    
+                    
+                    $('.js-chosen-target').toggleClass('js-chosen-target js-chosen-target-active')
+                                          .chosen({
+                        width: "50%"
+                    });
                 });
                 
             })();
