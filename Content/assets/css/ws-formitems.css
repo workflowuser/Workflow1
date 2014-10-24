@@ -301,7 +301,9 @@ label.control-label.secondary-label {
 .settings-info .form-horizontal .controls .plain-text:first-child {
     margin-top: 7px;
 }
-
+.settings-info p label {
+	padding-left: 180px;
+}
 .tooltip .interactive {
     word-wrap: break-word;
 }
