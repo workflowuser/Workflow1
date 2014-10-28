@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Winshuttle - Archive List</title>
+        <link href="assets/css/kendo.common.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.default.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.default.min.css" rel="stylesheet">
+        <link href="assets/css/winshuttle.css" rel="stylesheet">
+        <link href="assets/css/ws-formitems.css" rel="stylesheet">
+        <link href="assets/css/chosen.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="workflow-header">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="workflow-brand">
+                            <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
+                            <div class="home-dropdown">
+                                <div class="btn-group">
+                                    <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+                                    <ul class="dropdown-menu">
+                                        <div>
+                                            <li class="dropdown-title">Logs &amp; Reporting</li>
+                                            <li><a href="#">Charts</a></li>
+                                            <li><a href="#">Excel Data Dump</a></li>
+                                            <li><a href="#">Logging</a></li>
+                                            <li><a href="#">Log File Viewer</a></li>
+                                            <li class="dropdown-title">Processes</li>
+                                            <li><a href="#">Process Control</a></li>
+                                            <li><a href="#">Manage Background Jobs</a></li>
+                                        </div>
+                                        <div>
+                                            <li class="dropdown-title">Server Administration</li>
+                                            <li><a href="#">Admin Commands</a></li>
+                                            <li><a href="#">Configure Options</a></li>
+                                            <li><a href="#">Scheduler</a></li>
+                                            <li><a href="#">Workflow Extensions</a></li>
+                                            <li><a href="#">Database Status</a></li>
+                                            <li><a href="#">Licenses</a></li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <ul class="inline-list pull-right">
+                            <!--<li>
+                                <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
+                                </li>-->
+                            <li>
+                                <select class="input-medium" id="WFWebAppsDropDown">
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mainsi">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <ul id="breadcrumbs">
+                            <li><a href="#">Administration</a> &rsaquo;</li>
+                        </ul>
+                        <ul id="secnav">
+                            <li class="active">
+                                <h1>Workflow Farm Configuration</h1>
+                                <p class="page-description">This command is required to be run when a new web front end is added to the farm.  It will configure Winshuttle Workflow on the newly added front end.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div class="settings-info">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <label class="control-label">Front Ends To Configure</label>
+                                        <div class="controls">
+                                            <ul>
+                                                <li><input type="checkbox"> DFARM2010</li>
+                                                <li><input type="checkbox"> DFARM2010FE1</li>
+                                                <li><input type="checkbox" checked="checked"> MEHAK2008</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions top-line">
+                                        <button class="btn btn-primary"><span>Continue</span></button>
+                                        <button class="btn"><span>Cancel</span></button>
+                                    </div>
+                                    <div class="top-line">
+                                        The following timer jobs have been successfully scheduled.  Please verify these jobs have been successfully executed in SharePoint Central Admin to ensure Workflow has been successfully configured.
+                                    </div>
+                                    <div class="top-line">
+                                        <ul class="bulleted">
+                                            <li>Winshuttle Workflow Time Job - Feature activation - Mehak2008 for Web Application SharePoint - 80</li>
+                                            <li>Winshuttle Workflow Time Job - Feature activation - Mehak2008 for Web Application SharePoint - 11556</li>
+                                        </ul>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /div .span8 -->
+                </div>
+                <!-- /div .row-fluid -->
+            </div>
+            <!-- /div .container-fluid -->
+        </div>
+        <!-- /div #mainsi -->
+        <div id="footer" class="row-fluid">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div id="footer-links">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">{{Back to Central}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="pull-right">
+                            &copy; 2008-2015 Winshuttle, LLC
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            if (!window.jQuery) {
+                console.error("jQuery CDN is down.")
+                document.write('<script src="assets/js/jquery.min.js"><\/script>');
+            }
+        </script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script>
+            if (!$.fn.modal) {
+                console.error("Bootstrap CDN is down.")
+                document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
+            }
+        </script>
+        <script src="assets/js/kendo.all.min.js"></script>
+        <script src="assets/js/chosen.jquery.min.js"></script>
+        <script src="assets/js/wslib_master.js"></script>
+        <script src="assets/js/wsplugin_master.js"></script>
+        <script src="assets/js/ws_global_initialization_administration.js"></script>
+        <script src="assets/js/ws_common.js"></script>
+    </body>
+</html>
