@@ -42,6 +42,9 @@ ul.home-links li a {
 	color: #67747C;
 	text-decoration: none;
 }
+
+/* @group 32px */
+
 ul.home-links li a span {
 	display: table;
 	width: 32px;
@@ -88,6 +91,59 @@ ul.home-links .database-status:hover span {background-position: -320px -32px;}
 
 ul.home-links .licenses span {background-position: -352px 0;}
 ul.home-links .licenses:hover span {background-position: -352px -32px;}
+
+/* @end */
+
+/* @group 64px */
+
+ul.home-links-64px li a span {
+	width: 64px;
+	height: 64px;
+	margin: 20px auto 15px auto;
+	line-height: 32px;
+	background-image: url("../img/workflow-sprite@64px.png");
+}
+
+ul.home-links .charts span {background-position: 0 0;}
+ul.home-links .charts:hover span {background-position: 0 -64px;}
+
+ul.home-links .data-dump span {background-position: -64px 0;}
+ul.home-links .data-dump:hover span {background-position: -64px -64px;}
+
+ul.home-links .logging span {background-position: -128px 0;}
+ul.home-links .logging:hover span {background-position: -128px -64px;}
+
+ul.home-links .log-file-viewer span {background-position: -192px 0;}
+ul.home-links .log-file-viewer:hover span {background-position: -192px -64px;}
+
+ul.home-links .process-control span {background-position: -256px 0;}
+ul.home-links .process-control:hover span {background-position: -256px -64px;}
+
+ul.home-links .background-tasks span {background-position: -320px 0;}
+ul.home-links .background-tasks:hover span {background-position: -320px -64px;}
+
+ul.home-links .admin-commands span {background-position: -384px 0;}
+ul.home-links .admin-commands:hover span {background-position: -384px -64px;}
+
+ul.home-links .configure-options span {background-position: -448px 0;}
+ul.home-links .configure-options:hover span {background-position: -448px -64px;}
+
+ul.home-links .scheduler span {background-position: -512px 0;}
+ul.home-links .scheduler:hover span {background-position: -512px -64px;}
+
+ul.home-links .extensions span {background-position: -576px 0;}
+ul.home-links .extensions:hover span {background-position: -576px -64px;}
+
+ul.home-links .database-status span {background-position: -640px 0;}
+ul.home-links .database-status:hover span {background-position: -640px -64px;}
+
+ul.home-links .licenses span {background-position: -704px 0;}
+ul.home-links .licenses:hover span {background-position: -704px -64px;}
+
+ul.home-links .farm-config span {background-position: -768px 0;}
+ul.home-links .farm-config:hover span {background-position: -768px -64px;}
+
+/* @end */
 
 ul.home-links li h3 {
 	display: table-cell;
