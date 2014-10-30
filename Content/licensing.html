@@ -134,7 +134,7 @@
                                     <td>04-12-2014</td>
                                     <td></td>
                                     <td class="license-key">
-                                        <a href="#" class="js-tooltip-target" title="" data-original-title="<div class='interactive'><div class='js-link-copy-target'>vcYxFoLHQ3nAWiSrUu3hGhUjGzMSxj3KOWwLt81m/ArOYFIbvkkfnjdLkoqQ1GUhrLS3FQ+XWv8n9gISuy4isOGKSgjuyuah1oO4jl6gP1hNx1MzWBavJCnC/ekOWx604qwHzVsoZbJJvwdCftFxlb24XmVcdNGnFqLSHzfiU18EAE1pzLuEDg5VcQalB4J2</div><div class='copy-link-parent'><a href='#' class='js-link-copy'>Copy License</a></div></div>">
+                                        <a href="#" class="js-tooltip-target" title="<ul class='interactive'><li class='js-link-copy-target'>vcYxFoLHQ3nAWiSrUu3hGhUjGzMSxj3KOWwLt81m/ArOYFIbvkkfnjdLkoqQ1GUhrLS3FQ+XWv8n9gISuy4isOGKSgjuyuah1oO4jl6gP1hNx1MzWBavJCnC/ekOWx604qwHzVsoZbJJvwdCftFxlb24XmVcdNGnFqLSHzfiU18EAE1pzLuEDg5VcQalB4J2</li><li class='copy-link-parent'><a href='#' class='js-link-copy'>Copy License</a></li></ul>">
                                             #####...
                                         </a>
                                     </td>
@@ -217,28 +217,28 @@
             
             $('body').on('click', '.js-tooltip-target', function (event) {
                 event.stopPropagation();
-            
+                
                 var $licenseKeyCopiedAlert = $('#js-alert-licensekey-copied');
                 var $copyTextTooltip = $(this).closest('.license-key').find('.tooltip');
-            
+                
                 $('div.tooltip').not($(this).siblings('div.tooltip')).remove();
-            
+                
                 var currentCopyPlugin = new ZeroClipboard($('.js-link-copy'));
-            
+                
                 currentCopyPlugin.on('ready', function (event) {
                     $copyTextTooltip.addClass('show-copy-link');
-            
+                    
                     currentCopyPlugin.on('copy', function (event) {
                         var clipboard = event.clipboardData;
-            
+                        
                         clipboard.setData("text/plain", $copyTextTooltip.find('.js-link-copy-target').text());
-            
+                        
                         $copyTextTooltip.fadeOut(function () {
                             $copyTextTooltip.remove();
                         });
-            
+                        
                         $licenseKeyCopiedAlert.css('display', 'inline-block');
-            
+                        
                         setTimeout(function () {
                             $licenseKeyCopiedAlert.slideUp();
                         }, 3000);

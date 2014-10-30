@@ -367,7 +367,9 @@ label.control-label.secondary-label {
 	padding-left: 180px;
 }
 .tooltip .interactive {
-    word-wrap: break-word;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tooltip .interactive a {
@@ -617,9 +619,9 @@ table .pull-right .update-actions span {
 }
 
 .license-key .tooltip .tooltip-inner {
-    max-width: 300px;
     line-height: 18px;
     padding: 10px;
+    word-wrap: break-word;
 }
 
 .license-key .tooltip .tooltip-inner .copy-link-parent {
