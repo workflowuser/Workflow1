@@ -633,6 +633,10 @@ table .pull-right .update-actions span {
     display: block;
 }
 
+#js-modal-copymenu .js-link-copy-target {
+    word-wrap: break-word;
+}
+
 /* @group FileDrop.js */
 
 .js-filedrop-target {
