@@ -401,6 +401,11 @@ label.control-label.secondary-label {
 	float: left;
 	margin-right: 20px;
 }
+
+.js-button-disabled {
+    opacity: 0.5;
+}
+
 .home-dropdown ul {
 	width: 360px;
 }
@@ -699,8 +704,10 @@ td .contain-long-word {
     margin-left: -1px;
     padding: 5px 0;
     max-height: 300px;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: scroll;
+    
+    width: 300px;
 }
 .dropdown-tree-menu .dropdown-menu li {
     -webkit-box-sizing: border-box;
