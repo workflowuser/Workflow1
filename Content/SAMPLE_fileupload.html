@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Winshuttle - Admin Commands Directory</title>
+        <link href="assets/css/kendo.common.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.default.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.min.css" rel="stylesheet">
+        <link href="assets/css/kendo.dataviz.default.min.css" rel="stylesheet">
+        <link href="assets/css/winshuttle.css" rel="stylesheet">
+        <link href="assets/css/ws-formitems.css" rel="stylesheet">
+        <style>
+            .fd-smp .progress span{animation:progress .7s linear infinite;-moz-animation:progress .7s linear infinite;-webkit-animation:progress .7s linear infinite;-o-animation:progress .7s linear infinite;display:block;width:33%;height:1em;background:url(../progress.gif);}@keyframes progress{from{background-position:left top;}to{background-position:30px top;}}@-moz-keyframes progress{from{background-position:left top;}to{background-position:30px top;}}@-webkit-keyframes progress{from{background-position:left top;}to{background-position:30px top;}}@-o-keyframes progress{from{background-position:left top;}to{background-position:30px top;}}
+            span#bar_zone10 {
+            animation: progress .7s linear infinite;
+            -moz-animation: progress .7s linear infinite;
+            -webkit-animation: progress .7s linear infinite;
+            -o-animation: progress .7s linear infinite;
+            display: block;
+            width: 0.00000000001%;
+            height: 1em;
+            background: url(http://filedropjs.org/media/progress.gif);
+            }
+            .animating-border {
+            border : 5px solid black;    
+            -webkit-transition : border 500ms ease-out; 
+            -moz-transition : border 500ms ease-out;
+            -o-transition : border 500ms ease-out;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="workflow-header">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="workflow-brand">
+                            <img src="assets/img/ws-logo-workflow.png" alt="Winshuttle">
+                            <div class="home-dropdown">
+                                <div class="btn-group">
+                                    <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"></a>
+                                    <ul class="dropdown-menu">
+                                        <div>
+                                            <li class="dropdown-title">Logs &amp; Reporting</li>
+                                            <li><a href="#">Charts</a></li>
+                                            <li><a href="#">Excel Data Dump</a></li>
+                                            <li><a href="#">Logging</a></li>
+                                            <li><a href="#">Log File Viewer</a></li>
+                                            <li class="dropdown-title">Processes</li>
+                                            <li><a href="#">Process Control</a></li>
+                                            <li><a href="#">Manage Background Jobs</a></li>
+                                        </div>
+                                        <div>
+                                            <li class="dropdown-title">Server Administration</li>
+                                            <li><a href="#">Admin Commands</a></li>
+                                            <li><a href="#">Configure Options</a></li>
+                                            <li><a href="#">Scheduler</a></li>
+                                            <li><a href="#">Workflow Extensions</a></li>
+                                            <li><a href="#">Database Status</a></li>
+                                            <li><a href="#">Licenses</a></li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <ul class="inline-list pull-right">
+                            <!--
+                                <li>
+                                    <a class="font-white" href="javascript:;">&#9664; Winshuttle Central</a>
+                                </li>
+                                -->
+                            <li>
+                                <select class="input-medium">
+                                    <option>Sharepoint - 80</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mainsi">
+            <!--
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                START HERE START HERE START HERE START HERE START HERE
+                                                                      -->
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <ul id="breadcrumbs">
+                            <li><a href="#">Administration</a> &rsaquo;</li>
+                            <li><a href="#">Admin Commands</a> &rsaquo;</li>
+                            <li class="related-links">
+                                <ul>
+                                    <li class="related-label">Related:</li>
+                                    <li class="link"><a href="#">All Admin Commands</a></li>
+                                    <li class="link"><a href="#">Remove Form Report</a></li>
+                                    <li class="link"><a href="#">Delete Form Cache</a></li>
+                                    <li class="link"><a href="#">Delete Saved Forms</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul id="secnav">
+                            <li class="active">
+                                <h1>Sample File Uploaders</h1>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div>
+                            <label>
+                                Sample Filedrop.js Upload
+                            </label>
+                            <div id="filedrop_test" class="js-filedrop-target">
+                            
+                                <div class="js-filedrop-progressbar js-initial-hide"></div>
+                                
+                                <div class="js-filedrop-notice js-initial-hide">
+                                
+                                    Uploaded: 
+                                    <span class="js-filedrop-label-filename"></span>
+                                     (<a class="js-filedrop-trigger-delete" href="#">Delete</a>)
+                                
+                                </div>
+                            
+                            </div>
+                            <label>
+                                Sample Kendo UI Upload
+                            </label>
+                            <div>
+                                <div class="demo-section k-header">
+                                    <input name="files" id="files" type="file" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="settings-info">
+                            <form>
+                                <fieldset>
+                                    <div class="form-actions form-actions-left">
+                                        <button type="submit" class="btn btn-primary"><span>Continue</span></button>
+                                        <button class="btn"><span>Cancel</span></button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /div .span6 -->
+                    <div class="span6">
+                        <div id="js-terminal">
+                            <div>Output goes here after form submission.</div>
+                        </div>
+                    </div>
+                    <!-- /div .span6 -->
+                </div>
+                <!-- /div .row-fluid -->
+            </div>
+            <!-- /div .container-fluid -->
+        </div>
+        <!-- /div #mainsi -->
+        <div id="footer" class="row-fluid">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span8">
+                        <div id="footer-links">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">{{Back to Central}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="pull-right">
+                            &copy; 2008-2015 Winshuttle, LLC
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            if (!window.jQuery) {
+                console.error("jQuery CDN is down.")
+                document.write('<script src="assets/js/jquery.min.js"><\/script>');
+            }
+        </script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script>
+            if (!$.fn.modal) {
+                console.error("Bootstrap CDN is down.")
+                document.write('<script src="assets/js/bootstrap.min.js"><\/script>');
+            }
+        </script>
+        <script src="assets/js/kendo.all.min.js"></script>
+        <script src="assets/js/filedrop-min.js"></script>
+        <script src="assets/js/wslib_master.js"></script>
+        <script src="assets/js/wsplugin_master.js"></script>
+        <script src="assets/js/ws_admincommands.js"></script>
+        <script>
+            var sampleUploadTargetURL = {
+                filedrop: "assets/samples/filedrop_fileupload.php",
+                kendoUI: "assets/samples/kendo_fileupload.php"
+            }; // ### ATTENTION - Place path to upload target here.
+            
+            
+            
+            (function() {
+                var $currentFiledrop = $('#filedrop_test');
+                var $currentFiledropNotice = $currentFiledrop.find('.js-filedrop-notice');
+                var $currentFiledropProgressbar = $currentFiledrop.find('.js-filedrop-progressbar');
+                var $currentFiledropLabelFilename = $currentFiledrop.find('.js-filedrop-label-filename');
+
+                var zone = new FileDrop($currentFiledrop.get(0));
+
+                zone.event('send', function (files) {
+                    files.each(function (file) {
+                        file.event('sendXHR', function () {
+                            $currentFiledrop.find('iframe').closest('div').add($currentFiledropNotice).hide();
+                            $currentFiledropProgressbar.show()
+                                                       .css('width', 0);
+                        });
+
+                        file.event('progress', function (current, total) {
+                            var width = current / total * 100 + '%';
+
+                            $currentFiledropProgressbar.css('width', width);
+                        });
+
+                        file.event('done', function (xhr, e) {
+                            $currentFiledropLabelFilename.text(file.name);
+
+                            $currentFiledropNotice.show();
+                            $currentFiledropProgressbar.hide();
+                        });
+
+                        file.sendTo(sampleUploadTargetURL.filedrop);
+                    });
+                });
+
+                $currentFiledrop.off('click.deleteUploadedFile').on('click.deleteUploadedFile', '.js-filedrop-trigger-delete', function(event) {
+                    event.preventDefault();
+
+                    $currentFiledropNotice.hide();
+                    $currentFiledrop.find('iframe').closest('div').show();
+                });
+            })();
+            
+            
+            
+            $(document).ready(function() {
+                $("#files").kendoUpload({
+                    async: {
+                        saveUrl: sampleUploadTargetURL.kendoUI,
+                        removeUrl: sampleUploadTargetURL.kendoUI,
+                        autoUpload: true
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

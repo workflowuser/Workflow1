@@ -1861,7 +1861,7 @@ select:focus:required:invalid:focus {
 .table-header form {
 	margin-bottom: 0;
 }
-.table-header form div {
+.table-header form > div {
 	float: left;
 	margin-right: 20px;
 }
