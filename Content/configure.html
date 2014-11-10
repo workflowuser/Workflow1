@@ -109,13 +109,13 @@
                                                         </a>
                                                         <ul class="dropdown-menu">
                                                             
-                                                            <li>
+                                                            <li class="js-administration-dropdowntree-group">
                                                                 <a data-corresponding-value-type="-1" href="#"><span>All Sites & Lists</span></a>
                                                             </li>
-                                                            <li>
+                                                            <li class="js-administration-dropdowntree-group">
                                                                 <a data-corresponding-value-type="10002" href="#"><span>Global</span></a>
                                                             </li>
-                                                            <li>
+                                                            <li class="js-administration-dropdowntree-group">
                                                                 <a data-corresponding-value-type="10001" href="#"><span>formex/</span></a>
                                                                 <ul>
                                                                     <li><a data-corresponding-value-type="10003" href="#"><span>Announcements</span></a></li>
@@ -123,13 +123,31 @@
                                                                     <li><a data-corresponding-value-type="10005" href="#"><span>Tasks</span></a></li>
                                                                 </ul>
                                                             </li>
-                                                            <li>
+                                                            <li class="js-administration-dropdowntree-group">
                                                                 <a class="js-menu-inactive" data-corresponding-value-type="10006" href="#"><span>Site B/</span></a>
                                                             </li>
-                                                            <li>
+                                                            <li class="js-administration-dropdowntree-group">
                                                                 <a data-corresponding-value-type="10007" href="#"><span>Site C/</span></a>
                                                                 <ul>
                                                                     <li><a class="js-menu-inactive" data-corresponding-value-type="10008" href="#"><span>List 12</span></a></li>
+                                                                </ul>
+                                                            </li>
+                                                            
+                                                            <li class="js-administration-dropdowntree-group">
+                                                                <a data-corresponding-value-type="11007" href="#"><span>DeepTest/</span></a>
+                                                                <ul>
+                                                                    <li>
+                                                                        <a data-corresponding-value-type="12007" href="#"><span>L1/</span></a>
+                                                                        <ul>
+                                                                            <li><a data-corresponding-value-type="12008" href="#"><span>L2.1</span></a></li>
+                                                                            <li>
+                                                                                <a data-corresponding-value-type="13007" href="#"><span>L2.2P/</span></a>
+                                                                                <ul>
+                                                                                    <li><a data-corresponding-value-type="13008" href="#"><span>L3</span></a></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
                                                                 </ul>
                                                             </li>
                                                             
@@ -270,7 +288,7 @@
                                                                                          .find('a')
                                                                                          .filter('[data-corresponding-value-type="' + activeValueType + '"]')
                                                                                          .first()
-                                                                                         .closest('li')
+                                                                                         .closest('li.js-administration-dropdowntree-group')
                                                                                          .position()
                                                                                          .top;
 
