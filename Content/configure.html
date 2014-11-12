@@ -101,11 +101,11 @@
                                             <label>Scope</label>
                                             
                                             <div>
-                                                <div id="treeviewdropdown" class="js-dropdowntree-target dropdown-tree-menu input-large">
+                                                <div id="treeviewdropdown" class="js-dropdowntree-target dropdown-tree-menu">
                                                     <div class="dropdown">
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                            <span class="js-administration-dropdowntree-select-display">All Sites & Lists</span>
                                                             <span class="dropdown-toggle-symbol"></span>
+                                                            <span class="js-administration-dropdowntree-select-display">All Sites & Lists</span>
                                                         </a>
                                                         <ul class="dropdown-menu">
                                                             
@@ -139,11 +139,11 @@
                                                                     <li>
                                                                         <a data-corresponding-value-type="12007" href="#"><span>L1/</span></a>
                                                                         <ul>
-                                                                            <li><a data-corresponding-value-type="12008" href="#"><span>L2.1</span></a></li>
+                                                                            <li><a data-corresponding-value-type="12008" href="#"><span>L2.1 Lorem Ipsum</span></a></li>
                                                                             <li>
                                                                                 <a data-corresponding-value-type="13007" href="#"><span>L2.2P/</span></a>
                                                                                 <ul>
-                                                                                    <li><a data-corresponding-value-type="13008" href="#"><span>L3</span></a></li>
+                                                                                    <li><a data-corresponding-value-type="13008" href="#"><span>L3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></a></li>
                                                                                 </ul>
                                                                             </li>
                                                                         </ul>
@@ -276,21 +276,24 @@
                         event.preventDefault();
                     });
                     
+                    var $currentDropdownMenu = $currentDropdownTreeSelectTarget.find('.dropdown-menu');
+                    
                     $currentDropdownTreeSelectTarget.on('click.scrollToItem', '.dropdown-toggle', function(event) {
                         event.preventDefault();
                         
                         var activeValueType = $currentDropdownTreeSelectTarget.data('active-value-type');
-
+                        
+                        $currentDropdownMenu.css('width', $currentDropdownTreeSelectTarget.width() + 'px');
+                        
                         if(activeValueType !== undefined) {
                             setTimeout(function() {
-                                var targetScrollTop = $currentDropdownTreeSelectTarget.find('.dropdown-menu')
-                                                                                         .scrollTop(0)
-                                                                                         .find('a')
-                                                                                         .filter('[data-corresponding-value-type="' + activeValueType + '"]')
-                                                                                         .first()
-                                                                                         .closest('li.js-administration-dropdowntree-group')
-                                                                                         .position()
-                                                                                         .top;
+                                var targetScrollTop = $currentDropdownMenu.scrollTop(0)
+                                                                          .find('a')
+                                                                          .filter('[data-corresponding-value-type="' + activeValueType + '"]')
+                                                                          .first()
+                                                                          .closest('li.js-administration-dropdowntree-group')
+                                                                          .position()
+                                                                          .top;
 
                                 $currentDropdownTreeSelectTarget.find('.dropdown-menu').scrollTop(targetScrollTop);
                             }, 1);
@@ -306,17 +309,17 @@
                             var currentText = $whichLink.text();
 
                             if(currentText === '') {
-                                return currentText;
+                                return '' + currentText + '';
                             }
                             else {
-                                return generateValueTypeLabel($whichLink.closest('ul').siblings('a').not('.dropdown-toggle')) + currentText;
+                                return generateValueTypeLabel($whichLink.closest('ul').siblings('a').not('.dropdown-toggle')) + '' + currentText + '';
                             }
                         }
 
                         var typeName = generateValueTypeLabel($this);
-
-
-
+                        
+                        
+                        
                         $this.closest('.dropdown')
                              .children('.dropdown-toggle')
                              .children('.js-administration-dropdowntree-select-display')
@@ -324,9 +327,9 @@
                              .data('selected-value-type', {
                                  type: typeName
                              });
-
+                        
                         var addNewValueSelected = parseInt($this.data('corresponding-value-type'));
-
+                        
                         $currentDropdownTreeSelectTarget.data('active-value-type', addNewValueSelected);
                     });
                 });

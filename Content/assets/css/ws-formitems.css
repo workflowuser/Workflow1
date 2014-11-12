@@ -726,7 +726,14 @@ td .contain-long-word {
 /* @group Dropdown Tree Menu */
 
 .dropdown-tree-menu {
+    margin-bottom: 8px;
     border: 1px solid #ddd;
+    min-width: 200px;
+    max-width: 500px;
+    
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
@@ -737,14 +744,19 @@ td .contain-long-word {
 }
 .dropdown-tree-menu .dropdown {
     border-bottom: 1px solid #ddd;
+    height: 26px;
 }
-.dropdown-tree-menu .dropdown a{
-    padding: 0 10px;
+.dropdown-tree-menu .dropdown a {
+    padding: 5px 10px;
     display: block;
     text-decoration: none;
+    overflow: hidden;
+    white-space: normal;
 }
-.dropdown-tree-menu .dropdown-toggle {
-    padding: 5px 10px !important;
+.dropdown-tree-menu .dropdown a.dropdown-toggle {
+    padding: 7px 10px 3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .dropdown-tree-menu .dropdown-toggle .dropdown-toggle-symbol {
     background-image: url("../img/winshuttle-sprite.png");
@@ -763,22 +775,19 @@ td .contain-long-word {
     color: #444;
 }
 .dropdown-tree-menu .dropdown-menu {
-    width: 100%;
     background-color: #fff;
     margin-left: -1px;
     padding: 5px 0;
     max-height: 300px;
     overflow-x: auto;
     overflow-y: scroll;
-    
-    width: 300px;
 }
 .dropdown-tree-menu .dropdown-menu li {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
-} 
+}
 .dropdown-tree-menu .dropdown-menu a.btn {
     display: block;
     float: none;
@@ -810,6 +819,7 @@ td .contain-long-word {
 }
 .dropdown-tree-menu li a {
     padding: 5px 0 5px 10px;
+    line-height: 15px;
 }
 .dropdown-tree-menu li a span {
     padding: 0 0 0 5px;
