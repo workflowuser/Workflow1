@@ -44,6 +44,9 @@ ul.home-links li a {
 	color: #67747C;
 	text-decoration: none;
 }
+
+/* @group 32px */
+
 ul.home-links li a span {
 	display: table;
 	width: 32px;
@@ -90,6 +93,59 @@ ul.home-links .database-status:hover span {background-position: -320px -32px;}
 
 ul.home-links .licenses span {background-position: -352px 0;}
 ul.home-links .licenses:hover span {background-position: -352px -32px;}
+
+/* @end */
+
+/* @group 64px */
+
+ul.home-links-64px li a span {
+	width: 64px;
+	height: 64px;
+	margin: 20px auto 15px auto;
+	line-height: 32px;
+	background-image: url("../img/workflow-sprite@64px.png");
+}
+
+ul.home-links .charts span {background-position: 0 0;}
+ul.home-links .charts:hover span {background-position: 0 -64px;}
+
+ul.home-links .data-dump span {background-position: -64px 0;}
+ul.home-links .data-dump:hover span {background-position: -64px -64px;}
+
+ul.home-links .logging span {background-position: -128px 0;}
+ul.home-links .logging:hover span {background-position: -128px -64px;}
+
+ul.home-links .log-file-viewer span {background-position: -192px 0;}
+ul.home-links .log-file-viewer:hover span {background-position: -192px -64px;}
+
+ul.home-links .process-control span {background-position: -256px 0;}
+ul.home-links .process-control:hover span {background-position: -256px -64px;}
+
+ul.home-links .background-tasks span {background-position: -320px 0;}
+ul.home-links .background-tasks:hover span {background-position: -320px -64px;}
+
+ul.home-links .admin-commands span {background-position: -384px 0;}
+ul.home-links .admin-commands:hover span {background-position: -384px -64px;}
+
+ul.home-links .configure-options span {background-position: -448px 0;}
+ul.home-links .configure-options:hover span {background-position: -448px -64px;}
+
+ul.home-links .scheduler span {background-position: -512px 0;}
+ul.home-links .scheduler:hover span {background-position: -512px -64px;}
+
+ul.home-links .extensions span {background-position: -576px 0;}
+ul.home-links .extensions:hover span {background-position: -576px -64px;}
+
+ul.home-links .database-status span {background-position: -640px 0;}
+ul.home-links .database-status:hover span {background-position: -640px -64px;}
+
+ul.home-links .licenses span {background-position: -704px 0;}
+ul.home-links .licenses:hover span {background-position: -704px -64px;}
+
+ul.home-links .farm-config span {background-position: -768px 0;}
+ul.home-links .farm-config:hover span {background-position: -768px -64px;}
+
+/* @end */
 
 ul.home-links li h3 {
 	display: table-cell;
@@ -313,7 +369,9 @@ label.control-label.secondary-label {
 	padding-left: 180px;
 }
 .tooltip .interactive {
-    word-wrap: break-word;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tooltip .interactive a {
@@ -568,9 +626,9 @@ table .pull-right .update-actions span {
 }
 
 .license-key .tooltip .tooltip-inner {
-    max-width: 300px;
     line-height: 18px;
     padding: 10px;
+    word-wrap: break-word;
 }
 
 .license-key .tooltip .tooltip-inner .copy-link-parent {
@@ -580,6 +638,10 @@ table .pull-right .update-actions span {
 
 .license-key .tooltip.show-copy-link .tooltip-inner .copy-link-parent {
     display: block;
+}
+
+#js-modal-copymenu .js-link-copy-target {
+    word-wrap: break-word;
 }
 
 /* @group FileDrop.js */
@@ -664,7 +726,14 @@ td .contain-long-word {
 /* @group Dropdown Tree Menu */
 
 .dropdown-tree-menu {
+    margin-bottom: 8px;
     border: 1px solid #ddd;
+    min-width: 200px;
+    max-width: 500px;
+    
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
@@ -675,14 +744,19 @@ td .contain-long-word {
 }
 .dropdown-tree-menu .dropdown {
     border-bottom: 1px solid #ddd;
+    height: 26px;
 }
-.dropdown-tree-menu .dropdown a{
-    padding: 0 10px;
+.dropdown-tree-menu .dropdown a {
+    padding: 5px 10px;
     display: block;
     text-decoration: none;
+    overflow: hidden;
+    white-space: normal;
 }
-.dropdown-tree-menu .dropdown-toggle {
-    padding: 5px 10px !important;
+.dropdown-tree-menu .dropdown a.dropdown-toggle {
+    padding: 7px 10px 3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .dropdown-tree-menu .dropdown-toggle .dropdown-toggle-symbol {
     background-image: url("../img/winshuttle-sprite.png");
@@ -701,22 +775,19 @@ td .contain-long-word {
     color: #444;
 }
 .dropdown-tree-menu .dropdown-menu {
-    width: 100%;
     background-color: #fff;
     margin-left: -1px;
     padding: 5px 0;
     max-height: 300px;
     overflow-x: auto;
     overflow-y: scroll;
-    
-    width: 300px;
 }
 .dropdown-tree-menu .dropdown-menu li {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
-} 
+}
 .dropdown-tree-menu .dropdown-menu a.btn {
     display: block;
     float: none;
@@ -748,6 +819,7 @@ td .contain-long-word {
 }
 .dropdown-tree-menu li a {
     padding: 5px 0 5px 10px;
+    line-height: 15px;
 }
 .dropdown-tree-menu li a span {
     padding: 0 0 0 5px;

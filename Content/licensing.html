@@ -126,6 +126,42 @@
                                 </tr>
                             </thead>
                             <tbody id="table-body-license">
+                                <!-- ### SAMPLE BELOW ### -->
+                                <tr>
+                                    <td>WFSERVER4</td>
+                                    <td>ABC</td>
+                                    <td>null</td>
+                                    <td>04-12-2014</td>
+                                    <td></td>
+                                    <td class="license-key">
+                                        <a href="#" class="js-modal-licensekey-target" data-toggle="modal" data-target="#js-modal-copymenu" data-ws-licensekey="vcYxFoLHQ3nAWiSrUu3hGhUjGzMSxj3KOWwLt81m/ArOYFIbvkkfnjdLkoqQ1GUhrLS3FQ+XWv8n9gISuy4isOGKSgjuyuah1oO4jl6gP1hNx1MzWBavJCnC/ekOWx604qwHzVsoZbJJvwdCftFxlb24XmVcdNGnFqLSHzfiU18EAE1pzLuEDg5VcQalB4J2">
+                                            <span>#####...</span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="#">
+                                            <i class="icon-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>LOREM</td>
+                                    <td>IPSUM</td>
+                                    <td>null</td>
+                                    <td>XX-XX-XXXX</td>
+                                    <td></td>
+                                    <td class="license-key">
+                                        <a href="#" class="js-modal-licensekey-target" data-toggle="modal" data-target="#js-modal-copymenu" data-ws-licensekey="SAMPLE KEY">
+                                            <span>#####...</span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="#">
+                                            <i class="icon-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- ### SAMPLE ABOVE ### -->
                             </tbody>
                         </table>
                         <div>
@@ -167,6 +203,27 @@
             </div>
         </div>
         
+        <div class="modal fade js-initial-hide" id="js-modal-copymenu">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Copy License Key</h4>
+                        <div class="js-zeroclipboard-unavailable-notice">
+                            Select and copy the license key to your clipboard.
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <textarea class="js-link-copy-target input-max"></textarea>
+                    </div>
+                    <div class="modal-footer js-initial-hide">
+                        <button type="button" class="btn btn-primary js-link-copy" data-dismiss="modal"><span>Copy</span></button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span>Cancel</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>
             if (!window.jQuery) {
@@ -186,111 +243,112 @@
         <script src="assets/js/ZeroClipboard.js"></script>
         <script src="assets/js/wslib_master.js"></script>
         <script src="assets/js/wsplugin_master.js"></script>
-        <script src="assets/js/ws_common.js"></script>
+        <script src="assets/js/_ws_common.js"></script>
         <script>
-            $('a.js-tooltip-target').tooltip({
-                html: true,
-                trigger: 'click',
-                animation: true
-            });
+            (function() {
+                $("#btn-add").click(function () {
+                    ws_showProgressBar();
+                    var licenseKey = $("#input-licensekey").val();
+                    ws_ajaxCall('/license/Add', { key: licenseKey }, add, onError, null);
+                    return false;
+                });
+
+                function add(data, callbackdata) {
+                    var row = createRow(data[0]);
+                    $("#table-license > tbody:last").append(row);
+                    attachEvents($("#table-license > tbody:last > tr:last"));
+
+                    ws_hideProgressBar();
+                }
+
+                $(document).ready(function () {
+                    ws_showProgressBar();
+                    ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
+                        ws_ajaxCall('/license/getall', null, onLoad, onError, null);
+                    });
+                });
+
+                function onLoad(data, callbackdata) {
+                    $.each(data, function (key, value) {
+                        var row = createRow(value);
+                        $("#table-license > tbody:last").append(row);
+                        attachEvents($("#table-license > tbody:last > tr:last"));
+                    });
+
+                    ws_hideProgressBar();
+                }
+
+                function createRow(rowData) {
+                    var row = '<tr><td>' + rowData.HostName + '</td><td>' + rowData.Company + '</td><td>' + rowData.Processes + '</td><td>' + rowData.Expiration + '</td><td>' + rowData.Environment + '</td><td class="license-key"><a href="#" class="js-tooltip-target" title="<div class=\'interactive\'><div class=\'js-link-copy-target\'>' + rowData.Key + '</div><div class=\'copy-link-parent\'><a href=\'#\' class=\'js-link-copy\'>Copy License</a></div></div>">#####...</a></td><td><a href="#"><i class="icon-trash"></i></a></td></tr>';
+                    return row;
+                }
+
+                function attachEvents(row) {
+                    $(row).find(".icon-trash").click(function () {
+                        ws_showProgressBar();
+                        var hostName = $(row).find("td:first").html();
+                        ws_ajaxCall('/license/delete', { hostName: hostName }, trash, onError, row);
+                    });
+
+                    $(row).find('a.js-tooltip-target').tooltip({
+                        html: true,
+                        trigger: 'click',
+                        animation: true
+                    });
+                }
+
+                function trash(data, callbackdata) {
+                    $(callbackdata).remove();
+
+                    ws_hideProgressBar();
+                }
+
+                function onError(xhr, status, error, callbackdata) {
+                    ws_hideProgressBar();
+                }
+            })();
             
-            $('body').on('click', '.js-tooltip-target', function (event) {
-                event.stopPropagation();
             
+            
+            
+            
+            (function() {
                 var $licenseKeyCopiedAlert = $('#js-alert-licensekey-copied');
-                var $copyTextTooltip = $(this).closest('.license-key').find('.tooltip');
-            
-                $('div.tooltip').not($(this).siblings('div.tooltip')).remove();
-            
+                var $copyTextModal = $('#js-modal-copymenu');
+                var $copyTextTarget = $copyTextModal.find('.js-link-copy-target');
+                var $copyTextUnavailableNotice = $copyTextModal.find('.js-zeroclipboard-unavailable-notice');
+                
+                $('body').on('click', '.js-modal-licensekey-target', function(event) {
+                    event.preventDefault();
+
+                    $copyTextTarget.val($(this).data('ws-licensekey'));
+                });
+                
+                
+                
+                ZeroClipboard.config({
+                    swfPath: "assets/swf/ZeroClipboard.swf"
+                });
+
                 var currentCopyPlugin = new ZeroClipboard($('.js-link-copy'));
-            
+
                 currentCopyPlugin.on('ready', function (event) {
-                    $copyTextTooltip.addClass('show-copy-link');
-            
+                    $copyTextModal.find('.js-link-copy').parent().show();
+                    $copyTextUnavailableNotice.hide();
+                    
                     currentCopyPlugin.on('copy', function (event) {
                         var clipboard = event.clipboardData;
-            
-                        clipboard.setData("text/plain", $copyTextTooltip.find('.js-link-copy-target').text());
-            
-                        $copyTextTooltip.fadeOut(function () {
-                            $copyTextTooltip.remove();
-                        });
-            
+
+                        clipboard.setData("text/plain", $copyTextTarget.val());
+
                         $licenseKeyCopiedAlert.css('display', 'inline-block');
-            
+
                         setTimeout(function () {
                             $licenseKeyCopiedAlert.slideUp();
                         }, 3000);
                     });
                 });
-            });
-            
-            $("#btn-add").click(function () {
-                ws_showProgressBar();
-                var licenseKey = $("#input-licensekey").val();
-                ws_ajaxCall('/license/Add', { key: licenseKey }, add, onError, null);
-                return false;
-            });
-            
-            function add(data, callbackdata) {
-                var row = createRow(data[0]);
-                $("#table-license > tbody:last").append(row);
-                attachEvents($("#table-license > tbody:last > tr:last"));
-
-                ws_hideProgressBar();
-            }
-            
-            $(document).ready(function () {
-                ws_showProgressBar();
-                ws_initializeWebApp('/admin/getallwebapp', $('#select-webapp'), function () {
-                    ws_ajaxCall('/license/getall', null, onLoad, onError, null);
-                });
-            });
-            
-            function onLoad(data, callbackdata) {
-                $.each(data, function (key, value) {
-                    var row = createRow(value);
-                    $("#table-license > tbody:last").append(row);
-                    attachEvents($("#table-license > tbody:last > tr:last"));
-                });
-
-                ws_hideProgressBar();
-            }
-
-            function createRow(rowData) {
-                var row = '<tr><td>' + rowData.HostName + '</td><td>' + rowData.Company + '</td><td>' + rowData.Processes + '</td><td>' + rowData.Expiration + '</td><td>' + rowData.Environment + '</td><td class="license-key"><a href="#" class="js-tooltip-target" title="<div class=\'interactive\'><div class=\'js-link-copy-target\'>' + rowData.Key + '</div><div class=\'copy-link-parent\'><a href=\'#\' class=\'js-link-copy\'>Copy License</a></div></div>">#####...</a></td><td><a href="#"><i class="icon-trash"></i></a></td></tr>';
-                return row;
-            }
-
-            function attachEvents(row) {
-                $(row).find(".icon-trash").click(function () {
-                    ws_showProgressBar();
-                    var hostName = $(row).find("td:first").html();
-                    ws_ajaxCall('/license/delete', { hostName: hostName }, trash, onError, row);
-                });
-            
-                $(row).find('a.js-tooltip-target').tooltip({
-                    html: true,
-                    trigger: 'click',
-                    animation: true
-                });
-            }
-
-            function trash(data, callbackdata) {
-                $(callbackdata).remove();
-
-                ws_hideProgressBar();
-            }
-
-            function onError(xhr, status, error, callbackdata) {
-                ws_hideProgressBar();
-            }
-            
-            
-            
-            ZeroClipboard.config({
-                swfPath: "assets/swf/ZeroClipboard.swf"
-            });
+            })();
         </script>
     </body>
 </html>
