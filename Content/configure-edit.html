@@ -194,20 +194,20 @@
                                 </tr>
                                 <tr class="js-rowadd-toggle-view-slave-0 row-add js-initial-hide">
                                     <td>
-                                        <div id="js-administration-editconfiguration-addnewvalue-select" class="dropdown-tree-menu">
+                                        <div id="js-administration-editconfiguration-addnewvalue-select" class="js-dropdowntree-target dropdown-tree-menu dropdown-tree-removewidthlimits input-large">
                                             <div class="dropdown">
                                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                    <span class="js-administration-editconfiguration-addnewvalue-select-display">All Sites & Lists</span>
                                                     <span class="dropdown-toggle-symbol"></span>
+                                                    <span class="js-administration-dropdowntree-select-display">All Sites & Lists</span>
                                                 </a>
                                                 <ul class="dropdown-menu">
-                                                    <li>
+                                                    <li class="js-administration-dropdowntree-group">
                                                         <a class="js-addnewvalue-toggle-view-master-0" data-corresponding-value-type="-1" href="#"><span>All Sites & Lists</span></a>
                                                     </li>
-                                                    <li>
+                                                    <li class="js-administration-dropdowntree-group">
                                                         <a class="js-addnewvalue-toggle-view-master-2" data-corresponding-value-type="10002" href="#"><span>Global</span></a>
                                                     </li>
-                                                    <li>
+                                                    <li class="js-administration-dropdowntree-group">
                                                         <a class="js-addnewvalue-toggle-view-master-1" data-corresponding-value-type="10001" href="#"><span>formex/</span></a>
                                                         <ul>
                                                             <li><a class="js-addnewvalue-toggle-view-master-3" data-corresponding-value-type="10003" href="#"><span>Announcements</span></a></li>
@@ -215,15 +215,34 @@
                                                             <li><a class="js-addnewvalue-toggle-view-master-5" data-corresponding-value-type="10005" href="#"><span>Tasks</span></a></li>
                                                         </ul>
                                                     </li>
-                                                    <li>
+                                                    <li class="js-administration-dropdowntree-group">
                                                         <a class="js-addnewvalue-toggle-view-master-6 js-menu-inactive" data-corresponding-value-type="10006" href="#"><span>Site B/</span></a>
                                                     </li>
-                                                    <li>
+                                                    <li class="js-administration-dropdowntree-group">
                                                         <a class="js-addnewvalue-toggle-view-master-7" data-corresponding-value-type="10007" href="#"><span>Site C/</span></a>
                                                         <ul>
                                                             <li><a class="js-addnewvalue-toggle-view-master-8 js-menu-inactive" data-corresponding-value-type="10008" href="#"><span>List 12</span></a></li>
                                                         </ul>
                                                     </li>
+                                                    
+                                                    <li class="js-administration-dropdowntree-group">
+                                                        <a data-corresponding-value-type="11007" href="#"><span>DeepTest/</span></a>
+                                                        <ul>
+                                                            <li>
+                                                                <a data-corresponding-value-type="12007" href="#"><span>L1/</span></a>
+                                                                <ul>
+                                                                    <li><a data-corresponding-value-type="12008" href="#"><span>L2.1 Lorem Ipsum</span></a></li>
+                                                                    <li>
+                                                                        <a data-corresponding-value-type="13007" href="#"><span>L2.2P/</span></a>
+                                                                        <ul>
+                                                                            <li><a data-corresponding-value-type="13008" href="#"><span>L3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    
                                                 </ul>
                                             </div>
                                         </div>
@@ -594,82 +613,39 @@
                 var $editConfigurationValue = $('#js-administration-editconfiguration-value');
                 var $editConfigurationAddNewValueSelect = $('#js-administration-editconfiguration-addnewvalue-select');
                 
-                $editConfigurationAddNewValueSelect.find('.js-menu-inactive').on('click.preventInactiveEvents', function(event) {
-                    event.stopImmediatePropagation();
-                    event.preventDefault();
-                });
+                
                 
                 wsLib_toggleViews("createwith", 2, "radio", "no", 200);
                 wsLib_toggleViews("rowadd", 2, "default");
                 wsLib_toggleViews("addnewvalue", (numberOfValueTypes + 1), "default", "no");
                 
-                $editConfigurationAddNewValueSelect.on('click.scrollToItem', '.dropdown-toggle', function(event) {
+                
+                
+                
+                
+                $editConfigurationAddNewValueSelect.on('click.toggleAddNewValue', '.dropdown-menu a', function(event) {
                     event.preventDefault();
                     
-                    var activeValueType = $editConfigurationAddNewValueSelect.data('active-value-type');
+                    var addNewValueSelected = $editConfigurationAddNewValueSelect.data('active-value-type');
                     
-                    if(activeValueType !== undefined) {
-                        setTimeout(function() {
-                            var targetScrollTop = $editConfigurationAddNewValueSelect.find('.dropdown-menu')
-                                                                                     .scrollTop(0)
-                                                                                     .find('a')
-                                                                                     .filter('[data-corresponding-value-type="' + activeValueType + '"]')
-                                                                                     .first()
-                                                                                     .closest('li')
-                                                                                     .position()
-                                                                                     .top;
-                            
-                            $editConfigurationAddNewValueSelect.find('.dropdown-menu').scrollTop(targetScrollTop);
-                        }, 1);
-                    }
-                }).on('click.toggleAddNewValue', '.dropdown-menu a', function(event) {
-                    event.preventDefault();
-                    
-                    var $this = $(this);
-                    
-                    
-                    
-                    function generateValueTypeLabel($whichLink) {
-                        var currentText = $whichLink.text();
-                        
-                        if(currentText === '') {
-                            return currentText;
-                        }
-                        else {
-                            return generateValueTypeLabel($whichLink.closest('ul').siblings('a').not('.dropdown-toggle')) + currentText;
-                        }
-                    }
-                    
-                    var typeName = generateValueTypeLabel($this);
-                    
-                    
-                    
-                    $this.closest('.dropdown')
-                         .children('.dropdown-toggle')
-                         .children('.js-administration-editconfiguration-addnewvalue-select-display')
-                         .text(typeName)
-                         .data('selected-value-type', {
-                             type: typeName
-                         });
-                    
-                    var addNewValueSelected = parseInt($this.data('corresponding-value-type'));
-                    
-                    $editConfigurationAddNewValueSelect.data('active-value-type', addNewValueSelected);
-                    
-                    $this.closest('tr.row-add')
-                         .children('td')
-                         .eq(1)
-                         .children('div')
-                         .removeClass('js-form-active')
-                         .filter('[data-corresponding-value-type="' + addNewValueSelected + '"]')
-                         .addClass('js-form-active');
+                    $(this).closest('tr.row-add')
+                           .children('td')
+                           .eq(1)
+                           .children('div')
+                           .removeClass('js-form-active')
+                           .filter('[data-corresponding-value-type="' + addNewValueSelected + '"]')
+                           .addClass('js-form-active');
                 });
                 
+                
+                
+                
+                
                 $editConfigurationValue.off('click.editToggle')
-                                              .off('click.editSave')
-                                              .off('click.deleteRow')
-                                              .off('click.addRow')
-                                              .on('click.editToggle', '.js-administration-editconfiguration-value-edittoggle', function(event) {
+                                       .off('click.editSave')
+                                       .off('click.deleteRow')
+                                       .off('click.addRow')
+                                       .on('click.editToggle', '.js-administration-editconfiguration-value-edittoggle', function(event) {
                     event.preventDefault();
                     
                     var $currentParameterItem = $(this).closest('.js-administration-editconfiguration-value-item');
@@ -715,7 +691,7 @@
                     
                     var selectedValueTypeLabel = $editConfigurationAddNewValueSelect.children('.dropdown')
                                                                                     .children('.dropdown-toggle')
-                                                                                    .children('.js-administration-editconfiguration-addnewvalue-select-display')
+                                                                                    .children('.js-administration-dropdowntree-select-display')
                                                                                     .data('selected-value-type');
                     
                     var currentRowHTML = '';

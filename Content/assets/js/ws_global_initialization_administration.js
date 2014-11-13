@@ -64,3 +64,71 @@ if($('textarea.js-transform-formexpand').length > 0) {
 if($('.js-initial-hide').length > 0) {
     $('.js-initial-hide').hide();
 }
+
+if($('.js-dropdowntree-target').length > 0) {
+    $('.js-dropdowntree-target').each(function() {
+        var $currentDropdownTreeSelectTarget = $(this);
+
+        $currentDropdownTreeSelectTarget.find('.js-menu-inactive').on('click.preventInactiveEvents', function(event) {
+            event.stopImmediatePropagation();
+            event.preventDefault();
+        });
+
+        var $currentDropdownMenu = $currentDropdownTreeSelectTarget.find('.dropdown-menu');
+
+        $currentDropdownTreeSelectTarget.on('click.scrollToItem', '.dropdown-toggle', function(event) {
+            event.preventDefault();
+            
+            var activeValueType = $currentDropdownTreeSelectTarget.data('active-value-type');
+
+            $currentDropdownMenu.css('width', $currentDropdownTreeSelectTarget.width() + 'px');
+
+            if(activeValueType !== undefined) {
+                setTimeout(function() {
+                    var targetScrollTop = $currentDropdownMenu.scrollTop(0)
+                                                              .find('a')
+                                                              .filter('[data-corresponding-value-type="' + activeValueType + '"]')
+                                                              .first()
+                                                              .closest('li.js-administration-dropdowntree-group')
+                                                              .position()
+                                                              .top;
+
+                    $currentDropdownTreeSelectTarget.find('.dropdown-menu').scrollTop(targetScrollTop);
+                }, 1);
+            }
+        }).on('click.chooseNewItem', '.dropdown-menu a', function(event) {
+            event.preventDefault();
+            
+            var $this = $(this);
+
+
+
+            function generateValueTypeLabel($whichLink) {
+                var currentText = $whichLink.text();
+
+                if(currentText === '') {
+                    return '' + currentText + '';
+                }
+                else {
+                    return generateValueTypeLabel($whichLink.closest('ul').siblings('a').not('.dropdown-toggle')) + '' + currentText + '';
+                }
+            }
+
+            var typeName = generateValueTypeLabel($this);
+
+
+
+            $this.closest('.dropdown')
+                 .children('.dropdown-toggle')
+                 .children('.js-administration-dropdowntree-select-display')
+                 .text(typeName)
+                 .data('selected-value-type', {
+                     type: typeName
+                 });
+
+            var addNewValueSelected = parseInt($this.data('corresponding-value-type'));
+
+            $currentDropdownTreeSelectTarget.data('active-value-type', addNewValueSelected);
+        });
+    });
+}

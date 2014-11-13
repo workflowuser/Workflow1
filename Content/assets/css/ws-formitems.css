@@ -742,6 +742,10 @@ td .contain-long-word {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
 }
+.dropdown-tree-menu.dropdown-tree-removewidthlimits {
+    min-width: 0;
+    max-width: none;
+}
 .dropdown-tree-menu .dropdown {
     border-bottom: 1px solid #ddd;
     height: 26px;
