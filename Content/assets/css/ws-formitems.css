@@ -878,3 +878,25 @@ td .contain-long-word {
 }
 
 /* @end */
+
+
+
+
+
+/* @group Kendo UI File Upload Overrides */
+
+#mainsi .k-icon.k-warning {
+    display: none;
+}
+
+#mainsi .k-upload-files a.btn,
+#mainsi .k-upload-files button,
+#mainsi .k-upload-files input.btn {
+    float: none;
+}
+
+#mainsi .k-upload-files li {
+    line-height: 2.66;
+}
+
+/* @end */
