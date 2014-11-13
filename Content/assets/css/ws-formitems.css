@@ -888,6 +888,7 @@ td .contain-long-word {
 
 /* @group Kendo UI File Upload Overrides */
 
+#mainsi .k-upload-status.k-upload-status-total,
 #mainsi .k-icon.k-warning {
     display: none;
 }
