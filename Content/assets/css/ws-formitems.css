@@ -729,7 +729,7 @@ td .contain-long-word {
 /* @group Dropdown Tree Menu */
 
 .dropdown-tree-menu {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     min-width: 200px;
     max-width: 500px;
@@ -746,6 +746,7 @@ td .contain-long-word {
     box-sizing: border-box;
 }
 .dropdown-tree-menu.dropdown-tree-removewidthlimits {
+    margin-top: 7px;
     min-width: 0;
     max-width: none;
 }
