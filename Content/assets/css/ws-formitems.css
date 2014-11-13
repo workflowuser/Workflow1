@@ -145,6 +145,9 @@ ul.home-links .licenses:hover span {background-position: -704px -64px;}
 ul.home-links .farm-config span {background-position: -768px 0;}
 ul.home-links .farm-config:hover span {background-position: -768px -64px;}
 
+ul.home-links .config-options span {background-position: -832px 0;}
+ul.home-links .config-options:hover span {background-position: -832px -64px;}
+
 /* @end */
 
 ul.home-links li h3 {
