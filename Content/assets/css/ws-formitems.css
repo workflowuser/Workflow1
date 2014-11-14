@@ -762,11 +762,12 @@ td .contain-long-word {
     white-space: normal;
 }
 .dropdown-tree-menu .dropdown a.dropdown-toggle {
-    padding: 7px 10px 3px;
+    padding: 7px 15px 3px 10px;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 .dropdown-tree-menu .dropdown-toggle .dropdown-toggle-symbol {
+    position: absolute;
     background-image: url("../img/winshuttle-sprite.png");
     background-position: -32px -36px;
     content: "";
@@ -776,7 +777,7 @@ td .contain-long-word {
     vertical-align: middle;
     margin-top: -3px;
     margin-left: 5px;
-    float: right;
+    right: 0;
 }
 .dropdown-tree-menu .dropdown.open .dropdown-toggle {
     background-color: #f7f7f7;
