@@ -1917,6 +1917,10 @@ legend + .control-group {
 
 /* @group BUTTONS */
 
+button[disabled] {
+    cursor: default;
+}
+
 a.btn, button, input.btn { 
 	float: left;
 	position: relative;

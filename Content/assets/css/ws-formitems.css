@@ -467,6 +467,7 @@ label.control-label.secondary-label {
 
 .js-button-disabled {
     opacity: 0.5;
+    cursor: default;
 }
 
 .home-dropdown ul {
